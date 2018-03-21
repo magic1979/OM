@@ -1,0 +1,3211 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+	<head>
+		<title>Geolocation</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+				
+				<link rel="stylesheet" href="css/jquery.Jcrop.min.css" type="text/css" />
+				<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.min.css" />
+				<link rel="stylesheet" href="themes/MyCollection.css" />
+				<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+				<link rel="stylesheet" href="css/spinner.css" />
+				<link rel="stylesheet" href="font.css">
+			    <link rel="stylesheet" href="css/swiper.min.css">
+				<link rel="stylesheet" href="chat.css" />
+					
+					<meta name="apple-mobile-web-app-capable" content="yes">
+						<meta name="apple-mobile-web-app-status-bar-style" content="white">
+							
+							<script src="jquery-1.10.2.min.js"></script>
+							<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+							<script src="js/jquery.mobile-1.4.2.min.js"></script>
+							<script src="js/jquery.base64.min.js"></script>
+
+							<!--<script type="text/javascript" src="PushNotification.js"></script>
+							 <script src="js/jquery.ui.touch-punch.js"></script>
+							 <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+							<script type="text/javascript" src="js/iscroll.js"></script>-->
+							
+							<script src="js/jquery.Jcrop.min.js"></script>
+							<script src="js/jquery.Jcrop.js"></script>
+							
+							<script type="text/javascript" src="js/iscroll4.js"></script>
+							
+							<script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+
+					<style>
+						  
+						  body {
+							/* -webkit-touch-callout: none;
+							  -webkit-text-size-adjust: none;
+							  -webkit-user-select: none;
+							  background-color:#000;
+							  background-attachment:fixed;
+							  font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+							  font-size:12px;
+							  text-align: center;
+							  margin:0px;
+							  
+							  padding-top: constant(safe-area-inset-top);*/
+						 
+						      margin: 0;
+						      padding-top: constant(safe-area-inset-top);
+						      background-color: #fff;
+						      text-align: center;
+							  font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+							  font-size:12px;
+						  }
+					
+					   button#open{
+						padding: 16px;
+					   }
+					
+					   #log{
+						margin-top: 16px;
+					   }
+					  
+					  #header {
+						  position: absolute;
+						  z-index: 2;
+						  top: 0;
+						  left: 0;
+						  width: 100%;
+						  height: 60px;
+						  line-height: 60px;
+						  padding: 0;
+						  color: #fff;
+						  font-size: 20px;
+						  text-align: center;
+						  font-weight: bold;
+					  }
+					
+					
+					 .header2 {
+						position: absolute;
+						z-index: 2;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 200px;
+						line-height: 60px;
+						padding: 0;
+						color: #000;
+						font-size: 20px;
+						text-align: center;
+						font-weight: bold;
+					}
+					  
+					  #footer {
+						  position: absolute;
+						  z-index: 2;
+						  bottom: 0;
+						  left: 0;
+						  width: 100%;
+						  height: 120px;
+						  background: #37b658;
+						  padding: 0;
+						  border-top: 0px solid #444;
+					  }
+							
+							
+							#wrapper {
+								position: absolute;
+								z-index: 1;
+								top: 45px;
+								bottom: 1px;
+								left: 0;
+								width: 100%;
+								background: #fff;
+								overflow: hidden;
+								/*background-image: url("img/sfondo12.jpg");
+								
+								background-color: #fff;
+								background-size: 100% 100%;
+								background-repeat: no-repeat;
+								background-position:center;
+								height: 100%;*/
+							}
+							
+							#wrapper2 {
+								position: absolute;
+								z-index: 1;
+								top: 0px;
+								bottom: 2px;
+								left: 0;
+								width: 100%;
+								background: #fff;
+								overflow: hidden;
+								
+							}
+							
+							#wrapper3 {
+								position: absolute;
+								z-index: 1;
+								top: 0px;
+								bottom: 2px;
+								left: 0;
+								width: 100%;
+								background: #fff;
+								overflow: hidden;
+								
+							}
+							
+							#wrapper4 {
+								position: absolute;
+								z-index: 1;
+								top: 0px;
+								bottom: 2px;
+								left: 0;
+								width: 100%;
+								background: #fff;
+								overflow: hidden;
+								
+							}
+					
+					       #wrapper5 {
+							   position: absolute;
+							   z-index: 1;
+							   top: 0px;
+							   bottom: 2px;
+							   left: 0;
+							   width: 100%;
+							   background: #fff;
+							   overflow: hidden;
+						
+						   }
+					
+					#wrapper6 {
+						position: absolute;
+						z-index: 1;
+						top: 0px;
+						bottom: 2px;
+						left: 0;
+						width: 100%;
+						background: #fff;
+						overflow: hidden;
+						
+						/*background-image: url("img/sfondoprofilo.png");*/
+						
+					}
+					
+					#wrapper7 {
+						position: absolute;
+						z-index: 1;
+						top: 0px;
+						bottom: 2px;
+						left: 0;
+						width: 100%;
+						background: #fff;
+						overflow: hidden;
+						
+					}
+					
+					#wrapper8 {
+						position: absolute;
+						z-index: 1;
+						top: 0px;
+						bottom: 2px;
+						left: 0;
+						width: 100%;
+						background: #fff;
+						overflow: hidden;
+						
+					}
+							
+							#scroller {
+								position: absolute;
+								z-index: 1;
+								-webkit-tap-highlight-color: rgba(0,0,0,0);
+								width: 100%;
+								-webkit-transform: translateZ(0);
+								-moz-transform: translateZ(0);
+								-ms-transform: translateZ(0);
+								-o-transform: translateZ(0);
+								transform: translateZ(0);
+								-webkit-touch-callout: none;
+								-webkit-user-select: none;
+								-moz-user-select: none;
+								-ms-user-select: none;
+								user-select: none;
+								-webkit-text-size-adjust: none;
+								-moz-text-size-adjust: none;
+								-ms-text-size-adjust: none;
+								-o-text-size-adjust: none;
+								text-size-adjust: none;
+							}
+							
+							#scroller ul {
+								list-style: none;
+								padding: 0;
+								margin: 0;
+								width: 100%;
+								text-align: left;
+							}
+							
+							#scroller li {
+								padding: 0 10px;
+								height: 40px;
+								line-height: 40px;
+								border-bottom: 1px solid #fff;
+								border-top: 1px solid #fff;
+								background-color: #fff;
+								font-size: 14px;
+							}
+							
+							
+							.div22 {
+						  /*background-image: url("img/sfondo11.png");*/
+						  background-color: #000;
+						  
+						  
+							}
+					
+					
+					 .div1 {
+						position: absolute;
+						z-index: 2;
+						bottom: 0;
+						left: 0;
+						width: 100%;
+						height: 80px;
+						background: #000000;
+						padding: 0;
+						border-top: 0px solid #444;
+						
+						text-align: center;
+						
+					   }
+                    
+                    .div11 {
+                        position: absolute;
+                        z-index: 2;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 80px;
+                        background: #ffffff;
+                        padding: 0;
+                        border-top: 0px solid #fff;
+                        
+                        text-align: center;
+                        
+                    }
+					
+					  
+					  
+					  .div2 {
+						 
+						  background-color: #fff;
+						  
+						  
+					  }
+					
+					.div22 {
+						background-image: url("img/sfondo.png");
+						background-color: #fff;
+						background-size: 100% 100%;
+						background-repeat: no-repeat;
+						background-position:center;
+						height: 100%;
+					}
+					
+					
+					.uomo {
+						/*background: #e0ffff;
+						background-image: url("img/sfondoprofilo.png");*/
+						width:100%;
+						
+						margin:0px auto;
+						top: 0;
+						
+						text-align: center;
+
+					}
+					
+					.donna {
+						
+						/*background: #e0ffff;
+						background-image: url("img/profilo.png");
+						background: url("img/profilo.png");
+						background-size: 100% auto;
+						background-repeat: no-repeat;*/
+						width:100%;
+						
+						margin:0px auto;
+						top: 0;
+						
+						text-align: center;
+						
+					}
+					
+					.biliardinotbl {
+						
+						border-style: solid;
+						border-width: 3px;
+						border-color: #800020;
+						
+					}
+					
+					  .div4 {
+						  /*background: rgb(125,126,125);
+						  background: -moz-linear-gradient(top, rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%);
+						  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1)));
+						  background: -webkit-linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+						  background: -o-linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+						  background: -ms-linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+						  background: linear-gradient(to bottom, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+						  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); */
+						  
+					  
+						  background-color: #fefefe;
+						  
+						  top:0;
+						  width: 100%;
+						  z-index: 2;
+						  
+						  height: 60px;
+						  
+						  vertical-align: middle;
+						  
+					  }
+					
+					.div44 {
+						
+						background-color: #ffffff;
+						
+						top:0;
+						width: 100%;
+						z-index: 10;
+						
+						height: 52px;
+						
+						vertical-align: middle;
+						
+					}
+					
+					.sopra {
+						  background-color: #37b658;
+						  height: 60px;
+						  border: none;
+						  
+					  }
+					
+					  .divchat {
+						  background: transparent !important;
+						  
+						  background-repeat: no-repeat;
+						  background-attachment: fixed;
+					  }
+							
+							.div3 {
+								background: rgb(125,126,125); /* Old browsers */
+								background: -moz-linear-gradient(top, rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%); /* FF3.6+ */
+								background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1))); /* Chrome,Safari4+ */
+								background: -webkit-linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Chrome10+,Safari5.1+ */
+								background: -o-linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Opera 11.10+ */
+								background: -ms-linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* IE10+ */
+								background: linear-gradient(to bottom, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* W3C */
+								filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+							}
+							#win2 {
+								max-width: none;
+							}
+							
+							#radar{
+								position:relative;
+								width:150px;
+								height:150px;
+								background:#222 url(images/vY6Tl.png);
+								border-radius:150px;
+								overflow:hidden;
+							}
+							#rad{
+								position:absolute;
+								width:150px;
+								height:150px; background:url(images/fbgUD.png);
+							}
+							.obj{
+								background:#cf5;
+								position:absolute;
+								border-radius:10px;
+								width:4px;
+								height:4px;
+								margin-top:-2px;
+								margin-left:-2px;
+								box-shadow:0 0 10px 5px rgba(100,255,0,0.5);
+								opacity:0.2;
+							}
+							#content {
+								padding: 0;
+								<!--position : absolute !important;
+								top : 0px !important;
+								right : 0;
+								bottom : 0px !important;
+								left : 0 !important;-->
+							}
+							
+							.circolare {
+								width: 110px;
+								height: 110px;
+								border-radius:999em;
+								-moz-border-radius:999em;
+								-webkit-border-radius:999em;
+								-o-border-radius: 999em;
+								
+								-webkit-box-shadow: 0px 0px 0.5px 1px #000;
+								-moz-box-shadow: 0px 0px 0.5px 1px #000;
+								box-shadow: 0px 0px 0.5px 1px #000;
+							}
+							
+							.conn {
+								font-size: 9pt;
+								color:#FFF;
+								background-color: #9d3434;
+							}
+					
+							.home {
+								background-color: #9d3434;
+								background-image: url(images/right.png);
+								background-size: 20px 20px;
+								background-repeat: no-repeat;
+								background-position:center;
+								
+								height:40px;
+								width:40px;
+								border-radius:999em;
+								-moz-border-radius:999em;
+								-webkit-border-radius:999em;
+								-o-border-radius: 999em;
+								
+								-webkit-box-shadow: 0px 0px 0.5px 1px #FFF;
+								-moz-box-shadow: 0px 0px 0.5px 1px #FFF;
+								box-shadow: 0px 0px 0.5px 1px #FFF;
+							}
+							
+							.home:active {
+								background-color: #000000;
+								border-radius:999em;
+								-moz-border-radius:999em;
+								-webkit-border-radius:999em;
+								-o-border-radius: 999em;
+								
+								-webkit-box-shadow: 0px 0px 0.5px 1px #000;
+								-moz-box-shadow: 0px 0px 0.5px 1px #000;
+								box-shadow: 0px 0px 0.5px 1px #000;
+							}
+							
+							.banner {
+								left: 5px;
+								bottom:2px;
+								position: fixed;
+								
+								-moz-border-radius: 10px;
+								-webkit-border-radius: 10px;
+								-o-border-radius: 10px;
+							}
+                    
+                       .banner2 {
+                   
+                        -moz-border-radius: 10px;
+                        -webkit-border-radius: 10px;
+                        -o-border-radius: 10px;
+                        }
+					  
+					  .sopra {
+						  background-color: #ffffff;
+						  left: 50px;
+						  height:100px;
+						  width:100px;
+						  
+						  -moz-border-radius: 10px;
+						  -webkit-border-radius: 10px;
+						  -o-border-radius: 10px;
+						  
+						  z-index: 10;
+					  }
+					  
+					  #contimg {
+						  
+						  -moz-border-radius: 10px;
+						  -webkit-border-radius: 10px;
+						  -o-border-radius: 10px;
+						  
+						  -webkit-box-shadow: 0px 0px 0.5px 1px #000;
+						  -moz-box-shadow: 0px 0px 0.5px 1px #000;
+						  box-shadow: 0px 0px 0.5px 1px #000;
+						  
+					  }
+					  
+					  .noblu {
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+					  }
+					  
+					  .transbox {
+						  background: transparent !important;
+						  position: absolute;
+						  z-index: 2;
+						  top:5px;
+						  left:0px;
+						  width:95%;
+						  height: 8%;
+						  padding: 0;
+						  color: #000;
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+					  }
+					  
+					  .transbox4 {
+						  position: absolute;
+						  z-index: 2;
+						  top:30px;
+						  width:95%;
+						  
+						  padding: 0;
+						  color: #000;
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+					  }
+					  
+					  .div555 {
+						  position: absolute;
+						  z-index: 20;
+						  bottom: 40px;
+						  left: 0;
+						  width: 100%;
+						  height: 10%;
+						  padding: 0;
+						  color: #000;
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+						  
+					  }
+							
+					  .div5550 {
+						  position: absolute;
+						  z-index: 20;
+						  top: 70px;
+						  left: 0;
+						  width: 100%;
+						  height: 10%;
+						  padding: 0;
+						  color: #000;
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+						  
+					  }
+					  
+					  
+					  .div55 {
+						  position: absolute;
+						  z-index: 20;
+						  bottom: 30px;
+						  left: 0;
+						  width: 100%;
+						  height: 5%;
+						  padding: 0;
+						  color: #000;
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+						  border: 0px solid #000;
+					  }
+					  
+					  .div56 {
+						  background-color: #cc33cc;
+						  position: absolute;
+						  z-index: 30;
+						  bottom: 60px;
+						  
+						  width: 270px;
+						  height: 260px;
+						  color: #000;
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+						  font-size: 22px;
+						  
+						  top:50%;
+						  left:50%;
+						  padding:15px;
+						  -ms-transform: translateX(-50%) translateY(-50%);
+						  -webkit-transform: translate(-50%,-50%);
+						  transform: translate(-50%,-50%);
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+						  
+						  z-index: 100;
+					  }
+					  
+					  .div562 {
+						  background-color: #fff;
+						  position: absolute;
+						  z-index: 30;
+						  bottom: 60px;
+						  
+						  width: 270px;
+						  height: 260px;
+						  color: #000;
+						  
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+						  font-size: 22px;
+						  
+						  top:50%;
+						  left:50%;
+						  padding:15px;
+						  -ms-transform: translateX(-50%) translateY(-50%);
+						  -webkit-transform: translate(-50%,-50%);
+						  transform: translate(-50%,-50%);
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+						  
+						  z-index: 100;
+					  }
+					  
+					  .div5621 {
+						  background-color: #fff;
+						  position: absolute;
+						  z-index: 30;
+						  bottom: 60px;
+						  
+						  width: 270px;
+						  height: 260px;
+						  color: #000;
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+						  font-size: 22px;
+						  
+						  top:50%;
+						  left:50%;
+						  padding:15px;
+						  -ms-transform: translateX(-50%) translateY(-50%);
+						  -webkit-transform: translate(-50%,-50%);
+						  transform: translate(-50%,-50%);
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+						  
+						  z-index: 110;
+					  }
+					  
+					  .div5622 {
+						  background-color: #fff;
+						  position: absolute;
+						  z-index: 30;
+						  bottom: 60px;
+						  
+						  width: 270px;
+						  height: 260px;
+						  color: #000;
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+						  font-size: 22px;
+						  
+						  top:50%;
+						  left:50%;
+						  padding:15px;
+						  -ms-transform: translateX(-50%) translateY(-50%);
+						  -webkit-transform: translate(-50%,-50%);
+						  transform: translate(-50%,-50%);
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+						  
+						  z-index: 120;
+					  }
+							
+							
+					  .div563 {
+						  background-color: #cc33cc;
+						  position: absolute;
+						  z-index: 30;
+						  bottom: 60px;
+						  
+						  width: 200px;
+						  height: 130px;
+						  color: #000;
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+						  top:50%;
+						  left:50%;
+						  padding:15px;
+						  -ms-transform: translateX(-50%) translateY(-50%);
+						  -webkit-transform: translate(-50%,-50%);
+						  transform: translate(-50%,-50%);
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+						  
+						  z-index: 112;
+					  }
+					  
+					  .div57 {
+						  background-color: #FFF;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+						  
+					  }
+					  
+					  #map_geolocation label { width: auto; display:inline; }
+					  #map_geolocation img { max-height: none; max-width: none; }
+					  
+					  .custom-btn {
+						  width: 280px;
+					  }
+					  
+					  
+					  
+					  .custom-btn2 {
+						  width: 280px;
+					  }
+					  
+					  .custom-close {
+						  background-color: #cc33cc;
+						  width: 55px;
+						  font-size: 18px;
+						  
+						  color:#FFF;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  .custom-pass9 {
+						  background-color: #fff;
+						  width: 50px;
+						  height: 50px;
+						  font-size: 22px;
+						  
+						  color:#FFF;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  padding: 5 5 5 5;
+						  
+						  border: 2px solid #cc33cc;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  .custom-pass {
+						  background-color: #cc33cc;
+						  width: 50px;
+						  height: 50px;
+						  font-size: 22px;
+						  
+						  color:#FFF;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  padding: 5 5 5 5;
+						  
+						  border: 2px solid #fff;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  .custom-pass1 {
+						  background-color: #ff6600;
+						  width: 50px;
+						  height: 50px;
+						  font-size: 22px;
+						  
+						  color: #000;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  padding: 5 5 5 5;
+						  
+						  border: 2px solid #fff;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  .custom-pass22 {
+						  background-color: #00A86B;
+						  width: 70%;
+						  height: 30px;
+						  font-size: 22px;
+						  
+						  color: #000;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  padding: 5 5 5 5;
+						  
+						  border: 2px solid #fff;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  .custom-pass33 {
+						  background-color: #ff6600;
+						  width: 70%;
+						  height: 30px;
+						  font-size: 22px;
+						  
+						  color: #000;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  padding: 5 5 5 5;
+						  
+						  border: 2px solid #fff;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+							
+							
+							
+					  .custom-pass2 {
+						  background-color: #00A86B;
+						  width: 50px;
+						  height: 50px;
+						  font-size: 22px;
+						  
+						  color: #000;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  padding: 5 5 5 5;
+						  
+						  border: 2px solid #fff;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  .custom-pass3 {
+						  background-color: #DC143C;
+						  width: 50px;
+						  height: 50px;
+						  font-size: 22px;
+						  
+						  color: #000;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  padding: 5 5 5 5;
+						  
+						  border: 2px solid #fff;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  .custom-btnGPS {
+						  background-color: #f0e1ff;
+						  width: 120px;
+						  font-size: 18px;
+						  
+						  color:#FFF;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  padding: 5 5 5 5;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  .custom-btnModifica {
+						  background-color: #f0e1ff;
+						  width: 120px;
+						  font-size: 18px;
+						  
+						  color:#FFF;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  padding: 5 5 5 5;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+							
+							.custom-btn3 {
+								background-color: #e6007e;
+								color: #e6007e;
+								
+								width: 90%;
+								height: 60px;
+								
+								font-size: 26px;
+								
+								text-decoration: none;
+								text-shadow:0 0 0;
+								
+								font-family: ForyouFont, arial;
+								
+								border-radius: 0px;
+								-moz-border-radius: 0px; /* firefox */
+								-webkit-border-radius: 0px; /* safari, chrome */
+							}
+					  
+					  .custom-btn4 {
+						  background-color: #37b658;
+						  width: 120px;
+						  font-size: 18px;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  color:#FFF;
+						  padding: 5 5 5 5;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  .custom-btn5 {
+						  background-color: #ffffff;
+						  width: 120px;
+						  font-size: 14px;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  color:#000000;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  .testo_bianco {
+						  font-family: 'Open Sans', sans-serif;
+						  font-size: 16px;
+						  color: #FFFFFF;
+						  text-shadow: 1px 1px 2px #555555;
+					  }
+					  
+					  .testo_sottotitolo {
+						  font-size: 16px;
+						  font-family: 'Open Sans', sans-serif;
+						  font-weight: bold;
+						  color: #873117;
+						  text-shadow: 2px 2px 4px #b1b1b1;
+					  }
+							
+							
+						.tabella {
+							background-color: #eceae4;
+							border: 1px solid #000;
+							border-color: #000;
+						
+							border-radius: 10px;
+							-moz-border-radius: 10px; /* firefox */
+							-webkit-border-radius: 10px; /* safari, chrome */
+						
+						}
+					
+						.tabella22 {
+								background-color: #FFFACD;
+								border: 1px solid #000;
+								border-color: #000;
+								
+								border-radius: 10px;
+								-moz-border-radius: 10px; /* firefox */
+								-webkit-border-radius: 10px; /* safari, chrome */
+								
+						}
+					  
+					  .tabella1 {
+						  background-color:#cc33cc;
+						  border: 1px solid #000;
+						  border-color: #FFF;
+						  
+						  padding: 0 5 0 5;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  .scrivo {
+						  display: block;
+						  width: 90%;
+						  margin: 0px;
+						  border: solid 0.5px #dcdcdc;
+						  font-family: sans-serif;
+						  font-size: 20px;
+						  appearance: none;
+						  box-shadow: none;
+						  border-radius: none;
+						  
+						  -webkit-appearance: none;
+						  -webkit-border-radius:0px;
+						  @include border-radius(0);
+					  }
+					  
+					  .conteggiotempo {
+						  background-color: #cc33cc;
+						  z-index: 30;
+						  
+						  width: 90%;
+						  height: 30px;
+						  color: #000;
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  .ui-page { -webkit-backface-visibility: hidden; }
+					  
+					  .ui-panel {
+						  width: 200px;
+						  min-height: 100%;
+						  max-height: none;
+						  border-width: 0;
+						  position: fixed;
+						  top: 0;
+						  display: block;
+					  }
+					  
+					  .panel-wrapper {
+						  height: 760px;
+						  right: 0;
+					  }
+					  
+					  .panel-wrapper div {
+						  border-top: 1px solid #ccc;
+						  border-bottom: 1px solid #ccc;
+					  }
+					  
+					  .ui-panel.ui-panel-open {
+						  position:fixed;
+					  }
+					  .ui-panel-inner {
+						  position: absolute;
+						  top: 1px;
+						  left: 0;
+						  right: 0;
+						  bottom: 0px;
+						  overflow: scroll;
+						  -webkit-overflow-scrolling: touch;
+					  }
+					  
+					  .ui-page-active.ui-page-panel {
+						  height: 70%;
+					  }
+					  
+					  .custom-pass11 {
+						  background-color: #FFA500;
+						  width: 90px;
+						  font-size: 18px;
+						  
+						  color: #FFF;
+						  
+						  text-decoration: none;
+						  text-shadow:0 0 0;
+						  
+						  font-family: ubuntu, helvetica, arial;
+						  
+						  padding: 5 1 5 1;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+							
+							
+					  .utenteimg {
+						  width: 40px;
+						  height: 40px;
+						  border-radius:999em;
+						  -moz-border-radius:999em;
+						  -webkit-border-radius:999em;
+						  -o-border-radius: 999em;
+						  
+						  -webkit-box-shadow: 0px 0px 0.5px 0.5px #000;
+						  -moz-box-shadow: 0px 0px 0.5px 0.5px #000;
+						  box-shadow: 0px 0px 0.5px 0.5px #000;
+					  }
+							
+					  .utenteimg3 {
+						  width: 120px;
+						  height: 120px;
+						  border-radius:999em;
+						  -moz-border-radius:999em;
+						  -webkit-border-radius:999em;
+						  -o-border-radius: 999em;
+						  
+						  -webkit-box-shadow: 0px 0px 0.5px 0.5px #000;
+						  -moz-box-shadow: 0px 0px 0.5px 0.5px #000;
+						  box-shadow: 0px 0px 0.5px 0.5px #000;
+					  }
+							
+					  .utenteimg2 {
+						  width: 60px;
+						  height: 60px;
+						  border-radius:999em;
+						  -moz-border-radius:999em;
+						  -webkit-border-radius:999em;
+						  -o-border-radius: 999em;
+						  
+						  -webkit-box-shadow: 0px 0px 0.5px 0.5px #000;
+						  -moz-box-shadow: 0px 0px 0.5px 0.5px #000;
+						  box-shadow: 0px 0px 0.5px 0.5px #000;
+					  }
+					
+					.utenteimg2A {
+						width: 60px;
+						height: 60px;
+						border-radius:999em;
+						-moz-border-radius:999em;
+						-webkit-border-radius:999em;
+						-o-border-radius: 999em;
+						
+						-webkit-box-shadow: 0px 0px 0.5px 0.5px #000;
+						-moz-box-shadow: 0px 0px 0.5px 0.5px #000;
+						box-shadow: 0px 0px 0.5px 0.5px #000;
+					}
+					
+					
+					.utenteimg2B {
+						height: 90px;
+						
+						border-radius: 5px;
+						-moz-border-radius: 5px; /* firefox */
+						-webkit-border-radius: 5px; /* safari, chrome */
+						
+						-webkit-box-shadow: 0px 0px 0.5px 0.5px #000;
+						-moz-box-shadow: 0px 0px 0.5px 0.5px #000;
+						box-shadow: 0px 0px 0.5px 0.5px #000;
+					}
+					
+					.utenteimg2BC {
+						height: 52px;
+						width: 52px;
+						
+						border-radius:999em;
+						-moz-border-radius:999em;
+						-webkit-border-radius:999em;
+						-o-border-radius: 999em;
+						
+						-webkit-box-shadow: 0px 0px 0.5px 0.5px #000;
+						-moz-box-shadow: 0px 0px 0.5px 0.5px #000;
+						box-shadow: 0px 0px 0.5px 0.5px #000;
+					}
+					
+					.utenteimg3 {
+						width: 170px;
+						height:170px;
+						border-radius:999em;
+						-moz-border-radius:999em;
+						-webkit-border-radius:999em;
+						-o-border-radius: 999em;
+						
+						-webkit-box-shadow: 0px 0px 0.5px 0.5px #000;
+						-moz-box-shadow: 0px 0px 0.5px 0.5px #000;
+						box-shadow: 0px 0px 0.5px 0.5px #000;
+					}
+							
+						.contento {
+						  padding: 0;
+						  position : absolute !important;
+						  top : 50px !important;
+						  right : 0;
+						  bottom : 0px !important;
+						  left : 0 !important;
+						  height : 100%;
+					  }
+							
+							#makeMeDroppable {
+								
+								top:0;
+								left:0;
+								float: center;
+								width: 300px;
+								height: 300px;
+								border: 1px solid #999;
+								
+								z-index: -10;
+							}
+							
+							#immaginesfondo {
+								
+								width: 100%px;
+								height: 100%;
+								
+								z-index: -9;
+							}
+					
+						.div588 {
+							/*background-image: url("img/sfondo.png");*/
+						
+							position: fixed;
+							z-index: 20;
+							bottom: 0;
+							left: 0;
+							width: 100%;
+							height: 50px;
+							padding: 0;
+							color: #000;
+						
+							text-align: center;
+							font-weight: bold;
+						}
+					
+					
+					.div5 {
+						position: fixed;
+						z-index: 2;
+						bottom: 0;
+						right: 0;
+						width: 60%;
+						padding: 0;
+						color: #000;
+						
+						text-align: center;
+						
+					}
+					
+					.spinnero {
+						height:100%;
+						width:100%;
+						
+						margin:0px auto;
+						position:fixed;
+						top: 0px;
+						left: 0px;
+						
+						background-color:#000;
+						
+						z-index: 10;
+					}
+					
+					.pippo {
+						height:200px;
+						width:360px;
+						
+						margin:0px auto;
+						position:fixed;
+						top: 50%;
+						left: 50%;
+						margin-top: -100px;
+						margin-left: -180px;
+						
+						
+						z-index: 9999;
+					}
+					
+					.pippo2 {
+						height:100%;
+						width:100%;
+						
+						margin:0px auto;
+						/*position:fixed;*/
+						top: 0;
+						
+						text-align: center;
+
+						z-index: 9999;
+					}
+					
+					.pippo22 {
+						width:100%;
+						
+						margin:0px auto;
+						top: 0;
+						
+						text-align: center;
+					}
+					
+					.pippo23 {
+						width:100%;
+						
+						margin:0px auto;
+						top: 0;
+						
+						background-color:#fff;
+						
+						text-align: center;
+						
+						z-index: 9999;
+					}
+					
+					.pippo22A {
+						width:100%;
+						
+						margin:0px auto;
+						top: 0;
+                        
+                        border-collapse: collapse;
+                        border: none;
+						
+						text-align: center;
+						
+						/*background-image: url("img/sfondo_uomo.jpg");
+						
+						opacity: 0.5;
+						z-index: -1;*/
+					}
+					
+					
+					.swiper-container {
+						top:0;
+						bottom:20;
+						width: 98%;
+						height: 440px;
+						margin: 0px auto;
+						
+						text-align: center;
+					}
+					
+					
+					.swiper-slide {
+						text-align: center;
+						font-size: 18px;
+						background: #ffffff;
+						
+						text-align: center;
+						
+						/* Center slide text vertically */
+						display: -webkit-box;
+						display: -ms-flexbox;
+						display: -webkit-flex;
+						display: flex;
+						-webkit-box-pack: center;
+						-ms-flex-pack: center;
+						-webkit-justify-content: center;
+						justify-content: center;
+						-webkit-box-align: center;
+						-ms-flex-align: center;
+						-webkit-align-items: center;
+						align-items: center;
+						
+					}
+					
+					.coloretabella1 {
+						background-color: #e6007e;
+					}
+					
+					.coloretabella {
+						background-color: #f0f0f0;
+					}
+					
+					.bottone {
+						width: 100%;
+						height: 100%;
+						
+						vertical-align: middle;
+					}
+					
+					.button2:hover {background-color: #e6007e}
+					
+					.button2:active {
+						background-color: #e6007e;
+						
+						transform: translateY(0px);
+					}
+					
+					.buttonbb {
+						background-color: #000; /* Green */
+						border: none;
+						color: white;
+						padding: 6px 16px;
+						text-align: center;
+						text-decoration: none;
+						display: inline-block;
+						font-size: 11px;
+						margin: 4px 2px;
+						cursor: pointer;
+					}
+                    
+                    .buttonbb1 {
+                        background-color: #000; /* Green */
+                        border: none;
+                        color: white;
+                        padding: 6px 6px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 11px;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                    }
+					
+					.buttonb1 {width: 60px;}
+					
+					.buttonb2 {width: 120px;}
+					
+                    .buttonb3 {width: 240px;}
+					
+					#backdrop{
+						width:95%;
+						height:230px;
+						position:absolute;
+						z-index: 10;
+						
+						text-align: center;
+					}
+					
+					#backdrop2{
+						width:260px;
+						height:100px;
+						position:absolute;
+						z-index: 10;
+						
+						text-align: center;
+					}
+					
+					#backdrop3{
+						width:90%;
+						height:130px;
+						position:absolute;
+						z-index: 10;
+						
+						
+						text-align: center;
+					}
+					
+					#backdrop4{
+						width:100%;
+						height:70px;
+						position:absolute;
+						z-index: 10;
+						
+						
+						text-align: center;
+					}
+					
+					#curtain {
+						width:260px;
+						height:240px;
+						
+						background-color: #000;
+						opacity: 0.5;
+						position:relative;
+						z-index: 1;
+						
+						text-align: center;
+					}
+					
+					#curtain2 {
+						width:260px;
+						height:100px;
+						
+						background-color: #000;
+						opacity: 0.5;
+						position:relative;
+						z-index: 1;
+						
+						text-align: center;
+					}
+					
+					#curtain3 {
+						width:270px;
+						height:100px;
+						
+						background-color: #000;
+						opacity: 0.5;
+						position:relative;
+						z-index: 1;
+						
+						text-align: center;
+					}
+					
+					#curtain4 {
+						width:100%;
+						height:60px;
+						
+						background-color: #000;
+						opacity: 0.5;
+						position:relative;
+						z-index: 1;
+						
+						text-align: center;
+					}
+					
+					#curtain8 {
+						width:320px;
+						height:100px;
+						
+						background-color: #000;
+						opacity: 0.5;
+						position:absolute;
+						bottom: 5;
+						margin: auto;
+						z-index: 1;
+						
+						text-align: center;
+					}
+					
+					#curtain2 {
+						width:260px;
+						height:220px;
+						
+						background-color: #000;
+						opacity: 0.5;
+						position:relative;
+						z-index: 1;
+						
+						text-align: center;
+					}
+					
+					.table33 {
+						border-collapse: collapse;
+						border: 0.5px solid grey;
+						
+						box-shadow: 2px 2px 4px #888888;
+					}
+					
+					.table33D {
+						border-collapse: collapse;
+						border: 0px solid grey;
+
+						background-color:#000;
+					}
+					
+					.tabellaA {
+						background: transparent !important;
+						
+						border: 1px solid #000;
+						border-color: #00b28c;
+						
+						border-radius: 10px;
+						-moz-border-radius: 10px; /* firefox */
+						-webkit-border-radius: 10px; /* safari, chrome */
+						
+					}
+					
+					.custom-btn33 {
+						background-color: #00b28c;
+						width: 95%;
+						font-size: 18px;
+						
+						color:#FFF;
+						
+						text-decoration: none;
+						text-shadow:0 0 0;
+						
+						font-family: ubuntu, helvetica, arial;
+						
+						padding: 5 5 5 5;
+						
+						border-radius: 5px;
+						-moz-border-radius: 5px; /* firefox */
+						-webkit-border-radius: 5px; /* safari, chrome */
+					}
+					
+					.cerchietto{
+						width:50px;
+						height:50px;
+						background-color: #000;
+						margin-right:30px;
+						
+						z-index: 10;
+						text-align: center;
+						
+						border-radius:999em;
+						-moz-border-radius:999em;
+						-webkit-border-radius:999em;
+						-o-border-radius: 999em;
+						
+					}
+					
+					.scrivo {
+						display: block;
+						width: 90%;
+						margin: 0px;
+						border: solid 0.5px #dcdcdc;
+						font-family: sans-serif;
+						font-size: 20px;
+						color:#000;
+						appearance: none;
+						box-shadow: none;
+						border-radius: none;
+						
+						-webkit-appearance: none;
+						-webkit-border-radius:0px;
+						@include border-radius(0);
+					}
+					
+					.unito {
+						/*border: 1px solid black;*/
+						border-collapse: collapse;
+					}
+					
+					.classe{
+						border-collapse: collapse;
+						border: 1px solid white;
+					}
+					.quantity_cart {
+						background:#cc0000;
+						color:#fff;
+						font-family: 'Ubuntu', sans-serif;
+						font-size:6px;
+						line-height:16px;
+						text-align:center;
+						position:relative;
+						left:70%;
+						top:1px;
+						width:10px;
+						height:10px;
+						padding:1px;
+						border-radius:8px;
+					}
+					</style>
+
+		</head>
+    <body>
+		
+		
+		<div data-role=page id="home" data-add-back-btn=true class="div2">
+			
+		<div class="spinner" id="spinner22"></div>
+		<!--<audio id="successSound" src="sound/clic.mp3" type="audio/mpeg" ></audio>
+		<audio id="successSound2" src="sound/pool.mp3" type="audio/mpeg" ></audio>
+		<audio id="successSound3" src="sound/button.mp3" type="audio/mpeg" ></audio>
+         style="display:none"
+         -->
+		
+        <!--<div id="spinnero2" class="spinnero" style="display:none"><img src="tigre2.png" class="pippo"></div>-->
+			
+
+            <!--<div id="prima" >
+			
+			<table id="#" width="98%" align="center" border="0" >
+				<tr>
+					<td width="98%">
+						<font size="6" class="AntonioFont" color="#000">Antonio</font>
+					</td>
+				</tr>
+				<tr>
+					<td width="98%">
+						<font size="6" class="GravityFont" color="#000">Gravity</font>
+					</td>
+				</tr>
+				<tr>
+					<td width="98%">
+						<font size="6" class="ForyouFont" color="#000">Eyes For You</font>
+					</td>
+				</tr>
+				<tr>
+					<td width="98%">
+						<font size="6" class="DemoFont" color="#000">Great Day</font>
+					</td>
+				</tr>
+			</table>
+
+
+            </div>-->
+			<table id="imginiziale" width="100%" height="100%" align="center" class="pippo22" >
+                <tr>
+                    <td width="100%" align="center">
+                        <img src="img/logorotondo.png" height="90">
+                    </td>
+                </tr>
+            </table>
+            
+            <!--style="display:none"-->
+
+			<div id="presentazione" class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img id="scheda1" src="img/Preset1.jpg" width="100%"></div>
+					<div class="swiper-slide"><img id="scheda2" src="img/Preset2.jpg" width="100%"></div>
+					<div class="swiper-slide"><img id="scheda3" src="img/Preset3.jpg" width="100%"></div>
+					<div class="swiper-slide"><form name="formia22" action="entra2.asp" method="post">
+                        <table id="scheda4" width="90%" height="320" border="0" align="center" valign="top">
+                            <tr>
+                                <td width="100%" align="center"><font size="34" class="DemoFont" color="#000">Login</font></td></tr><tr><td width="100%" align="center"><img src="img/logorotondologin.png" width="65">&nbsp;&nbsp;&nbsp;&nbsp;<a id="loginfacebook"><img src="img/ico_facebook.png" width="60"></a></td><tr><td width="100%" align="center"> <input type="text" name="emaillogin" id="emaillogin" placeholder="Email" class="scrivo"></td></tr><tr><td width="100%" align="center"><input type="text" name="pswlogin" id="pswlogin" placeholder="Password" class="scrivo"></td></tr><tr><td width="100%" align="center"><a id="entra" class="buttonbb buttonb1 AntonioFont"><font size="4" color="#fff">ENTRA</font></a>
+                               </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    </form>
+				</div>
+			</div>
+			
+			
+			<div id="bannerpresentazione" class="div1" >
+				<a id="boy"><img src="img/bboy.png" width="50%" height="60"></a><a id="girl"><img src="img/bgirl.png" width="50%" height="60"></a>
+			</div>
+		
+			<script src="swiper.min.js"></script>
+			
+		</div>
+		
+		
+
+		
+		<!--GIRL -->
+		<div data-role=page id="home2" data-add-back-btn=true class="div22">
+			<div class="spinner" id="spinner2"></div>
+			
+			<form name="formia2" action="entra2.asp" method="post">
+			<table width="100%" height="100%" align="center" class="pippo2">
+				<tr>
+					<td width="100%" align="center">
+						<a id="indietro"><img src="img/logorotondo.png" height="90"><a/><br>
+							<img src="img/selection.png" width="280"><br>
+						</td>
+				</tr>
+				
+				
+				<tr>
+					<td width="100%" align="center">
+						<font size="6" class="GravityFont" color="#fff"><b>Hi Girl!</b><br>
+							Welcome to the Party!
+						</font>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						&nbsp;
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						<font size="4" class="AntonioFont" color="#000">INSERISCI LA TUA EMAIL</font>
+						<br>
+						<table width="80%" align="center"><tr><td width="100%" align="center">
+							<input type="text" name="email" id="email" class="scrivo"><br>
+						</td></tr></table>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" align="center">
+						<font size="4" class="AntonioFont" color="#000">INSERISCI L'EMAIL DEL TUO AMICO</font>
+						<br>
+						<table width="80%" align="center"><tr><td width="100%" align="center">
+							<input type="text" name="emailamico" id="emailamico" class="scrivo"><br>
+								<input type="hidden" name="sesso" id="sesso" value="F">
+									</td>
+						</tr>
+						<tr><td width="100%" align="center"><img src="img/5050.png" width="200"></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" align="center">
+						<a id="reg" class="buttonbb buttonb1 AntonioFontBold"><font size="5" color="#fff"><b>AVANTI</b></font></a>
+					</td>
+				</tr>
+				</form>
+			</table>
+			
+		</div>
+		
+		<!--BOY -->
+		<div data-role=page id="home3" data-add-back-btn=true class="div22">
+			<form name="formia3" action="entra2.asp" method="post">
+			<table width="100%" height="100%" align="center" class="pippo2">
+				<tr>
+					<td width="100%" align="center">
+						<a id="indietro"><img src="img/logorotondo.png" height="90"><a/><br>
+						<img src="img/selection.png" width="280"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						<font size="6" class="GravityFont" color="#fff"><b>Hi Boy!</b><br>
+							Welcome to the Party!
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" align="center">
+						&nbsp;
+					</td>
+				</tr>
+
+				<tr>
+					<td width="100%" align="center">
+						<font size="4" class="AntonioFont" color="#000">INSERISCI LA TUA EMAIL</font>
+						<br>
+						<table width="80%" align="center"><tr><td width="100%" align="center">
+						 <input type="text" name="email2" id="email2" class="scrivo"><br>
+						</td></tr></table>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" align="center">
+						<font size="4" class="AntonioFont" color="#000">INSERISCI L'EMAIL DELLA TUA AMICA</font>
+						<br>
+						<table width="80%" align="center"><tr><td width="100%" align="center">
+							<input type="text" name="emailamico2" id="emailamico2" class="scrivo"><br>
+							<input type="hidden" name="sesso2" id="sesso2" value="M">
+						</td>
+						</tr>
+						<tr><td width="100%" align="center"><img src="img/5050.png" width="200"></td></tr>
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						<a id="reg2" class="buttonbb buttonb1 AntonioFontBold"><font size="5" color="#fff"><b>AVANTI</b></font></a>
+					</td>
+				</tr>
+				
+			</table>
+			</form>
+		</div>
+		
+		
+		<!--ART -->
+		<div data-role=page id="home4" data-add-back-btn=true class="div22">
+			<form name="formia4" action="entra2.asp" method="post">
+			<table width="100%" height="100%" align="center" class="pippo2">
+				<tr>
+					<td width="100%" align="center">
+						<a id="indietro"><img src="img/logorotondo.png" height="90"><a/><br>
+							<img src="img/art.png" height="80">
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						<font size="6" class="GravityFont" color="#fff"><b>Come on!</b>
+						</font>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td width="100%" align="center">
+						&nbsp;
+						<!--<font size="3" class="GravityFont" color="#fff"><b>Oppure</b></font>-->
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						<table width="60%" align="center">
+							<tr>
+								<td width="100%" align="center">
+									<input type="text" name="nickname" id="nickname" placeholder="Nome d'Arte" class="scrivo"><br>
+									<input type="text" name="password" id="password" placeholder="Password" class="scrivo"><br>
+									<input type="text" name="citta" id="citta" placeholder="Citta" class="scrivo"><br>
+									<select id="eta" name="eta" class="scrivo"><option value="0">La Tua Eta</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option></select>
+									<!--<input type="text" name="eta" id="eta" placeholder="La tua eta">
+									<input id="datacal" name="datacal" type="text" value="" placeholder="Data di nascita" readonly><br>-->
+							    </td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" align="center">
+					   <a id="registra" class="buttonbb buttonb1 AntonioFontBold"><font size="5" color="#fff"><b>AVANTI</b></font></a>
+					</td>
+				</tr>
+				
+			</table>
+			</form>
+			
+		</div>
+		
+		<div data-role=page id="home5" data-add-back-btn=true class="div22">
+			<div class="spinner" id="spinner5"></div>
+			
+			<table width="100%" height="100%" align="center" class="pippo2">
+				<tr>
+					<td width="100%" align="center">
+						<a id="indietro"><img src="img/logorotondo.png" height="90"><a/><br>
+							<img src="img/selection.png" width="280">
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						&nbsp;
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						<font size="6" class="GravityFont" color="#fff"><b>Do it Now!</b>
+						</font>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						<font size="5" class="GravityFont" color="#fff"><b>Inserisci un selfie che darà</b><br>
+						 autenticità al tuo profilo!
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" align="center">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						<img id="fotoprofilo33" src="img/macchinetta.png" height="110px">
+							
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						<a id="fine" class="buttonbb buttonb1 AntonioFontBold"><font size="4" color="#fff">AVANTI</font></a>
+					</td>
+				</tr>
+				
+			</table>
+			
+			<!--<br>
+			<div id="views"></div>
+			
+			<br>
+			<a id="cropbutton" href="#" style="display:none"><img src="img/ico_crop.png" width="40"></a>
+			<br>
+			<a id="ciccio1" style="display:none"><img src="img/ico_send.png" width="60"></a>-->
+			
+			<div id="nome" style="display:none"></div>
+			
+		</div>
+		
+		<div data-role=page id="home6" data-add-back-btn=true class="div22">
+			<form name="formia6" action="entra2.asp" method="post">
+			<table width="100%" height="100%" align="center" class="pippo2">
+				<tr>
+					<td width="100%" align="center">
+						<a id="indietro"><img src="img/logorotondo.png" height="90"><a/><br>
+							<img src="img/party2.png" height="80">
+					</td>
+				</tr>
+				
+			
+				<tr>
+					<td width="100%" align="center">
+						<font size="6" class="GravityFont" color="#fff"><b>Are you ready?</b>
+						</font>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						<font size="5" class="GravityFont" color="#fff"><b>Finalmente potrai creare il</b><br>
+							tuo Private Party!<br>
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" align="center">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" align="center" valign="center">
+						<table width="80%" align="center">
+							<tr>
+								<td width="10%" align="right"><input type="checkbox" name="privacy" id="privacy">
+								</td>
+							    <td width="90%" align="left">&nbsp; <font size="5" class="GravityFont" color="#fff"><b>Informativa privacy</b>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						<a id="accetto" class="buttonbb buttonb1 AntonioFont"><font size="4" color="#fff">ACCETTO</font></a>
+					</td>
+				</tr>
+				
+			</table>
+			</form>
+		</div>
+		
+		<div data-role=page id="home7" data-add-back-btn=true class="div22">
+			
+			<table width="100%" height="100%" align="center" class="pippo2">
+				<tr>
+					<td width="100%" align="center">
+						<a id="indietro"><img src="img/logorotondo.png" height="110"></a>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" align="center">
+						<img src="img/loader2.gif" height="150">
+					</font>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" align="center">
+                        <font size="5" class="GravityFontBold" color="#fff"><b>Quando la tua amica/o<br> avrà completato l'iscrizione,<br>
+                            potrai effettuare il Login!</b><br><br>
+						</font>
+					</td>
+				</tr>
+                <tr>
+                    <td width="100%" align="center">
+                        <a id="esci2" class="buttonbb1 AntonioFont"><font size="6" color="#fff">LOGIN</font></a><br>
+                    </td>
+                </tr>
+				<tr>
+					<td width="100%" align="center">
+						<!--<font class="DemoFontb" color="#fff" size="44">ONLY FOR</font><br>
+						<font class="DemoFontb" color="#fff" size="44">PARTY ANIMALS</font><br>-->
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="100%" align="center">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+					</td>
+				</tr>
+				
+			</table>
+			
+		</div>
+		
+		<div data-role=page id="home8" data-add-back-btn=true class="#">
+			<div class="spinner" id="spinner8"></div>
+			<a href="#mypanelH" data-role=button id=btnpanel data-theme="b" style="display:none"></a>
+			
+			<div data-role="panel" id="mypanelH" data-position="left" data-display="overlay" width="100%" data-theme="c" class="div22">
+				<center>
+					<br>
+					
+					<img id="#" src="img/logorotondo.png" height="90">
+						
+					<br><br>
+					
+                    <table width="100%">
+                        <tr>
+                            <td width="100%"><p id="miefeste"><font size="5" class="DemoFont" color="#000">PRIVATE PARTY</font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%"><a id="miefeste" href="#"><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%"><p id="cambiaImmagine"><font size="5" class="DemoFont" color="#000">PROFILO</font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%"><a id="miefeste" href="#"><br>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td width="100%"><p id="ComeFunzione" ><font size="5" class="DemoFont" color="#000">COME FUNZIONA</font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%"><a id="miefeste" href="#"><br>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td width="100%"><p id="termini" ><font size="5" class="DemoFont" color="#000">TERMINI E CONDIZIONI</font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%"><a id="miefeste" href="#"><br>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td width="100%"><p id="esci" ><font size="5" class="DemoFont" color="#000">LOGOUT</font></p>
+                            </td>
+                        </tr>
+                    </table>
+					<!--<ul data-role="esci" data-inset="true">
+						<li></li>
+						<li><a id="" href="#"><font color="#000"></font></a></li>
+						<li><a id="" href="#"><font color="#000"></font></a></li>
+						<li><a id="" href="#"><font color="#000">Termini e Condizioni</font></a></li>
+						<li><a id="esci" href="#"><font color="#000"></font></a></li>
+					</ul>-->
+					
+					<br><br>
+					
+				</center>
+			</div>
+			
+		<div id="wrapper2">
+			<div id="scroller">
+					
+			<table id="parte1" width="100%" height="100%" align="center" class="pippo22">
+				<tr>
+					<td width="20%" align="center" valign="top">
+                        <table><tr><td><div id="prova" class="quantity_cart"></div><img id="controllamail" src="img/icomess.png" height="45"></td></tr></table>
+					</td>
+					<td width="60%" align="center">
+						<img id="#" src="img/logorotondo.png" height="90">
+					</td>
+					<td width="20%" align="center" valign="top">
+						<img id="loadfotoprofilo" src="img/fotodefault.png" height="50" class="utenteimg2A">
+					</td>
+				</tr>
+			</table>
+			
+			
+			<table id="parte2" width="90%" height="100%" align="center" class="#">
+				<tr>
+					<td width="100%" align="center">
+						 <table width="100%"align="center" class="#">
+						 <tr>
+							 <td width="50%" align="center">
+								 <img id="private" src="img/party.png" height="50" ><br>
+							   <font size="3" class="GravityFontBold" color="#000"><b>Private Party</b></font>
+						     </td>
+					         <td width="50%" align="center">
+						        <img id="personaggi" src="img/people.png" height="50" ><br>
+								<font size="3" class="GravityFontBold" color="#000"><b>People</b></font>
+					         </td>
+						 </tr>
+
+					 </table>
+				</tr>
+				
+				
+			</table>
+			
+			<div id="feste"></div>
+			
+			<div id="persone" style="display:none"></div>
+            
+            
+			<div id="chatnuove" style="display:none">
+                <br><br>
+                <table width="100%" align="center" bgcolor="#000" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" align="center"><font class="AntonioFontBold" color="#00ffff" size="6.5">MESSAGGI NON LETTI</font><br>
+                        </td>
+                    </tr>
+                </table>
+                <br><br>
+                 <div id="mostrachat" style="display:none"></div>
+                <br><br>
+
+                <table width="90%" align="center" height="70px">
+                    <tr>
+                        <td width="50%" align="center">
+                            <a id="ritorna"><img src="img/indietro.png" height="40px"></a>
+                        </td>
+                        <td width="50%" align="center">
+                            <img id="setting" src="img/setting.png" height="40">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+			<!--<div id="loadpersonaggi" style="display:none">
+				
+				<!--<div id="profiloman" width="100%"></div>-->
+				 <table id="loadpersonaggi" width="100%" align="center" bgcolor="#fff" valign="top" border="0" class="pippo22A" cellspacing="0" cellpadding="0" style="display:none">
+                     <tr>
+                    <td width="100%">
+                     
+                     <table id="#" width="100%" align="center" class="pippo22A" bgcolor="#000" valign="top" cellspacing="0" cellpadding="0">
+                     <tr bgcolor="#000">
+                     <td colspan="2" width="100%" height="100%" valign="top" bgcolor="#000">
+                         <div id="profiloman" width="100%" height="100%" class="pippo22A"></div>
+                     </td>
+                     </tr>
+					 <tr bgcolor="#000">
+					 <td width="70%" align="left" valign="center" bgcolor="#000">
+					   <table width="80%" height="150" align="left" valign="center" border='0' bgcolor="#000">
+					    <tr>
+					     <td width="100%" align="left" colspan="2" valign="center">
+					       <font class="AntonioFontBold" color="#00ffff" size="11"><b><span id="name">Michele</span><b></font><br><br>
+                           <font class="AntonioFont" color="#00ffff" size="6"><b><span id="dati">Roma 20</span><b></font><br><br>
+					       <!--<div id="recensioni"><img src="img/feed_uomo.png" height="30"><img src="img/feed_uomo.png" height="30"><img src="img/feed_uomo.png" height="30"><img src="img/feed.png" height="30"><img src="img/feed.png" height="30"></div>-->
+					     </td>
+					   </tr>
+					   <!--<tr>
+					    <td width="100%" align="center" valign="bottom" colspan="2">
+					     <hr color="#00ffff">
+					   </td>
+					   </tr>-->
+				      </table>
+				     </td>
+                        <td width="30%" align="center" valign="top" bgcolor="#000">
+                         <table width="100%" height="160" bgcolor="#000" valign="top" align="right" class="table33D" border='0' cellspacing="0" cellpadding="0">
+                         <tr>
+                             <td align="center" valign="center"><font class="AntonioFont" color="#00ffff" size="4"><img src="img/amici.png" height="30"></font></td></tr><tr><td align="center" valign="center"><div id="fotoby"><img id="loadfotoprofilodonna" src="img/foto_uomo.png" class="utenteimg2B"></div>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td align="center" valign="center"><font class="AntonioFontBold" color="#00ffff" size="3">
+                                 <span id="name2">Maria</span></font>
+                                <br><font class="AntonioFontBold" color="#00ffff" size="3"><span id="dati2">Roma 20</span></font><br>
+                             </td>
+                         </tr>
+                         </table>
+					 </td>
+					 </tr>
+				 </table>
+				 <br>
+				 
+				 <table width="90%" height="100%" align="center" class="#">
+					 <tr>
+					 <td width="100%" align="center">
+					 <table width="100%"align="center" class="#">
+					 <tr>
+					 <td width="50%" align="center">
+					 <img id="#" src="img/fotocamera.png" height="60" ><br>
+					 <font size="4" class="GravityFontBold" color="#000"><b>Album</b></font>
+					 </td>
+					 <td width="50%" align="center">
+					 <img id="chatdonna" src="img/mess_uomo1.png" height="60" ><br>
+					 <font size="4" class="GravityFontBold" color="#000"><b>Chatta</b></font>
+					 </td>
+					 </tr>
+					 
+					 </table>
+					 </tr>
+				 </table>
+				 
+				 <br>
+				 
+				 
+				 <table width="100%" align="center" bgcolor="#000" cellspacing="0" cellpadding="0">
+					 <tr>
+					 <td width="100%" align="center"><font class="AntonioFontBold" color="#00ffff" size="6.5">IL MIO ORGASMO MENTALE</font><br>
+                     </td>
+					 </tr>
+				 </table>
+				 
+				 <br>
+				 
+				 <table width="90%" align="center" class="table33">
+					 <tr>
+					 <td width="100%" align="center">
+					 <div id="scheda"></div>
+					 </td>
+					 </tr>
+				 </table>
+				 
+				 <br>
+				 
+				 <table width="90%" align="center" height="70px">
+					 <tr>
+					 <td width="50%" align="center">
+                         <a id="ritorna"><img src="img/indietro.png" height="40px"></a>
+					 </td>
+                     <td width="50%" align="center">
+                         <img id="setting" src="img/setting.png" height="40">
+                     </td>
+					 </tr>
+				 </table>
+                 
+                 </td>
+                 </tr>
+                 </table>
+				
+			<!--</div>-->
+			
+			</div>
+				</div>
+			
+			<div class="div1" id="parte3" style="display:none">
+				<table width="100%" height="80" bgcolor="#000" align="center" valign="center" border="0">
+					<tr>
+						<td width="100%" align="center" valign="center">
+							<a id="makeparty"><font class='AntonioFontBold' color='#00ffff' size='6'>CREA PRIVATE PARTY</font></a>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			
+		</div>
+		
+		<div data-role=page id="homeparty" data-add-back-btn=true class="div22">
+			<div class="spinner" id="spinner13"></div>
+			
+			<div id="wrapper7">
+				<div id="scroller">
+					
+					<table width="100%" height="100%" align="center" class="pippo22">
+						<tr>
+							<td width="20%" align="center">
+								&nbsp;
+							</td>
+							<td width="60%" align="center">
+								<img id="indietro42" src="img/logorotondo.png" height="90">
+							</td>
+							<td width="20%" align="center" valign="top">
+								&nbsp;
+							</td>
+						</tr>
+					</table>
+					
+					<div id="party"></div>
+					
+					<br>
+					<table width="100%" height="100%" align="center">
+						<tr>
+							<td width="100%" align="center">
+								<font class='AntonioFontBold' color='#000' size='6'><span id="dataparty">Sabato 5 Agosto 2017 Ore 21:30, Piazza di Spagna, Roma, IT</span></font>
+							</td>
+						</tr>
+						
+					</table>
+					<br>
+					<table width="100%" height="100%" align="center" bgcolor="#000">
+						<tr>
+							<td width="100%" align="center">
+								<font class='AntonioFontBold' color='#00ffff' size='5'><b>INFO PRIVATE PARTY</b></font>
+							</td>
+						</tr>
+						
+					</table>
+					<br>
+					<table width="100%" height="100%" align="center">
+						<tr>
+							<td width="100%" align="center">
+								<font class='AntonioFont' color='#000' size='5'><span id="infoparty">bla bla bla blabla bla bla bla<br>bla bla bla blabla bla bla bla</span></font>
+							</td>
+						</tr>
+						
+					</table>
+					<br>
+					<table width="100%" height="100%" align="center" bgcolor="#000">
+						<tr>
+							<td width="100%" align="center">
+								<font class='AntonioFontBold' color='#00ffff' size='5'><b>ORGANIZZATORE</b></font>
+							</td>
+						</tr>
+						
+					</table>
+					
+					<br>
+					<table width="100%" height="100%" align="center" bgcolor="#fff">
+						<tr>
+							<td width="33%" align="right">
+								<img id="foto_organizzatore" src="img/profilo.png" class="utenteimg2B">
+							</td>
+							<td width="37%" align="left" valign="center">
+								<font class="AntonioFontBold" color="#000" size="6"><b><span id="nome_organizzatore">Maria Federica</span></b></font><br>
+								<font class="AntonioFontBold" color="#000" size="5"><span id="dati_organizzatore"></span></font><br>
+							</td>
+							<td width="30%" align="center" valign="center">
+								<img src="img/mess_uomo1.png" height="80">
+							</td>
+						</tr>
+						
+					</table>
+					
+					<br>
+					<table width="100%" height="100%" align="center" bgcolor="#000">
+						<tr>
+							<td width="100%" align="center">
+								<font class='AntonioFontBold' color='#00ffff' size='5'><b>PARTECIPANTI</b></font>
+							</td>
+						</tr>
+						
+					</table>
+					
+					<br>
+					<table width="100%" height="100%" align="center" bgcolor="#fff" border="0">
+						<tr>
+						  <td width="50%" align="center">
+							  <table width="100%" border="0">
+								  <tr>
+									  <td width="40%" align="right">
+										  <img id="#" src="img/profilo.png" class="utenteimg2B">
+									  </td>
+									  <td width="60%" align="left" valign="center">
+										  <font class="AntonioFont" color="#000" size="3"><b>Maria Federica</b></font><br>
+										  <font class="AntonioFont" color="#000" size="3">Roma 20</font><br>
+									  </td>
+								  </tr>
+							  </table>
+						  </td>
+						  <td width="50%" align="center">
+								<table width="100%" border="0">
+								  <tr>
+									<td width="40%" align="right">
+										<img id="#" src="img/profilo.png" class="utenteimg2B">
+									</td>
+									<td width="60%" align="left" valign="center">
+										<font class="AntonioFont" color="#000" size="3"><b>Maria Federica</b></font><br>
+										<font class="AntonioFont" color="#000" size="3">Roma 20</font><br>
+									</td>
+								  </tr>
+								</table>
+							</td>
+							
+						</tr>
+					</table>
+					
+					<br><br><br><br><br><br>
+					
+					
+				</div>
+			</div>
+			
+			<div class="div1">
+				<table width="100%" height="80" bgcolor="#000" align="center" valign="center" border="0">
+					<tr>
+						<td width="100%" align="center" valign="center">
+							<a id="buyparty"><font class='AntonioFontBold' color='#00ffff' size='6'>ACQUISTA PRIVATE PARTY</font></a>
+						</td>
+					</tr>
+				</table>
+				
+			</div>
+			
+			
+		</div>
+		
+		<div data-role=page id="home9" data-add-back-btn=true class="#">
+			
+			<div class="spinner" id="spinner9"></div>
+			
+			<div id="wrapper3">
+				<div id="scroller">
+					
+				<div id="loadpersonaggi">
+					
+                <!--    <div id="profiloman" width="100%"></div>
+                    
+					<table width="100%" align="center" class="pippo22A" bgcolor="#fff" valign="top">
+						<tr>
+							<td width="70%" align="left" valign="center">
+								<table width="80%" height="150" align="left" valign="center" border='0'>
+									<tr>
+									  <td width="100%" align="left" colspan="2">
+										<font class="AntonioFontBold" color="#000" size="10"><b><span id="name">Michele</span><b></font><br>
+										<font class="AntonioFont" color="#000" size="5"><b><span id="dati">Roma 20</span><b></font><br><br><br>
+										<div id="recensioni"><img src="img/feed_uomo.png" height="30"><img src="img/feed_uomo.png" height="30"><img src="img/feed_uomo.png" height="30"><img src="img/feed.png" height="30"><img src="img/feed.png" height="30"></div>
+									  </td>
+									</tr>
+									<tr>
+									  <td width="100%" align="center" valign="bottom" colspan="2">
+                                        <hr color="#00ffff">
+									  </td>
+									</tr>
+									
+								</table>
+							</td>
+							
+							<td width="30%" align="center" valign="top">
+								<table width="100%" height="150" bgcolor="#fff" valign="top" align="right" class="table33D" border='0'>
+									<tr>
+										<td align="center" valign="center"><font class="AntonioFont" color="#00ffff" size="4"><b>CON<b></font></td></tr><tr><td align="center" valign="center"><div id="fotoby"><img id="loadfotoprofilodonna" src="img/profilo.png" class="utenteimg2B"></div>
+										</td>
+									</tr>
+										<tr>
+											<td align="center" valign="center"><font class="AntonioFont" color="#00ffff" size="4"><span id="name2">Maria</span></font>
+												<br><font class="AntonioFont" color="#00ffff" size="4"><span id="dati2">Roma 20</span></font><br>
+											</td>
+										</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<br>
+                    
+                    <table width="90%" height="100%" align="center" class="#">
+                        <tr>
+                            <td width="100%" align="center">
+                                <table width="100%"align="center" class="#">
+                                    <tr>
+                                        <td width="50%" align="center">
+                                            <img id="#" src="img/foto_uomo.png" height="50" ><br>
+                                            <font size="3" class="GravityFontBold" color="#000"><b>Album</b></font>
+                                        </td>
+                                        <td width="50%" align="center">
+                                            <img id="chatdonna" src="img/mess_uomo.png" height="50" ><br>
+                                            <font size="3" class="GravityFontBold" color="#000"><b>Chatta</b></font>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </tr>
+                    </table>
+                    
+                    <br>
+
+
+					<table width="90%" align="center" bgcolor="#000">
+
+						<tr>
+							<td width="100%" align="center"><font class="AntonioFontBold" color="#00ffff" size="6.5">MY ORGASMOMENTALE</font><br></td>
+						</tr>
+					 </table>
+					
+					<br>
+					
+					<table width="90%" align="center" class="table33">
+						<tr>
+							<td width="100%" align="center">
+								<div id="scheda"></div>
+						    </td>
+						</tr>
+					</table>
+					
+					<br>
+					
+					<table width="90%" align="center" height="70px">
+						<tr>
+							<td width="100%" align="center">
+								<a id="ritorna"><img src="img/indietro.png" height="40px"></a>
+							</td>
+						</tr>
+					</table> -->
+				
+				</div>
+
+				</div>
+			</div>
+			
+			<!--<div class="div1">
+				<table width="100%" height="80" bgcolor="#fff" align="center" valign="center" border="0">
+					<tr>
+						<td width="100%" align="center" valign="center">
+							
+						</td>
+					</tr>
+				</table>
+				
+			</div>-->
+			
+		</div>
+		
+		<div data-role=page id="home10" data-add-back-btn=true class="#">
+			
+			<div class="spinner" id="spinner10"></div>
+			
+			<div id="wrapper4">
+				<div id="scroller">
+					
+					<div id="profilowoman"></div>
+					
+					<table width="98%" align="center" class="pippo22A" bgcolor="#fff" valign="top">
+						<tr>
+							<td width="70%" align="left" valign="center">
+								<table width="80%" align="left" valign="center" height="100%">
+									<tr>
+										<td width="100%" align="left" colspan="2">
+											<font class="AntonioFont" color="#000" size="20"><b>Federica<b></font><br>
+											<font class="AntonioFont" color="#000" size="6"><b>Roma 20<b></font><br>
+											<img src="img/feed_donna.png" height="30"><img src="img/feed_donna.png" height="30"><img src="img/feed_donna.png" height="30"><img src="img/feed.png" height="30"><img src="img/feed.png" height="30">
+										</td>
+									</tr>
+									<tr>
+										<td width="100%" align="center" colspan="2">
+											<hr color="#ee2c90">
+										</td>
+									</tr>
+									<tr>
+										<td width="100%" align="center" valign="center">
+											<img src="img/foto_donna.png" height="40">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<a id="chatdonna"><img src="img/mess_donna.png" height="40"></a>
+										</td>
+									</tr>
+								</table>
+							</td>
+							
+							<td width="30%" align="center" valign="top">
+								<table width="100%" height="150" bgcolor="#fff" valign="top" align="right" class="table33D">
+									<tr>
+										<td align="center" valign="center"><font class="AntonioFont" color="#00ffff" size="4"><b>CON<b></font></td></tr><tr><td align="center" valign="center"><img id="loadfotoprofilo" src="img/profilouomo.png" class="utenteimg2B">
+											</td>
+										</tr>
+										<tr>
+											<td align="center" valign="center"><font class="AntonioFont" color="#00ffff" size="4">Michele</font>
+												<br><font class="AntonioFont" color="#00ffff" size="4">Roma 20</font><br>
+											</td>
+										</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<br>
+					
+					<table width="90%" align="center" bgcolor="#000">
+						<tr>
+							<td width="100%" align="center"><font class="AntonioFontbold" color="#ee2c90" size="6.5">MY ORGASMOMENTALE</font><br></td>
+						</tr>
+					</table>
+					
+					<br>
+					
+					<table width="90%" align="center" class="table33">
+						<tr>
+							<td width="100%" align="center">
+								<div id="scheda2"></div>
+							</td>
+						</tr>
+					</table>
+					
+					<br>
+					
+					<a id="ritorna">INDIETRO</a>
+					
+				</div>
+			</div>
+			
+		</div>
+		
+		<div data-role=page id="home11" data-add-back-btn=true class="div22">
+			<div class="spinner" id="spinner11"></div>
+			
+			<div id="wrapper5">
+				<div id="scroller">
+					
+					<table width="100%" height="100%" align="center" class="pippo22">
+						<tr>
+							<td width="20%" align="center">
+								&nbsp;
+							</td>
+							<td width="60%" align="center">
+								<img id="indietro3" src="img/logorotondo.png" height="90">
+									</td>
+							<td width="20%" align="center" valign="top">
+								<img id="loadfotoprofilo2" src="img/fotodefault.png" height="50" class="utenteimg2A">
+							</td>
+						</tr>
+					</table>
+					
+					<table width="90%" height="100%" align="center" class="#">
+						<tr>
+							<td width="100%" align="center">
+								<table width="100%"align="center" class="#">
+									<tr>
+										<td width="50%" align="center">
+											<img id="#" src="img/party.png" height="50" ><br>
+												<font size="3" class="GravityFontBold" color="#000"><b>Private Party</b></font>
+										</td>
+										<td width="50%" align="center">
+											<img id="#" src="img/people.png" height="50" ><br>
+												<font size="3" class="GravityFontBold" color="#000"><b>People</b></font>
+										</td>
+									</tr>
+									
+								</table>
+						</tr>
+						
+					</table>
+					<br>
+					<!--<div id="persone22"></div>-->
+					
+				</div>
+			</div>
+			
+			<div class="div1">
+				<table width="100%" height="80" bgcolor="#000" align="center" valign="center" border="0">
+					<tr>
+						<td width="100%" align="center" valign="center">
+							<a id="makeparty"><font class='AntonioFontBold' color='#00ffff' size='6'>CREA PRIVATE PARTY</font></a>
+						</td>
+					</tr>
+				</table>
+				
+			</div>
+			
+		</div>
+		
+		<div data-role=page id="homechat" data-add-back-btn=true class="div22">
+			<div class="spinner" id="spinner12"></div>
+			
+			<!--<div data-role="header" data-theme="c" data-position="fixed" data-tap-toggle="false" class="div4">
+				
+			 </div>-->
+			
+			<div id="wrapper6">
+				<div id="scroller">
+					<table width="90%" align="center" class="pippo23" valign="center">
+						<tr>
+							<td width="30" align="left" valign="center">
+								<img id="indietro3" src="img/indietro.png" width="30">
+							</td>
+							<td width="100%" align="left" valign="center">
+								<table width="100%" valign="center" border="0">
+									<tr>
+										<td width="65" align="right" valign="center">
+											<img id="loadfotoprofilo6" src="http://msop.it/public/logorotondo.png" class="utenteimg2BC">
+										</td>
+										<td width="100%" align="left" valign="center">
+											<font class="AntonioFontBold" color="#000" size="6"><div id="nome_chat"></div></font>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td width="35" align="left">
+								
+							</td>
+						</tr>
+					</table>
+					<hr size="2" color="#000">
+					<form name="formia66" action="entra.asp" method="post">
+						<table id="spazioipad" height="20px"><tr><td></td></tr></table>
+						
+						<table width="90%" height="100%" align="center" >
+							<tr>
+								<td width="100%">
+						
+									<div id="offerta12" ></div>
+						
+								</td>
+							</tr>
+						</table>
+						
+				</div>
+			</div>
+			
+			<div class="div1">
+				<table width="100%" heigh="100%" bgcolor="#000" align="center" valign="center">
+					<tr>
+						<td width="70%" align="center" valign="center">
+							<input type="text" id="chattext" name="chattext" placeholder="Scrivi">
+						</td>
+						<td width="30%" align="center" valign="center">
+							<a id="chatting"><font class='AntonioFontBold' color='#00ffff' size='6'><b>INVIA</b></font></a>
+						</td>
+					</tr>
+					
+				</table>
+				
+			</div>
+			
+			</form>
+			
+		</div>
+		
+		
+		<div data-role=page id="homecreaparty" data-add-back-btn=true class="div22">
+			<div class="spinner" id="spinner14"></div>
+			
+			<div id="wrapper8">
+				<div id="scroller">
+					
+					<table width="100%" height="100%" align="center" class="pippo22">
+						<tr>
+							<td width="20%" align="center">
+								<a id="indietro3"><img src="img/indietro.png" height="30px"></a>
+							</td>
+							<td width="60%" align="center">
+								<img id="indietro3" src="img/logorotondo.png" height="90">
+							</td>
+							<td width="20%" align="center" valign="top">
+								
+							</td>
+						</tr>
+					</table>
+					
+					<table id="listaparty" align="center" cellspacing="0" cellpadding="0" class="unito">
+						<tr>
+							<td align="center">
+								<img id="wonderfulldinner" src="strisce/wonderfulparty.jpg" width="100%">
+							</td>
+						</tr>
+						<tr>
+							<td align="center">
+								<img id="toyboy" src="strisce/toyboy.png" width="100%">
+							</td>
+						</tr>
+						
+					</table>
+					
+					
+					<div id="anteprimaparty" style="display:none;" ></div>
+
+					<div id="anteprimaparty2" style="display:none;" ></div>
+					
+					<div id="anteprimafinale" style="display:none;" ></div>
+					
+					<div id="anteprimafinale2" style="display:none;" >
+					
+					<br>
+					<table width="100%" height="100%" align="center">
+						<tr>
+							<td width="100%" align="center">
+								<font class='AntonioFontBold' color='#000' size='6'><span id="antdata"></span></font>
+							</td>
+						</tr>
+						
+						<tr>
+							<td width="100%" align="center">
+								<font class='AntonioFontBold' color='#000' size='6'><span id="antdata"></span></font>
+							</td>
+						</tr>
+						
+					</table>
+					<br>
+					<table width="100%" height="100%" align="center" bgcolor="#000">
+						<tr>
+							<td width="100%" align="center">
+								<font class='AntonioFontBold' color='#00ffff' size='5'><b>INFO PRIVATE PARTY</b></font>
+							</td>
+						</tr>
+						
+					</table>
+					<br>
+					<table width="100%" height="100%" align="center">
+						<tr>
+							<td width="100%" align="center">
+								<font class='AntonioFont' color='#000' size='5'><span id="antinfo">bla bla bla blabla bla bla bla<br>bla bla bla blabla bla bla bla</span></font>
+							</td>
+						</tr>
+						
+					</table>
+					
+					<br><br>
+					
+					<table width="100%" height="100%" align="center">
+					
+					  <tr>
+						<td width="100%" align="left">
+							&nbsp;&nbsp;<font class='AntonioFontBold' color='#000' size='5'><span id="antprezzo"></span>€</font>
+						</td>
+					  </tr>
+					  <tr>
+						  <td width="100%" align="left">
+							  &nbsp;&nbsp;<font class='AntonioFontBold' color='#000' size='5'><span id="antcommissione"></span>€</font>
+						  </td>
+					  </tr>
+					  <tr>
+						  <td width="100%" align="left">
+							  &nbsp;&nbsp;<font class='AntonioFontBold' color='#000' size='5'><span id="antaltro"></span>€</font>
+						  </td>
+					  </tr>
+					</table>
+						<!--<a id="modifica" class="buttonbb buttonb2 AntonioFont"><font size="5" color="#fff"><b>MODIFICA</b></font></a>-->
+					
+					</div>
+					
+					
+					<form name="formia8" action="entra.asp" method="post">
+					
+					<table bgcolor="#00ffff" id="datiparty" width="95%" height="100%" align="center" cellspacing="0" cellpadding="0" class="unito" style="display:none;" >
+						
+						<tr bgcolor="#00ffff" height="50px">
+							<td width="20%" align="center">
+								<font class='AntonioFontBold' color='#000' size='5'><b>CITTA:</b></font>
+							</td>
+							<td width="75%" align="center" colspan="3">
+								<input name="cittafesta" id="cittafesta" type="text" placeholder="" class="scrivo">
+							</td>
+							<td width="5%" align="center">
+								&nbsp;
+							</td>
+						</tr>
+						
+						<tr bgcolor="#fff" height="7px">
+							<td width="100%" align="center" colspan="5">
+							</td>
+						</tr>
+						
+						<tr bgcolor="#00ffff" height="50px">
+							<td width="30%" align="center">
+								<font class='AntonioFontBold' color='#000' size='5' class="scrivo"><b>DATA:</b></font>
+							</td>
+							<td width="60%" align="center" colspan="3">
+								<!--<select name="anno" id="anno" class="scrivo"><option value="2017">17</option><option value="2018" >18</option></select>-->
+								<input name="anno" type="hidden" value="2018">
+								<select name="giorno" id="giorno" class="scrivo"><option value="12">12</option><option value="13">13</option><option value="14">14</option></select>
+								<select name="mese" id="mese" class="scrivo"><option value="01">Gennaio</option><option value="02">Febbraio</option></select>
+							</td>
+							<td width="5%" align="center">
+								&nbsp;
+							</td>
+						</tr>
+						<tr bgcolor="#fff" height="7px">
+							<td width="100%" align="center" colspan="5">
+							</td>
+						</tr>
+						<tr>
+							<td width="30%" align="center">
+								<font class='AntonioFontBold' color='#000' size='5'><b>ORA:</b></font>
+							</td>
+							<td width="65%" align="center" colspan="3">
+								<select name="ora" id="ora" class="scrivo"><option value="20:00">20:00</option><option value="21">21:00</option></select>
+							</td>
+							<td width="5%" align="center">
+								&nbsp;
+							</td>
+						</tr>
+						
+						<tr bgcolor="#fff" height="7px">
+							<td width="100%" align="center" colspan="5">
+							</td>
+						</tr>
+						
+						<tr bgcolor="#00ffff" height="50px">
+							<td width="30%" align="center">
+								<font class='AntonioFontBold' color='#000' size='5'><b>INVITATI:</b></font>
+							</td>
+							<td width="20%" align="center">
+								<select name="ospiti" id="ospiti" class="scrivo"><option value="5">5</option><option value="10">10</option></select>
+							</td>
+							<td width="20%" align="center">
+								<font class='AntonioFontBold' color='#000' size='5'><b>ETA':</b></font>
+							</td>
+							<td width="25%" align="center">
+								<select name="etafesta" id="etafesta" class="scrivo"><option value="18">18</option><option value="19" >19</option><option value="20" >20</option><option value="30" >30</option><option value="40" >40</option></select>
+							</td>
+							<td width="5%" align="center">
+								&nbsp;
+							</td>
+						</tr>
+						
+						<tr bgcolor="#fff" height="7px">
+							<td width="100%" align="center" colspan="5">
+							</td>
+						</tr>
+						
+						<tr bgcolor="#00ffff" height="50px">
+							<td width="30%" align="center">
+								<font class='AntonioFontBold' color='#000' size='5'><b>GIRLS</b></font>
+							</td>
+							<td width="65%" align="center" colspan="3">
+								<select name="girls" id="girls" class="scrivo"><option value="50" >50%</option><option value="0" >0%</option><option value="100" >100%</option></select>
+							</td>
+							<td width="5%" align="center">
+								&nbsp;
+							</td>
+						</tr>
+						<tr bgcolor="#00ffff" height="50px">
+							<td width="30%" align="center">
+								
+								<font class='AntonioFontBold' color='#000' size='5'><b>BOYS</b></font>
+							</td>
+							<td width="65%" align="center" colspan="3">
+								<!--<select name="boys" id="boys" class="scrivo"><option value="50" >50%</option><option value="0" >0%</option><option value="100" >100%</option></select>-->
+								<input name="boys" id="boys" type="text" value"50" class="scrivo" readonly>
+								<!--<font class='AntonioFontBold' size="4"><div id="vediboys" >50%</div></font>-->
+							</td>
+							<td width="5%" align="center">
+								&nbsp;
+							</td>
+						</tr>
+						
+						<tr bgcolor="#fff" height="7px">
+							<td width="100%" align="center" colspan="5">
+							</td>
+						</tr>
+						
+						<tr bgcolor="#00ffff" height="50px">
+							<td width="20%" align="center">
+								<font class='AntonioFontBold' color='#000' size='5'><b>LOCATION:</b></font>
+							</td>
+							<td width="75%" align="center" colspan="3">
+								<input name="location" type="text" placeholder="" class="scrivo">
+							</td>
+							<td width="5%" align="center">
+								&nbsp;
+							</td>
+						</tr>
+						
+						<tr bgcolor="#fff" height="7px">
+							<td width="100%" align="center" colspan="5">
+							</td>
+						</tr>
+						
+						
+						<tr bgcolor="#00ffff" height="50px">
+							<td width="20%" align="center">
+								<font class='AntonioFontBold' color='#000' size='5'><b>INFO:</b></font>
+							</td>
+							<td width="75%" align="center" colspan="3">
+								<textarea name="info" type="text" placeholder="" rows="5" cols="15" class="scrivo"></textarea>
+							</td>
+							<td width="5%" align="center">
+								&nbsp;
+							</td>
+						</tr>
+						
+						<tr bgcolor="#fff" height="7px">
+							<td width="100%" align="center" colspan="5">
+							</td>
+						</tr>
+						
+						<tr bgcolor="#00ffff" height="50px">
+							<td width="100%" align="center" colspan="5">
+								<table width="50%" align="center">
+									<tr>
+										<td width="40%" align="right" colspan="3">
+											<font class='AntonioFontBold' color='#000' size='5'><img src="img/euro.png" height="30"></font>
+										</td>
+										<td width="50%" align="center">
+											<select name="prezzo" id="prezzo" class="scrivo"><option value="5" >5</option><option value="10" >10</option><option value="15" >15</option></select>
+										</td>
+										<td width="10%" align="center">
+											&nbsp;
+										</td>
+									</tr>
+								</table>
+							</td>
+							
+						</tr>
+						
+						<tr bgcolor="#fff" height="7px">
+							<td width="100%" align="center" colspan="5">
+								
+							</td>
+						</tr>
+						
+						<tr bgcolor="#00ffff">
+							<td width="100%" align="center" colspan="5">
+							  <font class='AntonioFontBold' color='#000' size='5'><b>FLYER:</b></font>
+							  <div id="fotoflyer" width="100%"></div>
+							</td>
+						</tr>
+						
+					</table>
+					
+					<br><br><br><br><br>
+					</form>
+				
+				<br><br><br>
+				</div>
+			</div>
+			
+			<div id="footerparty" class="div1" style="display:none;">
+				<table width="100%" height="80" bgcolor="#000" align="center" valign="center" border="0">
+					<tr>
+						<td width="100%" align="center" valign="center">
+							<div id="tastocrea"><a id="creafesta"><font class='AntonioFontBold' color='#00ffff' size='6'>AVANTI</font></a></div>
+						</td>
+					</tr>
+				</table>
+				
+			</div>
+            
+            <div id="footerparty2" class="div11" style="display:none;">
+                <table width="100%" height="80" bgcolor="#fff" align="center" valign="center" border="0">
+                    <tr>
+                        <td width="100%" align="center" valign="center">
+                            <div id="tastocrea2"><a id="#"><font class='AntonioFontBold' color='#00ffff' size='6'>AVANTI</font></a></div>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+			
+		</div>
+		
+		
+        <script type="text/javascript" src="cordova.js"></script>
+        <script src="openfb.js"></script>
+        <script type="text/javascript" src="js/present.js"></script>
+		
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+		
+		
+    </body>
+</html>

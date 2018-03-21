@@ -1,0 +1,163 @@
+/*@font-face {
+ font-family: 'BAUHS93';
+ src: url('./BAUHS93.eot');
+ src: local('BAUHS93'), url('./BAUHS93.ttf') format('truetype');
+ }*/
+
+@font-face {
+	font-family: 'Demo';
+	/*src: url('./BAUHS93.eot');*/
+	src: local('Demo'), url('./Demo.ttf') format('truetype');
+	
+}
+
+@font-face {
+	
+	font-family: 'Antonio';
+	/*src: url('./BAUHS93.eot');*/
+	src: local('Antonio'), url('./antonio.ttf') format('truetype');
+	
+}
+
+@font-face {
+    
+    font-family: 'AntonioBold';
+    /*src: url('./BAUHS93.eot');*/
+    src: local('AntonioBold'), url('./AntonioBold.ttf') format('truetype');
+    
+}
+
+@font-face {
+    
+    font-family: 'BEBAS';
+    /*src: url('./BAUHS93.eot');*/
+    src: local('BEBAS'), url('./BEBAS.ttf') format('truetype');
+    
+}
+
+@font-face {
+
+	font-family: 'Gravity';
+	/*src: url('./BAUHS93.eot');*/
+	src: local('Gravity'), url('./gravity.otf') format('truetype');
+	
+}
+
+@font-face {
+    
+    font-family: 'GravityBold';
+    /*src: url('./BAUHS93.eot');*/
+    src: local('GravityBold'), url('./GravityBold.ttf') format('truetype');
+    
+}
+
+@font-face {
+	
+	font-family: 'Foryou';
+	/*src: url('./BAUHS93.eot');*/
+	src: local('Foryou'), url('./foryou.ttf') format('truetype');
+}
+
+@font-face {
+	
+	font-family: 'helveticaneue';
+	/*src: url('./BAUHS93.eot');*/
+	src: local('helveticaneue'), url('./helvetica.ttf') format('truetype');
+}
+
+
+.HelveticaFont {
+	font-family: 'helveticaneue' !important;
+	
+	text-decoration: none;
+	text-shadow:0 0 0;
+}
+
+.fontsforweb_fontid_2802 {
+	font-family: 'BAUHS93' !important;
+	
+	text-decoration: none;
+	text-shadow:0 0 0;
+}
+
+
+.DemoFont {
+	font-family: 'Demo' !important;
+	
+	text-decoration: none;
+	text-shadow:0 0 0;
+}
+
+.DemoFontb {
+	font-family: 'Demo' !important;
+	
+	text-decoration: none;
+	text-shadow:0 0 0;
+	
+	text-shadow:   0px  0px 2px #000;
+}
+
+.AntonioFont {
+	font-family: 'Antonio' !important;
+	
+	text-decoration: none;
+	text-shadow:0 0 0;
+	
+}
+
+.AntonioFontBold {
+    font-family: 'AntonioBold' !important;
+    
+    text-decoration: none;
+    text-shadow:0 0 0;
+	
+}
+
+.AntonioFontBold2 {
+	font-family: 'AntonioBold' !important;
+	
+	font-size: 46px;
+	
+	text-decoration: none;
+	text-shadow:0 0 0;
+	
+}
+
+.BebasFont {
+    font-family: 'BEBAS' !important;
+    
+    text-decoration: none;
+    text-shadow:0 0 0;
+    
+}
+
+.AntonioFontb {
+	font-family: 'Antonio' !important;
+	
+	text-shadow:   0px  0px 2px #000;
+	
+	font-weight: bold;
+}
+
+
+.GravityFont {
+	font-family: 'Gravity' !important;
+	
+	text-decoration: none;
+	text-shadow:0 0 0;
+}
+
+.GravityFontBold {
+    font-family: 'GravityBold' !important;
+    
+    text-decoration: none;
+    text-shadow:0 0 0;
+}
+
+.ForyouFont {
+	font-family: 'Foryou' !important;
+	
+	text-decoration: none;
+	text-shadow:0 0 0;
+}
+/* Font downloaded from FontsForWeb.com */
