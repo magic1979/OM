@@ -6,26 +6,59 @@ function onDeviceReady() {
 	var myScroll;
 	
 	myScroll = new IScroll('#wrapper', {
-       click: true,
-       useTransform: false,
-       //bounce: false,
-       onBeforeScrollStart: function (e)
-       {
-       var target = e.target;
-       while (target.nodeType != 1) {
-       target = target.parentNode;
-       }
-       
-       if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
-       e.preventDefault();
-       }
-       }
+		   click: true,
+		   useTransform: false,
+		   //bounce: false,
+		   onBeforeScrollStart: function (e)
+		   {
+		   var target = e.target;
+		   while (target.nodeType != 1) {
+		   target = target.parentNode;
+		   }
+		   
+		   if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+		   e.preventDefault();
+		   }
+		   }
 	});
 	
 	
 	setTimeout (function(){
-        myScroll.refresh();
-    }, 500);
+	  myScroll.refresh();
+	}, 500);
+	
+	
+	//DATA
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1;//January is 0, so always add + 1
+	
+	var ora = today.getHours()
+	if(ora<10){ora="0"+ora}
+	
+	var minuti = today.getMinutes();
+	if(minuti<10){minuti="0"+minuti}
+	
+	var secondi = today.getSeconds();
+	if(secondi<10){secondi="0"+secondi}
+	
+	var yyyy = today.getFullYear();
+	if(dd<10){dd="0"+dd}
+	if(mm<10){mm="0"+mm}
+	today = dd+'/'+mm+'/'+yyyy;
+	
+	$("#stamp").html(yyyy+"-"+mm+"-"+dd+" "+ora+":"+minuti+":00");
+	var ora_cell = yyyy+"_"+mm+"_"+dd+"_"+ora+"_"+minuti+"_"+secondi+"";
+	
+	localStorage.setItem("ora_cell", ora_cell);
+	
+	var pippo = localStorage.getItem("email")
+	pippo = pippo.replace("@","").replace(".","").replace(".","")
+	pippo = pippo+"_"+localStorage.getItem("ora_cell")
+	
+	localStorage.setItem("nomegall", pippo)
+	
+	//alert(localStorage.getItem("nomegall"))
 	
 	
 	
@@ -35,7 +68,7 @@ function onDeviceReady() {
 		
         //var watchID = navigator.geolocation.getCurrentPosition(gpsonSuccess, gpsonError, {timeout: 30000, enableHighAccuracy: true, maximumAge: 90000 });
 		
-		//$("#lati").html(localStorage.getItem("lat") +", "+ localStorage.getItem("lng"));
+		$("#lati").html(localStorage.getItem("lat") +", "+ localStorage.getItem("lng"));
 		
 		var crop_max_width = 420;
 		var crop_max_height = 300;
@@ -91,7 +124,7 @@ function onDeviceReady() {
 									});*/
 		
 
-		//$("#spinner").hide();
+		$("#spinner").hide();
 	
 		
 	// START CODE //
@@ -99,72 +132,28 @@ function onDeviceReady() {
 	
 	$("#spinner").show();
 	
-		navigator.camera.getPicture(uploadPhoto, onFail, { quality: 90,
-									
-		destinationType: Camera.DestinationType.FILE_URI,
-		sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-		targetWidth: 960,
-		targetHeight: 720
+	navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
+								
+	destinationType: Camera.DestinationType.FILE_URI,
+	sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+	targetWidth: 840,
+	targetHeight: 640
 	
 	});
 	
 	
-  /*  if (localStorage.getItem("selfie")=="1"){
-        
-        $("#termini").show();
-        $("#accetto").show();
-        
-        $(document).on("tap", "#termini", function(e){
-                       
-            var ref = window.open('http://msop.it/termini.html', '_system', 'location=no');
-                       
-        });
-    }
-    else{
-        
-        $("#termini").hide();
-        $("#accetto").hide();
-    } */
-    
-   
-    $(document).on("touchstart", "#accetto", function(e){
-                   
-       $("#termini").hide();
-       $("#accetto").hide();
-       
-       localStorage.setItem("selfie","0")
-                   
-    });
-    
-    
-    $(document).on("touchmove", "#test", function(e){
-                   
-       $("#sparisci").hide();
-                   
-       $("#cropbutton").show();
-       
-    });
-
-    
-    $(document).on("tap", "#test2", function(e){
-                   
-       $("#sparisci").hide();
-       
-       $("#cropbutton").show();
-       
-    });
 	
 	
 	if(localStorage.getItem("modofoto")=="prendi"){
 		
 		$("#spinner").show();
 		
-		navigator.camera.getPicture(uploadPhoto, onFail, { quality: 90,
+		navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
 		
 		destinationType: Camera.DestinationType.FILE_URI,
 		sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-		targetWidth: 960,
-		targetHeight: 720
+		targetWidth: 840,
+		targetHeight: 600
 	 
 	 });
 		
@@ -185,30 +174,25 @@ function onDeviceReady() {
 	 
 	 });
 	}
-
 	
 	
-	$(document).on("touchstart", "#fotomia", function(e){
-				   
-		/*$("#cropbutton").show();
-		$("#ciccio1").hide();*/
-        $("#ciccio1").hide();
-        $("#cropbutton").hide();
-                   
-        $("#sparisci").show();
+	
         
-		navigator.camera.getPicture(uploadPhoto, onFail, { quality: 90,
-		   //allowEdit: true,
-		   destinationType: Camera.DestinationType.FILE_URI,
-		   sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-		   targetWidth: 840,
-		   targetHeight: 620
+		$(document).on("touchstart", "#fotomia", function(e){
+					   
+			$("#cropbutton").show();
+					   
+			navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
+			   //allowEdit: true,
+			   destinationType: Camera.DestinationType.FILE_URI,
+			   sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+			   targetWidth: 840,
+			   targetHeight: 600
+			});
+	   
 		});
-   
-	});
 		
-	
-	
+		
 		$(document).on("touchstart", "#scatta", function(e){
 					   
 			navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 30,
@@ -222,7 +206,7 @@ function onDeviceReady() {
 		});
 		
 
-       /* $(document).on("touchstart", "#play", function(e){
+        $(document).on("touchstart", "#play", function(e){
                        
             playAudio2('successSound');
                        
@@ -232,7 +216,7 @@ function onDeviceReady() {
 					   
 			//playAudio2('successSound');
 					   
-        });*/
+        });
 		
 	
 		
@@ -242,16 +226,15 @@ function onDeviceReady() {
             var url =  ""+ localStorage.getItem("path") +"" //"sound/pool.mp3" //localStorage.getItem("path").toString() //audioElement.getAttribute('src');
             
             var my_media2 = new Media(url,
-                                      // success callback
-                                      function () { console.log("playAudio():Audio Success"); },
-                                      // error callback
-                                      function (err) { console.log("playAudio():Audio Error: " + err); }
-                                      );
+			  // success callback
+			  function () { console.log("playAudio():Audio Success"); },
+			  // error callback
+			  function (err) { console.log("playAudio():Audio Error: " + err); }
+			  );
             
             my_media2.play();
             
-            
-            
+			
             setTimeout(function() {
                 my_media2.stop();
             }, 10000);
@@ -264,6 +247,38 @@ function onDeviceReady() {
 		
 		function uploadPhoto(imageURI) {
 			
+			//DATA
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1;//January is 0, so always add + 1
+			
+			var ora = today.getHours()
+			if(ora<10){ora="0"+ora}
+			
+			var minuti = today.getMinutes();
+			if(minuti<10){minuti="0"+minuti}
+			
+			var secondi = today.getSeconds();
+			if(secondi<10){secondi="0"+secondi}
+			
+			var yyyy = today.getFullYear();
+			if(dd<10){dd="0"+dd}
+			if(mm<10){mm="0"+mm}
+			today = dd+'/'+mm+'/'+yyyy;
+			
+			$("#stamp").html(yyyy+"-"+mm+"-"+dd+" "+ora+":"+minuti+":00");
+			var ora_cell = yyyy+"_"+mm+"_"+dd+"_"+ora+"_"+minuti+"_"+secondi+"";
+			
+			localStorage.setItem("ora_cell", ora_cell);
+			
+			var pippo = localStorage.getItem("email")
+			pippo = pippo.replace("@","").replace(".","").replace(".","")
+			pippo = pippo+"_"+localStorage.getItem("ora_cell")
+			
+			localStorage.setItem("nomegall", pippo)
+			
+			// FINE DATA //
+			
 			$("#spinner").hide();
 			
 			// Convert image
@@ -275,10 +290,9 @@ function onDeviceReady() {
 			   localStorage.setItem("imgutente2", base64Image);
 			   localStorage.setItem("imgutente3", base64Image.replace("data:image/jpeg;base64,",""));
 			   
-			   //$("#cropbutton").show();
-			   //$("#rotatebutton").show();
-                                   
-
+			   $("#cropbutton").show();
+			   $("#rotatebutton").show();
+			   
 			   setTimeout (function(){
 					myScroll.refresh();
 				}, 500);
@@ -504,22 +518,8 @@ function onDeviceReady() {
 		
 		
 		$(document).on("touchstart", "#ciccio1", function(e){
-                       
-            ciccio();
-			
-          /* if (localStorage.getItem("selfie")=="1"){
-                       
-               navigator.notification.alert(
-                    'devi accettare i termini e condizioni per proseguire',  // message
-                    alertDismissed,         // callback
-                    'Termini',            // title
-                    'OK'                  // buttonName
-                );
-
-            }
-            else{
-                ciccio();
-            }*/
+					   
+			ciccio();
 					   
 		});
 		
@@ -574,36 +574,6 @@ function onDeviceReady() {
 		
 		
 		function dataURLtoBlob(dataURL) {
-            
-            var today = new Date();
-            var dd = today.getDate();
-            var mm = today.getMonth()+1;//January is 0, so always add + 1
-            
-            var ora = today.getHours()
-            if(ora<10){ora="0"+ora}
-            
-            var minuti = today.getMinutes();
-            if(minuti<10){minuti="0"+minuti}
-            
-            var secondi = today.getSeconds();
-            if(secondi<10){secondi="0"+secondi}
-            
-            var yyyy = today.getFullYear();
-            if(dd<10){dd="0"+dd}
-            if(mm<10){mm="0"+mm}
-            today = dd+'/'+mm+'/'+yyyy;
-            
-            $("#stamp").html(yyyy+"-"+mm+"-"+dd+" "+ora+":"+minuti+":00");
-            var ora_cell = yyyy+"_"+mm+"_"+dd+"_"+ora+"_"+minuti+"_"+secondi+"";
-            
-            localStorage.setItem("ora_cell", ora_cell);
-            
-            var pippo = localStorage.getItem("email")
-            pippo = pippo.replace("@","").replace(".","").replace(".","")
-            pippo = pippo+"_"+localStorage.getItem("ora_cell")
-            
-            localStorage.setItem("nomeimg", pippo)
-            
 			
 			$("#spinner").show();
 			
@@ -616,8 +586,8 @@ function onDeviceReady() {
 			setTimeout (function(){
 				$.ajax({
 				   type: "POST",
-				   url: "http://msop.it/picture.php",
-				   data: {imgdata:localStorage.getItem("imgutente3"),foto:localStorage.getItem("nomeimg"),email:localStorage.getItem("email")},
+				   url: "http://msop.it/galleria.php",
+				   data: {imgdata:localStorage.getItem("imgutente3"),foto:localStorage.getItem("nomegall"),email:localStorage.getItem("email")},
 				   cache: false,
 				   crossDomain: true,
 				   contentType: "application/x-www-form-urlencoded",
@@ -625,18 +595,17 @@ function onDeviceReady() {
 				   
 				   $("#spinner").hide();
 					   
-				   localStorage.setItem("registrato","3")
-                       
-                   //localStorage.setItem("selfie", "1");
+				   localStorage.setItem("registrato","OK")
 				   
-				   /*navigator.notification.alert(
+				   navigator.notification.alert(
 					'File caricato correttamente.',  // message
 					alertDismissed,         // callback
 					'File Upload',           // title
 					'Done'                  // buttonName
-					);*/
+					);
 				   
-                     localStorage.setItem("fotook","1")
+					   
+					 localStorage.setItem("album","OK")
 					   
 					 window.location.href = "index.html";
 					   
@@ -694,7 +663,7 @@ function onDeviceReady() {
         
         if (canvas != null) {
             image = new Image();
-            image.onload = restartJcrop2;
+            image.onload = restartJcrop;
             image.src = canvas.toDataURL('image/png');
         } else restartJcrop();
     }
@@ -703,147 +672,48 @@ function onDeviceReady() {
 			
 			if (canvas != null) {
 				image = new Image();
-                
-                //alert(image.width)
-                
 				image.onload = restartJcrop;
 				image.src = canvas.toDataURL('image/png');
 			} else restartJcrop();
 		}
 		
-    
 		function restartJcrop() {
-            
-            //alert("primo: "+ image.width)
-            
-            var larghezza;
-            var altezza;
-            
-            if(image.width<439){
-                 navigator.notification.alert(
-                 'Questa foto non è adatta come foto profilo ma potrai caricarla nel tuo album personale!',  // message
-                 alertDismissed,         // callback
-                 '',            // title
-                 'OK'                  // buttonName
-                 );
-            }
-            else if((image.width>440)&&(image.width<599)){
-                larghezza = image.width
-                altezza = image.height
-                
-                if (jcrop_api != null) {
-                    jcrop_api.destroy();
-                }
-                $("#views").empty();
-                $("#views").append("<canvas id=\"canvas\">");
-                canvas = $("#canvas")[0];
-                context = canvas.getContext("2d");
-                canvas.width = larghezza; //image.width;
-                canvas.height = altezza;//image.height;
-                context.drawImage(image, 0, 0);
-                
-                $("#canvas").Jcrop({
-                                   
-                   //aspectRatio: 1,
-                   setSelect:   [0, 0, 440, 315],
-                   onSelect: selectcanvas,
-                   onRelease: clearcanvas,
-                   boxWidth: crop_max_width,
-                   boxHeight: crop_max_height,
-                   allowResize: false,
-                   allowSelect: false
-                   
-                   }, function() {
-                   jcrop_api = this;
-                });
-            }
-            
-            else if((image.width>600)&&(image.width<680)){
-                
-                larghezza = image.width
-                altezza = image.height
-                
-                if (jcrop_api != null) {
-                    jcrop_api.destroy();
-                }
-                $("#views").empty();
-                $("#views").append("<canvas id=\"canvas\">");
-                canvas = $("#canvas")[0];
-                context = canvas.getContext("2d");
-                canvas.width = larghezza; //image.width;
-                canvas.height = altezza;//image.height;
-                context.drawImage(image, 0, 0);
-                
-                $("#canvas").Jcrop({
-                                   
-                   //aspectRatio: 1,
-                   setSelect:   [0, 0, 600, 430],
-                   onSelect: selectcanvas,
-                   onRelease: clearcanvas,
-                   boxWidth: crop_max_width,
-                   boxHeight: crop_max_height,
-                   allowResize: false,
-                   allowSelect: false
-                   
-                   }, function() {
-                   jcrop_api = this;
-                });
-            }
-            else{
-                
-                larghezza = image.width;
-                altezza = image.height;
-                
-                if (jcrop_api != null) {
-                    jcrop_api.destroy();
-                }
-                $("#views").empty();
-                $("#views").append("<canvas id=\"canvas\">");
-                canvas = $("#canvas")[0];
-                context = canvas.getContext("2d");
-                canvas.width = larghezza; //image.width;
-                canvas.height = altezza;//image.height;
-                context.drawImage(image, 0, 0);
-                
-                $("#canvas").Jcrop({
-                                   
-                   //aspectRatio: 1,
-                   setSelect:   [0, 0, 700, 500],
-                   onSelect: selectcanvas,
-                   onRelease: clearcanvas,
-                   boxWidth: crop_max_width,
-                   boxHeight: crop_max_height,
-                   allowResize: false,
-                   allowSelect: false
-                   
-                   }, function() {
-                   jcrop_api = this;
-                });
-            }
+			if (jcrop_api != null) {
+				jcrop_api.destroy();
+			}
+			$("#views").empty();
+			$("#views").append("<canvas id=\"canvas\">");
+			canvas = $("#canvas")[0];
+			context = canvas.getContext("2d");
+			canvas.width = image.width;
+			canvas.height = image.height;
+			context.drawImage(image, 0, 0);
+			$("#canvas").Jcrop({
+                               
+				   //aspectRatio: 1,
+				   setSelect:   [0, 0, 420, 300],
+				   onSelect: selectcanvas,
+				   onRelease: clearcanvas,
+				   boxWidth: crop_max_width,
+				   boxHeight: crop_max_height,
+				   allowResize: false,
+				   allowSelect: false
+				   
+				   /*allowResize: false
+				   allowSelect: false
+					
+				   onSelect: selectcanvas,
+				   onRelease: clearcanvas,
+				   boxWidth: crop_max_width,
+				   boxHeight: crop_max_height*/
+				   }, function() {
+				   jcrop_api = this;
+				   });
 
-            
 			clearcanvas();
 		}
     
     function restartJcrop2() {
-        
-        //alert("diventa: "+ image.width)
-        
-        var larghezza;
-        var altezza;
-        
-        if(image.width<420){
-            
-            larghezza = 420;
-            altezza = 300;
-        }
-        else{
-            
-            larghezza = image.width;
-            altezza = image.height;
-        }
-        
-        
         if (jcrop_api != null) {
             jcrop_api.destroy();
         }
@@ -851,25 +721,20 @@ function onDeviceReady() {
         $("#views").append("<canvas id=\"canvas\">");
         canvas = $("#canvas")[0];
         context = canvas.getContext("2d");
-        canvas.width = larghezza;//image.width; //image.width;
-        canvas.height = altezza;//image.height;
+        canvas.width = image.width;
+        canvas.height = image.height;
         context.drawImage(image, 0, 0);
-
         $("#canvas").Jcrop({
 
-		   setSelect:   [0, 0, 700, 500],
-		   onSelect: selectcanvas,
-		   onRelease: clearcanvas,
-		   boxWidth: crop_max_width,
-		   boxHeight: crop_max_height,
-		   allowResize: false,
-		   allowSelect: false
-						   
-						   
-	   }, function() {
-	   jcrop_api = this;
-	   });
-        
+                            onSelect: selectcanvas,
+                            onRelease: clearcanvas,
+                            boxWidth: crop_max_width,
+                            boxHeight: crop_max_height,
+						    allowResize: false,
+						    allowSelect: false
+                           }, function() {
+                           jcrop_api = this;
+                           });
         clearcanvas();
     }
 		
@@ -895,11 +760,9 @@ function onDeviceReady() {
 			canvas.width = prefsize.w;
 			canvas.height = prefsize.h;
 			context.drawImage(image, prefsize.x, prefsize.y, prefsize.w, prefsize.h, 0, 0, canvas.width, canvas.height);
-			
 			validateImage2();
 			
 			$("#cropbutton").hide();
-			
 			$("#ciccio1").show();
 			
 			/*$(function() {
@@ -950,20 +813,10 @@ function onDeviceReady() {
 			context.drawImage(image, 0, 0);
 			validateImage();
 		}
-	
-	
-		//$("#cropbutton").click(function(e) {
-				//applyCrop();
-		//});
-	
-	
-		$(document).on("touchstart", "#cropbutton", function(e){
-				   
-			applyCrop();
-				   
-		});
-	
-	
+		
+		$("#cropbutton").click(function(e) {
+							   applyCrop();
+							   });
 		$("#scalebutton").click(function(e) {
 								var scale = prompt("Scale Factor:", "1");
 								applyScale(scale);
@@ -1031,11 +884,11 @@ function onDeviceReady() {
 			localStorage.setItem("lng", lng)
 			
 			navigator.notification.alert(
-			 'Possibile errore GPS, assicurati di avere il gps del telefono attivato.',  // message
-			 alertDismissed,         // callback
-			 'Attenzione',           // title
-			 'Done'                  // buttonName
-			 );
+										 'Possibile errore GPS, assicurati di avere il gps del telefono attivato.',  // message
+										 alertDismissed,         // callback
+										 'Attenzione',           // title
+										 'Done'                  // buttonName
+										 );
 			
 		}
 		
@@ -1048,8 +901,6 @@ function onDeviceReady() {
 		window.location.href = "index.html";
 				   
 	});
-    
-    
 	
 	
     

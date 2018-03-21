@@ -47,8 +47,8 @@ var app = {
 		);
 		
 
-		
 		FastClick.attach(document.body);
+		
         
 
 		////////// controllo internet ///////////////
@@ -219,59 +219,45 @@ var app = {
         
         $(document).on("touchstart", "#gofacebook", function(e){
                        
-            //var ref = window.open('https://www.facebook.com/AddAll-1668688740106992/', '_system', 'location=no');
+            var ref = window.open('https://www.facebook.com/groups/tanadelletigripoker/', '_system', 'location=no');
                        
-                       var name;
-                       var nameInterval;
-                       var win = window.open( "http://msop.it/filepicker.html", "_system", "location=yes" );
-                       
-                       win.addEventListener( "loadstop", function() {
-                            win.executeScript({ code: "localStorage.setItem('name', '')" });
-                            nameInterval = setInterval(function() {
-                            win.executeScript({ code: "localStorage.getItem('name')" }, function(values) {
-                                name = values[0];
-                            });
-                        }, 100)
-                            });
-                       
-                       win.addEventListener('exit', function() {
-                            clearInterval(nameInterval);
-                            alert(name);
-                        });
-                       
-        });
-        
+         });
         
         
         $(document).on("touchstart", "#goinsta", function(e){
                        
-           var ref = window.open('http://www.cdsevents.it', '_system', 'location=no');
+              var ref = window.open('http://www.cdsevents.it', '_system', 'location=no');
          });
-		
+					   
+					   
+					   
+	     
+		$(document).on("touchstart", "#bannerhome", function(e){
+                       
+               var ref = window.open('http://msop.it/waddall/splash.html', '_system', 'location=no');
+        });
 		
 		
 
-        $(document).on("touchstart", "#indietro2", function(e){
-                       
-            window.plugins.nativepagetransitions.fade({
+        $(document).on("touchstart", "#indietro", function(e){
+					   
+			//window.location.href = "index.html";
+			//$.mobile.changePage ($("#home"));
+			window.plugins.nativepagetransitions.fade({
                 "duration"       :  700, // in milliseconds (ms), default 400
 				"iosdelay"       :   50, // ms to wait for the iOS webview to update before animation kicks in, default 60
 				"androiddelay"   :  500,
-                'href': 'index.html'
+                "href" : "index.html"
             });
-                       
-        });
+			
+					   
+		});
 		
 
 		
 		$(document).on("touchstart", "#btncount", function(e){
 						
-			window.plugins.nativepagetransitions.fade({
-                "duration"       :  700, // in milliseconds (ms), default 400
-				"iosdelay"       :   50, // ms to wait for the iOS webview to update before animation kicks in, default 60
-				"androiddelay"   :  500,
-                "href" : "index33.html"
-            });
+			window.location.href = "index2v2.html";
 					   
 		});
         
@@ -294,12 +280,7 @@ var app = {
             window.location.href = "index2live.html";
                        
         });
-		
-		$(document).on("touchstart", "#goperla", function(e){
-					   
-		   var ref = window.open('http://www.thecasinoperla.com/index.php?id=pokerroom_perla&L=158?utm_source=gameanswer&utm_medium=banner&utm_campaign=Poker%20room%20Perla&utm_content=ITA', '_system', 'location=no');
-					   
-	   });
+        
         
         $(document).on("touchstart", "#online", function(e){
                        
@@ -309,26 +290,35 @@ var app = {
         
         $(document).on("touchstart", "#satonline", function(e){
                        
-            window.location.href = "index2satonline.html";
+            //window.location.href = "index2satonline.html";
+			
+			window.plugins.nativepagetransitions.fade({
+                "duration"       :  700, // in milliseconds (ms), default 400
+				"iosdelay"       :   50, // ms to wait for the iOS webview to update before animation kicks in, default 60
+				"androiddelay"   :  500, 
+               "href" : "index2satonline.html"
+            });
                        
         });
         
         
         $(document).on("touchstart", "#satlive", function(e){
                        
-            window.location.href = "index2satlive.html";
+            //window.location.href = "index2satlive.html";
+			
+			window.plugins.nativepagetransitions.fade({
+                "duration"       :  700, // in milliseconds (ms), default 400
+				"iosdelay"       :   50, // ms to wait for the iOS webview to update before animation kicks in, default 60
+				"androiddelay"   :  500,
+                "href" : "index2satlive.html"
+            });
                        
         });
         
         
         $(document).on("touchstart", "#tornei", function(e){
                        
-            window.plugins.nativepagetransitions.fade({
-                "duration"       :  700, // in milliseconds (ms), default 400
-				"iosdelay"       :   50, // ms to wait for the iOS webview to update before animation kicks in, default 60
-				"androiddelay"   :  500,
-                "href" : "index33.html"
-            });
+            prendibannertop()
                        
                        
         });
@@ -554,9 +544,9 @@ var app = {
 }
 
 
-$(document).on("tap", "#altro1", function(e){
+$(document).on("tap", "#altro3", function(e){
                
-    $("#btnpanel1").click();
+    $("#btnpanel3").click();
                
 });
 

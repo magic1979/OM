@@ -43,17 +43,7 @@ var app = {
 		
         //StatusBar.hide();
 		
-        //alert(screen.width)
-        
-        if(screen.width<400){
-            $("#pepe").hide();
-            
-            $("#imgpersone").attr("height","80px");
-            
-        }
-        
-        openFB.init({appId: '184833315394016'});
-        
+		
         
          $("#spinner8").hide();
 		
@@ -79,13 +69,8 @@ var app = {
 		var myScroll4;
 		var myScroll5;
 		var myScroll55;
-        var myScroll57;
-        var myScroll59;
 		var myScroll7;
-		var myScroll27;
-        var myScroll77;
 		var myScroll8;
-        var myScroll9;
 		var refreshIntervalId;
 		
 		var crop_max_width = 400;
@@ -244,31 +229,14 @@ var app = {
 						
 						
 					}
-                    else if(localStorage.getItem("registrato")=="OK"){
-						
-						if(localStorage.getItem("primavolta")=="0"){
-							window.plugins.nativepagetransitions.fade({
-							  "duration"       :  1000,
-							  "iosdelay"       :   50,
-							  "androiddelay"   :  500,
-							  "href" : "#home6"
-							  });
-						}
-						else{
-						  controlloregistrazione()
-						}
-                        
-                    }
-					else if(localStorage.getItem("registrato")=="3"){
+					else if(localStorage.getItem("registrato")=="OK"){
 						
 						controlloregistrazione()
 					
 					}
 					else{
 						
-						window.location.href = "present.html";
-						
-						//$.mobile.changePage("#home4", { transition: "fade" });
+						$.mobile.changePage("#home4", { transition: "fade" });
 						
 						/*window.plugins.nativepagetransitions.fade({
 																  "duration"       :  1000,
@@ -290,8 +258,6 @@ var app = {
 			$("#bannerp").hide()
 			$("#spinner1").hide()
 			
-            $("#feste").html("<font color='red'>Nessuna conniessione di rete</font>")
-            $("#persone").hide("<font color='red'>Nessuna conniessione di rete</font>")
 			
 			navigator.notification.alert(
 			 'Errore di rete, riprova sotto copertura',  // message
@@ -299,8 +265,6 @@ var app = {
 			 'Errore di Rete',            // title
 			 'OK'                  // buttonName
 			);
-			
-			window.location.href = "index.html";
 			
 		}
 		
@@ -344,47 +308,42 @@ var app = {
 					  
 					  }
 					  else{
-                          
-                          localStorage.setItem("myid", item.id);
-                          localStorage.setItem("nickname", item.nickname);
-                          localStorage.setItem("etaprofilo", item.data_nascita);
-                          localStorage.setItem("cittaprofilo", item.citta);
-                      
-                          localStorage.setItem("orgasmomentale", item.info);
-                      
-                          localStorage.setItem("nomeimg", item.foto)
-                      
-                          localStorage.setItem("registrato", "3");
+						  
+						  //if(localStorage.getItem("album")!="OK"){
 
-                          localStorage.setItem("loggato", "1");
-                      
-                      
-                          $.mobile.changePage("#home8", { transition: "fade" });
-                      
-                          $("#feste").show();
-                      
-                          $("#parte1").show();
-                          $("#parte2").show();
-                      
-                          $("#persone").hide();
-                          $("#loadpersonaggi").hide();
-                      
-                          $("#feste").html("")
-                      
-                      
-                          setTimeout (function(){
-                                      
-                              listafeste()
-                                      
-                                      
-                          }, 300);
-                      
-                          $("#fotoprofilo").attr("src","http://msop.it/public/"+item.foto)
-                          $("#loadfotoprofilo").attr("src","http://msop.it/public/"+item.foto)
-                          $("#loadfotoprofilo2").attr("src","http://msop.it/public/"+item.foto)
-                          $("#loadprofilo55").attr("src", "http://msop.it/public/"+item.foto)
-                      
-                          $("#cambiafotoprofilo").attr("src","http://msop.it/public/"+item.foto)
+							  $.mobile.changePage("#home8", { transition: "fade" });
+						  
+							  $("#feste").show();
+						  
+							  $("#parte1").show();
+							  $("#parte2").show();
+						  
+							  $("#persone").hide();
+							  $("#loadpersonaggi").hide();
+						  
+							  $("#feste").html("")
+						  
+						  
+							  setTimeout (function(){
+										  
+								 listafeste()
+										  
+							  }, 300);
+						  
+							  $("#fotoprofilo").attr("src","http://msop.it/public/"+item.foto)
+							  $("#loadfotoprofilo").attr("src","http://msop.it/public/"+item.foto)
+							  $("#loadfotoprofilo2").attr("src","http://msop.it/public/"+item.foto)
+							  $("#loadprofilo55").attr("src", "http://msop.it/public/"+item.foto)
+						  
+							  $("#cambiafotoprofilo").attr("src","http://msop.it/public/"+item.foto)
+						  
+						  
+						  //}
+						  //else{
+						  
+						    //localStorage.setItem("album","1")
+						  
+						  //}
 
 					  }
 						  
@@ -404,8 +363,6 @@ var app = {
 						'OK'                  // buttonName
 						);
 				   
-				   window.location.href = "index.html";
-				   
 				   },
 				   
 				   dataType:"jsonp"});
@@ -414,19 +371,12 @@ var app = {
 				
 			}
 			else{
-                
-                $("#feste").html("<font color='red'>Nessuna conniessione di rete</font>")
-                $("#persone").hide("<font color='red'>Nessuna conniessione di rete</font>")
-                
-                
 				navigator.notification.alert(
 				 'Errore di rete, riprova sotto copertura',  // message
 				 alertDismissed,         // callback
 				 'Errore di Rete',            // title
 				 'OK'                  // buttonName
 				 );
-				
-				window.location.href = "index.html";
 			}
 			
 		}
@@ -543,6 +493,7 @@ var app = {
 		   
 		});
 		
+
 		
 		$(document).on("touchstart", "#indietro3", function(e){
 					   
@@ -575,7 +526,7 @@ var app = {
 	  
 		   }, 0); */
 					   
-		   localStorage.setItem("arrivochat","0")
+		   //$("#spinner8").show();
 		   
 		   $("#scheda1").hide();
 		   $("#scheda2").hide();
@@ -618,12 +569,6 @@ var app = {
 			   }, 300);*/
 					   
 		});
-        
-        $(document).on("tap", "#indietrobck", function(e){
-                      
-           history.back()
-
-        });
 		
 		
 		$(document).on("touchstart", "#girl", function(e){
@@ -892,7 +837,8 @@ var app = {
 							  $.each(result, function(i,item){
 									 localStorage.setItem("registrato", "2");
 									 
-
+									 
+									 
 									 if (item.Token == 1){
 									   /*window.plugins.nativepagetransitions.fade({
 																			   "duration"       :  1000,
@@ -901,19 +847,17 @@ var app = {
 																			   "href" : "#home5"
 																			   });*/
 									 
-									   $.mobile.changePage("#home5", { transition: "fade" });
-                                     
-                                       mandaemailreg(item.sendemail)
+									 $.mobile.changePage("#home5", { transition: "fade" });
 									 
 									 }
 									 else{
 									 
-									   navigator.notification.alert(
-                                          'Utente gia registrato',  // message
-                                          alertDismissed,         // callback
-                                          'Attenzione',            // title
-                                          'Done'                  // buttonName@
-                                        );
+									  navigator.notification.alert(
+																  item.mess,  // message
+																  alertDismissed,         // callback
+																  'Attenzione',            // title
+																  'Done'                  // buttonName@
+																  );
 									 
 									 }
 									 
@@ -926,11 +870,11 @@ var app = {
 							  $(".spinner").hide();
 							  
 							  navigator.notification.alert(
-								   'Possibile errore di rete, riprova tra qualche minuto',  // message
-								   alertDismissed,         // callback
-								   'Attenzione',            // title
-								   'Done'                  // buttonName
-								   );
+														   'Possibile errore di rete, riprova tra qualche minuto',  // message
+														   alertDismissed,         // callback
+														   'Attenzione',            // title
+														   'Done'                  // buttonName
+														   );
 							  
 							  },
 							  dataType:"jsonp"});
@@ -940,45 +884,9 @@ var app = {
 					   });
         
         
-        function mandaemailreg(sendemail){
-            
-            $.ajax({
-                   type:"GET",
-                   url:"http://orgasmomentale.it/Check_Reg2.asp?email="+sendemail+"",
-                   contentType: "application/json",
-                   //data: {email:email,pin:pin},
-                   timeout: 7000,
-                   jsonp: 'callback',
-                   crossDomain: true,
-                   success:function(result){
-                   
-                     $.each(result, function(i,item){
-
-                    
-                     });
-                   
-                   },
-                   error: function(){
-                     $(".spinner").hide();
-                   
-                     navigator.notification.alert(
-                        'Possibile errore di rete, riprova tra qualche minuto',  // message
-                        alertDismissed,         // callback
-                        'Attenzione',            // title
-                        'Done'                  // buttonName
-                        );
-                   
-                   },
-                   dataType:"jsonp"});
-        }
-        
-        
-		
-		$(document).on("touchstart", "#lemiefeste", function(e){
+        $(document).on("touchstart", "#lemiefeste", function(e){
 					   
 		   $.mobile.changePage("#homelemiefeste", { transition: "fade" });
-					   
-		   $("#miefeste2").html("")
 	   
 		   $("#spinner8").show();
 		   $.ajax({
@@ -991,87 +899,26 @@ var app = {
 			  crossDomain: true,
 			  success:function(result){
 			  
-			  $("#spinnermiefeste").hide();
+			  $("#spinner8").hide();
 			  
 			  $.each(result, function(i,item){
 					 
-				 if(item.Token==1){
-				 
-				  $("#miefeste2").append("<table><tr><td align='center' valign='center'><a id='#'><img id='wonver1' src='flyer/verticali/"+item.tipofesta+"/"+item.flyer+"' width='105px' border='0' bordercolor='red'></a></td><td valign='center'><table width='100%'><tr><td width='100%'><a id='vv_"+item.id+"'><img src='img/show.png' height='50'></a></td><td valign='center'><a id='mm_"+item.id+"'><img src='img/edit.png' height='50'></a></td><td valign='center'><a id='cc_"+item.id+"'><img src='img/delete.png' height='50'></a></td></tr><tr><td colspan='3'><br>&nbsp;</td></tr><tr><td width='100%' align='center' colspan='3'><a id='aa_"+item.id+"'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='6'> INVITA AMICI </font></a> </td></tr></table></td></tr></table>")
+					 if(item.Token==1){
 					 
-
-				   $(document).on("tap", "#aa_"+item.id+"", function(e){
-									
-					 var numerofesta = this.id
-					 numerofesta = numerofesta.replace("aa_","")
-					
-					 invitaparty(numerofesta)
-					
-				    });
+					   	$("#miefeste2").append("<a id='pp_"+item.id+"'><img id='wonver1' src='flyer/verticali/"+item.tipofesta+"/"+item.flyer+"' width='105px' border='0' bordercolor='red'></a>&nbsp;&nbsp;")
 					 
-				   $(document).on("tap", "#vv_"+item.id+"", function(e){
-								
-					var numerofesta = this.id
-					numerofesta = numerofesta.replace("vv_","")
-					
-					gohomeparty(numerofesta)
-					
-				   });
+						 $(document).on("tap", "#pp_"+item.id+"", function(e){
+										
+							var numerofesta = this.id
+							numerofesta = numerofesta.replace("pp_","")
+							
+							gohomeparty(numerofesta)
+										
+						  });
 					 
-				  $(document).on("tap", "#pp_"+item.id+"", function(e){
-								
-					var numerofesta = this.id
-					numerofesta = numerofesta.replace("pp_","")
-					
-					gohomeparty(numerofesta)
-								
-				  });
+					 }
 					 
-					 
-				 $(document).on("tap", "#mm_"+item.id+"", function(e){
-								
-					var numerofesta = this.id
-					numerofesta = numerofesta.replace("mm_","")
-					
-                    modificafesta(numerofesta)
-                                
-					//alert(numerofesta)
-					//gohomeparty(numerofesta)
-					
-				 });
-					 
-					 
-					 
-				 $(document).on("tap", "#cc_"+item.id+"", function(e){
-								
-					var numerofesta = this.id
-					numerofesta = numerofesta.replace("cc_","")
-								
-								
-					// cancella festa
-				
-					cancellafesta(numerofesta)
-					
-                    // alert(numerofesta)
-					//gohomeparty(numerofesta)
-								
-                  });
-
-                }
-					 
-              });
-				  
-				  
-			  $("#miefeste2").append("<table width='100%' height='80px' border='0'><tr><td></td></tr></table>")
-                  
-              myScroll57 = new IScroll('#wrapper57', { click: true, bounce: false });
-              
-                  
-                setTimeout (function(){
-                              
-                  myScroll57.refresh();
-                  
-                }, 500);
+				});
 			  
 			  },
 			  error: function(){
@@ -1090,229 +937,7 @@ var app = {
         });
 		
 		
-		
-		
-		
-		function cancellafesta(numerofesta){
-			
-			navigator.notification.confirm(
-			   'vuoi davvero eliminare questo private party?',  // message
-			    onConfirm2,              // callback to invoke with index of button pressed
-			   'Delete',            // title
-			   'Cancella,Annulla'      // buttonLabels
-			);
-			
-			
-			function onConfirm2(button) {
-				if(button==1){    //If User selected No, then we just do nothing
-					
-					$("#spinnermiefeste").show();
-					
-					alert(numerofesta)
-					
-					$.ajax({
-					   type:"GET",
-					   url:"http://msop.it/om/cancella_festa.php?id="+ numerofesta +"",
-					   contentType: "application/json",
-					   timeout: 7000,
-					   jsonp: 'callback',
-					   crossDomain: true,
-					   success:function(result){
-					   
-					   $("#spinnermiefeste").hide();
-					   
-					   $.each(result, function(i,item){
-							  navigator.notification.alert(
-														   'Private Party cancellato.',
-														   alertDismissed,
-														   'Private Party',
-														   'Ok'
-														   );
-							  });
-					   
-					   },
-					   error: function(){
-					   $("#spinner8").hide();
-					   
-					   navigator.notification.alert(
-													'Possibile errore di rete, riprova tra qualche minuto.',
-													alertDismissed,
-													'Attenzione',
-													'Ok'
-													);
-					   
-					   },
-					dataType:"jsonp"});
-					
-				}
-				
-			}
-
-		}
-        
-        
-        
-        function modificafesta(idfesta){
-            
-            //alert(idfesta)
-            
-            //$.mobile.changePage("#homemodparty", { transition: "fade" });
-            
-            window.location.href = "#homemodparty";
-            
-            $("#spinnermodparty").show();
-
-
-            $.ajax({
-                   type:"GET",
-                   url:"http://msop.it/om/check_festabyid.php?id="+ idfesta +"",
-                   contentType: "application/json",
-                   timeout: 7000,
-                   jsonp: 'callback',
-                   crossDomain: true,
-                   success:function(result){
-                   
-                   //alert(item.Token)
-                   
-                   $.each(result, function(i,item){
-                          
-                    if(item.Token=="1"){
-                          
-                          $("#spinnermodparty").hide();
-                          
-
-                          /*$("#party").html("<br><table width='100%' height='220' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td align='right' valign='center' height='110'></td></tr><tr><td width='100%' align='center'><div id='parent'><div id='backdrop3'><table width='270' height='100' align='center' border='0'><tr><td width='100%' align='center' valign='center'><a id='#'><font class='AntonioFontBold' color='#00ffff' size='6'>&nbsp;&nbsp;<b>"+item.titolo+"</b></font></a></td></tr></table></div><div id='curtain3' style=''>&nbsp;</div></div></td></tr></table>")
-                          
-                          $("#dataparty").html(item.citta+", "+item.data+", "+item.location+", ore:"+item.ora)
-                          $("#infoparty").append("<font class='AntonioFont' color='#000' size='5'>Location:"+ item.location +", eta:"+ item.eta +"<br><br>" + item.info + "</font>")
-                          
-                          localStorage.setItem("idbuyfesta", cost);
-                          localStorage.setItem("prezzofesta", item.prezzo);
-                          localStorage.setItem("nomefesta", item.titolo);
-                          
-                          $("#areaom").html("<textarea name='orgasmomentale' name='orgasmomentale' type='text' rows='5' cols='15' class='scrivo'>"+ localStorage.getItem("orgasmomentale") +"</textarea>")*/
-                          
-                          //inizio compilazione
-                          
-                          $("#nomeparty").html(item.titolo)
-                          
-                           document.getElementById("cittafestaedit").value = item.citta
-                           document.getElementById("idfesta").value = idfesta
-                          
-                          $("#giornoedit").html("<option value="+item.giorno+" selected>"+item.giorno+"</option><option value='01'>01</option><option value='02'>02</option><option value='03'>03</option><option value='04'>04</option><option value='05'>05</option><option value='06'>06</option><option value='07'>07</option><option value='08'>08</option><option value='09'>09</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option><option value='21'>21</option><option value='22'>22</option><option value='23'>23</option><option value='24'>24</option><option value='25'>25</option><option value='26'>26</option><option value='27'>27</option><option value='28'>28</option><option value='29'>29</option><option value='30'>30</option><option value='31'>31</option>")
-                          
-                           $("#giornoedit").selectmenu("refresh");
-                          
-                          $("#meseedit").html("<option value="+item.mesenumero+" selected>"+item.mese+"</option><option value='01'>Gennaio</option><option value='02'>Febbraio</option><option value='03'>Marzo</option><option value='04'>Aprile</option><option value='05'>Maggio</option><option value='06'>Giugno</option><option value='07'>Luglio</option><option value='08'>Agosto</option><option value='09'>Settembre</option><option value='10'>Ottobre</option><option value='11'>Novembre</option><option value='12'>Dicembre</option>")
-
-                           $("#meseedit").selectmenu("refresh");
-
-                          $("#oraedit").html("<option value='"+item.ora+"' selected>"+item.ora+"</option><option value='08:00'>08:00</option><option value='09:00'>09:00</option><option value='10:00'>10:00</option><option value='11:00'>11:00</option><option value='12:00'>12:00</option><option value='13:00'>13:00</option><option value='14:00'>14:00</option><option value='15:00'>15:00</option><option value='16:00'>16:00</option><option value='17:00'>17:00</option><option value='18:00'>18:00</option><option value='19:00'>19:00</option><option value='20:00'>20:00</option><option value='21:00'>21:00</option><option value='22:00'>22:00</option><option value='23:00'>23:00</option><option value='00:00'>00:00</option><option value='01:00'>01:00</option><option value='02:00'>02:00</option><option value='03:00'>03:00</option><option value='04:00'>04:00</option><option value='05:00'>05:00</option><option value='06:00'>06:00</option><option value='07:00'>07:00</option>")
-                          
-                          $("#oraedit").selectmenu("refresh");
-                          
-                          
-                          $("#etaedit").html("<option value='"+item.eta+"' selected>"+item.eta+"</option><option value='18'>18</option><option value='19' >19</option><option value='20' >20</option><option value='21' >21</option><option value='22' >22</option><option value='23' >23</option><option value='24' >24</option><option value='25' >25</option><option value='26' >26</option><option value='27' >27</option><option value='28' >28</option><option value='29' >29</option><option value='30' >30</option><option value='31' >31</option><option value='32' >32</option><option value='33' >33</option><option value='34' >34</option><option value='35' >35</option><option value='36' >36</option><option value='37' >37</option><option value='38' >38</option><option value='39' >39</option><option value='40' >40</option>")
-                          
-                          
-                          $("#etafestaedit2").selectmenu("refresh");
-                          
-                          
-                          $("#locationedit").html("<option value='"+item.location+"' selected>"+item.location+"</option><option value='HOME'>HOME</option><option value='LOCAL'>LOCAL</option>")
-                          
-                          
-                          $("#locationedit").selectmenu("refresh");
-                          
-                          document.getElementById("invitatiedit").value = item.invitati
-                          
-                          // MODIFICA INFO //
-                          
-                          var info1;
-                          
-                          info1 = item.info
-                          
-                          info1 = info1.replace("777a", "'");
-                          
-                          info1 = info1.replace("777b", "+");
-                          
-                          info1 = info1.replace("777c", "$");
-                          
-                          info1 = info1.replace("777d", "!");
-                          info1 = info1.replace("777d7", "!!");
-                          info1 = info1.replace("777d77", "!!!");
-                          info1 = info1.replace("777d777", "!!!!!");
-                          info1 = info1.replace("777d7777", "!!!!!!");
-                          
-                          info1 = info1.replace("777e", "(");
-                          
-                          info1 = info1.replace("777f",")");
-                          
-                          info1 = info1.replace("777g", ":");
-                          
-                          info1 = info1.replace("777h", "?");
-                          info1 = info1.replace("777h7", "??");
-                          info1 = info1.replace("777h77", "???");
-                          info1 = info1.replace("777h777", "????");
-                          info1 = info1.replace("777h7777", "?????");
-                          
-                          info1 = info1.replace("777i", "à");
-                          info1 = info1.replace("777l", "è");
-                          info1 = info1.replace("777m", "ì");
-                          info1 = info1.replace("777n", "ò");
-                          info1 = info1.replace("777o", "ù");
-                          
-                          
-                          $("#areaedit").html("<textarea name='infoedit' name='infoedit' type='text' rows='5' cols='20' class='scrivo'>"+info1+"</textarea>")
-                          
-                          var ciccio = item.prezzo
-                          ciccio = ciccio.replace(",",".")
-                          
-                          document.getElementById("prezzoedit").value = ciccio
-                          
-
-                          }
-                          else{
-                          
-                          }
-                          
-                    });
-
-
-                   
-                   myScroll59 = new IScroll('#wrapper59', { click: true, bounce: false });
-                   
-                   setTimeout (function(){
-  
-                        myScroll59.refresh();
-                               
-                   }, 700);
-                   
-                   },
-                   error: function(){
-                   
-                   $("#spinner13").hide();
-                   
-                   navigator.notification.alert(
-                        'Errore di rete, riprova sotto copertura',  // message
-                        alertDismissed,         // callback
-                        'Errore di Rete',            // title
-                        'OK'                  // buttonName
-                        );
-                   
-                   window.location.href = "index.html";
-                   
-                   },
-                   
-                   
-                   dataType:"jsonp"});
-             }
-        
-        
-		
-		
 		function ilmioalbum(){
-            
-            var misura = screen.width/3.3
 			
 			var emailprincipale = localStorage.getItem("email")
 			emailprincipale = emailprincipale.toLowerCase()
@@ -1320,15 +945,11 @@ var app = {
 			var emailseconda = localStorage.getItem("emailalbum")
 			emailseconda = emailseconda.toLowerCase()
 			
-			var chisono= 0;
-			
 			
 			if(emailprincipale==emailseconda){
 				$("#fotoalbum2").show()
 				$("#fotoalbum").show()
 				$("#caricafotodiv2").show()
-				
-				chisono = 1;
 			}
 			else{
 				
@@ -1341,12 +962,7 @@ var app = {
 			var ciccio = 2;
 			
 			$("#mostraalbum").html("");
-			//$("#mostraalbum2").html("");
-            
-            var connectionStatus = false;
-            connectionStatus = navigator.onLine ? 'online' : 'offline';
-            
-            if(connectionStatus=='online'){
+			$("#mostraalbum2").html("");
 		   
 		   $("#spinner8").show();
 		   $.ajax({
@@ -1359,52 +975,39 @@ var app = {
 				  crossDomain: true,
 				  success:function(result){
 				  
+				  $("#spinner8").hide();
 				  
 				  $.each(result, function(i,item){
 						 
 					 if(item.Token==1){
 						 
-                        $("#mostraalbum").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' border='2' bordercolor='#000' width='100%'></a>")
 						 
-						/* if (IsNotUneven(ciccio) == true)
+						 if (IsNotUneven(ciccio) == true)
 						 {
-						   $("#mostraalbum").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' height='100px' width='100px' border='2' bordercolor='#000'></a>&nbsp;&nbsp;")
+						   $("#mostraalbum").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' height='100px' border='2' bordercolor='#000'></a>&nbsp;&nbsp;")
 						 }
 						 else
 						 {
-						   $("#mostraalbum2").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' height='100px' width='100px' border='2' bordercolor='#000'></a>&nbsp;&nbsp;")
-						 } */
+						   $("#mostraalbum2").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' height='100px' border='2' bordercolor='#000'></a>&nbsp;&nbsp;")
+						 }
 						 
-						   /*$("#mostraalbum").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' height='100px' border='2' bordercolor='#000'></a>&nbsp;&nbsp;")
-                            
-                            style='overflow:hidden; width:"+misura+"px; height:"+misura+"px;'
-                            
-                            */
+						   /*$("#mostraalbum").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' height='100px' border='2' bordercolor='#000'></a>&nbsp;&nbsp;")*/
 						 
 						 $(document).on("tap", "#pp_"+item.nomefoto+"", function(e){
 										
 							var numerofesta = this.id
 							numerofesta = numerofesta.replace("pp_","")
 							numerofesta = numerofesta+".png"
-                                        
-                            if(chisono==1){
-                                        
-                                //$("#albumlock").show();
-                                        
-                                //localStorage.setItem("cancella",numerofesta)
-                                        
-                               /* var options = {
-                                    ocation: 'yes',
-                                    clearcache: 'yes',
-                                    toolbar: 'yes',
-                                    closebuttoncaption: 'OK'
-                                };
-                                        
-                                var ref = window.open('http://msop.it/om/wbsimg.php?nome='+ numerofesta +'&chi='+ chisono +'', '_blank', 'location=no', options); */
-                                        
-                                cancellafoto(numerofesta)
-                            }
+										
+							//alert(numerofesta)
+										
+							/*var pageNumber = 1;
+							eval("var link" + pageNumber + "='"+$.base64.decode(result[eccola])+"';");
+							alert(link1);
 							
+							var ref = window.open(link1, '_blank', 'location=no');*/
+							
+							var ref = window.open('http://msop.it/public/om/'+numerofesta+'', '_blank', 'location=no');
 							
 						  });
 						 
@@ -1416,12 +1019,10 @@ var app = {
 					});
 				  
 				  setTimeout (function(){
-                              
-                    $("#spinner8").hide();
-                              
+							  
 					myScroll55.refresh();
 					  
-				  }, 1000);
+				  }, 500);
 				  
 				  },
 				  error: function(){
@@ -1436,83 +1037,8 @@ var app = {
 				  
 				  },
 			dataType:"jsonp"});
-                
-            }
-            else{
-                
-                $("#feste").html("<font color='red'>Nessuna conniessione di rete</font>")
-                $("#persone").hide("<font color='red'>Nessuna conniessione di rete</font>")
-                
-                navigator.notification.alert(
-                 'Errore di rete, riprova sotto copertura',  // message
-                 alertDismissed,         // callback
-                 'Errore di Rete',            // title
-                 'OK'                  // buttonName
-                 );
-                
-                setTimeout (function(){
-                            
-                    window.location.href = "index.html";
-                    
-                }, 3000);
-                
-            }
 					   
 		};
-        
-        
-        function cancellafoto(id){
-            
-            navigator.notification.confirm(
-               'vuoi rimuovere questa foto?',  // message
-               onConfirm4,              // callback to invoke with index of button pressed
-               'Attenzione',            // title
-               'OK,Annulla'      // buttonLabels
-               );
-            
-            
-            function onConfirm4(button) {
-              if(button==1){    //If User selected No, then we just do nothing
-                  $.ajax({
-                         type:"GET",
-                         url:"http://msop.it/om/check_img_canc.php?img="+ id +"",
-                         contentType: "application/json",
-                         //data: {ID: "Lazio"}, LIMIT 10
-                         timeout: 7000,
-                         jsonp: 'callback',
-                         crossDomain: true,
-                         success:function(result){
-                         
-                           $.each(result, function(i,item){
-                                navigator.notification.alert(
-                                 'Foto cancellata correttamente.',  // message
-                                 alertDismissed,         // callback
-                                 '',           // title
-                                 'Ok'                  // buttonName
-                                 );
-                                  
-                                ilmioalbum()
-                           });
-                         
-                         },
-                         error: function(){
-
-                             navigator.notification.alert(
-                              'Possibile errore di rete, riprova tra qualche minuto.',  // message
-                              alertDismissed,         // callback
-                              'Attenzione',           // title
-                              'Ok'                  // buttonName
-                              );
-
-                         },
-                         dataType:"jsonp"});
-                    
-               }
-                
-            }
-            
-            return;
-        };
 		
 		
 		function IsNotUneven(numero)
@@ -1536,28 +1062,6 @@ var app = {
 			document.getElementById("etaprofilo").value = localStorage.getItem("etaprofilo")
 			document.getElementById("nickprofilo").value = localStorage.getItem("nickname")
                        
-            if (localStorage.getItem("orgasmomentale") === null || localStorage.getItem("orgasmomentale")=="null" || typeof(localStorage.getItem("orgasmomentale")) == 'undefined' || localStorage.getItem("orgasmomentale")==0 || localStorage.getItem("orgasmomentale")=="") {
-               
-                $("#areaom").html("<textarea name='orgasmomentale' name='orgasmomentale' type='text' rows='5' cols='15' class='scrivo'>Descrivi semplicemente cio' che ti rende felice!</textarea>")
-                       
-            }
-            else{
-                       
-               $("#areaom").html("<textarea name='orgasmomentale' name='orgasmomentale' type='text' rows='5' cols='15' class='scrivo'>"+ localStorage.getItem("orgasmomentale") +"</textarea>")
-      
-            }
-                       
-                       
-            myScroll9 = new IScroll('#wrapper9', { click: true, bounce: false });
-                     
-                       
-           setTimeout (function(){
-                       
-             myScroll9.refresh();
-           
-           }, 500);
-
-                       
         });
         
 		
@@ -1565,63 +1069,61 @@ var app = {
 		$(document).on("touchstart", "#fine", function(e){
 					   
 
-		   $.ajax({
-				  type:"GET",
-				  url:"http://msop.it/om/check_video.php?email="+ localStorage.getItem("email")+"",
-				  contentType: "application/json",
-				  //data: {Lat:3,Longi:4},
-				  timeout: 7000,
-				  jsonp: 'callback',
-				  crossDomain: true,
-				  success:function(result){
-				  
-				  
-				  $.each(result, function(i,item){
-						 
-					 if(item.accesso=="1"){
-						 
-						  window.plugins.nativepagetransitions.fade({
-							   "duration"       :  1000,
-							   "iosdelay"       :   50,
-							   "androiddelay"   :  500,
-							   "href" : "#home6"
-							   });
-					 }
-					 else{
-						 
-						 navigator.notification.alert(
-						  'Devi inserire prima un selfie per proseguire',  // message
-						  alertDismissed,         // callback
-						  'Selfie Video',            // title
-						  'OK'                  // buttonName
-						 );
-						 
-					 }
-						 
-				  });
-				  
-				  $("#spinner1").hide()
-				  
-				  },
-				  error: function(){
-				  
-				  $("#spinner1").hide()
-				  
-				   navigator.notification.alert(
-					   'Errore di rete, riprova sotto copertura',  // message
-					   alertDismissed,         // callback
-					   'Errore di Rete',            // title
-					   'OK'                  // buttonName
-					   );
-				  
-				  window.location.href = "index.html";
-				  
-				  },
-				  
-				  dataType:"jsonp"});
-		   
+					   $.ajax({
+							  type:"GET",
+							  url:"http://msop.it/om/check_video.php?email="+ localStorage.getItem("email")+"",
+							  contentType: "application/json",
+							  //data: {Lat:3,Longi:4},
+							  timeout: 7000,
+							  jsonp: 'callback',
+							  crossDomain: true,
+							  success:function(result){
+							  
+							  
+							  $.each(result, function(i,item){
+									 
+								 if(item.accesso=="1"){
+									 
+									  window.plugins.nativepagetransitions.fade({
+										   "duration"       :  1000,
+										   "iosdelay"       :   50,
+										   "androiddelay"   :  500,
+										   "href" : "#home6"
+										   });
+								 }
+								 else{
+									 
+									 navigator.notification.alert(
+											  'Devi inserire prima un selfie per proseguire',  // message
+											  alertDismissed,         // callback
+											  'Selfie Video',            // title
+											  'OK'                  // buttonName
+									 );
+									 
+								 }
+									 
+							  });
+							  
+							  $("#spinner1").hide()
+							  
+							  },
+							  error: function(){
+							  
+							  $("#spinner1").hide()
+							  
+							   navigator.notification.alert(
+								   'Errore di rete, riprova sotto copertura',  // message
+								   alertDismissed,         // callback
+								   'Errore di Rete',            // title
+								   'OK'                  // buttonName
+								   );
+							  
+							  },
+							  
+							  dataType:"jsonp"});
+					   
 
-		   //$.mobile.changePage( "#home3", { transition: "slide", changeHash: false });
+					   //$.mobile.changePage( "#home3", { transition: "slide", changeHash: false });
 					   
 					   
 	   });
@@ -1661,15 +1163,16 @@ var app = {
 		   pippo = pippo+"_"+localStorage.getItem("ora_cell")
 		   
 		   localStorage.setItem("nomegall", pippo)
-					   	   
+					   
+					   
 		  $("#spinner55").show()
 					   
-		   navigator.camera.getPicture(uploadPhoto, onFail, { quality: 90,
+		   navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
 				
 				destinationType: Camera.DestinationType.FILE_URI,
 				sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-				targetWidth: 640,
-				targetHeight: 640
+				targetWidth: 400,
+				targetHeight: 400
 		   });
 					   
 	   });
@@ -1699,9 +1202,8 @@ var app = {
 			"href" : "#indexFoto.html"
 		   });*/
 					   
-            localStorage.setItem("selfie", "1");
 					   
-            window.location.href = "#home6";
+			window.location.href = "indexFoto.html";
 					   
 		});
 		
@@ -1722,7 +1224,7 @@ var app = {
 		});
 		
         
-        $(document).on("tap", "#controllamail", function(e){
+        $(document).on("touchstart", "#controllamail", function(e){
 
           // setTimeout (function(){
 					
@@ -1734,7 +1236,7 @@ var app = {
                        
         });
 		
-		$(document).on("tap", "#chatorganizzatore", function(e){
+		$(document).on("touchstart", "#chatorganizzatore", function(e){
 					   
 		   // setTimeout (function(){
 		   
@@ -1760,44 +1262,50 @@ var app = {
 					   
 			   return;
 			   }
+   
+				alert(segnalazione)
 					   
-			   $("#spinner8").show();
-				$.ajax({
-				type:"GET",
-				url:"http://msop.it/om/segnala.php?email="+ localStorage.getItem("email") +"&email2="+ localStorage.getItem("bloccaemail") +"&messaggio="+segnalazione+"",
-				contentType: "application/json",
-				//data: {ID: "Lazio"}, LIMIT 10
-				timeout: 7000,
-				jsonp: 'callback',
-				crossDomain: true,
-				success:function(result){
-					   
-				    $("#spinner8").hide();
-				
-					$.each(result, function(i,item){
-					   navigator.notification.alert(
-						'segnalazione inviata correttamente.',  // message
-						alertDismissed,         // callback
-						'Segnala Utente',           // title
-						'Ok'                  // buttonName
-						);
+			   /*$("#spinner8").show();
+			   $.ajax({
+				  type:"GET",
+				  url:"http://msop.it/om/check_segnala.php?email="+ localStorage.getItem("email") +"&email2="+localStorage.getItem("bloccaemail")+"",
+				  contentType: "application/json",
+				  //data: {ID: "Lazio"}, LIMIT 10
+				  timeout: 7000,
+				  jsonp: 'callback',
+				  crossDomain: true,
+				  success:function(result){
+				  
+				  $("#spinner8").hide();
+				  
+				  $.each(result, function(i,item){
+						 
+						if(item.Token==1){
+
+						  navigator.notification.alert(
+						  'Segnalazione inviata.',  // message
+						   alertDismissed,         // callback
+						  'Segnalazione',           // title
+						  'Ok'                  // buttonName
+						  );
+						 
+						}
+						 
 					});
-				
-				},
-				error: function(){
-				$("#spinner8").hide();
-				
-				
-				navigator.notification.alert(
-				'Possibile errore di rete, riprova tra qualche minuto.',  // message
-				alertDismissed,         // callback
-				'Attenzione',           // title
-				'Ok'                  // buttonName
-				);
-				
-				
-				},
-				dataType:"jsonp"});
+				  
+				  },
+				  error: function(){
+				  
+				  navigator.notification.alert(
+				   'Possibile errore di rete, riprova tra qualche minuto.',  // message
+				   alertDismissed,         // callback
+				   'Attenzione',           // title
+				   'Ok'                  // buttonName
+				   );
+				  
+				  
+				  },
+			  dataType:"jsonp"});*/
 	   
 		});
 		
@@ -1925,8 +1433,6 @@ var app = {
 							 
 							 localStorage.setItem("nickname2", a1[2]);
 							 localStorage.setItem("fotochat", linkfoto2);
-                                         
-                            localStorage.setItem("arrivochat", "1");
 							 
 							 chatdonnabypersone()
 							 
@@ -1970,64 +1476,6 @@ var app = {
 				   dataType:"jsonp"});
 
         }
-        
-        
-        function bloccautente(){
-			
-            
-            if(localStorage.getItem("email").toLowerCase()==localStorage.getItem("bloccaemail").toLowerCase()){
-                navigator.notification.alert(
-                 'Non puoi bloccare te stesso.',  // message
-                 alertDismissed,         // callback
-                 'Attenzione',           // title
-                 'Ok'                  // buttonName
-                 );
-
-                return;
-            }
-            
-            $("#spinner8").show();
-			
-			$.ajax({
-			   type:"GET",
-			   url:"http://msop.it/om/blocca.php?email="+ localStorage.getItem("email") +"&email2="+ localStorage.getItem("bloccaemail") +"&messaggio=",
-			   contentType: "application/json",
-			   //data: {ID: "Lazio"}, LIMIT 10
-			   timeout: 7000,
-			   jsonp: 'callback',
-			   crossDomain: true,
-			   success:function(result){
-				   
-				$("#spinner8").hide();
-			   
-			    $.each(result, function(i,item){
-				   navigator.notification.alert(
-					'Utente Bloccato.',  // message
-					alertDismissed,         // callback
-					'Blocca Utente',           // title
-					'Ok'                  // buttonName
-					);
-				});
-			   
-			   },
-			   error: function(){
-			   $("#spinner8").hide();
-			   
-			   
-			   navigator.notification.alert(
-					'Possibile errore di rete, riprova tra qualche minuto.',  // message
-					alertDismissed,         // callback
-					'Attenzione',           // title
-					'Ok'                  // buttonName
-					);
-			   
-			   
-			   },
-			   dataType:"jsonp"});
-            
-           // localStorage.getItem("bloccaemail")
-            
-        }
 		
         
 		function loadprofilo(id){
@@ -2041,15 +1489,11 @@ var app = {
 			
 			$("#chatnuove").hide();
 			
-			$("#scheda").html("")
-			
 			$("#loadpersonaggi").show();
 			
 			localStorage.setItem("idprofilo", id);
         
              $("#spinner8").show()
-            
-             localStorage.setItem("linkorganizzatore","")
             
              $.ajax({
              type:"GET",
@@ -2063,53 +1507,11 @@ var app = {
              
                  $.each(result, function(i,item){
                 
-                    $("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='private'><img src='img/indietro_over.png' height='30px'></a></div><img src='http://msop.it/public/"+item.foto+"' width='100%' class='pippo22profilo'><div id='#' class='puntini'><a id='menuprofilo'><img src='img/menu4.png' height='30px'></a></div>")
+                    //$("#profiloman").html("<table width='100%' height='480' align='center' background='http://msop.it/public/"+item.foto+"' style='background-size: 100% auto; background-repeat: no-repeat;' class='uomo' valign='bottom'><tr><td width='100%' align='center' valign='bottom'></td></tr></table>")
                         
-                        // LEGGO INFO //
-                        
-                        var info1;
-                        
-                        info1 = item.info
-                        
-                        info1 = info1.replace("777A", "'");
-                        
-                        info1 = info1.replace("777B", "+");
-                        
-                        info1 = info1.replace("777C", "$");
-                        
-                        info1 = info1.replace("777D", "!");
-                        info1 = info1.replace("777D7", "!!");
-                        info1 = info1.replace("777D77", "!!!");
-                        info1 = info1.replace("777D777", "!!!!");
-                        info1 = info1.replace("777D7777", "!!!!!");
-                        
-                        info1 = info1.replace("777E", "(");
-                        
-                        info1 = info1.replace("777F",")");
-                        
-                        info1 = info1.replace("777G", ":");
-                        
-                        info1 = info1.replace("777H", "?");
-                        info1 = info1.replace("777H7", "??");
-                        info1 = info1.replace("777H77", "???");
-                        info1 = info1.replace("777H777", "????");
-                        info1 = info1.replace("777H7777", "?????");
-                        
-                        info1 = info1.replace("777I", "à");
-                        info1 = info1.replace("777L", "è");
-                        info1 = info1.replace("777M", "ì");
-                        info1 = info1.replace("777N", "ò");
-                        info1 = info1.replace("777O", "ù");
+						$("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='personaggi'><img src='img/indietro_over.png' height='30px'></a></div><img src='http://msop.it/public/"+item.foto+"' width='100%' class='pippo22'><div id='#' class='puntini'><a id='menuprofilo'><img src='img/menu4.png' height='30px'></a></div>")
                     
-						
-						if (item.info=== null || item.info=="null" || typeof(item.info) == 'undefined' ||item.info==0 || item.info=="") {
-						
-						  $("#scheda").html("<font size='4'><b>Descrivi semplicemnte cio' che ti rende felice!</b> </font> <br>")
-						
-						}
-						else{
-						  $("#scheda").html("<font size='4'><b>"+info1+"</b> </font> <br>")
-						}
+                    $("#scheda").html("<font size='4'><b>"+item.info+".</b> </font> <br>")
                         
                         
                     var contanick = item.nickname.length;
@@ -2145,7 +1547,7 @@ var app = {
                     $("#recensioni").html("<img src='img/feed_uomo.png' height='30'><img src='img/feed_uomo.png' height='30'><img src='img/feed_uomo.png' height='30'><img src='img/feed.png' height='30'><img src='img/feed.png' height='30'>")
                         
                         
-                    $(document).on("tap", "#load_"+item.id2+"", function(e){
+                    $(document).on("touchstart", "#load_"+item.id2+"", function(e){
            
                        var loademail = this.id
                        loademail = loademail.replace("load_","")
@@ -2222,8 +1624,6 @@ var app = {
                  'Errore di Rete',            // title
                  'OK'                  // buttonName
                  );
-					
-			   window.location.href = "index.html";
              
              },
              
@@ -2237,9 +1637,7 @@ var app = {
             
            
             localStorage.setItem("idprofilo", id);
-			
-			$("#scheda").html("")
-			
+            
             $("#spinner8").show()
             
             $.ajax({
@@ -2256,45 +1654,9 @@ var app = {
                           
                           //$("#profiloman").html("<table width='100%' height='480' align='center' background='http://msop.it/public/"+item.foto+"' style='background-size: 100% auto; background-repeat: no-repeat;' class='uomo' valign='bottom'><tr><td width='100%' align='center' valign='bottom'></td></tr></table>")
                           
-                          $("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='private'><img src='img/indietro_over.png' height='30px'></a></div><img src='http://msop.it/public/"+item.foto+"' class='pippo22profilo'><div id='#' class='puntini'><a id='menuprofilo'><img src='img/menu4.png' height='30px'></a></div>")
+                          $("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='personaggi'><img src='img/indietro_over.png' height='30px'></a></div><img src='http://msop.it/public/"+item.foto+"' class='pippo22'><div id='#' class='puntini'><a id='menuprofilo'><img src='img/menu4.png' height='30px'></a></div>")
                           
-                          var info1;
-                          
-                          info1 = item.info
-                          
-                          info1 = info1.replace("777A", "'");
-                          
-                          info1 = info1.replace("777B", "+");
-                          
-                          info1 = info1.replace("777C", "$");
-                          
-                          info1 = info1.replace("777D", "!");
-                          info1 = info1.replace("777D7", "!!");
-                          info1 = info1.replace("777D77", "!!!");
-                          info1 = info1.replace("777D777", "!!!!");
-                          info1 = info1.replace("777D7777", "!!!!!");
-                          
-                          info1 = info1.replace("777E", "(");
-                          
-                          info1 = info1.replace("777F",")");
-                          
-                          info1 = info1.replace("777G", ":");
-                          
-                          info1 = info1.replace("777H", "?");
-                          info1 = info1.replace("777H7", "??");
-                          info1 = info1.replace("777H77", "???");
-                          info1 = info1.replace("777H777", "????");
-                          info1 = info1.replace("777H7777", "?????");
-                          
-                          
-						  if (item.info=== null || item.info=="null" || typeof(item.info) == 'undefined' ||item.info==0 || item.info=="") {
-						  
-						    $("#scheda").html("<font size='4'><b>Descrivi semplicemnte ciò che ti rende felice!</b> </font> <br>")
-						  
-						  }
-						  else{
-						    $("#scheda").html("<font size='4'><b>"+info1+"</b> </font> <br>")
-						  }
+                          $("#scheda").html("<font size='4'><b>"+item.info+".</b> </font> <br>")
                           
                           var contanick = item.nickname.length;
                           var nuovonick
@@ -2329,7 +1691,7 @@ var app = {
                           $("#recensioni").html("<img src='img/feed_uomo.png' height='30'><img src='img/feed_uomo.png' height='30'><img src='img/feed_uomo.png' height='30'><img src='img/feed.png' height='30'><img src='img/feed.png' height='30'>")
                           
                           
-                          $(document).on("tap", "#load_"+item.id2+"", function(e){
+                          $(document).on("touchstart", "#load_"+item.id2+"", function(e){
                                          
                              var loademail = this.id
                              loademail = loademail.replace("load_","")
@@ -2374,8 +1736,6 @@ var app = {
 						'Errore di Rete',            // title
 						'OK'                  // buttonName
 					);
-				   
-				   window.location.href = "index.html";
                    
                    },
                    
@@ -2388,16 +1748,13 @@ var app = {
 		function uploadPhoto(imageURI) {
 			
 			// Convert image
-            
-            //alert("1")
 			
 			 getFileContentAsBase64(imageURI,function(base64Image){
 								   
 			 localStorage.setItem("imgutente2", base64Image);
 			 //localStorage.setItem("imgutente3", base64Image.replace("data:image/jpeg;base64,","").replace("data:image/jpeg;base64,",""));
 			 localStorage.setItem("imgutente3", base64Image.replace("data:image/png;base64,","").replace("data:image/jpeg;base64,",""));
-			
-            //alert(localStorage.getItem("nomegall"))
+									
 									
 			setTimeout (function(){
 				$.ajax({
@@ -2444,9 +1801,6 @@ var app = {
 		
 		
 		function getFileContentAsBase64(path,callback){
-            
-            //alert("2")
-            
 			window.resolveLocalFileSystemURL(path, gotFile, fail);
 			
 			function fail(e) {
@@ -2525,10 +1879,8 @@ var app = {
 		   $("#anteprimafinale").hide();
 		   $("#anteprimaparty").hide();
 		   $("#anteprimaparty2").hide();
-                       
-           $("#datiparty").hide();
 			
-
+			
 			/*window.plugins.nativepagetransitions.fade({
 			 "duration"       :  1000,
 			 "iosdelay"       :   50,
@@ -2544,8 +1896,6 @@ var app = {
 			   $.mobile.changePage("#homecreaparty", { transition: "fade" });
 					   
 			   document.ontouchmove = function(e){ e.preventDefault(); }
-					   
-			   $("#tastomenu").html("<a id='indietro3'><img src='img/indietro_over.png' height='30px'></a>");
 					   
 			   $("#anteprimaparty").hide();
 			   $("#anteprimaparty2").hide();
@@ -2605,7 +1955,6 @@ var app = {
 	   $("#listaparty").hide();
 	   $("#anteprimaparty").show();
 	   $("#anteprimaparty2").show();
-	   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 	   
 	   $("#anteprimafinale").hide();
 	   $("#anteprimafinale2").hide();
@@ -2618,7 +1967,7 @@ var app = {
 	   
 	   //<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
 	   
-		$("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> EAT - MEETING -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> L'aperitivo è da sempre il miglior modo per conoscersi e lasciarsi andare alle più piacevoli conversazioni,ndalle più banali fino alle più confidenziali… <br>Il Cocktail Party può svolgersi nella propria abitazione sulla comodità di un divano o in un affollatissimo bar del centro. <br>Unico obbiettivo: fare amicizia!! <br>Per la completa riuscita dell'evento accompagnare con degli stuzzichini tutta la durata del Party. <br>TUTTO PUO' NASCERE DAVANTI A UN BUON COCKTAIL! <div><center><img src='img/macchia.png' width='60px'></center></div> Meet exciting new people in the simplest most classic way: over a drink!<br>The Cocktail Party may be organized  in hip central venues, or in the comfort of your own house.<br>The main goal is to mingle!<br>Who knows who is waiting to chat you up?Whilst you are flirting the night away , we will provide the best balance between snacks and great cocktails.<br>EVERYTHING CAN HAPPEN OVER A COCKTAIL! <br></font></b></td></tr></table>")
+		$("#anteprimaparty2").html("<br><table align='center' width='100%'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> EAT - MEETING -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> L'aperitivo da sempre il miglior modo per conoscersi e lasciarsi andare alle più piacevoli conversazioni , dalle più banali fino alle più confidenziali. Il Cocktail Party può svolgersi nella propria abitazione sulla comodità di un divano o in un affollatissimo bar del centro.Unico obbiettivo: fare amicizia!! Per la completa riuscita dell'evento accompagnare con degli stuzzichini tutta la durata del Party. TUTTO PUO' NASCERE DAVANTI A UN BUON COCKTAIL!<br><center><img src='img/macchia.png' width='60px'></center> Meet exciting new people in the simplest most classic way: over a drink!The Cocktail Party may be organizeD  in hip central venues, or in the comfort of your own house. The main goal is to mingle!Who knows who is waiting to chat you up? Whilst you are flirting the night away , we will provide the best balance between snacks and great cocktails.EVERYTHING CAN HAPPEN OVER A COCKTAIL!</font></b></td></tr></table>")
 	   
 	   
 	   $(document).on("touchstart", "#cock2", function(e){
@@ -2696,7 +2045,6 @@ var app = {
 	   $("#listaparty").hide();
 	   $("#anteprimaparty").show();
 	   $("#anteprimaparty2").show();
-	   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 	   
 	   $("#anteprimafinale").hide();
 	   $("#anteprimafinale2").hide();
@@ -2709,7 +2057,7 @@ var app = {
 	   
 	   //<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
 	   
-		$("#anteprimaparty2").html("<br><table align='center' ><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4'> <br> Il Private Party che fa tendenza! <br>Come dice Luis: <br>'Quiero ver bailar tu pelo Quiero ser tu ritmo Que le enseñes a mi boca Tus lugares favoritos (Favorito, favorito baby)' <br>La musica latina è la più seducente e coinvolgente!  Passi di Salsa e Reggaeton regalano da sempre emozioni senza eguali!<br>Organizzare un Latin Party è semplicissimo: <br> melodie Caraibiche e un buon impianto Hi-Fi! <br>Chiudi gli occhi e immagina di trovarti a piedi nudi sulle spiagge di Cuba gustando un Mojito ghiacciato al ritmo di Bachata! <br>Non è un Private Party qualsiasi...  è la moda!!! <br>Per la completa riuscita dell'evento consigliamo una location dove il volume della musica non sia un problema per i vicini!<br>TODA LA NOCHE PARA BAILAR! <div><center><img src='img/macchia.png' width='60px'></center></div> This Private Party is always trendy!<br>How Luis is saying: <br>Quiero ver bailar tu pelo Quiero ser tu ritmo Que le enseñes a mi boca Tus lugares favoritos <br>(Favorito, favorito baby) <br>Latin music is without doubt the most seductive and addictive, dance steps of Salsa and Reggaeton give you unforgettable emotions.<br>It is very simple to organize:<br>you need only a caribbean melody and a good Hi-Fi sound sistem!<br>When you close your eyes you imagine yourself in the beaches of Cuba, with bare feet and a frozen Mojito, dancing to the rhythm of Bachata.<br> It's not just like any other private party...<br>It's a fashion style.<br>For guaranteed succes we recommend a location where the volume of the music won't be a problem for the neighbours! <br>TODA LA NOCHE PARA BAILAR! <br></font></b></td></tr></table>")
+		$("#anteprimaparty2").html("<br><table align='center' width='100%'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Il Private Party che fa tendenza! Come dice Luis: 'Quiero ver bailar tu pelo Quiero ser tu ritmo Que le enseñes a mi boca Tus lugares favoritos (Favorito, favorito baby)' La musica latina è senza dubbio la più seducente e coinvolgente , passi di Salsa e Reggaeton regalano emozioni senza eguali. Organizzare un Latin Party è semplicissimo: melodie Caraibiche e un buon impianto Hi-Fi! Chiudi gli occhi e immagina di trovarti a piedi nudi sulle spiagge di Cuba gustando un Mojito ghiacciato al ritmo di Bachata! Non è un Private Party qualsiasi...  è la moda!!! Per la completa riuscita dell'evento consigliamo una location dove il volume della musica non sia un problema per i vicini! TODA LA NOCHE PARA BAILAR! <br><center><img src='img/macchia.png' width='60px'></center> The Private Party is always trendy! How Luis is saying: ' Quiero ver bailar tu pelo Quiero ser tu ritmo Que le enseñes a mi boca Tus lugares favoritos (Favorito, favorito baby)' Latin music is without doubt the most seductive and addictive, dance steps of Salsa and Reggaeton give you unforgettable emotions. And it is very simple to organize:a caribbean melody and a good Hi-Fi sound sistem! When you close your eyes you imagine yourself in the beaches of Cuba, with bare feet and a frozen Mojito, dancing to the rhythm of Bachata. It's not just like any other private party... It's a fashion style. For guaranteed succes we recommend a location where the volume of the music won't be a problem for the neighbours! TODA LA NOCHE PARA BAILAR! </font></b></td></tr></table>")
 	   
 	   
 	   $(document).on("touchstart", "#latin2", function(e){
@@ -2790,7 +2138,6 @@ var app = {
    
    $("#anteprimafinale").hide();
    $("#anteprimafinale2").hide();
-   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
    
    $("#footerparty").show();
    $("#tastocrea").html("<a id='play2'><font class='AntonioFont' color='#00ffff' size='6'>OK</font></a>")
@@ -2800,7 +2147,7 @@ var app = {
    
    //<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
    
-    $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Hai mai sognato di rivivere gli anni delle fantastiche e spregiudicate notti bollenti , passate nella Playboy Mansion di BeverlyHills , insieme al fondatore del magazine per uomini più famoso al mondo?<br>Rigorosamente in giacca e cravatta o nella storica vestaglia rossa è il dress code dei ragazzi!<br>Body , polsini , papillon e le immancabili orecchie da coniglietta è la divisa delle ragazze! <br>Per la completa riuscita dell'evento dimenticate timidezza e monogamia!<br>CONIGLIETTA UNA VOLTA…<br>CONIGLIETTA PER SEMPRE! <div><center><img src='img/macchia.png' width='60px'></center></div> Have you ever dreamed of reliving the years of  fantastic and unconventional hot nights spent in FAMOUSE  Playboy mansion  in Beverlyhills, together with the founder of the most noted men's magazine in the world?<br>Strictly in a suit and tie or in historical dressing-gown, it's a dress code for boys. <br>Body, cuffs,papillons and of course inevitable bunny ears it's an uniform for girls. <br>For the complete success of the event forget shyness and monogamy! <br>BUNNY FOR ONCE… BUNNY FOREVER!  <br></font></b></td></tr></table>")
+	$("#anteprimaparty2").html("<br><table align='center' width='100%'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Hai mai sognato di rivivere gli anni delle fantastiche e spregiudicate notti bollenti passate nella Playboy Mansion di BeverlyHills insieme al fondatore del magazine per uomini più famoso al mondo? Rigorosamente in giacca e cravatta o nella storica vestaglia rossa è il dress code dei ragazzi! Body , polsini , papillon e le immancabili orecchie da coniglietta è la divisa delle ragazze! Per la completa riuscita dell'evento dimenticate timidezza e monogamia! CONIGLIETTA UNA VOLTA…CONIGLIETTA PER SEMPRE!<br><center><img src='img/macchia.png' width='60px'></center> Have you ever dreamed of reliving the years of  fantastic and unconventional hot nights spent in FAMOUSE  Playboy mansion  in Beverlyhills, together with the founder of the most noted men's magazine in the world? Strictly in a suit and tie or in historical dressing-gown, it's a dress code for boys. Body, cuffs,papillons and of course inevitable bunny ears it's an uniform for girls.For the complete success of the event forget shyness and monogamy! BUNNY FOR ONCE… BUNNY FOREVER! </font></b></td></tr></table>")
    
    
    $(document).on("touchstart", "#play2", function(e){
@@ -2881,7 +2228,6 @@ var app = {
 	   
 	   $("#anteprimafinale").hide();
 	   $("#anteprimafinale2").hide();
-	   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 	   
 	   $("#footerparty").show();
 	   $("#tastocrea").html("<a id='moulin2'><font class='AntonioFont' color='#00ffff' size='6'>OK</font></a>")
@@ -2891,7 +2237,7 @@ var app = {
 	   
 	   //<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
 	   
-		$("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Fantasia per molti… realtà per pochi!<br>Questo Private Party nasce con lo scopo di esibirsi in uno show decisamente travolgente!<br>Anche una semplice abitazione può trasformarsi nel teatro più stupefacente!<br>Quali sono le caratteristiche diuno spettacolo Burlesque?<br>Possiamo definirlo uno streap-tease dalle sfumature comiche!<br>Lo stile delle ballerine è inconfondibile:<br>corpetti , bustini , pizzi , merletti e parigine!<br>Look che ricorda le protagonistedel mitico Moulin Rouge!<br>Per la completa riuscita dell'evento consigliamo di creare una playlist decisamente da spogliarello!<br>LEDIES AND GENTLEMAN... SI VA IN SCENA! <div><center><img src='img/macchia.png' width='60px'></center></div> Fantasy for many,  reality for a few!<br>This Private Party is born with the purpose of performing in a definitely overwhelming show!<br>Even a common home can be transformed into the most amazing theater!<br>What are the characteristics of a Burlesque show?<br>We can call it a strip-tease with comic nuances!<br>The style of the dancers is unmistakable: bodices, bustiers, and lace.<br>A Parisian story with the protagonist playing the part of the legendary Moulin Rouge!<br>For the complete success of the event , we advice there has been created a perfect strip playlist!<br>LEDIES AND GENTLEMAN ... IT'S ON STAGE! <br></font></b></td></tr></table>")
+		$("#anteprimaparty2").html("<br><table align='center' width='100%'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Sogno per molti , realtà per pochi!Questo tipo di Private Party nasce con lo scopo di esibirsi in uno show decisamente travolgente!Anche una comune abitazione può trasformarsi nel teatro più stupefacente!Quali sono le caratteristiche di uno spettacolo Burlesque?Possiamo definirlo uno streap-tease dalle sfumature comiche!Lo stile delle ballerine è inconfondibile: corpetti , bustini , pizzi , merletti e parigine...look che ricorda le protagoniste del mitico Moulin Rouge!Per la completa riuscita dell'evento consigliamo di creare una playlist decisamente da spogliarello!LEDIES AND GENTLEMAN... SI VA IN SCENA!<br><center><img src='img/macchia.png' width='60px'></center> A dream for many, a reality for a few!This type of Private Party is born with the purpose of performing in a definitely overwhelming show! Even a common home can be transformed into the most amazing theater!What are the characteristics of a Burlesque show? We can call it a strip-tease with comic nuances!The style of the dancers is unmistakable: bodices, bustiers, and lace.A Parisian story with the protagonist playing the part of the legendary Moulin Rouge! For the complete success of the event, we hint there has been created a strip playlist! LEDIES AND GENTLEMAN ... IT'S ON STAGE!</font></b></td></tr></table>")
 	   
 	   
 	   $(document).on("touchstart", "#moulin2", function(e){
@@ -2899,7 +2245,7 @@ var app = {
 		  document.ontouchmove = function(e){ e.preventDefault(); }
 		  
 		  localStorage.setItem("cartellaimg","moulin")
-		  localStorage.setItem("tipofesta","MOULIN ROUGE")
+		  localStorage.setItem("tipofesta","BURLESQUE PARTY")
 		  
 		  $("#fotoflyer").html("<img id='moulin1' src='flyer/verticali/moulin/moulin1.jpg' width='105px' border='0' bordercolor='red'>&nbsp;&nbsp;<img id='moulin2' src='flyer/verticali/moulin/moulin2.jpg' width='105px' border='0'>&nbsp;&nbsp;<img id='moulin3' src='flyer/verticali/moulin/moulin3.jpg' width='105px' border='0'>");
 		  
@@ -2972,7 +2318,6 @@ var app = {
 	   
 	   $("#anteprimafinale").hide();
 	   $("#anteprimafinale2").hide();
-	   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 	   
 	   $("#footerparty").show();
 	   $("#tastocrea").html("<a id='massage2'><font class='AntonioFont' color='#00ffff' size='6'>OK</font></a>")
@@ -2982,7 +2327,7 @@ var app = {
 	   
 	   //<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
 	   
-	  $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Il Private Party incentrato totalmente sul piacere del RELAX. <br>Organizzato sia dai ragazzi che dalle ragazze , ha lo scopo di donare piacere all'altro con la magia dell'arte del massaggio. <br>Musica rilassante , candele profumate ed oli caldi doneranno momenti di assoluto godimento. <br>Per la completa riuscita dell'evento assicurarsi che ogni postazione massaggi sia comoda e ben confortevole. <br>LA PARTE PIU' EMOZIONANTE E DIVERTENTE SARA' PROVARE SEMPRE DIVERSE MANI E RICAMBIARNE IL PIACERE! <div><center><img src='img/macchia.png' width='60px'></center></div> This type of Private Party is entirely focused on the pleasure of RELAXATION. <br>Organized by both men and women it is focused on giving  pleasure to one another with the art of  magic massage. <br>Relaxing music, scented candles and hot oils will provide moments  of maximum enjoyment. <br>For the complete success of the event must be provide high quality massage chairs. <br>EXPERIENCE  DIFFERENT HANDS AND DIFFRENT PLEASURES THEY CAN PROVIDE! <br></font></b></td></tr></table>")
+		$("#anteprimaparty2").html("<br><table align='center' width='100%'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Il Private Party incentrato totalmente sul piacere del RELAX.Organizzato sia dai ragazzi che dalle ragazze , ha lo scopo di donare piacere all'altro con la magia dell'arte del massaggio. Musica rilassante , candele profumate ed oli caldi doneranno momenti di assoluto godimento. Per la completa riuscita dell'evento assicurarsi che ogni postazione massaggi sia comoda e ben confortevole. LA PARTE PIU' EMOZIONANTE E DIVERTENTE SARA' PROVARE SEMPRE DIVERSE MANI E RICAMBIARNE IL PIACERE!<br><center><img src='img/macchia.png' width='60px'></center> This type of Private Party is entirely focused on the pleasure of RELAXATION. Organized by both men and women it is focused on giving  pleasure to one another with the art of  magic massage. Relaxing music, scented candles and hot oils will provide moments  of maximum enjoyment. For the complete success of the event must be provide high quality massage chairs. EXPERIENCE  DIFFERENT HANDS AND DIFFRENT PLEASURES THEY CAN PROVIDE! </font></b></td></tr></table>")
 	   
 	   
 	   $(document).on("touchstart", "#massage2", function(e){
@@ -3061,7 +2406,6 @@ var app = {
        $("#listaparty").hide();
        $("#anteprimaparty").show();
        $("#anteprimaparty2").show();
-	   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
        
        $("#anteprimafinale").hide();
        $("#anteprimafinale2").hide();
@@ -3074,7 +2418,7 @@ var app = {
        
 			//<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
        
-        $("#anteprimaparty2").html("<br><table align='center' ><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> GIRLS&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Organizzato dalle ragazze per le ragazze , vivendo una notte nell'immenso piacere femminile! <br>UN EVENTO PER CREARE NUOVE AMICIZIE E NON SOLO... <div><center><img src='img/macchia.png' width='60px'></center></div> Organized by women for women ,Bring in the female pleasure!<br>AN EVENT TO MEET NEW FRIENDS AND MORE... <br></font></b></td></tr></table>")
+      $("#anteprimaparty2").html("<br><table align='center' width='100%'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> GIRLS&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY -FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Organizzato dalle ragazze per le ragazze , vivendo una notte nell'immenso piacere femminile!UN EVENTO PER CREARE NUOVE AMICIZIE E NON SOLO...<br><center><img src='img/macchia.png' width='60px'></center> Organized by women for women ,Bring in the female pleasure!AN EVENT TO MEET NEW FRIENDS AND MORE... </font></b></td></tr></table>")
        
        
 		   $(document).on("touchstart", "#girls2", function(e){
@@ -3153,7 +2497,6 @@ var app = {
 			   $("#listaparty").hide();
 			   $("#anteprimaparty").show();
 			   $("#anteprimaparty2").show();
-			   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 			   
 			   $("#anteprimafinale").hide();
 			   $("#anteprimafinale2").hide();
@@ -3165,7 +2508,7 @@ var app = {
 					   
 			   //<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
 					   
-			   $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Rigorosamente dalle 4.00 del mattino , un vero After Party non ha regole e limitazioni! <br>Per gli amanti delle prime luci dell’alba , ancora delusi dalla chiusura delle discoteche , è paragonabile ad un oasi nel deserto! <br>Occhiali da sole e look caotico sono l'inevitabile dress code di ogni partecipante!<br>Tutto ciò che non si è riuscito a dire e a fare durante la notte come per incanto l'After Party lo renderà possibile , trasportando ogni partecipante in un vortice di spensieratezza molto più che surreale! <br>TUTTO COME IN UN QUADRO DI SALVADOR DALI'! <div><center><img src='img/macchia.png' width='60px'></center></div> After 4:00 am, a real After Party doesnt have rules and limits! <br>For the lovers of the morning light, still dissapointed from the shut down of the club, comparable with an oasis in the dessert. <br>Sun glasses and caothic look are the unavoidable dress code of ebery participant. <br>All that hasnt been said or done during the night, as an enchant , After Party will make it possible transporting in a vortex of not thinking more than surreal <br>ALL LIKE IN A SALVADOR DALI’ PAINT! <br> </font></b></td></tr></table>")
+                $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'>  Rigorosamente dalle 4.00 del mattino , un vero After Party non ha regole e limitazioni! Per gli amanti delle prime luci del mattino , ancora delusi dalla chiusura delle discoteche ,è paragonabile ad un oasi nel deserto!Occhiali da sole e abito caotico sono l'inevitabile dress code di ogni partecipante!Tutto ciò che non si è riuscito a dire e a fare durante la notte come per incanto l'After lo renderà possibile trasportando ogni partecipante in un vortice di spensieratezza molto più che surreale!TUTTO COME IN UN QUADRO DI SALVADOR DALI'!<br><center><img src='img/macchia.png' width='60px'></center><br> After 4:00 am, a real After Party doesnt have rules and limits! For the lovers of the morning light, still dissapointed from the shut down of the club, comparable with an oasis in the dessertSun glasses and caothic dress are the unavoidable dress code of ebery participant All that hasnt been said or done during the night, as an enchant, After will make it possible transporting in a vortex of not thinking more tha  surreal ALL LIKE IN A SALVADOR DALI’ PAINT! </font></b></td></tr></table>")
 					   
 				$(document).on("touchstart", "#after2", function(e){
 									  
@@ -3244,8 +2587,7 @@ var app = {
 		   $("#listaparty").hide();
 		   $("#anteprimaparty").show();
 		   $("#anteprimaparty2").show();
-		   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
-		 
+			
 		   $("#anteprimafinale").hide();
 		   $("#anteprimafinale2").hide();
 					   
@@ -3253,11 +2595,11 @@ var app = {
 		   $("#tastocrea").html("<a id='wonderfulldinner2'><font class='AntonioFont' color='#00ffff' size='6'>OK</font></a>")
 					  
 			
-			$("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/wonderful.jpg' width='100%'></td></tr></table>")
+			$("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/wonderful.png' width='100%'></td></tr></table>")
             
             //<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
                        
-            $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> GIRLS - BOYS&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Questo Private Party nasce solo ed esclusivamente per recitare , divertirsi e stupire!<br>Ogni partecipante alla cena impersonificherà un personaggio famoso a sua scelta , storico o contemporaneo , assumendone letteralmente movenze e peculiarità!<br>Non sarà una semplice festa in maschera , ma bensì una vera e propria rappresentazione teatrale.<br>Tutti i commensali si sentiranno come immersi in uno splendido LIVING THEATRE ineguagliabile! <br>Per la completa riuscita dell'evento ogni partecipante dovrà studiare accuratamente il proprio personaggio ed immedesimarsi completamente per tutta la durata del Party.<br>LA VITA E' TROPPO SERIA PER ESSERE PRESA SERIAMENTE! <div><center><img src='img/macchia.png' width='60px'></center> </div> The Wonderful Dinner is the hot new dress up party with a twist. <br>Dress code: famous characters from any era, and will embody the said character during the duration of the night.<br>Consider it as a theatrical event.<br>Make sure to do some reasearch on your character to be fully prepared for this night of madness. <br>LIFE IS TOO SERIOUS TO BE TAKEN SERIOUSLY! <br></font></b></td></tr></table>")
+            $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> GIRLS - BOYS&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Questo Private Party nasce solo ed esclusivamente per recitare , divertirsi e stupire!Ogni partecipante alla cena impersonificherà un personaggio famoso a sua scelta , storico o contemporaneo , assumendone letteralmente movenze e peculiarità.Non sarà una semplice festa in maschera , ma bensì una vera e propria rappresentazione teatrale.Tutti i commensali si sentiranno come immersi in uno splendido LIVING THEATRE ineguagliabile! Per la completa riuscita dell'evento ogni partecipante dovrà studiare accuratamente il proprio personaggio ed immedesimarsi completamente per tutta la durata del Party.LA VITA E' TROPPO SERIA PER ESSERE PRESA SERIAMENTE! <br><center><img src='img/macchia.png' width='60px'></center> The Wonderful Dinner is the hot new dress up party with a twist. Dress code: famous characters from any era, and will embody the said character during the duration of the night. Consider it as a theatrical event.  Make sure to do some reasearch on your character to be fully prepared for this night of madness.LIFE IS TOO SERIOUS TO BE TAKEN SERIOUSLY! </font></b></td></tr></table>")
    
 
 			$(document).on("touchstart", "#wonderfulldinner2", function(e){
@@ -3265,7 +2607,7 @@ var app = {
 				document.ontouchmove = function(e){ e.preventDefault(); }
 						   
 				localStorage.setItem("cartellaimg","wonderfulldinner")
-				localStorage.setItem("tipofesta","WONDERFUL DINNER")
+				localStorage.setItem("tipofesta","WONDERFULL DINNER")
 							
 				$("#fotoflyer").html("<img id='wonver1' src='flyer/verticali/wonderfulldinner/wonver1.jpg' width='105px' border='0' bordercolor='red'>&nbsp;&nbsp;<img id='wonver2' src='flyer/verticali/wonderfulldinner/wonver2.jpg' width='105px' border='0'>&nbsp;&nbsp;<img id='wonver3' src='flyer/verticali/wonderfulldinner/wonver3.jpg' width='105px' border='0'>");
 				
@@ -3339,7 +2681,6 @@ var app = {
 		   $("#listaparty").hide();
 		   $("#anteprimaparty").show();
 		   $("#anteprimaparty2").show();
-		   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 		   
 		   $("#anteprimafinale").hide();
 		   $("#anteprimafinale2").hide();
@@ -3351,7 +2692,7 @@ var app = {
 		   
 		   //<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
 		   
-        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Alla domanda:<br>”sei mai stato ad una festa in maschera?'rispondiamo immancabilmente tutti di si!<br>'…e in mascherina?'<br>Sexy , divertente , enigmatica e provocatoria!<br>Questo Private Party è tra tutti il più semplice da realizzare e il più difficile da far decollare!<br>In un contesto casual-elegant , ciò che caratterizza l'evento , è l'obbligo per i partecipanti di indossare per tutta la durata del Party una misteriosa mascherina Venezian style. <br>Una festa vissuta di sensazioni , flirt e battiti di cuore... <br>Ciò che ci affascina di più è sempre ciò che non conosciamo affatto! <br>Per la riuscita dell'evento consigliamo maschere comode che lascino le labbra completamente libere!<br>A VOLTE UNA MASCHERA CI DICE PIU' DI UN VOLTO!  <div><center><img src='img/macchia.png' width='60px'></center></div> To the question: <br>“have you ever been to a mask party?” <br> we all respond without fail: yes! And… 'in a little mask?' <br>Sexy, fun, enigmatic and provocative! <br> This type of private party is one of the simplest and the most difficult to start! <br>In a casual-elegant context, which characterises the event, it’s obligatory for the participants to wear a mysterious Venetian mask for the duration of the party.  <br>A party filled with sensations, flirting and heart beats... because after all, what fascinates us most is what we don’t fully know! <br>For the complete success of the event, we suggest comfortable masks and that you leave the lips completely free! <br>AT TIMES A MASK REVEALS MORE THAN A FACE! <br></font></b></td></tr></table>")
+            $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Alla domanda 'Sei mai stato ad una festa in maschera?'rispondiamo immancabilmente tutti di si!'...e in mascherina?'Sexy , divertente , enigmatica e provocatoria!Questo Private Party è tra tutti il più semplice da realizzare e il più difficile da far decollare!In un contesto casual-elegant , ciò che caratterizza l'evento , è l'obbligo per i partecipanti di indossare per tutta la durata del Party una misteriosa mascherina Venezian style.Una festa vissuta di sensazioni , flirt e battiti di cuore... ciò che ci affascina di più è sempre ciò che non conosciamo affatto! Per la riuscita dell'evento consigliamo maschere comode che lascino le labbra completamente libere!A VOLTE UNA MASCHERA CI DICE PIU' DI UN VOLTO! <br><center><img src='img/macchia.png' width='60px'></center><br> Mask party: to the question “have you ever been to a mask party?” We all respond without fail: yes! “And in a little mask?” Sexy, fun, enigmatic and provocative! This type of private party is one of the simplest to fulfill and the most difficult to start! In a casual-elegant context, which characterises the event, it’s obligatory for the participants to wear a mysterious Venetian mask for the duration of the party. A party filled with sensations, flirting and heart beats... because after all, what fascinates us most is what we don’t fully know!For the complete success of the event, we suggest comfortable masks and that you leave the lips completely free!AT TIMES A MASK REVEALS MORE THAN A FACE! </font></b></td></tr></table>")
 		   
 			   
 		   $(document).on("touchstart", "#mask2", function(e){
@@ -3431,7 +2772,6 @@ var app = {
 		   $("#listaparty").hide();
 		   $("#anteprimaparty").show();
 		   $("#anteprimaparty2").show();
-		   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 		   
 		   $("#anteprimafinale").hide();
 		   $("#anteprimafinale2").hide();
@@ -3443,7 +2783,7 @@ var app = {
 		   
 		   //<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
 	   
-            $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Chi non ha mai partecipato oppure organizzato un indimenticabile Pigiama Party?<br>La festa per i più piccoli che finalmente potevano passare la notte a casa con gli amici. <br>Un pigiama , tanti cuscini del buon gossip e il party è fatto!<br>TRA IL DIRE E IL FARE C'E' DI MEZZO IL PIGIAMA!  <div><center><img src='img/macchia.png' width='60px'></center></div> Who had never participated  or organized a memorable Pajama Party?<br>A party for kids where they could finally spend the night  at  home with friends . <br>Pajama,  pillow, blanket , good gossip and the party is done! <br>BETWEEN SAYING AND DOING  SOMETHING THERE IS  ALWAYS PAJAMA! <br> </font></b></td></tr></table>")
+            $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL&nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Chi non ha mai partecipato oppure organizzato un indimenticabile Pigiama Party? La festa per i più piccoli che finalmente potevano passare la notte a casa con gli amici. Un pigiama , tanti cuscini del buon gossip e il party è fatto! TRA IL DIRE E IL FARE C'E' DI MEZZO IL PIGIAMA! <br><center><img src='img/macchia.png' width='60px'></center><br> Who had never participated  or organized a memorable Pajama Party? A party for kids where they could finally spend the night  at  home with friends .Pajama,  pillow, blanket , good gossip and the party is done! BETWEEN SAYING AND DOING  SOMETHING THERE IS  ALWAYS PAJAMA! </font></b></td></tr></table>")
 		   
 		   
 		   $(document).on("touchstart", "#pijama2", function(e){
@@ -3521,7 +2861,6 @@ var app = {
 	   $("#listaparty").hide();
 	   $("#anteprimaparty").show();
 	   $("#anteprimaparty2").show();
-	   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 	   
 	   $("#anteprimafinale").hide();
 	   $("#anteprimafinale2").hide();
@@ -3531,7 +2870,7 @@ var app = {
 	   
 	   $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/hitme.jpg' width='100%'></td></tr></table>")
 	   
-        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Il Private Party più crazy e originale!<br>L’evento dove ogni ragazza indosserà abiti maschili e ogni ragazzo abiti femminili!! <br>Per lei camicia , giacca e baffi finti… per lui vestitino , tacchi , trucco e parrucco!<br>Ma non sarà soltanto lo scambio di abbigliamento a caratterizzare l'evento: per tutta la durata della festa anche i comportamenti e atteggiamenti dovranno essere invertiti! <br>Chi indosserà i pantaloni sarà galante e complimentoso mostrando molte attenzioni verso le sexy e provocatorie 'signorine muscolose'! <br>BABY CONQUISTAMI ANCORA UNA VOLTA!<br>Divertimento assicurato! <br>Sogno proibito di molti… <br>desiderio realizzato per pochi! <br>Per la completa riuscita dell'evento consigliamo un piccolo aiuto da entrambe le parti per il rituale del travestimento e scambio di identità! <div><center><img src='img/macchia.png' width='60px'></center></div> The most crazy and original! <br>Private Party where every girl wears men’s clothes and every boy  wears  women's clothes. <br>For her shirts,  jackets and fake mustaches. <br>For him dress, heels and wig. <br>Not only exchange of clothing  characterize this event. <br>For entire duration of this special party, also behaviors and attitudes  have to be reversed. <br>Who is wearing  the pants have to  be gallant and complimentary, by showing a lot of attention to  sexy and provocative 'muscled young ladies'! <br>HIT ME BABY ONE MORE TIME! <br>Exclusive fun.  Forbidden dream of  many! <br>Desire realized by a few. <br>For the complete success of the event we recommend a little help from both sexes to facilitatethe process of dressing up and playing exchange of identity! <br> </font></b></td></tr></table>")
+        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Il Private Party più crazy e originale!L'evento dove ogni ragazza indosserà abiti maschili e ogni ragazzo abiti femminili.Per lei camicia , giacca e baffi finti.Per lui vestitino , tacchi , trucco e parrucco!Ma non sarà soltanto lo scambio di abbigliamento a caratterizzare l'evento:per tutta la durata della festa anche i comportamenti e atteggiamenti dovranno essere invertiti! Chi indosserà i pantaloni sarà galante e complimentoso mostrando molte attenzioni versole sexy e provocatorie 'signorine muscolose'.BABY CONQUISTAMI ANCORA UNA VOLTA!Divertimento assicurato!Sogno proibito di molti…desiderio realizzato per pochi!Per la completa riuscita dell'evento consigliamo un piccolo aiuto da entrambe le parti per il rituale del travestimento e scambio di identità! <br><center><img src='img/macchia.png' width='60px'></center><br> The Private Party very crazy and original!Private Party where every girl wears men’s clothes and every boy  wears  women's clothes.For her shirts,  jackets and fake mustaches.For him dress, heels and wig.Not only exchange of clothing  characterize this party.  For  entire duration of this special party, also behaviors and attitudes  have to be reversed.  Who is wearing  the pants have to  be gallant and complimentary, by showing a lot of attention to  sexy and provocative 'muscled young ladies'.HIT ME BABY ONE MORE TIME!Exclusive fun.  Forbidden dream of  many.  Desire realized by a few.For the complete success of the event we recommend a little help from both sexes to facilitate the process of dressing up and playing exchange of identity. </font></b></td></tr></table>")
 	   
 	   
 	    $(document).on("touchstart", "#hitme2", function(e){
@@ -3539,7 +2878,7 @@ var app = {
 		  document.ontouchmove = function(e){ e.preventDefault(); }
 		  
 		  localStorage.setItem("cartellaimg","hitme")
-		  localStorage.setItem("tipofesta","BABY ONE MORE TIME")
+		  localStorage.setItem("tipofesta","HIT ME BABY PARTY")
 		  
 		  $("#fotoflyer").html("<img id='hitme1' src='flyer/verticali/hitme/hitme1.jpg' width='105px' border='0' bordercolor='red'>&nbsp;&nbsp;<img id='hitme2' src='flyer/verticali/hitme/hitme2.jpg' width='105px' border='0'>&nbsp;&nbsp;<img id='hitme3' src='flyer/verticali/hitme/hitme3.jpg' width='105px' border='0'>");
 		  
@@ -3608,7 +2947,6 @@ var app = {
 		   $("#listaparty").hide();
 		   $("#anteprimaparty").show();
 		   $("#anteprimaparty2").show();
-		   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 		   
 		   $("#anteprimafinale").hide();
 		   $("#anteprimafinale2").hide();
@@ -3618,7 +2956,7 @@ var app = {
 		   
 		   $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/sushi.jpg' width='100%'></td></tr></table>")
 		   
-		   $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> EAT - MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Sushi , Giappone , Gheishe e Kimoni. <br>L'immancabile angolo del SUSHI , preparato al momento da scenografici e pittoreschi maestri orientali , di certo non sarà l’unica delle tante attrazioni del Party! <br>Tutti gli invitati , rigorosamente a tema , indosseranno tutto ciò che la cultura giapponese richiede. <br>Per la completa riuscita dell'evento fornire bacchette e gadget a tema. <br>FARE L'AMORE E' COME MANGIARE SUSHI… NON CI SI STANCA MAI!!! <div><center><img src='img/macchia.png' width='60px'></center></div> The exotic flavours of  SUSHI, the extravagant style and culture brought by geishas and their frivolous kimonos. <br>Be ready to expect all of the above, including a sushi buffet freshly prepared on demand by our talented sushi masters. <br>All guests are encouraged to follow a Japan-inspired dress code Charming Geishas and brave ninja warriors will make this night memorable! <br>MAKING LOVE IS LIKE EATING SUSHI… YOU WILL NEVER HAVE ENOUGH!!! <br> </font></b></td></tr></table>")
+           $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> EAT - MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Sushi , Giappone , Gheishe e Kimoni.L'immancabile angolo del SUSHI , preparato al momento da scenografici e pittoreschi maestri nipponici di certo sarà una delle tante attrazioni del Party! Tutti gli invitati rigorosamente a tema indosseranno tutto quello che la cultura giapponese concerne. Per la completa riuscita dell'evento fornire bacchette e gadget a tema.FARE L'AMORE E' COME MANGIARE SUSHI… NON CI SI STANCA MAI! <br><center><img src='img/macchia.png' width='60px'></center><br> The exotic flavours of  SUSHI, the extravagant style and culture brought by geishas and their frivolous kimonos.Be ready to expect all of the above, including a sushi buffet freshly prepared on demand by our talented sushi masters.All guests are encouraged to follow a Japan-inspired dress code Charming Geishas and brave ninja warriors will make this night memorable! MAKING LOVE IS LIKE EATING SUSHI…YOU WILL NEVER HAVE ENOUGH! </font></b></td></tr></table>")
 		   
 		   
 	 $(document).on("touchstart", "#sushi2", function(e){
@@ -3696,7 +3034,6 @@ var app = {
 	   $("#listaparty").hide();
 	   $("#anteprimaparty").show();
 	   $("#anteprimaparty2").show();
-	   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 	   
 	   $("#anteprimafinale").hide();
 	   $("#anteprimafinale2").hide();
@@ -3706,7 +3043,7 @@ var app = {
 	   
 	   $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/lingerie.jpg' width='100%'></td></tr></table>")
 	   
-        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Come alzare il livello di sensualità con un pizzico di malizia? <br>Il divertentissimo Lingerie Party prevede  una regola fondamentale: <br>'Allo scoccare della mezzanotte ad ogni partecipante al Party sarà richiesto di continuare la serata indossando soltanto lingerie intima!'  <br>Per la completa riuscita dell'evento assicurarsi un buon impianto di riscaldamento.<br>LINGERIE... VERA ARMA DI SEDUZIONE! <div><center><img src='img/macchia.png' width='60px'></center></div>   The goal of this party is to increase levels of eroticism with a touch of naughtiness. The hottest Lingerie Party provides the  basic following rule: <br>At midnight every participant of the Party, will be asked to strip down and stay with intimate lingerie!'<br>For the complete success of the event must be provide a good heating system. <br>LINGERIE... IS THE TRUE WEAPON OF SEDUCTION!<br></font></b></td></tr></table>")
+        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Come alzare il livello di sensualità conun pizzico di malizia?Il divertentissimo Lingerie Party prevedeuna regola fondamentale:'Allo scoccare della mezzanotte ad ogni partecipante al Party sarà richiesto di continuarela serata indossando soltanto lingerie intima!' Per la completa riuscita dell'evento assicurarsi un buon impianto di riscaldamento.LINGERIE... VERA ARMA DI SEDUZIONE! <br><center><img src='img/macchia.png' width='60px'></center><br> The goal of this party is to increase levels of eroticism with a touch of naughtiness.The hottest Lingerie Party provides the  basic following rule:'At midnight every participant of the Party, will be asked to strip down to their shoes and intimate lingerie.' For the complete success of the event must be provide a good heating system. LINGERIE... IS THE TRUE WEAPON OF SEDUCTION! </font></b></td></tr></table>")
 	   
 	   
 	   $(document).on("touchstart", "#lingerie2", function(e){
@@ -3783,7 +3120,6 @@ var app = {
 	   $("#listaparty").hide();
 	   $("#anteprimaparty").show();
 	   $("#anteprimaparty2").show();
-	   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 	   
 	   $("#anteprimafinale").hide();
 	   $("#anteprimafinale2").hide();
@@ -3793,7 +3129,7 @@ var app = {
 	   
 	   $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/boys.jpg' width='100%'></td></tr></table>")
 	   
-      $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> BOYS&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Organizzato dai ragazzi per i ragazzi , vivendo una notte nell'immenso piacere maschile!<br>UN EVENTO PER CREARE NUOVE AMICIZIE E NON SOLO... <div><center><img src='img/macchia.png' width='60px'></center></div> Organized by men for men, bring in the male pleasure! <br>AN EVENT TO MEET NEW FRIENDS AND MORE... <br> </font></b></td></tr></table>")
+        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> BOYS&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Organizzato dai ragazzi per i ragazzi , vivendo una notte nell'immenso piacere maschile!UN EVENTO PER CREARE NUOVE AMICIZIE E NON SOLO... <br><center><img src='img/macchia.png' width='60px'></center><br> Organized by men for men,bring in the male pleasure!AN EVENT TO MEET NEW FRIENDS AND MORE... </font></b></td></tr></table>")
 	   
 	   
 	   $(document).on("touchstart", "#boys2", function(e){
@@ -3871,7 +3207,6 @@ var app = {
 	   $("#listaparty").hide();
 	   $("#anteprimaparty").show();
 	   $("#anteprimaparty2").show();
-	   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 	   
 	   $("#anteprimafinale").hide();
 	   $("#anteprimafinale2").hide();
@@ -3881,7 +3216,7 @@ var app = {
 	   
 	   $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/disco.jpg' width='100%'></td></tr></table>")
 	   
-	   $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Discoteca , alcool , musica e divertimento! <br>Invita le persone con cui desideri passare la serata nel tuo Privè della tua discoteca preferita e realizza la tua notte perfetta! <br>Uno spazio riservato darà più prestigio all'evento ma anche ballare e scatenarsi in pista sarà la parte più divertente. <br>BALLA... SEI VIVO! <div><center><img src='img/macchia.png' width='60px'></center></div> Disco , alcool , music and fun! <br>Have a venue hired for you, be on the VIP list, get dancing, and  have a drink or true! Invite your favourite single friends and let's get this party started! <br>Having a private room reserved will allow you dance like no one is watching at least, not all the club. Imagine a crazy night out with people who think exactly like you! <br>DANCE... FEEL ALIVE! <br></font></b></td></tr></table>")
+       $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Discoteca , alcool , musica e divertimento!Invita le persone con cui desideri passare la serata nel tuo Privè della tua discoteca preferita e realizza la tua serata perfetta!Uno spazio riservato darà più prestigio all'evento ma anche ballare e scatenarsi in pista sarà la parte più divertente.BALLA... SEI VIVO! <br><center><img src='img/macchia.png' width='60px'></center><br> Disco , alcool , music and fun!Have a venue hired for you, be on the VIP list, get dancing, and  have a drink or true! Invite your favourite single friends and let's get this party started!Having a private room reserved will allow you dance like no one is watching at least, not all the club.Imagine a crazy night out with people who think exactly like you!DANCE... FEEL ALIVE! </font></b></td></tr></table>")
 	   
 	   
 	   $(document).on("touchstart", "#disco2", function(e){
@@ -3958,7 +3293,6 @@ var app = {
 		   $("#listaparty").hide();
 		   $("#anteprimaparty").show();
 		   $("#anteprimaparty2").show();
-	       $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 		   
 		   $("#anteprimafinale").hide();
 		   $("#anteprimafinale2").hide();
@@ -3968,7 +3302,7 @@ var app = {
 		   
 		   $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/toyboy.jpg' width='100%'></td></tr></table>")
 		   
-        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> GIRLS&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'>  Questo tipo di PrivateParty nasce con lo scopo di realizzare ogni più amato desiderio femminile! <br>Organizzato dalle ragazze , il ToyBoy Party , consiste nello scegliere ed invitare un numero di ragazzi disposti ad esaudire ogni tipo di capriccio e sfizio: <br>CAMERIERE , BALLERINO , TOY BOY , BARMAN o semplicemente AMANTE! <br>Per la completa riuscita dell'evento il numero dei ToyBoy deve essere sempre inferiore di quello delle organizzatrici e partecipanti. <br>IN QUESTO PARTY E' LA DONNA CHE COMANDA! <div><center><img src='img/macchia.png' width='60px'></center></div> This Private Party is to realize every female desire. Organized by women , the ToyBoy Party is to choose and invite a number of guys disposed to realized any kind of female whim: <br>WAITER , DANCER ,  TOYBOY , BARMAN or simply LOVER!<br>For the complete success of the event , the number of Boy Toys are limited to be less than other  participants. <br>THIS IS THE PARTY WHERE WOMEN COMMAND!  <br></font></b></td></tr></table>")
+           $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> GIRLS&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Questo tipo di Private Party nasce con lo scopo di realizzare ogni più amato desiderio femminile. Organizzato dalle ragazze , il ToyBoyParty , consiste nello scegliere ed invitare un numero di ragazzi disposti ad esaudire ogni tipo di capriccio e sfizio:CAMERIERE , BALLERINO , TOY BOY , BARMAN o semplicemente AMANTE!.Per la completa riuscita dell'evento il numero dei ToyBoy deve essere sempre inferiore di quello delle organizzatrici e partecipanti.IN QUESTO PARTY E' LA DONNA CHE COMANDA! <br><center><img src='img/macchia.png' width='60px'></center><br> This Private Party is to realize every female desire. Organized by women , the ToyBoy Party is to choose and invite a number of guys disposed to realized any kind of female whim: WAITER , DANCER ,  TOYBOY , BARMAN or simply LOVER!For the complete success of the event , the number of Boy Toys are limited to be less than other  participants. THIS IS THE PARTY WHERE WOMEN COMMAND! <br></font></b></td></tr></table>")
 		   
 		   
 		   $(document).on("touchstart", "#toyboy2", function(e){
@@ -4045,7 +3379,6 @@ var app = {
    $("#listaparty").hide();
    $("#anteprimaparty").show();
    $("#anteprimaparty2").show();
-   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
    
    $("#anteprimafinale").hide();
    $("#anteprimafinale2").hide();
@@ -4055,7 +3388,7 @@ var app = {
    
    $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/color.jpg' width='100%'></td></tr></table>")
    
-    $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Qual'è il tuo colore preferito? <br>Rosso come il fuoco o blu come il cielo? <br>Total withe or total black? <br>Un Private Party semplice ma che ama stupire! <br>Ricco di creatività e dal forte impatto visivo! <br>Tutti gli invitati indosseranno abiti e accessori dello stesso colore deciso e comunicato precedentemente dall'organizzatore! <br>Ballare , bere e scatenarsi per una notte che non si dimenticherà molto facilmente! <br>NE VEDRETE DI TUTTI COLORI! <div><center><img src='img/macchia.png' width='60px'></center></div> What is your favourite colour?<br>Red like fire or blue like the sky? <br>Total white or total black? <br>A simple but astonishing private party. <br>Rich with creativity and a strong visual impact! <br>All the guests will wear clothes and accessories of the same colour decided previously by the organiser! <br>Dancing, drinking and rampaging for a night that you won’t forget very easily!<br>YOU WILL SEE ALL COLOURS! <br></font></b></td></tr></table>")
+    $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Qual'è il tuo colore preferito?Rosso come il fuoco o blu come il cielo?Total withe or total black?Un Private Party semplice ma che ama stupire: ricco di creatività e dal forte impatto visivo!Tutti gli invitati indosseranno abiti e accessori dello stesso colore deciso e comunicato precedentemente dall'organizzatore!Ballare , bere e scatenarsi per una notte che non si dimenticherà molto facilmente! NE VEDRETE DI TUTTI COLORI! <br><center><img src='img/macchia.png' width='60px'></center><br> What is your favourite colour?Red like fire or blue like the sky? Total white or total black?A simple but astonishing private party.Rich with creativity and a strong visual impact?All the guests will wear clothes and accessories of the same colour decided previously by the organiser!Dancing, drinking and rampaging for a night that you won’t forget very easily!YOU WILL SEE ALL COLOURS! </font></b></td></tr></table>")
    
    
    $(document).on("touchstart", "#colorp2", function(e){
@@ -4133,7 +3466,6 @@ var app = {
 	   $("#listaparty").hide();
 	   $("#anteprimaparty").show();
 	   $("#anteprimaparty2").show();
-	   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 	   
 	   $("#anteprimafinale").hide();
 	   $("#anteprimafinale2").hide();
@@ -4143,7 +3475,7 @@ var app = {
 	   
 	   $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/pool.jpg' width='100%'></td></tr></table>")
 	   
-	   $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Il Party per eccellenza è sempre stato quello che si conclude con un bagno in piscina tutti insieme!<br>Quello più ambito invece è quello dove c'è una vasca idromassaggio!! <br>Vivere un PoolParty dà la possibilità di divertirsi nell'acqua calda anche d'inverno o di tuffarsi d'estate nelle piscine più cool!! <br>Molti centri estetici danno la possibilità di affittare per una notte una location corredata con Jacuzzi e buffet. <br>Per la completa riuscita dell'evento assicurarsi acqua calda in inverno e controllare le previsioni del tempo in estate! <br>VOGLIA DI H2O! <div><center><img src='img/macchia.png' width='60px'></center></div>The excellence Party has always been that one with a swim in the pool all together, the most coveted Party, has always been that one where we can find a spa bath!! <br> Living a Pool party gives us the opportunity to have always fun, even in winter or hot summer days! Many of beauty salons offer the chance to rent,for one night, a location with jacuzzi and buffet. <br>For the complete success of the event, make sure that temperature of water, its cold in winter and  prefect in summer! <br>WANT H2O! <br></font></b></td></tr></table>")
+       $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Il Party per eccellenza è sempre stato quello che si conclude con un bagno in piscina tutti insieme ,quello più ambito invece è quello dove c'è una vasca idromassaggio!!Vivere un Pool Party dà la possibilità di divertirsi nell'acqua calda anche d'inverno o di tuffarsi d'estate nelle piscine più cool!! Molti centri estetici danno la possibilità di affittare per una notte una location corredata con Jacuzzi e buffet.Per la completa riuscita dell'evento assicurarsi acqua calda in inverno e controllare le previsioni del tempo in estate! VOGLIA DI H2O! <br><center><img src='img/macchia.png' width='60px'></center><br> The excellence Party has always been that one with a swim in the pool all together , the most coveted Party, has always been that one where we can find  a spa bath !! Living  a Pool party gives us  the opportunity to have always  fun, even in winter or hot summer days !Many of  beauty salons offer the chance to rent, for one night, a location with jacuzzi and buffet.For the complete success of the event , make sure that temperature of  water,  its cold  in winter and  prefect in summer! WANT H2O! </font></b></td></tr></table>")
 					   
 					   
 	   $(document).on("touchstart", "#pool2", function(e){
@@ -4221,7 +3553,6 @@ var app = {
 		   $("#listaparty").hide();
 		   $("#anteprimaparty").show();
 		   $("#anteprimaparty2").show();
-		   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 		   
 		   $("#anteprimafinale").hide();
 		   $("#anteprimafinale2").hide();
@@ -4231,7 +3562,7 @@ var app = {
 		   
 		   $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/eat.jpg' width='100%'></td></tr></table>")
 		   
-		   $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - EAT - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Come trasformare la solita cena in un'esperienza indimenticabile?<br>Dall'antipasto al dolce , passando per qualsisi finger food vogliate gustare , purchè sia posizionato sul corpo semi nudo del ragazzo o della ragazza che abbia deciso di provare questa emozione! <br>Ogni pietanza che verrà assaporata avrà un gusto completamente diverso , presa direttamente con il solo uso della bocca , renderà il momento divertente e senza alcun dubbio altamente sensuale! <br>A tavola si seduce e si prendono grandi decisoni , durante un Eat My Body Party si vive un gustoso preliminare veramente memorabile! <br>MANGIAMI!!! <div><center><img src='img/macchia.png' width='60px'></center></div> How to transform the usual dinner into an unforgettable experience? <br>Eat it off of some hottie's semi-naked body! <br>From sushi, to exotic desserts, may also include some, ahem, finger food. <br>What is the catch, you ask? <br>Guests cannot use their hands. <br>Expect a fun , sexy and exciting atmosphere , similar to preliminary pleasures... <br>EAT ME! <br></font></b></td></tr></table>")
+           $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - EAT - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Come trasformare la solita cena in un'esperienza indimenticabile?Dall'antipasto al dolce , passando per qualsisi finger food vogliate gustare , purchè sia posizionato sul corpo semi nudo del ragazzo o della ragazza che abbia deciso di provare questa emozione.Ogni pietanza che verrà assaporata avrà un gusto completamente diverso ,presa direttamente con il solo uso della bocca , renderà il momento divertente e senza alcun dubbio altamente sensuale!A tavola si seduce e si prendono grandi decisoni , durante un 'Eat My Body Party' si vive un gustoso preliminare veramente memorabile.MANGIAMI! <br><center><img src='img/macchia.png' width='60px'></center><br> How to transform the usual dinner into an unforgettable experience?Eat it off of some hottie's semi-naked body! From sushi, to exotic desserts, may also include some, ahem, finger food. What is the catch, you ask?Guests cannot use their hands. Expect a fun , sexy and exciting atmosphere , similar to preliminary pleasures...EAT ME!</font></b></td></tr></table>")
 					   
 					   
 		   $(document).on("touchstart", "#eat2", function(e){
@@ -4308,7 +3639,6 @@ var app = {
 		   $("#listaparty").hide();
 		   $("#anteprimaparty").show();
 		   $("#anteprimaparty2").show();
-		   $("#tastomenu").html("<a id='makeparty'><img src='img/indietro_over.png' height='30px'></a>");
 		   
 		   $("#anteprimafinale").hide();
 		   $("#anteprimafinale2").hide();
@@ -4318,7 +3648,7 @@ var app = {
 		   
 		   $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/fetish.jpg' width='100%'></td></tr></table>")
 		   
-        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> La prima regola è il look!<br>Dress code obbligatorio! <br>Si consigliano abiti di gomma , di latex e di pelle di ogni colore. <br>Un Party multicolor che privilegia fantasia e stravaganza.<br>Si possono indossare anche uniformi militari , scolastiche o da lavoro modificati con accessori per sottolineare il ruolo dominante o sottomesso del soggetto (la frusta, o il collare). <br>Abiti particolarmente provocanti o esibizionisti che mostrano parti del corpo come il seno o il lato B…anche se il piede è quello che va  per la maggiore! <br>Il tutto si svolge in un atmosfera molto sensuale ma mai volgare.<br>Il Fetish è arte e diversità. <br>Un Private Party dove sperimentare nuove fantasie sessuali senza alcun obbligo apparte quello di interpretare un personaggio altamente seducente. <br>Per la completa riuscita dell’evento consigliamo una musica rock , gothic , punk , metal , trip hop.<br>ANCHE IL PRINCIPE AZZURRO SI INNAMORO' DELLA SCARPETTA DI CENERENTOLA!  <div><center><img src='img/macchia.png' width='60px'></center></div> The first rule is the look!<br>Obligatory dress code! <br>The Fetish is in sexual practices where there is a particular focus to one  part of the body or an object worn. <br>We recommend latex, leather skirts, leather pants of any color . <br>Many imagine this Party  as exclusively in black rather as a multicolor party, that can also favors fantasy and extravagance. <br>Its possible to wear military uniforms , in particular for men, but remember to except  the Nazi uniforms and similar , which are considered inappropriate.<br>Welcomed School's uniforms , specially for women. <br>Formal working clothes,  modified with accessories to emphasize the dominant or submissive role of the subject (eg. the whip, or the collar) <br>Particularly provocative clothing or exhibitionists. <br>This clothing can also predict exposure erotic parties of the body , for example the breast or the side b. <br>Obviously underwear, Apparel non-daily use, such as bustiers, corset, loincloth for men’s, should be very maintained and special as bourlesque. <br>All this takes place in a very sensual but never vulgar atmosphere. <br>The Fetish is  about art and diversity.  <br>A Private Party for applying new sexual fantasies without any obligation apart to interpret a highly seductive character. <br>For the complete success of the party we suggest a rock music, gothic, punk, metal, trip hop. <br>ALSO THE PRINCE CHARMING FELL IN LOVE WITH CINDERELLA SHOE! <br> </font></b></td></tr></table>")
+          $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOT - SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> La prima regola è il look. Dress code obbligatorio! Si consigliano abiti di gomma , di latex e di pelle di ogni colore.Un Party multicolor che privilegia fantasia e stravaganza.Si possono indossare anche uniformi militari , scolastiche o da lavoro modificati con accessori per sottolineare il ruolo dominante o sottomesso del soggetto (la frusta, o il collare).Abiti particolarmente provocanti o esibizionisti che mostrano parti del corpo come il seno o il lato B…anche se il piede è quello che va  per la maggiore!Il tutto si svolge in un atmosfera molto sensuale ma mai volgare.Il Fetish è arte e diversità.Un Private Party dove sperimentare nuove fantasie sessuali senza alcun obbligo apparte quello di interpretare un personaggio altamente seducente.Per la completa riuscita dell’evento consigliamo una musica rock , gothic , punk , metal , trip hop.ANCHE IL PRINCIPE AZZURRO SI INNAMORO' DELLA SCARPETTA DI CENERENTOLA! <br><center><img src='img/macchia.png' width='60px'></center><br> The first rule is the look! Obligatory dress code!The Fetish is in sexual practices where there is a particular focus to one  part of the body or an object worn. We recommend latex, leather skirts, leather pants of any color . Many imagine this  Party  as exclusively in black rather as a multicolor party, that can also favors fantasy and extravagance.  Its possible to wear military uniforms , in particular for men, but remember to except  the Nazi uniforms and similar , which are considered inappropriate. Welcomed School's uniforms , specially for women.Formal working clothes,  modified with accessories to emphasize the dominant or submissive role of the subject (eg. the whip, or the collar)Particularly provocative clothing or exhibitionists. This clothing can also predict exposure erotic parties of the body , for example the breast or the side b. Obviously underwear, Apparel non-daily use, such as bustiers, corset, loincloth for men’s, should be very maintained and special as bourlesque. All this takes place in a very sensual but never vulgar atmosphere.The Fetish is  about art and diversity. A Private Party for applying new sexual fantasies without any obligation apart to interpret a highly seductive character.For the complete success of the party we suggest a rock music, gothic, punk, metal, trip hop.ALSO THE PRINCE CHARMING FELL IN LOVE WITH CINDERELLA SHOE! </font></b></td></tr></table>")
 					   
 					   
 			$(document).on("touchstart", "#fetish2", function(e){
@@ -4410,19 +3740,18 @@ var app = {
                document.getElementById("cittapersone").value = localStorage.getItem("miacitta")
                document.getElementById("etapersone").value = localStorage.getItem("miaeta")
                //document.getElementById("sessopersone").value = localStorage.getItem("miosesso")
-            
-                if (localStorage.getItem("miosesso") === null || localStorage.getItem("miosesso")=="null" || typeof(localStorage.getItem("miosesso")) == 'undefined' || localStorage.getItem("miosesso")==0 || localStorage.getItem("miosesso")=="") {
-
-					$("#selectsesso").html("<select name='sessopersone' id='sessopersone' class='scrivo'><option value='F'>Girls</option><option value='M'>Boys</option><option value='' selected>ALL</option></select>");
+					   
+				if(localStorage.getItem("miosesso")==""){
+					$("#selectsesso").html("<select name='sessopersone' id='sessopersone' class='scrivo'><option value='F'>F</option><option value='M'>M</option><option value='' selected>ALL</option></select>");
 				}
 					   
 			   if(localStorage.getItem("miosesso")=="F"){
-					$("#selectsesso").html("<select name='sessopersone' id='sessopersone' class='scrivo'><option value='F' selected>Girls</option><option value='M' >Boys</option><option value=''>ALL</option></select>");
+					$("#selectsesso").html("<select name='sessopersone' id='sessopersone' class='scrivo'><option value='F' selected>F</option><option value='M' >M</option><option value=''>ALL</option></select>");
 			   }
 			   
 			   
 			   if(localStorage.getItem("miosesso")=="M"){
-					$("#selectsesso").html("<select name='sessopersone' id='sessopersone' class='scrivo'><option value='F'>Girls</option><option value='M' selected>Boys</option><option value='' >ALL</option></select>");
+					$("#selectsesso").html("<select name='sessopersone' id='sessopersone' class='scrivo'><option value='F'>F</option><option value='M' selected>M</option><option value='' >ALL</option></select>");
 			   }
 					   
                document.getElementById("nickpersone").value = localStorage.getItem("mionickname")
@@ -4479,8 +3808,7 @@ var app = {
                        
             }, 500);
 		})
-		
-		
+        
         $(document).on("touchstart", "#salvaimpostazionipersone", function(e){
            $("#spinner8").show();
            
@@ -4547,64 +3875,15 @@ var app = {
                $("#loadpersonaggi").hide();
                $("#chatnuove").hide();
                $("#mostrachat").hide();
-                       
-                
-                // MODIFICA PROFILO
-                       
-               var info1;
-               
-               info1 = self.document.formiaprofilo.orgasmomentale.value
-                       
-               localStorage.setItem("orgasmomentale", info1);
-               
-               info1 = info1.replace("'","777A");
-               
-               info1 = info1.replace("+","777B");
-               
-               info1 = info1.replace("$","777C");
-               
-               info1 = info1.replace("!","777D");
-               info1 = info1.replace("!!","777D7");
-               info1 = info1.replace("!!!","777D77");
-               info1 = info1.replace("!!!!","777D777");
-               info1 = info1.replace("!!!!!","777D7777");
-               info1 = info1.replace("!!!!!!","777D77777");
-               
-               info1 = info1.replace("(","777E");
-               
-               info1 = info1.replace(")","777F");
-               
-               info1 = info1.replace(":","777G");
-               
-               info1 = info1.replace("?","777H");
-                       
-               info1 = info1.replace("?","777H");
-               info1 = info1.replace("??","777H7");
-               info1 = info1.replace("???","777H77");
-               info1 = info1.replace("????","777H777");
-               info1 = info1.replace("?????","777H7777");
-               info1 = info1.replace("??????","777H77777");
-                       
-               info1 = info1.replace("à", "777I");
-               info1 = info1.replace("è", "777L");
-               info1 = info1.replace("ì", "777M");
-               info1 = info1.replace("ò", "777N");
-               info1 = info1.replace("ù", "777O");
-               
-               info1 = info1.replace(/[&\/\\#,~%.*<>{}]/g,'');
-                       
                      
                localStorage.setItem("cittaprofilo", self.document.formiaprofilo.cittaprofilo.value);
                localStorage.setItem("etaprofilo", self.document.formiaprofilo.etaprofilo.value);
                localStorage.setItem("nickname", self.document.formiaprofilo.nickprofilo.value);
-			   
-					   
-			   //alert("http://msop.it/om/check_modificautente.php?email="+ localStorage.getItem("email") +"&citta="+ localStorage.getItem("cittaprofilo") +"&data_nascita="+ localStorage.getItem("etaprofilo") +"&nickname="+localStorage.getItem("nickname")+"&info="+ localStorage.getItem("orgasmomentale") +"")
                 
-				$("#spinner8").show()
-                $.ajax({
+                      
+            /*   $.ajax({
                       type:"GET",
-                      url:"http://msop.it/om/check_modificautente.php?email="+ localStorage.getItem("email") +"&citta="+ localStorage.getItem("cittaprofilo") +"&data_nascita="+ localStorage.getItem("etaprofilo") +"&nickname="+localStorage.getItem("nickname")+"&info="+ localStorage.getItem("orgasmomentale") +"",
+                      url:"http://msop.it/om/check_utente.php?myid="+ id +"",
                       contentType: "application/json",
                       //data: {Lat:3,Longi:4},
                       timeout: 7000,
@@ -4614,39 +3893,56 @@ var app = {
              
                       $.each(result, function(i,item){
              
-						 navigator.notification.alert(
-						  'Modifica dati riuscita',  // message
-						   alertDismissed,         // callback
-						  'Modifica Dati',            // title
-						  'OK'                  // buttonName
-						  );
-							 
-							 
-						 $("#scheda1").hide();
-						 $("#scheda2").hide();
-						 $("#scheda3").hide();
-						 $("#scheda4").hide();
-						 
-						 $("#bannerpresentazione").hide()
-						 $("#imginiziale").hide();
-						 
-						 $("#persone").hide();
-						 $("#loadpersonaggi").hide();
-						 $("#chatnuove").hide();
-						 $("#mostrachat").hide();
-						 
-						 setTimeout (function(){
-									 
-							 window.plugins.nativepagetransitions.fade({
-							   "duration"       :  400, // in milliseconds (ms), default 400
-							   "iosdelay"       :   60, // ms to wait for the iOS webview to update before animation kicks in, default 60
-							   "androiddelay"   :  600,
-							   "href" : "index.html"
-							   });
-									 
-						}, 500);
-							 
-					  });
+                             //$("#profiloman").html("<table width='100%' height='480' align='center' background='http://msop.it/public/"+item.foto+"' style='background-size: 100% auto; background-repeat: no-repeat;' class='uomo' valign='bottom'><tr><td width='100%' align='center' valign='bottom'></td></tr></table>")
+             
+                             $("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='ritorna'><img src='img/indietro_over.png' height='40px'></a></div><img src='http://msop.it/public/"+item.foto+"' class='pippo22'>")
+             
+                             $("#scheda").html("<font size='4'><b>"+item.info+".</b> </font> <br>")
+             
+                             $("#name").html(item.nickname)
+                             $("#dati").html(item.citta + ", " + item.eta)
+             
+                             $("#fotoby").html("<img id='load_"+item.id2+"' src='http://msop.it/public/"+item.foto2+"' class='utenteimg2B'>")
+                             $("#name2").html(item.nickname2)
+                             //$("#dati").html(item.citta2 + ", " + item.eta2)
+             
+                             localStorage.setItem("nickname2", item.nickname);
+                             localStorage.setItem("fotochat", item.foto);
+             
+                             $("#recensioni").html("<img src='img/feed_uomo.png' height='30'><img src='img/feed_uomo.png' height='30'><img src='img/feed_uomo.png' height='30'><img src='img/feed.png' height='30'><img src='img/feed.png' height='30'>")
+             
+             
+                             $(document).on("touchstart", "#load_"+item.id2+"", function(e){
+             
+                                            var loademail = this.id
+                                            loademail = loademail.replace("load_","")
+             
+                                            loadprofilodonna(loademail)
+                                            //alert(loademail)
+             
+                                            });
+             
+             
+                             setTimeout (function(){
+             
+                                         myScroll2.refresh();
+             
+                                         document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 300); }, false);
+             
+                                         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+             
+             
+                                         e.stopImmediatePropagation();
+             
+                                         e.preventDefault();
+             
+                                         return false;
+             
+                                         if ($.browser.iphone || $.browser.ipad) $(this).trigger('click');
+             
+                                         }, 0);
+             
+                             });
              
                       $("#spinner8").hide()
              
@@ -4655,26 +3951,49 @@ var app = {
              
                       $("#spinner8").hide()
              
-                      	navigator.notification.alert(
-						   'Errore di rete, riprova sotto copertura',  // message
-						   alertDismissed,         // callback
-						   'Errore di Rete',            // title
-						   'OK'                  // buttonName
-						   );
-					   
-					   window.location.href = "index.html";
+                      navigator.notification.alert(
+                                                   'Errore di rete, riprova sotto copertura',  // message
+                                                   alertDismissed,         // callback
+                                                   'Errore di Rete',            // title
+                                                   'OK'                  // buttonName
+                                                   );
              
                       },
              
-                      dataType:"jsonp"});
-	   
+                      dataType:"jsonp"});*/
+               
+         
+           $("#scheda1").hide();
+           $("#scheda2").hide();
+           $("#scheda3").hide();
+           $("#scheda4").hide();
+           
+           $("#bannerpresentazione").hide()
+           $("#imginiziale").hide();
+           
+           $("#persone").hide();
+           $("#loadpersonaggi").hide();
+           $("#chatnuove").hide();
+           $("#mostrachat").hide();
+           
+           setTimeout (function(){
+                       
+           window.plugins.nativepagetransitions.fade({
+                 "duration"       :  400, // in milliseconds (ms), default 400
+                 "iosdelay"       :   60, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                 "androiddelay"   :  600,
+                 "href" : "index.html"
+            });
+           
+        }, 500);
     })
 		
-
+		
+		//$.mobile.changePage("#home11", { transition: "fade" });
+		
+		
 		
 	$(document).on("touchstart", "#creafesta", function(e){
-                   
-        $("#anteprimafinale").html("")
 	 
 		if(self.document.formia8.cittafesta.value == "") {
 		   navigator.notification.alert(
@@ -4727,24 +4046,24 @@ var app = {
 		 $("#anteprimafinale").show();
 		 $("#anteprimafinale2").show();
 				   
-	   
+				   
+		 //$("#anteprimafinale").html("<br><table width='95%' height='220' align='center' class='#' background='flyer/orizzontali/"+localStorage.getItem("cartellaimg")+"/"+localStorage.getItem("festaimg")+"' border='0'><tr><td align='right' valign='center' height='110'><table class='cerchietto' border='0'><tr><td><font class='AntonioFont' color='#fff' size='5'>10€</font></td></tr></table></td></tr><tr><td width='100%' align='center'><div id='parent'><div id='backdrop3'><table width='270' height='100' align='center' border='0'><tr><td width='100%' align='center' valign='center'><a id='#'><font class='AntonioFont' color='#fff' size='6'>&nbsp;&nbsp;<b>THE WONDERFULL DINNER</b></font></a><br><font class='AntonioFont' color='#fff' size='4'>ROMA, 21 Novembre</font></td></tr></table></div><div id='curtain3' style=''>&nbsp;</div></div></td></tr></table>")
+				   
 		   $("#anteprimafinale").html("<br><table width='100%' height='220' align='center' class='#' background='flyer/orizzontali/"+localStorage.getItem("cartellaimg")+"/"+localStorage.getItem("festaimg")+"' border='0'><tr><td align='right' valign='center' height='110'></td></tr><tr><td width='100%' align='center'><div id='parent'><div id='backdrop3'><table width='270' height='100' align='center' border='0'><tr><td width='100%' align='center' valign='center'><a id='#'><font class='AntonioFontBold' color='#00ffff' size='6'>&nbsp;&nbsp;<b>"+localStorage.getItem("tipofesta")+"</b></font></a></td></tr></table></div><div id='curtain3' style=''>&nbsp;</div></div></td></tr></table>")
 				   
 		   $("#antdata").html(self.document.formia8.giorno.value + "/" + self.document.formia8.mese.value + " alle ore: " + self.document.formia8.ora.value)
 		   $("#antinfo").html(self.document.formia8.info.value)
 				   
-			var importotot = self.document.formia8.ospiti.value*self.document.formia8.prezzo.value
-				   
 		   //var prezzoposti = self.document.formia8.prezzo.value
-		   $("#antprezzo").html("IMPORTO TOTALE PER "+self.document.formia8.ospiti.value+" INVITATI:" + importotot)
+		   $("#antprezzo").html("IMPORTO TOTALE PER "+self.document.formia8.ospiti.value+" POSTI:" + self.document.formia8.prezzo.value)
 				   
-		   var calcolacommissione = (importotot/100)*20;
+		   var calcolacommissione = self.document.formia8.prezzo.value/100;
 				   
-		   $("#antcommissione").html("COMMISSIONE O.M.: 20%") //+calcolacommissione.toFixed(2)
+		   $("#antcommissione").html("COMMISSIONE O.M.:"+calcolacommissione.toFixed(2))
 				   
-			var guadagno = importotot - calcolacommissione
+			var guadagno = self.document.formia8.prezzo.value - calcolacommissione
 				   
-		   $("#antaltro").html("GUADAGNO ORGANIZZATORE:"+ guadagno.toFixed(2))
+		   $("#antaltro").html("GUADAGNO ORGANIZZAZIONE:"+ guadagno.toFixed(2))
                    
            $("#footerparty").hide();
 		   $("#footerparty2").show();
@@ -4842,51 +4161,10 @@ var app = {
 
 					   
 					   $("#spinner14").show();
-                       
-                       var info1;
-                       
-                       info1 = self.document.formia8.info.value
-                       
-                       info1 = info1.replace("'","777A");
-                       
-                       info1 = info1.replace("+","777B");
-                       
-                       info1 = info1.replace("$","777C");
-                       
-                       info1 = info1.replace("!","777D");
-                       info1 = info1.replace("!!","777D7");
-                       info1 = info1.replace("!!!","777D77");
-                       info1 = info1.replace("!!!!","777D777");
-                       info1 = info1.replace("!!!!!","777D7777");
-                       info1 = info1.replace("!!!!!!","777D77777");
-                       
-                       info1 = info1.replace("(","777E");
-                       
-                       info1 = info1.replace(")","777F");
-                       
-                       info1 = info1.replace(":","777G");
-                       
-                       info1 = info1.replace("?","777H");
-                       
-                       info1 = info1.replace("?","777H");
-                       info1 = info1.replace("??","777H7");
-                       info1 = info1.replace("???","777H77");
-                       info1 = info1.replace("????","777H777");
-                       info1 = info1.replace("?????","777H7777");
-                       info1 = info1.replace("??????","777H77777");
-                       
-                       info1 = info1.replace("à", "777I");
-                       info1 = info1.replace("è", "777L");
-                       info1 = info1.replace("ì", "777M");
-                       info1 = info1.replace("ò", "777N");
-                       info1 = info1.replace("ù", "777O");
-                       
-                       info1 = info1.replace(/[&\/\\#,~%.*<>{}]/g,'');
-                       
 					   
 					   $.ajax({
 							  type:"GET",
-							  url:"http://msop.it/om/insert_festa.php?email="+ localStorage.getItem("email")+"&anno="+self.document.formia8.anno.value+"&mese="+self.document.formia8.mese.value+"&giorno="+self.document.formia8.giorno.value+"&ora="+self.document.formia8.ora.value+"&ospiti="+self.document.formia8.ospiti.value+"&etafesta="+self.document.formia8.etafesta.value+"&girl="+self.document.formia8.vgirls.value+"&boy="+self.document.formia8.vboys.value+"&location="+self.document.formia8.location.value+"&info="+info1+"&prezzo="+self.document.formia8.prezzo.value+"&flyer="+localStorage.getItem("festaimg")+"&tipofesta="+localStorage.getItem("cartellaimg")+"&nomefesta="+localStorage.getItem("tipofesta")+"&citta="+self.document.formia8.cittafesta.value+"",
+							  url:"http://msop.it/om/insert_festa.php?email="+ localStorage.getItem("email")+"&anno="+self.document.formia8.anno.value+"&mese="+self.document.formia8.mese.value+"&giorno="+self.document.formia8.giorno.value+"&ora="+self.document.formia8.ora.value+"&ospiti="+self.document.formia8.ospiti.value+"&etafesta="+self.document.formia8.etafesta.value+"&girl="+self.document.formia8.vgirls.value+"&boy="+self.document.formia8.vboys.value+"&location="+self.document.formia8.location.value+"&info="+self.document.formia8.info.value+"&prezzo="+self.document.formia8.prezzo.value+"&flyer="+localStorage.getItem("festaimg")+"&tipofesta="+localStorage.getItem("cartellaimg")+"&nomefesta="+localStorage.getItem("tipofesta")+"&citta="+self.document.formia8.cittafesta.value+"",
 							  contentType: "application/json",
 							  //data: {Lat:3,Longi:4},
 							  timeout: 7000,
@@ -4910,7 +4188,7 @@ var app = {
 									 
 								 gohome8()
 								 
-                              });
+								 });
 							  
 							  
 							  $("#spinner1").hide()
@@ -4927,152 +4205,11 @@ var app = {
 							   'OK'                  // buttonName
 							   );
 							  
-							  window.location.href = "index.html";
-							  
 							  },
 							  
 							  dataType:"jsonp"});
 					   
 		});
-        
-        
-$(document).on("touchstart", "#editparty", function(e){
-                       
-   if(self.document.formiamodp.cittafestaedit.value == "") {
-     navigator.notification.alert(
-        'inserire una Citta',  // message
-        alertDismissed,         // callback
-        'Citta',            // title
-        'OK'                  // buttonName
-        );
-   return;
-   }
-   
-   
-   if (self.document.formiamodp.oraedit.value == "") {
-       navigator.notification.alert(
-        'inserire un Orario',  // message
-        alertDismissed,         // callback
-        'Ora',            // title
-        'OK'                  // buttonName
-        );
-       return;
-   }
-   
-   if (self.document.formiamodp.invitatiedit.value == "") {
-   navigator.notification.alert(
-    'inserire numero di ospiti',  // message
-    alertDismissed,         // callback
-    'Ora',            // title
-    'OK'                  // buttonName
-    );
-   return;
-   }
-   
-   if (self.document.formiamodp.locationedit.value == "") {
-        navigator.notification.alert(
-        'inserire la Location della festa',  // message
-        alertDismissed,         // callback
-        'Location',            // title
-        'OK'                  // buttonName
-        );
-        return;
-    }
-   
-   
-   $("#spinnermodparty").show();
-               
-   //alert("http://msop.it/om/modifica_festa.php?email="+ localStorage.getItem("email")+"&anno="+self.document.formiamodp.annoedit.value+"&mese="+self.document.formiamodp.meseedit.value+"&giorno="+self.document.formiamodp.giornoedit.value+"&ora="+self.document.formiamodp.oraedit.value+"&ospiti="+self.document.formiamodp.invitatiedit.value+"&etafesta="+self.document.formiamodp.etaedit.value+"&location="+self.document.formiamodp.locationedit.value+"&info="+self.document.formiamodp.infoedit.value+"&prezzo="+self.document.formiamodp.prezzoedit.value+"&citta="+self.document.formiamodp.cittafestaedit.value+"")
-               
-    
-   var info1;
-   
-   info1 = self.document.formiamodp.infoedit.value
-   
-   info1 = info1.replace("'","777A");
-   
-   info1 = info1.replace("+","777B");
-   
-   info1 = info1.replace("$","777C");
-   
-   info1 = info1.replace("!","777D");
-   info1 = info1.replace("!!","777D7");
-   info1 = info1.replace("!!!","777D77");
-   info1 = info1.replace("!!!!","777D777");
-   info1 = info1.replace("!!!!!","777D7777");
-   info1 = info1.replace("!!!!!!","777D77777");
-   
-   info1 = info1.replace("(","777E");
-   
-   info1 = info1.replace(")","777F");
-   
-   info1 = info1.replace(":","777G");
-   
-   info1 = info1.replace("?","777H");
-   
-   info1 = info1.replace("?","777H");
-   info1 = info1.replace("??","777H7");
-   info1 = info1.replace("???","777H77");
-   info1 = info1.replace("????","777H777");
-   info1 = info1.replace("?????","777H7777");
-   info1 = info1.replace("??????","777H77777");
-               
-   info1 = info1.replace("à", "777I");
-   info1 = info1.replace("è", "777L");
-   info1 = info1.replace("ì", "777M");
-   info1 = info1.replace("ò", "777N");
-   info1 = info1.replace("ù", "777O");
-   
-   info1 = info1.replace(/[&\/\\#,~%.*<>{}]/g,'');
-    
-   
-   $.ajax({
-          type:"GET",
-          url:"http://msop.it/om/modifica_festa.php?id="+ self.document.formiamodp.idfesta.value+"&anno="+self.document.formiamodp.annoedit.value+"&mese="+self.document.formiamodp.meseedit.value+"&giorno="+self.document.formiamodp.giornoedit.value+"&ora="+self.document.formiamodp.oraedit.value+"&ospiti="+self.document.formiamodp.invitatiedit.value+"&etafesta="+self.document.formiamodp.etaedit.value+"&location="+self.document.formiamodp.locationedit.value+"&info="+info1+"&prezzo="+self.document.formiamodp.prezzoedit.value+"&citta="+self.document.formiamodp.cittafestaedit.value+"",
-          contentType: "application/json",
-          //data: {Lat:3,Longi:4},
-          timeout: 7000,
-          jsonp: 'callback',
-          crossDomain: true,
-          success:function(result){
-          
-          $("#spinnermodparty").hide();
-          
-          $.each(result, function(i,item){
-                 
-             //alert(item.Token)
-                 
-             navigator.notification.alert(
-              'Private Party Modificato',  // message
-              alertDismissed,         // callback
-              'Modifica Effettuata',            // title
-              'OK'                  // buttonName
-              );
-                 
-            });
-          
-          
-          $("#spinner1").hide()
-          
-          },
-          error: function(){
-          
-          $("#spinner1").hide()
-          
-            navigator.notification.alert(
-               'Errore di rete, riprova sotto copertura',  // message
-               alertDismissed,         // callback
-               'Errore di Rete',            // title
-               'OK'                  // buttonName
-               );
-          
-            window.location.href = "index.html";
-          
-          },
-          
-          dataType:"jsonp"});
-                       
-        });
 		
 		
 		$(document).on("touchstart", "#indietro14", function(e){
@@ -5087,11 +4224,7 @@ $(document).on("touchstart", "#editparty", function(e){
 		
 		$(document).on("touchstart", "#cambiafotoprofilo", function(e){
 					   
-		   localStorage.setItem("primavolta","1")
-           localStorage.setItem("selfie", "0");
-					   
 		   window.location.href = "indexFoto.html";
-					   
 					   
 		});
 		
@@ -5104,35 +4237,120 @@ $(document).on("touchstart", "#editparty", function(e){
 		
 		
 		
-    $(document).on("touchstart", "#accetto", function(e){
-                   
-           window.location.href = "indexFoto.html";
+		$(document).on("touchstart", "#accetto", function(e){
 					   
-           /*if (document.getElementById('privacy').checked) {
-           
-               $("#persone").hide();
-               $("#loadpersonaggi").hide();
-               $("#feste").show();
-           
-             $("#parte1").show();
-             $("#parte2").show();
-             $("#parte3").show();
-           
-              gohome8()
-       
-           }
-           else {
-            navigator.notification.alert(
-                'Devi Accettare i termini per proseguire',  // message
-                alertDismissed,         // callback
-                'Privacy',            // title
-                'OK'                  // buttonName
-                );
-            return;
-           
-           }*/
+					   if (document.getElementById('privacy').checked) {
 					   
-    });
+						   $("#persone").hide();
+					       $("#loadpersonaggi").hide();
+						   $("#feste").show();
+					   
+					     $("#parte1").show();
+					     $("#parte2").show();
+					     $("#parte3").show();
+					   
+						  gohome8()
+					   
+					     /* $.ajax({
+							  type:"GET",
+							  url:"http://msop.it/om/tuned.php?email="+ localStorage.getItem("email")+"",
+							  contentType: "application/json",
+							  //data: {Lat:3,Longi:4},
+							  timeout: 7000,
+							  jsonp: 'callback',
+							  crossDomain: true,
+							  success:function(result){
+								
+							  $.each(result, function(i,item){
+									 
+									 if(item.accesso=="0"){
+									 
+									   window.plugins.nativepagetransitions.fade({
+																			   "duration"       :  1000,
+																			   "iosdelay"       :   50,
+																			   "androiddelay"   :  500,
+																			   "href" : "#home7"
+																			   });
+									 }
+									 else{
+									 
+									 gohome8() */
+									 
+								       /*$("#spinner8").hide();
+									 
+									   window.plugins.nativepagetransitions.fade({
+																			   "duration"       :  1000,
+																			   "iosdelay"       :   50,
+																			   "androiddelay"   :  500,
+																			   "href" : "#home8"
+																			   });
+									 
+									 
+									 $("#feste").html("<table width='310' height='220' align='center' class='#' background='img/pigiama1.png'><tr><td width='90%' align='center'><div id='parent'><div id='backdrop'><table width='220' height='200' align='center' height='200'><tr><td width='100%' align='center'><font class='DemoFont' color='#fff' size='6'>PIGIAMA PARTY</font></td></tr><tr><td width='100%' align='center'><font class='AntonioFont' color='#fff' size='4'>ROMA 21 LUGLIO</font></td></tr><tr><td width='100%' align='center'><font class='AntonioFont' color='#fff' size='5'>10€</font></td></tr><tr><td width='100%' align='center'><img src='img/fotodefault.png' height='90' class='utenteimg2'><br><font class='AntonioFont' color='#00ffff' size='4'>MARCO</font></td></tr></table></div><div id='curtain' style=''>&nbsp;</div></div></td></tr></table>")
+									 
+									 
+									 
+									 myScroll2 = new iScroll('wrapper2', {
+															click: true,
+															useTransform: false,
+															//bounce: false,
+															onBeforeScrollStart: function (e)
+															{
+															var target = e.target;
+															while (target.nodeType != 1) {
+															target = target.parentNode;
+															}
+															
+															if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+															e.preventDefault();
+															}
+															}
+															
+															});
+									 
+									 setTimeout (function(){
+												 
+										 myScroll2.refresh();
+												 
+									 }, 200);
+									 
+									}
+									 
+							   });
+							  
+							  $("#spinner1").hide()
+							  
+							  },
+							  error: function(){
+							  
+							  $("#spinner1").hide()
+							  
+							  navigator.notification.alert(
+														   'Errore di rete, riprova sotto copertura',  // message
+														   alertDismissed,         // callback
+														   'Errore di Rete',            // title
+														   'OK'                  // buttonName
+														   );
+							  
+							  },
+							  
+							  dataType:"jsonp"});*/
+					   
+					   }
+					   else {
+					    navigator.notification.alert(
+							'Devi Accettare i termini per proseguire',  // message
+							alertDismissed,         // callback
+							'Privacy',            // title
+							'OK'                  // buttonName
+							);
+					    return;
+					   
+					   }
+					   
+				//$.mobile.changePage( "#home3", { transition: "slide", changeHash: false });
+					   
+			});
 		
 		
 		function gohome8(){
@@ -5183,20 +4401,14 @@ $(document).on("touchstart", "#editparty", function(e){
 						  }
 						  else{
 						  
-						  localStorage.setItem("registrato","3")
+						  //$("#spinner8").hide();
 						  
-                          localStorage.setItem("myid", item.id);
-                          localStorage.setItem("nickname", item.nickname);
-                          localStorage.setItem("etaprofilo", item.data_nascita);
-                          localStorage.setItem("cittaprofilo", item.citta);
-                          
-                          localStorage.setItem("orgasmomentale", item.info);
-                          
-                          localStorage.setItem("nomeimg", item.foto)
-                          
-                          localStorage.setItem("registrato", "3");
-                          
-                          localStorage.setItem("loggato", "1");
+						  /*window.plugins.nativepagetransitions.fade({
+							"duration"       :  1000,
+							"iosdelay"       :   50,
+							"androiddelay"   :  500,
+							"href" : "#home8"
+							});*/
 
 						  $.mobile.changePage("#home8", { transition: "fade" });
 						  
@@ -5209,10 +4421,12 @@ $(document).on("touchstart", "#editparty", function(e){
 						  $("#loadpersonaggi").hide();
 						  
 						   $("#feste").html("")
-	
+						   //$("#feste").append("<br><table width='320' height='220' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td width='100%' align='center'><div id='parent'><div id='backdrop'><table width='260' height='240' align='center' border='0'><tr><td width='100%' align='center'><font class='AntonioFont' color='#fff' size='6'><b>THE WONDERFUL DINNER PARTY</b></font><br><font class='AntonioFont' color='#fff' size='4'>"+item.data+"</font><br><a id='goparty'><img src='http://msop.it/public/"+item.foto+"' height='70' class='utenteimg2A'></a><br><font class='AntonioFont' color='#fff' size='4'>"+item.nickname+"</font><br><font class='AntonioFont' color='#fff' size='4'>"+item.prezzo+"€</font></td></tr></table></div><div id='curtain' style=''>&nbsp;</div></div></td></tr></table>")
+
+
 							  setTimeout (function(){
-                                          
-                                  listafeste()
+										  
+								 listafeste()
 										  
 							  }, 300);
 						  
@@ -5223,8 +4437,10 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						  $("#cambiafotoprofilo").attr("src","http://msop.it/public/"+item.foto)
 						  
+						  
 						  //$("#loadfotoprofilo").attr("id","http://msop.it/public/")
 						  
+
 						}
 
 					});
@@ -5245,8 +4461,6 @@ $(document).on("touchstart", "#editparty", function(e){
 					'Errore di Rete',            // title
 					'OK'                  // buttonName
 					);
-				   
-				   window.location.href = "index.html";
 				   
 				   },
 				   
@@ -5369,12 +4583,14 @@ $(document).on("touchstart", "#editparty", function(e){
                 localStorage.setItem("nickfiltro","")
             }
 			
-
+			
+            //alert("http://msop.it/om/check_festa_filtri.php?email="+ localStorage.getItem("email")+"&citta="+localStorage.getItem("cittafiltro")+"&eta="+localStorage.getItem("etafiltro")+"&nick="+localStorage.getItem("nickfiltro")+"")
 			
 			$.ajax({
 				   type:"GET",
 				   url:"http://msop.it/om/check_festa_filtri.php?email="+ localStorage.getItem("email")+"&citta="+localStorage.getItem("cittafiltro")+"&eta="+localStorage.getItem("etafiltro")+"&nick="+localStorage.getItem("nickfiltro")+"&sesso="+localStorage.getItem("sessofiltro")+"",
 				   contentType: "application/json",
+				   //data: {Lat:3,Longi:4},
 				   timeout: 7000,
 				   jsonp: 'callback',
 				   crossDomain: true,
@@ -5383,9 +4599,25 @@ $(document).on("touchstart", "#editparty", function(e){
 					   $.each(result, function(i,item){
 							  
                         if(item.Token=="1"){
+                          
+                            //$("#spinner8").hide();
+							  
+							  /*var contanick = item.nickname.length;
+							  var nuovonick
+							  
+							  if(contanick <= 12){
+							  
+							    nuovonick = item.nickname;
+							  
+							  }
+							  else{
+							    nuovonick = item.nickname.slice(0,10)
+							    nuovonick = nuovonick + ".."
+							  
+							  }*/
+							  
 
-
-                            $("#feste").append("<br><table width='100%' height='260' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td width='100%' align='center'><div id='parent'><div id='backdrop'><table width='260' height='240' align='center' border='0'><tr><td width='100%' align='center'><a id='goparty"+item.id+"'><font class='AntonioFontBold' color='#00ffff' size='6'><b>"+item.titolo+"</b></font></a><br><font class='AntonioFontBold' color='#fff' size='4'>"+item.citta+" "+item.data+"</font><br><font class='AntonioFontBold' color='#fff' size='5'><b><img src='img/euro2.png' height='20'>"+item.prezzo+"</b></font><br><a id='goparty"+item.id+"'><img src='http://msop.it/public/"+item.foto+"' height='30' class='utenteimg2A'></a><br><font class='AntonioFontBold' color='#fff' size='5'>"+item.nickname+"</font></td></tr></table></div><div id='curtain' style=''>&nbsp;</div></div></td></tr></table>")
+                            $("#feste").append("<br><table width='100%' height='260' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td width='100%' align='center'><div id='parent'><div id='backdrop'><table width='260' height='240' align='center' border='0'><tr><td width='100%' align='center'><a id='goparty"+item.id+"'><font class='AntonioFontBold' color='#00ffff' size='6'><b>"+item.titolo+"</b></font></a><br><font class='AntonioFontBold' color='#fff' size='4'>"+item.citta+" "+item.data+"</font><br><font class='AntonioFontBold' color='#fff' size='5'><b>€"+item.prezzo+"</b></font><br><a id='goparty"+item.id+"'><img src='http://msop.it/public/"+item.foto+"' height='30' class='utenteimg2A'></a><br><font class='AntonioFontBold' color='#fff' size='5'>"+item.nickname+"</font></td></tr></table></div><div id='curtain' style=''>&nbsp;</div></div></td></tr></table>")
                           
                           
                               $(document).on("tap", "#goparty"+item.id+"", function(e){
@@ -5404,12 +4636,55 @@ $(document).on("touchstart", "#editparty", function(e){
 
 					   });
 				   
- 
+					  // $("#feste").append("<br><table width='320' height='60'><tr><td></td></tr></table>")
+				   
+				   
+					   //$("#spinner8").hide()
+				       //$("#parte3").show();
+                   
+
+					  /* myScroll2 = new iScroll('wrapper2', {
+					   click: true,
+					   useTransform: false,
+					   bounce: false,
+					   onBeforeScrollStart: function (e)
+					   {
+					   var target = e.target;
+					   while (target.nodeType != 1) {
+					   target = target.parentNode;
+					   }
+					   
+					   if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+					   e.preventDefault();
+					   }
+					   }
+				   
+					 }); */
+				   
+				   
 				   myScroll2 = new IScroll('#wrapper2', { click: true,
 						bounce: false
 					    
 					});
-
+				   
+				   
+				   /*myScroll2 = new iScroll('wrapper2', {
+					   click: true,
+					   useTransform: false,
+					   bounce: false,
+					   onBeforeScrollStart: function (e)
+					   {
+					   var target = e.target;
+					   while (target.nodeType != 1) {
+					   target = target.parentNode;
+					   }
+					   
+					   if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+					   e.preventDefault();
+					   }
+					   }
+					   
+					});*/
 
 				   document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 300); }, false);
 				   
@@ -5420,23 +4695,28 @@ $(document).on("touchstart", "#editparty", function(e){
 							   
 					   myScroll2.refresh();
                                
-                       if(screen.width>320){
-                         
-                       }
+                       //controlla chat.
                        
                        controllachat()
 							   
+					   //e.stopImmediatePropagation();
 					   
-					}, 200);
-                   
-                   
-                   
-                   setTimeout (function(){
-                        $("#parte3").fadeIn();
-                       
-                    }, 2000);
+					   //e.preventDefault();
+							   
+						//alert("fine")
+					   
+					}, 0);
 				   
-
+				  /* setTimeout (function(){
+							   
+					   myScroll2.refresh();
+					   
+					   
+					   return;
+					   
+					}, 0); */
+				
+				   
 				   },
 				   error: function(){
 				   
@@ -5449,8 +4729,6 @@ $(document).on("touchstart", "#editparty", function(e){
 					'OK'                  // buttonName
 					);
 				   
-				   window.location.href = "index.html";
-				   
 				   },
 				   
 				   
@@ -5459,35 +4737,40 @@ $(document).on("touchstart", "#editparty", function(e){
 		}
 		
         function controllachat(){
+            //alert("controllo_chat")
             
-             nuovechat2()
-            
-            /*if (localStorage.getItem("linkorganizzatore") === null || localStorage.getItem("linkorganizzatore")=="null" || typeof(localStorage.getItem("linkorganizzatore")) == 'undefined' || localStorage.getItem("linkorganizzatore")==0 || localStorage.getItem("linkorganizzatore")=="") {
-                
-                 nuovechat2()
-                
-            }
-             else{
-                loadprofilo(localStorage.getItem("linkorganizzatore"))
-             } */
-            
-           
+            nuovechat2()
         }
 		
 		
 		function gohomeparty(cost){
 			
-	
+			//alert("id " + cost)
+			
+			/*window.plugins.nativepagetransitions.fade({
+			  "duration"       :  1000,
+			  "iosdelay"       :   50,
+			  "androiddelay"   :  500,
+			  "href" : "#homeparty"
+			  });*/
+			
+			/*window.plugins.nativepagetransitions.fade({
+													  "duration"       :  1000,
+													  "iosdelay"       :   50,
+													  "androiddelay"   :  500,
+													  "href" : "#homeparty"
+													  });*/
+			
+			
 			$.mobile.changePage("#homeparty", { transition: "fade" });
 			
 			$("#spinner13").show();
-			
-            $("#infoparty").html("")
 			
 			$.ajax({
 				   type:"GET",
 				   url:"http://msop.it/om/check_festabyid.php?id="+ cost +"",
 				   contentType: "application/json",
+				   //data: {Lat:3,Longi:4},
 				   timeout: 7000,
 				   jsonp: 'callback',
 				   crossDomain: true,
@@ -5498,98 +4781,32 @@ $(document).on("touchstart", "#editparty", function(e){
 						  if(item.Token=="1"){
 						  
 							  $("#spinner13").hide();
-
+						  
+							  //$("#feste").append("<br><table width='100%' height='220' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td width='100%' align='center'><div id='parent'><div id='backdrop'><table width='260' height='240' align='center' border='0'><tr><td width='100%' align='center'><a id='goparty"+item.id+"'><font class='AntonioFontBold' color='#fff' size='6'><b>THE WONDERFUL DINNER</b></font></a><br><font class='AntonioFont' color='#fff' size='4'>"+item.data+","+item.citta+"</font><br><font class='AntonioFontBold' color='#fff' size='5'><b>"+item.prezzo+"€</b></font><br><a id='goparty"+item.id+"'><img src='http://msop.it/public/"+item.foto+"' height='30' class='utenteimg2A'></a><br><font class='AntonioFontBold' color='#00ffff' size='5'>"+item.nickname+"</font></td></tr></table></div><div id='curtain' style=''>&nbsp;</div></div></td></tr></table>")
+						  
 							  $("#party").html("<br><table width='100%' height='220' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td align='right' valign='center' height='110'></td></tr><tr><td width='100%' align='center'><div id='parent'><div id='backdrop3'><table width='270' height='100' align='center' border='0'><tr><td width='100%' align='center' valign='center'><a id='#'><font class='AntonioFontBold' color='#00ffff' size='6'>&nbsp;&nbsp;<b>"+item.titolo+"</b></font></a></td></tr></table></div><div id='curtain3' style=''>&nbsp;</div></div></td></tr></table>")
-                          
-                            // LEGGO FESTA //
-                          
-                              var info1;
-                          
-                              info1 = item.info
-                          
-                              info1 = info1.replace("777a", "'");
-                          
-                              info1 = info1.replace("777b", "+");
-                          
-                              info1 = info1.replace("777c", "$");
-                          
-                              info1 = info1.replace("777d", "!");
-                              info1 = info1.replace("777d7", "!!");
-                              info1 = info1.replace("777d77", "!!!");
-                              info1 = info1.replace("777d777", "!!!!!");
-                              info1 = info1.replace("777d7777", "!!!!!!");
-                          
-                              info1 = info1.replace("777e", "(");
-                          
-                              info1 = info1.replace("777f",")");
-                          
-                              info1 = info1.replace("777g", ":");
-                          
-                              info1 = info1.replace("777h", "?");
-                              info1 = info1.replace("777h7", "??");
-                              info1 = info1.replace("777h77", "???");
-                              info1 = info1.replace("777h777", "????");
-                              info1 = info1.replace("777h7777", "?????");
-                          
-                              info1 = info1.replace("777i", "à");
-                              info1 = info1.replace("777l", "è");
-                              info1 = info1.replace("777m", "ì");
-                              info1 = info1.replace("777n", "ò");
-                              info1 = info1.replace("777o", "ù");
-                          
-                              var giorno = item.data;
-                              giorno.replace("i", "ì");
-                          
-                             // alert(giorno)
 
-						     $("#dataparty").html(item.citta+" "+giorno+" "+item.location+" ore:"+item.ora+" Eta' Max:"+ item.eta)
-						     $("#infoparty").append("<font class='AntonioFont' color='#000' size='5'>" + info1 + "</font>")
+							 $("#dataparty").html(item.citta+", "+item.data+", "+item.location+" alle ore:"+item.ora)
+						     $("#infoparty").html(item.info)
 						     $("#nome_organizzatore").html(item.nickname)
 						  
 						  
 						     $("#dati_organizzatore").html(item.citta_organizzatore+", "+item.data_organizzatore)
-                          
 							 $("#foto_organizzatore").attr("src","http://msop.it/public/"+item.foto)
-                          
-                          
-                                $(document).on("tap", "#linkorganizzatore", function(e){
-
-                                   $.mobile.changePage("#home8", { transition: "fade" });
-                                   
-                                   myScroll2 = new IScroll('#wrapper2', { click: true,
-                                     bounce: false
-                                       
-                                  });
-                                   
-                                   
-                                   setTimeout (function(){
-                                               
-                                       loadprofilo(item.idorganizzatore)
-                                       
-                                    }, 500);
-                                   
-                                   
-                                   return;
-											   
-                                });
+						  
 						  
 						  	localStorage.setItem("nickname2", item.nickname);
 						  	localStorage.setItem("fotochat", item.foto);
 						  
-                            localStorage.setItem("idbuyfesta", cost);
-                            localStorage.setItem("prezzofesta", item.prezzo);
-                            localStorage.setItem("nomefesta", item.titolo);
 						  
-                            partecipanti_festa2(cost)
-                          
-                            // LIMITE FESTA
-                          
-                            if(item.invitati==item.venduti){
-                              $("#buyp").hide();
-                              $("#buyp2").show();
-                            }
-                          
+						  	 localStorage.setItem("idbuyfesta", cost);
+						     localStorage.setItem("prezzofesta", item.prezzo);
+						     localStorage.setItem("nomefesta", item.titolo);
+						  
+						  
+							 partecipanti_festa2(cost)
 
+						  
 						  }
 						  else{
 						  	$("#party").append("Nessuna festa in programma")
@@ -5600,11 +4817,32 @@ $(document).on("touchstart", "#editparty", function(e){
 
 				   $("#spinner13").hide();
 				   
+				   //myScroll7 = new IScroll('#wrapper7', { click: true });
+				   
+				   /*myScroll7 = new iScroll('wrapper7', {
+					   click: true,
+					   useTransform: false,
+					   bounce: false,
+					   onBeforeScrollStart: function (e)
+					   {
+					   var target = e.target;
+					   while (target.nodeType != 1) {
+					   target = target.parentNode;
+					   }
+					   
+					   if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+					   e.preventDefault();
+					   }
+					   }
+						   
+					});*/
+				   
 				   
 				   setTimeout (function(){
 							   
 					   myScroll7.refresh();
 					   
+					   //return
 					   
 					}, 500);
 				   
@@ -5620,85 +4858,11 @@ $(document).on("touchstart", "#editparty", function(e){
 						'OK'                  // buttonName
 						);
 				   
-				   window.location.href = "index.html";
-				   
 				   },
 				   
 				   
 				   dataType:"jsonp"});
 
-		}
-		
-		
-		function invitaparty(cost){
-			
-			
-			$.mobile.changePage("#invitaparty", { transition: "fade" });
-			
-			$("#spinnerinvita").show();
-			
-			//$("#infoparty2").html("")
-			
-			$.ajax({
-				   type:"GET",
-				   url:"http://msop.it/om/check_festabyid.php?id="+ cost +"",
-				   contentType: "application/json",
-				   timeout: 7000,
-				   jsonp: 'callback',
-				   crossDomain: true,
-				   success:function(result){
-				   
-				   $.each(result, function(i,item){
-						  
-					  if(item.Token=="1"){
-					  
-					  $("#spinnerinvita").hide();
-					  
-					  $("#party2").html("<table width='100%' height='220' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td align='right' valign='center' height='110'></td></tr><tr><td width='100%' align='center'><div id='parent'><div id='backdrop3'><table width='270' height='100' align='center' border='0'><tr><td width='100%' align='center' valign='center'><a id='#'><font class='AntonioFontBold' color='#00ffff' size='6'>&nbsp;&nbsp;<b>"+item.titolo+"</b></font></a></td></tr></table></div><div id='curtain3' style=''>&nbsp;</div></div></td></tr></table>")
-					  
-					  $("#dataparty2").html(item.citta+" "+item.data+" "+item.location+" ore:"+item.ora+" Eta' Max:"+ item.eta)
-					  //$("#infoparty2").append("dati dati dati")
-
-					  
-					  }
-					  else{
-						$("#party2").append("Nessuna festa in programma")
-					  }
-						  
-					});
-				   
-				   
-				   $("#spinnerinvitati").hide();
-				   
-				   
-				    myScroll27 = new IScroll('#wrapper27', { click: true, bounce: false });
-				   
-				   
-				     setTimeout (function(){
-							   
-						 myScroll27.refresh();
-								 
-					  }, 500);
-				   
-				   },
-				   error: function(){
-				   
-				   $("#spinnerinvitati").hide();
-				   
-				     navigator.notification.alert(
-						'Errore di rete, riprova sotto copertura',  // message
-						alertDismissed,         // callback
-						'Errore di Rete',            // title
-						'OK'                  // buttonName
-					  );
-				   
-				     window.location.href = "index.html";
-				   
-				   },
-				   
-				   
-				   dataType:"jsonp"});
-			
 		}
 		
 		
@@ -5724,7 +4888,7 @@ $(document).on("touchstart", "#editparty", function(e){
 					  
 					  $("#spinner13").hide();
 					  
-						  $("#partecipanti_festa").append("<br><table width='100%' align='center' class='#' border='0'><tr><td align='left' valign='center' >&nbsp;<a id='gopeople2v_"+item.id+"'><img id='#' src='http://msop.it/public/"+item.foto+"' width='105px' border='0' bordercolor='red' class='utenteimg2B'><font class='AntonioFontBold' color='#000' size='6'><b> "+item.nickname+"</b></font></a></td></tr></table>")
+						  $("#partecipanti_festa").append("<br><table width='100%' lign='center' class='#' border='0'><tr><td align='left' valign='center' >&nbsp;<a id='gopeople2v_"+item.id+"'><img id='#' src='http://msop.it/public/"+item.foto+"' width='105px' border='0' bordercolor='red' class='utenteimg2B'><font class='AntonioFontBold' color='#000' size='6'><b> "+item.nickname+"</b></font></a></td></tr></table>")
                           
                           
                           $(document).on("touchstart", "#gopeople2v_"+item.id+"", function(e){
@@ -5732,7 +4896,7 @@ $(document).on("touchstart", "#editparty", function(e){
 							var numeropers = this.id
 							numeropers = numeropers.replace("gopeople2v_","")
 										 
-							
+							//alert(numeropers)
 										 
 							$.mobile.changePage("#home8", { transition: "fade" });
 										 
@@ -5783,8 +4947,6 @@ $(document).on("touchstart", "#editparty", function(e){
 					'OK'                  // buttonName
 					);
 				   
-				   window.location.href = "index.html";
-				   
 				   },
 				   
 				   
@@ -5806,6 +4968,7 @@ $(document).on("touchstart", "#editparty", function(e){
                        
             $("#costobiglietto2").html(twobiglietto)
             
+          
             $("#partylock").show()
 
 		})
@@ -5815,11 +4978,8 @@ $(document).on("touchstart", "#editparty", function(e){
             var email2amico = self.document.formia33.email2biglietto.value;
                        
             if (email2amico!=""){
-                localStorage.setItem("emailinvito",email2amico)
+                localStorage.setItem("emailinvito",localStorage.getItem("email2amico"))
                 localStorage.setItem("prezzofesta",localStorage.getItem("twobiglietto"))
-            }
-            else{
-                localStorage.setItem("emailinvito","")
             }
                        
             //alert(email2amico)
@@ -5831,12 +4991,6 @@ $(document).on("touchstart", "#editparty", function(e){
             compraCarta()
                        
          })
-        
-        $(document).on("touchstart", "#bloccautente", function(e){
-                       
-            bloccautente()
-                       
-        })
         
         
         $(document).on("touchstart", "#annulla22", function(e){
@@ -5851,13 +5005,7 @@ $(document).on("touchstart", "#editparty", function(e){
 					   
 		})
         
-        $(document).on("touchstart", "#annulla233", function(e){
-                       
-           $("#albumlock").hide()
-           
-        })
-        
-        
+		
 		function compraCarta() {
 
 			var num1 = Math.floor((Math.random() * 20) + 1);
@@ -5875,8 +5023,6 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			
 			var amount = localStorage.getItem("prezzofesta");
-            
-            //alert(amount)
 			
 			amount = amount.replace(",",".")
 			
@@ -5891,7 +5037,7 @@ $(document).on("touchstart", "#editparty", function(e){
 				return;
 			}
 			
-            
+			
 			$(".spinner13").show();
 			 
             $.ajax({
@@ -5906,41 +5052,25 @@ $(document).on("touchstart", "#editparty", function(e){
 			 
 			 $.each(result, function(i,item){
 					
-                  //alert("OK")
-                 
-                 if (item.Token == "1"){
-                    
-                   //alert("Ok, Festa comprata")
-                 
-                   var ref = window.open('http://msop.it/om/wbspaypal.asp?Transprodotto='+ transazionemia +'', '_blank', 'location=no');
-                 
-                   ref.addEventListener('loadstop', function(event) { if (event.url.match("mobile/close")) { ref.close(); } });
-                 
-                 }
-                 else if(item.Token == "2") {
-                    navigator.notification.alert(
-                     'Sei gia in possesso di un biglietto per questo evento',  // message
-                     alertDismissed,         // callback
-                     'Attenzione',            // title
-                     'OK'                  // buttonName
-                     );
-                 }
-                else if(item.Token == "3") {
-                    navigator.notification.alert(
-                     'La tua amica/o deve essere registrato ad O.M.',  // message
-                     alertDismissed,         // callback
-                     'Attenzione',            // title
-                     'OK'                  // buttonName
-                     );
-                    }
-                 else{
-                     navigator.notification.alert(
-                     'Possibile errore di rete, riprova tra qualche minuto',  // message
-                     alertDismissed,         // callback
-                     'Attenzione',            // title
-                     'Done'                  // buttonName
-                     );
-                 }
+			  //alert("OK")
+			 
+			 if (item.Token == "1"){
+					
+			   //alert("Ok, Festa comprata")
+			 
+			   var ref = window.open('http://msop.it/om/wbspaypal.asp?Transprodotto='+ transazionemia +'', '_blank', 'location=no');
+			 
+			   //ref.addEventListener('loadstop', function(event) { if (event.url.match("mobile/close")) { ref.close(); } });
+			 
+			 }
+			 else{
+				 navigator.notification.alert(
+				 'Possibile errore di rete, riprova tra qualche minuto',  // message
+				 alertDismissed,         // callback
+				 'Attenzione',            // title
+				 'Done'                  // buttonName
+				 );
+			 }
 			 
 			 });
 			 
@@ -5975,6 +5105,11 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			localStorage.setItem("filtrofeste","0")
             
+			//alert(Math.abs(this.maxScrollY))
+			
+			//alert(Math.abs(this.y))
+			
+			// myScroll2.scrollTo(0, 0);
             
 			$("#persone").html("")
 			
@@ -6091,7 +5226,27 @@ $(document).on("touchstart", "#editparty", function(e){
 
 				   $("#spinner11").hide()
 				   
+				   //$("#persone").append("<br><table width='100%' height='50px'><tr><td></td></tr></table>")
 				   
+				   //$("#persone").append("<table width='320' align='center' valign='bottom'><tr><td colspan='2' width='100%'><img src='img/profilo.png' width='100%'></td></tr><tr><td width='100%' align='left' ><font class='AntonioFont' color='#ee2c90' size='5'> Federica, ROMA, 20</font></td><td width='50'><img src='img/mess_donna1.png' width='40'></td></tr></table>")
+				   
+				   /*myScroll5 = new iScroll('wrapper5', {
+					   click: true,
+					   useTransform: false,
+					   bounce: false,
+					   onBeforeScrollStart: function (e)
+					   {
+					   var target = e.target;
+					   while (target.nodeType != 1) {
+					   target = target.parentNode;
+					   }
+					   
+					   if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+					   e.preventDefault();
+					   }
+					   }
+					   
+					});*/
 				   
 
 				   setTimeout (function(){
@@ -6109,15 +5264,6 @@ $(document).on("touchstart", "#editparty", function(e){
 							}
 							if (this.y == this.maxScrollY){
 							 //alert("Fine")
-                                    
-                                  /*$("#persone").append("<br><br>21212<br><br>")
-                                    $("#persone").append("<br><br>21212<br><br>")
-                                    $("#persone").append("<br><br>21212<br><br>")
-                                    $("#persone").append("<br><br>21212<br><br>")
-                                    $("#persone").append("<br><br>21212<br><br>")
-                                    $("#persone").append("<br><br>21212<br><br>")
-                                    
-                                     myScroll2.refresh();*/
 									
                              // inserire la quary per paginazione.
 							}
@@ -6150,8 +5296,6 @@ $(document).on("touchstart", "#editparty", function(e){
 					'Errore di Rete',            // title
 					'OK'                  // buttonName
 					);
-				   
-				   window.location.href = "index.html";
 				   
 				   },
 				   
@@ -6315,9 +5459,7 @@ $(document).on("touchstart", "#editparty", function(e){
 		
 		$(document).on("touchstart", "#personaggi", function(e){
 					   
-		   localStorage.setItem("sonoin", "personaggi");
-					   
-		   $("#feste").hide();
+		    $("#feste").hide();
 					   
 		   $("#loadpersonaggi").hide();
 					   
@@ -6340,7 +5482,7 @@ $(document).on("touchstart", "#editparty", function(e){
 		
 		$(document).on("touchstart", "#private", function(e){
 					   
-		   localStorage.setItem("sonoin", "private");
+		   //$("#spinner8").show();
 					   
 		   $("#scheda1").hide();
 		   $("#scheda2").hide();
@@ -6377,119 +5519,25 @@ $(document).on("touchstart", "#editparty", function(e){
 		});
 		
 		
-		function personaggi(){
-			
-			$("#feste").hide();
-			
-			$("#loadpersonaggi").hide();
-			
-			$("#chatnuove").hide();
-			$("#mostrachat").hide();
-			
-			setTimeout (function(){
-			$("#persone").show();
-			
-			$("#parte1").show();
-			$("#parte2").show();
-			$("#parte3").show();
-			
-			gohome11()
-			}, 500);
-		}
-		
-		function private(){
-			
-			//$("#spinner8").show();
-			
-			$("#scheda1").hide();
-			$("#scheda2").hide();
-			$("#scheda3").hide();
-			$("#scheda4").hide();
-			
-			$("#bannerpresentazione").hide()
-			$("#imginiziale").hide();
-			
-			$("#persone").hide();
-			$("#loadpersonaggi").hide();
-			$("#chatnuove").hide();
-			$("#mostrachat").hide();
-			
-			setTimeout (function(){
-				//$("#feste").show();
-				
-				//$("#parte1").show();
-				//$("#parte2").show();
-				//$("#parte3").show();
-				
-				window.plugins.nativepagetransitions.fade({
-				  "duration"       :  400, // in milliseconds (ms), default 400
-				  "iosdelay"       :   60, // ms to wait for the iOS webview to update before animation kicks in, default 60
-				  "androiddelay"   :  600,
-				  "href" : "index.html"
-				  });
-						
-				//app.initialize();
-				
-				//gohome8()
-				}, 500);
-		}
-		
-		
 		$(document).on("touchstart", "#esci", function(e){
 					   
-					   
-		   navigator.notification.confirm(
-			  'vuoi uscire?',  // message
-			   onConfirm3,              // callback to invoke with index of button pressed
-			  'Logout',            // title
-			  'Esci,Annulla'      // buttonLabels
-			  );
-					  
-					   
-		   function onConfirm3(button) {
-			   if(button==1){    //If User selected No, then we just do nothing
-				   $("#scheda1").show();
-				   $("#scheda2").show();
-				   $("#scheda3").show();
-				   $("#scheda4").show();
-				   
-				   $("#bannerpresentazione").show()
-				   $("#imginiziale").show();
-				   
-				   localStorage.setItem("loggato", "0");
-				   
-				   localStorage.setItem("email","")
-				   localStorage.setItem("registrato", "");
-				   
-				   
-				   window.location.href = "index.html";
-				   
-			   }
+		   $("#scheda1").show();
+		   $("#scheda2").show();
+		   $("#scheda3").show();
+		   $("#scheda4").show();
 		   
-		   }
+		   $("#bannerpresentazione").show()
+		   $("#imginiziale").show();
+					   
+		   localStorage.setItem("loggato", "0");
+										   
+		   localStorage.setItem("email","")
+		   localStorage.setItem("registrato", "");
+                       
 
+		   window.location.href = "index.html";
 			
 		});
-        
-        $(document).on("touchstart", "#esci2", function(e){
-                       
-           $("#scheda1").show();
-           $("#scheda2").show();
-           $("#scheda3").show();
-           $("#scheda4").show();
-           
-           $("#bannerpresentazione").show()
-           $("#imginiziale").show();
-           
-           localStorage.setItem("loggato", "0");
-           
-           localStorage.setItem("email","")
-           localStorage.setItem("registrato", "");
-           
-           
-           window.location.href = "index.html";
-                       
-        });
 		
 		$(document).on("touchstart", "#entra", function(e){
 					   
@@ -6566,11 +5614,7 @@ $(document).on("touchstart", "#editparty", function(e){
                               localStorage.setItem("etaprofilo", item.data_nascita);
                               localStorage.setItem("cittaprofilo", item.citta);
 							  
-							  //alert(item.info)
-							  
-							  localStorage.setItem("orgasmomentale", item.info);
-							  
-                              localStorage.setItem("nomeimg", "add_"+email2.replace("@","").replace(".","").replace(".",""))
+							   localStorage.setItem("nomeimg", "add_"+email2.replace("@","").replace(".","").replace(".",""))
                               
 							  localStorage.setItem("registrato", "3");
                               localStorage.setItem("myid", item.id);
@@ -6651,9 +5695,9 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			$.mobile.changePage("#homechat", { transition: "fade" });
 			
-            if (localStorage.getItem("arrivochat")=="1"){
-                 $("#nuovodietro").html("<img id='indietro3' src='img/indietro_over.png' width='30'>")
-            }
+			//return;
+			
+			$("#spinner12").show();
 			
 			chatdonna()
 			
@@ -6697,7 +5741,7 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			//return;
 					   
-			  // $("#spinner12").show();
+			   $("#spinner12").show();
 			   
 			   chatdonna()
 			   
@@ -6756,7 +5800,7 @@ $(document).on("touchstart", "#editparty", function(e){
 			localStorage.setItem("pagina","chat")
 			
 			var height = -20;
-			var conta = 40;
+			var conta = 70;
 			
 			//alert("http://msop.it/om/leggi_chat.php?nickname="+ localStorage.getItem("nickname") +"&nickname2="+ localStorage.getItem("nickname2") +"&last_id=0")
 			
@@ -6783,8 +5827,8 @@ $(document).on("touchstart", "#editparty", function(e){
 				   $.each(result, function(i,item){
 						height = height + 40;
 						  
-						if (height>319){
-						  conta = conta + 45
+						if (height>100){
+						  conta = conta + 40
 						}
 						  
 						localStorage.setItem("chatpass", JSON.stringify(result))
@@ -6809,11 +5853,18 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						  indirizzo = indirizzo.replace("777H", "?");
 						  
-						  $("#offerta12").append("<div class='bubbledRight HelveticaFont'>"+ indirizzo +"</div>")
+						  $("#offerta12").append("<div class='bubbledRight'>"+ indirizzo +"</div>")
 						  
 						  
 						  //$("#offerta12").append("<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d")
-
+						  
+						  
+						  setTimeout (function(){
+								
+							  //myScroll6.refresh();
+							  
+							}, 500);
+						  
 						  }
 						  else{
 						   var indirizzo = item.messaggio.replace("777A","'");
@@ -6830,11 +5881,17 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						   indirizzo = indirizzo.replace("777H", "?");
 						  
-						   $("#offerta12").append("<div class='bubbledLeft HelveticaFont'>"+ indirizzo +"</div>")
+						   $("#offerta12").append("<div class='bubbledLeft'>"+ indirizzo +"</div>")
 						  
 						  //$("#offerta12").append("<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d")
 						  
-		  
+						  
+						   setTimeout (function(){
+									  
+							   //myScroll6.refresh();
+ 
+						   }, 500);
+						  
 						  
 						  }
 			  
@@ -6845,7 +5902,7 @@ $(document).on("touchstart", "#editparty", function(e){
 				    $("#offerta12").append("<table id='spaziosotto' height='20px'><tr><td></td></tr></table>")
 				   
 				   
-					   if (height>340){
+					   if (height>100){
 				   
 					     setTimeout (function(){
 								   
@@ -6860,6 +5917,7 @@ $(document).on("touchstart", "#editparty", function(e){
 				   
 					   }
 				   
+
 				   }
 				   
 				   },
@@ -6875,8 +5933,6 @@ $(document).on("touchstart", "#editparty", function(e){
 					'Ok'                  // buttonName
 					);
 				   
-				   window.location.href = "index.html";
-				   
 				   
 				   },
 				   dataType:"jsonp"});
@@ -6884,11 +5940,8 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			
 			setTimeout(function() {
-			    
 				chatdonna();
-				
-			}, 2500);
-			
+			}, 5000);
 			
 			
 			/*refreshIntervalId = setInterval(function() {
@@ -6906,7 +5959,7 @@ $(document).on("touchstart", "#editparty", function(e){
 			localStorage.setItem("nickname2",nick)
 			
 			var height = -20;
-			var conta = 40;
+			var conta = 60;
 			
 			localStorage.setItem("tastiera","0")
 			localStorage.setItem("pagina","chat")
@@ -6926,19 +5979,19 @@ $(document).on("touchstart", "#editparty", function(e){
 				   
 				   if(localStorage.getItem("chatpass")==JSON.stringify(result)){
 				   
-				   	$("#spinner12").hide();
+				   $("#spinner12").hide();
 				   
 				   }
 				   else{
 				   
-				     $("#offerta12").html("");
-				     $("#spinner12").hide();
+				   $("#offerta12").html("");
+				   $("#spinner12").hide();
 				   
-				     $.each(result, function(i,item){
+				   $.each(result, function(i,item){
 						  height = height + 20;
 						  
-						  if (height>319){
-						    conta = conta + 45
+						  if (height>100){
+						    conta = conta + 40
 						  }
 						  
 						  localStorage.setItem("chatpass", JSON.stringify(result))
@@ -6960,13 +6013,13 @@ $(document).on("touchstart", "#editparty", function(e){
 						  indirizzo = indirizzo.replace("777F", ")");
 						  
 						  indirizzo = indirizzo.replace("777F", ":");
-							
-							indirizzo = indirizzo.replace("777H", "?");
 						  
-						  $("#offerta12").append("<div class='bubbledRight HelveticaFont'>"+ indirizzo +"</div>")
+						  $("#offerta12").append("<div class='bubbledRight'>"+ indirizzo +"</div>")
+						  
+						  //$("#offerta12").append("<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d")
 						  
 						  
-						   setTimeout (function(){
+						  setTimeout (function(){
 
 								//myScroll6.refresh();
 									  
@@ -6987,11 +6040,11 @@ $(document).on("touchstart", "#editparty", function(e){
 						  indirizzo = indirizzo.replace("777F", ")");
 						  
 						  indirizzo = indirizzo.replace("777F", ":");
-							
-						  indirizzo = indirizzo.replace("777H", "?");
 						  
-						  $("#offerta12").append("<div class='bubbledLeft HelveticaFont'>"+ indirizzo +"</div>")
-						  						  
+						  $("#offerta12").append("<div class='bubbledLeft'>"+ indirizzo +"</div>")
+						  
+						  //$("#offerta12").append("<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d")
+						  
 						  
 						   setTimeout (function(){
 									  
@@ -7003,11 +6056,11 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						  }
 						  
-						});
+						  });
 				   
 					   $("#offerta12").append("<table id='spaziosotto' height='20px'><tr><td></td></tr></table>")
 				   
-				        if (height>340){
+				        if (height>100){
 				   
 							setTimeout (function(){
 										
@@ -7044,7 +6097,7 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			setTimeout(function() {
 			   chatdonna();
-			   }, 2500);
+			   }, 5000);
 			
 			
 			/*refreshIntervalId = setInterval(function() {
@@ -7059,9 +6112,9 @@ $(document).on("touchstart", "#editparty", function(e){
 		$(document).on("touchstart", "#chatting", function(e){
 			var indirizzo = document.getElementById("chattext").value;
 					   
-			//indirizzo = indirizzo.replace(/[&\/\\#,~%.*<>{}]/g,'');
+			indirizzo = indirizzo.replace(/[&\/\\#,~%.*<>{}]/g,'');
 					   
-			indirizzo = indirizzo.replace("'","777A");
+			indirizzo = indirizzo.replace(/'/g,"777A");
 													 
 			indirizzo = indirizzo.replace("+","777B");
 													 
@@ -7076,11 +6129,11 @@ $(document).on("touchstart", "#editparty", function(e){
 			indirizzo = indirizzo.replace(":","777G");
 										  
 			indirizzo = indirizzo.replace("?","777H");
-                       
-            indirizzo = indirizzo.replace(/[&\/\\#?!,~%.*<>{}]/g,'');
 													 
-			//$("#spinner12").show();
+													 
+			$("#spinner12").show();
 										  
+						
 			if (indirizzo == "") {
 					
 			  navigator.notification.alert(
@@ -7096,7 +6149,7 @@ $(document).on("touchstart", "#editparty", function(e){
 										  
 				//alert("http://msop.it/om/pubblica_chat.php?nickname="+ localStorage.getItem("nickname") +"&nickname2="+ localStorage.getItem("nickname2") +"&messaggio="+ indirizzo +"")
 										  
-				//$("#spinner12").show();
+				$("#spinner12").show();
 				$.ajax({
 					 type:"GET",
 					 url:"http://msop.it/om/pubblica_chat.php?nickname="+ localStorage.getItem("nickname") +"&nickname2="+ localStorage.getItem("nickname2") +"&messaggio="+ indirizzo +"",
@@ -7108,17 +6161,9 @@ $(document).on("touchstart", "#editparty", function(e){
 					 success:function(result){
 
 					   $.each(result, function(i,item){
-							  
-							//alert()
-							  
 							document.getElementById("chattext").value = "";
-							
-							  $("#chattext").blur();
 							  
-							  //cordova.plugins.Keyboard.close();
-							  Keyboard.hide();
-							  
-							  chatdonna()
+							chatdonna()
 					   });
 					 
 					 },
@@ -7257,8 +6302,6 @@ function onResume() {
    
    if(connectionStatus=='online'){
 					   
-		controllachat()
-			   
 	   if(localStorage.getItem("registrato")=="2"){
 	   
 		   $("#spinner5").hide()
@@ -7273,17 +6316,13 @@ function onResume() {
 	   
 	   }
 	   else{
-					   
-		     controlloregistrazione()
-					   
+	   
+		   $.mobile.changePage("#home4", { transition: "fade" });
+		   
 	   }
-                       
 					   
    }
    else{
-       
-       $("#feste").html("<font color='red'>Nessuna conniessione di rete</font>")
-       $("#persone").hide("<font color='red'>Nessuna conniessione di rete</font>")
 					   
 	   navigator.notification.alert(
 		'Errore di rete, riprova sotto copertura',  // message
@@ -7291,14 +6330,7 @@ function onResume() {
 		'Errore di Rete',            // title
 		'OK'                  // buttonName
 		);
-					
-                       
-    setTimeout (function(){
-                   
-      window.location.href = "index.html";
-       
-    }, 15000);
-
+   
    }
 	
 }
@@ -7306,52 +6338,41 @@ function onResume() {
 
 function onPause() {
 	
-	   // CONTROLLO INTERNET
-	   
    var connectionStatus = false;
    connectionStatus = navigator.onLine ? 'online' : 'offline';
    
    if(connectionStatus=='online'){
-	   
-	controllachat()
-					   
-	if(localStorage.getItem("registrato")=="2"){
-	   
-	   $("#spinner5").hide()
-	   
-	   $.mobile.changePage("#home5", { transition: "fade" });
-	   
-	   
-	}
-	else if(localStorage.getItem("registrato")=="3"){
-	   
-	   controlloregistrazione()
-	   
-	}
-	
-	else{
-	   
-	  controlloregistrazione()
-	   
-	}
-	   
-	   
-	}
-	else{
-        
-        $("#feste").html("<font color='red'>Nessuna conniessione di rete</font>")
-        $("#persone").hide("<font color='red'>Nessuna conniessione di rete</font>")
-	   
-	   navigator.notification.alert(
+   
+		if(localStorage.getItem("registrato")=="2"){
+
+		$("#spinner5").hide()
+
+		$.mobile.changePage("#home5", { transition: "fade" });
+
+
+		}
+		else if(localStorage.getItem("registrato")=="3"){
+
+		controlloregistrazione()
+
+		}
+		else{
+
+		$.mobile.changePage("#home4", { transition: "fade" });
+
+		}
+   
+   }
+   else{
+   
+		navigator.notification.alert(
 		'Errore di rete, riprova sotto copertura',  // message
 		alertDismissed,         // callback
 		'Errore di Rete',            // title
 		'OK'                  // buttonName
 		);
-	   
-	   window.location.href = "index.html";
-	   
-	}
+   
+   }
 	
 }
 
@@ -7765,7 +6786,6 @@ $(document).on("touchstart", "#ciccio1", function(e){
 			   
 });
 
-					   
 function ciccio() {
 	
 	var blob = dataURLtoBlob(canvas.toDataURL('image/png'));
@@ -7774,163 +6794,17 @@ function ciccio() {
 					   
 
 
-$(document).on("tap", "#invitaamici", function(e){
+$(document).on("tap", "#logoanswer", function(e){
 			   
    window.plugin.email.open({
    //cordova.plugins.email.open({
-	  to:      "",
-	  subject: "Invito Speciale",
-	  body:    "Scopri Orgasmo Mentale, <br> http://orgasmomentale.com",
+	  to:      "associazione.gameanswer@gmail.com",
+	  subject: "Contattaci",
+	  body:    "Richiedi informazioni",
 	  isHtml:  true
 	});
 			   
 });
-					   
-					   
-$(document).on("tap", "#comefunziona", function(e){
-			  
-	var ref = window.open('http://orgasmomentale.com/app/', '_system', 'location=no');
-			  
-});
-
-$(document).on("tap", "#loginfacebook", function(e){
-               
-   openFB.login(
-    function(response) {
-    if(response.status === 'connected') {
-        alert('Facebook login succeeded, got access token: ' + response.authResponse.accessToken);
-         getInfo()
-    } else {
-
-      navigator.notification.alert(
-         'Login Facebook fallita, riprova in seguito o fai login con Ridy',
-         alertDismissed,
-         'Login Facebook',
-         'OK'
-         );
-    }
-    }, {scope: 'email,public_profile,user_friends'});
-               
-});
-
-function getInfo() {
-    
-    openFB.api({
-       path: '/me',
-       success: function(data) {
-       console.log(JSON.stringify(data));
-       
-         //alert(data.name);
-         //alert(data.email);
-       
-         //alert('http://graph.facebook.com/' + data.id + '/picture?type=small');
-         //document.getElementById("userPic").src = 'http://graph.facebook.com/' + data.id + '/picture?type=small';
-       
-       
-         LoginFacebookVera(data.email,data.name)
-       
-       },
-       
-       error: errorHandler});
-}
-
-
-function LoginFacebookVera(email,nome){
-  
-    $("#spinner22").show();
-    $.ajax({
-           type:"GET",
-           url:"http://msop.it/om/check_social.php?email="+ email +"",
-           contentType: "application/json",
-           timeout: 7000,
-           jsonp: 'callback',
-           crossDomain: true,
-           success:function(result){
-           
-           $.each(result, function(i,item){
-                  
-                  if (item.Token == "1"){
-                  
-                  localStorage.setItem("email", email);
-                  localStorage.setItem("nickname", item.nickname);
-                  localStorage.setItem("etaprofilo", item.data_nascita);
-                  localStorage.setItem("cittaprofilo", item.citta);
-                  
-                  //alert(item.info)
-                  
-                  localStorage.setItem("orgasmomentale", item.info);
-                  
-                  localStorage.setItem("nomeimg", "add_"+email2.replace("@","").replace(".","").replace(".",""))
-                  
-                  localStorage.setItem("registrato", "3");
-                  localStorage.setItem("myid", item.id);
-                  
-                  localStorage.setItem("loggato", "1");
-                  
-                  $("#bannerpresentazione").hide()
-                  $("#imginiziale").hide();
-                  
-                  $("#scheda1").hide();
-                  $("#scheda2").hide();
-                  $("#scheda3").hide();
-                  $("#scheda4").hide();
-                  
-                  $("#spinner22").hide();
-                  
-                  $("#persone").hide();
-                  $("#feste").show();
-                  
-                  $("#parte1").show();
-                  $("#parte2").show();
-                  $("#parte3").show();
-                  
-                  gohome8()
-                  
-                  }
-                  else if(item.Token == "3"){
-                  
-                  $.mobile.changePage("#home7", { transition: "fade" });
-                  
-                  }
-                  else{
-                  
-                  $("#spinner22").hide();
-                     navigator.notification.alert(
-                       'Email e/o password non corretti',  // message
-                       alertDismissed,         // callback
-                       'Attenzione',            // title
-                       'Done'                  // buttonName@
-                       );
-                  }
-                  
-            });
-           
-           $("#spinner22").hide();
-           
-           },
-           error: function(){
-           $("#spinner22").hide();
-           
-           navigator.notification.alert(
-                'Possibile errore di rete, riprova tra qualche minuto',  // message
-                alertDismissed,         // callback
-                'Attenzione',            // title
-                'Done'                  // buttonName
-                );
-           
-           },
-           dataType:"jsonp"});
-    
-}
-
-					   
-					   
-$(document).on("tap", "#termini", function(e){
-               
-    var ref = window.open('http://msop.it/termini.html', '_system', 'location=no');
-               
-});
-
 
 
 function alertDismissed() {

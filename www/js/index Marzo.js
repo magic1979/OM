@@ -43,17 +43,7 @@ var app = {
 		
         //StatusBar.hide();
 		
-        //alert(screen.width)
-        
-        if(screen.width<400){
-            $("#pepe").hide();
-            
-            $("#imgpersone").attr("height","80px");
-            
-        }
-        
-        openFB.init({appId: '184833315394016'});
-        
+		
         
          $("#spinner8").hide();
 		
@@ -85,7 +75,6 @@ var app = {
 		var myScroll27;
         var myScroll77;
 		var myScroll8;
-        var myScroll9;
 		var refreshIntervalId;
 		
 		var crop_max_width = 400;
@@ -290,8 +279,6 @@ var app = {
 			$("#bannerp").hide()
 			$("#spinner1").hide()
 			
-            $("#feste").html("<font color='red'>Nessuna conniessione di rete</font>")
-            $("#persone").hide("<font color='red'>Nessuna conniessione di rete</font>")
 			
 			navigator.notification.alert(
 			 'Errore di rete, riprova sotto copertura',  // message
@@ -345,46 +332,64 @@ var app = {
 					  }
 					  else{
                           
-                          localStorage.setItem("myid", item.id);
-                          localStorage.setItem("nickname", item.nickname);
-                          localStorage.setItem("etaprofilo", item.data_nascita);
-                          localStorage.setItem("cittaprofilo", item.citta);
-                      
-                          localStorage.setItem("orgasmomentale", item.info);
-                      
-                          localStorage.setItem("nomeimg", item.foto)
-                      
-                          localStorage.setItem("registrato", "3");
+                          /*if(localStorage.getItem("registrato")=="OK"){
+                          
+                             window.plugins.nativepagetransitions.fade({
+                                "duration"       :  1000,
+                                "iosdelay"       :   50,
+                                "androiddelay"   :  500,
+                                "href" : "#home6"
+                             });
+                          
+                            return
+                          
+                          }*/
+						  
+						  //if(localStorage.getItem("album")!="OK"){
 
-                          localStorage.setItem("loggato", "1");
-                      
-                      
-                          $.mobile.changePage("#home8", { transition: "fade" });
-                      
-                          $("#feste").show();
-                      
-                          $("#parte1").show();
-                          $("#parte2").show();
-                      
-                          $("#persone").hide();
-                          $("#loadpersonaggi").hide();
-                      
-                          $("#feste").html("")
-                      
-                      
-                          setTimeout (function(){
-                                      
-                              listafeste()
-                                      
-                                      
-                          }, 300);
-                      
-                          $("#fotoprofilo").attr("src","http://msop.it/public/"+item.foto)
-                          $("#loadfotoprofilo").attr("src","http://msop.it/public/"+item.foto)
-                          $("#loadfotoprofilo2").attr("src","http://msop.it/public/"+item.foto)
-                          $("#loadprofilo55").attr("src", "http://msop.it/public/"+item.foto)
-                      
-                          $("#cambiafotoprofilo").attr("src","http://msop.it/public/"+item.foto)
+							  $.mobile.changePage("#home8", { transition: "fade" });
+						  
+							  $("#feste").show();
+						  
+							  $("#parte1").show();
+							  $("#parte2").show();
+						  
+							  $("#persone").hide();
+							  $("#loadpersonaggi").hide();
+						  
+							  $("#feste").html("")
+						  
+						  
+							  setTimeout (function(){
+                                          
+                                  listafeste()
+                                          
+                                  /*if(localStorage.getItem("linkorganizzatore")!=""){
+                                    localStorage.setItem("linkorganizzatore","")
+                                  
+                                    loadprofilo(localStorage.getItem("linkorganizzatore"))
+                                  
+                                  }
+                                  else{
+                                  listafeste()
+                                  }*/
+										  
+							  }, 300);
+						  
+							  $("#fotoprofilo").attr("src","http://msop.it/public/"+item.foto)
+							  $("#loadfotoprofilo").attr("src","http://msop.it/public/"+item.foto)
+							  $("#loadfotoprofilo2").attr("src","http://msop.it/public/"+item.foto)
+							  $("#loadprofilo55").attr("src", "http://msop.it/public/"+item.foto)
+						  
+							  $("#cambiafotoprofilo").attr("src","http://msop.it/public/"+item.foto)
+						  
+						  
+						  //}
+						  //else{
+						  
+						    //localStorage.setItem("album","1")
+						  
+						  //}
 
 					  }
 						  
@@ -414,11 +419,6 @@ var app = {
 				
 			}
 			else{
-                
-                $("#feste").html("<font color='red'>Nessuna conniessione di rete</font>")
-                $("#persone").hide("<font color='red'>Nessuna conniessione di rete</font>")
-                
-                
 				navigator.notification.alert(
 				 'Errore di rete, riprova sotto copertura',  // message
 				 alertDismissed,         // callback
@@ -543,6 +543,7 @@ var app = {
 		   
 		});
 		
+
 		
 		$(document).on("touchstart", "#indietro3", function(e){
 					   
@@ -575,7 +576,7 @@ var app = {
 	  
 		   }, 0); */
 					   
-		   localStorage.setItem("arrivochat","0")
+		   //$("#spinner8").show();
 		   
 		   $("#scheda1").hide();
 		   $("#scheda2").hide();
@@ -618,12 +619,6 @@ var app = {
 			   }, 300);*/
 					   
 		});
-        
-        $(document).on("tap", "#indietrobck", function(e){
-                      
-           history.back()
-
-        });
 		
 		
 		$(document).on("touchstart", "#girl", function(e){
@@ -892,7 +887,8 @@ var app = {
 							  $.each(result, function(i,item){
 									 localStorage.setItem("registrato", "2");
 									 
-
+									 
+									 
 									 if (item.Token == 1){
 									   /*window.plugins.nativepagetransitions.fade({
 																			   "duration"       :  1000,
@@ -901,19 +897,17 @@ var app = {
 																			   "href" : "#home5"
 																			   });*/
 									 
-									   $.mobile.changePage("#home5", { transition: "fade" });
-                                     
-                                       mandaemailreg(item.sendemail)
+									 $.mobile.changePage("#home5", { transition: "fade" });
 									 
 									 }
 									 else{
 									 
-									   navigator.notification.alert(
-                                          'Utente gia registrato',  // message
-                                          alertDismissed,         // callback
-                                          'Attenzione',            // title
-                                          'Done'                  // buttonName@
-                                        );
+									  navigator.notification.alert(
+																  item.mess,  // message
+																  alertDismissed,         // callback
+																  'Attenzione',            // title
+																  'Done'                  // buttonName@
+																  );
 									 
 									 }
 									 
@@ -938,39 +932,6 @@ var app = {
 
 					   
 					   });
-        
-        
-        function mandaemailreg(sendemail){
-            
-            $.ajax({
-                   type:"GET",
-                   url:"http://orgasmomentale.it/Check_Reg2.asp?email="+sendemail+"",
-                   contentType: "application/json",
-                   //data: {email:email,pin:pin},
-                   timeout: 7000,
-                   jsonp: 'callback',
-                   crossDomain: true,
-                   success:function(result){
-                   
-                     $.each(result, function(i,item){
-
-                    
-                     });
-                   
-                   },
-                   error: function(){
-                     $(".spinner").hide();
-                   
-                     navigator.notification.alert(
-                        'Possibile errore di rete, riprova tra qualche minuto',  // message
-                        alertDismissed,         // callback
-                        'Attenzione',            // title
-                        'Done'                  // buttonName
-                        );
-                   
-                   },
-                   dataType:"jsonp"});
-        }
         
         
 		
@@ -1027,7 +988,6 @@ var app = {
 								
 				  });
 					 
-					 
 				 $(document).on("tap", "#mm_"+item.id+"", function(e){
 								
 					var numerofesta = this.id
@@ -1040,8 +1000,6 @@ var app = {
 					
 				 });
 					 
-					 
-					 
 				 $(document).on("tap", "#cc_"+item.id+"", function(e){
 								
 					var numerofesta = this.id
@@ -1052,20 +1010,19 @@ var app = {
 				
 					cancellafesta(numerofesta)
 					
-                    // alert(numerofesta)
+                     alert(numerofesta)
 					//gohomeparty(numerofesta)
 								
                   });
-
+				 
                 }
 					 
               });
-				  
-				  
-			  $("#miefeste2").append("<table width='100%' height='80px' border='0'><tr><td></td></tr></table>")
+                  
                   
               myScroll57 = new IScroll('#wrapper57', { click: true, bounce: false });
               
+                  
                   
                 setTimeout (function(){
                               
@@ -1090,64 +1047,44 @@ var app = {
         });
 		
 		
-		
-		
-		
-		function cancellafesta(numerofesta){
+		function cancellafesta(){
 			
-			navigator.notification.confirm(
-			   'vuoi davvero eliminare questo private party?',  // message
-			    onConfirm2,              // callback to invoke with index of button pressed
-			   'Delete',            // title
-			   'Cancella,Annulla'      // buttonLabels
-			);
+			$("#spinnermiefeste").show();
 			
+			 $.ajax({
+			 type:"GET",
+			 url:"http://msop.it/om/cancella_festa.php?id="+ numerofesta +"",
+			 contentType: "application/json",
+			 timeout: 7000,
+			 jsonp: 'callback',
+			 crossDomain: true,
+			 success:function(result){
+			 
+				$("#spinnermiefeste").hide();
+					
+				 $.each(result, function(i,item){
+					 navigator.notification.alert(
+					 'Private Party cancellato.',
+					 alertDismissed,
+					 'Private Party',
+					 'Ok'
+					 );
+				 });
+			 
+			 },
+			 error: function(){
+			 $("#spinner8").hide();
+			 
+				navigator.notification.alert(
+				 'Possibile errore di rete, riprova tra qualche minuto.',
+				 alertDismissed,
+				 'Attenzione',
+				 'Ok'
+			   );
+			 
+			 },
+			 dataType:"jsonp"});
 			
-			function onConfirm2(button) {
-				if(button==1){    //If User selected No, then we just do nothing
-					
-					$("#spinnermiefeste").show();
-					
-					alert(numerofesta)
-					
-					$.ajax({
-					   type:"GET",
-					   url:"http://msop.it/om/cancella_festa.php?id="+ numerofesta +"",
-					   contentType: "application/json",
-					   timeout: 7000,
-					   jsonp: 'callback',
-					   crossDomain: true,
-					   success:function(result){
-					   
-					   $("#spinnermiefeste").hide();
-					   
-					   $.each(result, function(i,item){
-							  navigator.notification.alert(
-														   'Private Party cancellato.',
-														   alertDismissed,
-														   'Private Party',
-														   'Ok'
-														   );
-							  });
-					   
-					   },
-					   error: function(){
-					   $("#spinner8").hide();
-					   
-					   navigator.notification.alert(
-													'Possibile errore di rete, riprova tra qualche minuto.',
-													alertDismissed,
-													'Attenzione',
-													'Ok'
-													);
-					   
-					   },
-					dataType:"jsonp"});
-					
-				}
-				
-			}
-
 		}
         
         
@@ -1225,44 +1162,8 @@ var app = {
                           
                           document.getElementById("invitatiedit").value = item.invitati
                           
-                          // MODIFICA INFO //
                           
-                          var info1;
-                          
-                          info1 = item.info
-                          
-                          info1 = info1.replace("777a", "'");
-                          
-                          info1 = info1.replace("777b", "+");
-                          
-                          info1 = info1.replace("777c", "$");
-                          
-                          info1 = info1.replace("777d", "!");
-                          info1 = info1.replace("777d7", "!!");
-                          info1 = info1.replace("777d77", "!!!");
-                          info1 = info1.replace("777d777", "!!!!!");
-                          info1 = info1.replace("777d7777", "!!!!!!");
-                          
-                          info1 = info1.replace("777e", "(");
-                          
-                          info1 = info1.replace("777f",")");
-                          
-                          info1 = info1.replace("777g", ":");
-                          
-                          info1 = info1.replace("777h", "?");
-                          info1 = info1.replace("777h7", "??");
-                          info1 = info1.replace("777h77", "???");
-                          info1 = info1.replace("777h777", "????");
-                          info1 = info1.replace("777h7777", "?????");
-                          
-                          info1 = info1.replace("777i", "à");
-                          info1 = info1.replace("777l", "è");
-                          info1 = info1.replace("777m", "ì");
-                          info1 = info1.replace("777n", "ò");
-                          info1 = info1.replace("777o", "ù");
-                          
-                          
-                          $("#areaedit").html("<textarea name='infoedit' name='infoedit' type='text' rows='5' cols='20' class='scrivo'>"+info1+"</textarea>")
+                          $("#areaedit").html("<textarea name='infoedit' name='infoedit' type='text' rows='5' cols='20' class='scrivo'>"+item.info+"</textarea>")
                           
                           var ciccio = item.prezzo
                           ciccio = ciccio.replace(",",".")
@@ -1320,15 +1221,11 @@ var app = {
 			var emailseconda = localStorage.getItem("emailalbum")
 			emailseconda = emailseconda.toLowerCase()
 			
-			var chisono= 0;
-			
 			
 			if(emailprincipale==emailseconda){
 				$("#fotoalbum2").show()
 				$("#fotoalbum").show()
 				$("#caricafotodiv2").show()
-				
-				chisono = 1;
 			}
 			else{
 				
@@ -1342,11 +1239,6 @@ var app = {
 			
 			$("#mostraalbum").html("");
 			//$("#mostraalbum2").html("");
-            
-            var connectionStatus = false;
-            connectionStatus = navigator.onLine ? 'online' : 'offline';
-            
-            if(connectionStatus=='online'){
 		   
 		   $("#spinner8").show();
 		   $.ajax({
@@ -1359,12 +1251,13 @@ var app = {
 				  crossDomain: true,
 				  success:function(result){
 				  
+				  $("#spinner8").hide();
 				  
 				  $.each(result, function(i,item){
 						 
 					 if(item.Token==1){
 						 
-                        $("#mostraalbum").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' border='2' bordercolor='#000' width='100%'></a>")
+                         $("#mostraalbum").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' height='"+misura+"' width='"+misura+"' border='2' bordercolor='#000'></a>")
 						 
 						/* if (IsNotUneven(ciccio) == true)
 						 {
@@ -1375,36 +1268,23 @@ var app = {
 						   $("#mostraalbum2").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' height='100px' width='100px' border='2' bordercolor='#000'></a>&nbsp;&nbsp;")
 						 } */
 						 
-						   /*$("#mostraalbum").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' height='100px' border='2' bordercolor='#000'></a>&nbsp;&nbsp;")
-                            
-                            style='overflow:hidden; width:"+misura+"px; height:"+misura+"px;'
-                            
-                            */
+						   /*$("#mostraalbum").append("<a id='pp_"+item.nomefoto+"'><img src='http://msop.it/public/om/"+item.nomefoto+".png' height='100px' border='2' bordercolor='#000'></a>&nbsp;&nbsp;")*/
 						 
 						 $(document).on("tap", "#pp_"+item.nomefoto+"", function(e){
 										
 							var numerofesta = this.id
 							numerofesta = numerofesta.replace("pp_","")
 							numerofesta = numerofesta+".png"
-                                        
-                            if(chisono==1){
-                                        
-                                //$("#albumlock").show();
-                                        
-                                //localStorage.setItem("cancella",numerofesta)
-                                        
-                               /* var options = {
-                                    ocation: 'yes',
-                                    clearcache: 'yes',
-                                    toolbar: 'yes',
-                                    closebuttoncaption: 'OK'
-                                };
-                                        
-                                var ref = window.open('http://msop.it/om/wbsimg.php?nome='+ numerofesta +'&chi='+ chisono +'', '_blank', 'location=no', options); */
-                                        
-                                cancellafoto(numerofesta)
-                            }
+										
+							//alert(numerofesta)
+										
+							/*var pageNumber = 1;
+							eval("var link" + pageNumber + "='"+$.base64.decode(result[eccola])+"';");
+							alert(link1);
 							
+							var ref = window.open(link1, '_blank', 'location=no');*/
+							
+							var ref = window.open('http://msop.it/public/om/'+numerofesta+'', '_blank', 'location=no', 'closebuttoncaption=OK');
 							
 						  });
 						 
@@ -1416,12 +1296,10 @@ var app = {
 					});
 				  
 				  setTimeout (function(){
-                              
-                    $("#spinner8").hide();
-                              
+							  
 					myScroll55.refresh();
 					  
-				  }, 1000);
+				  }, 500);
 				  
 				  },
 				  error: function(){
@@ -1436,83 +1314,8 @@ var app = {
 				  
 				  },
 			dataType:"jsonp"});
-                
-            }
-            else{
-                
-                $("#feste").html("<font color='red'>Nessuna conniessione di rete</font>")
-                $("#persone").hide("<font color='red'>Nessuna conniessione di rete</font>")
-                
-                navigator.notification.alert(
-                 'Errore di rete, riprova sotto copertura',  // message
-                 alertDismissed,         // callback
-                 'Errore di Rete',            // title
-                 'OK'                  // buttonName
-                 );
-                
-                setTimeout (function(){
-                            
-                    window.location.href = "index.html";
-                    
-                }, 3000);
-                
-            }
 					   
 		};
-        
-        
-        function cancellafoto(id){
-            
-            navigator.notification.confirm(
-               'vuoi rimuovere questa foto?',  // message
-               onConfirm4,              // callback to invoke with index of button pressed
-               'Attenzione',            // title
-               'OK,Annulla'      // buttonLabels
-               );
-            
-            
-            function onConfirm4(button) {
-              if(button==1){    //If User selected No, then we just do nothing
-                  $.ajax({
-                         type:"GET",
-                         url:"http://msop.it/om/check_img_canc.php?img="+ id +"",
-                         contentType: "application/json",
-                         //data: {ID: "Lazio"}, LIMIT 10
-                         timeout: 7000,
-                         jsonp: 'callback',
-                         crossDomain: true,
-                         success:function(result){
-                         
-                           $.each(result, function(i,item){
-                                navigator.notification.alert(
-                                 'Foto cancellata correttamente.',  // message
-                                 alertDismissed,         // callback
-                                 '',           // title
-                                 'Ok'                  // buttonName
-                                 );
-                                  
-                                ilmioalbum()
-                           });
-                         
-                         },
-                         error: function(){
-
-                             navigator.notification.alert(
-                              'Possibile errore di rete, riprova tra qualche minuto.',  // message
-                              alertDismissed,         // callback
-                              'Attenzione',           // title
-                              'Ok'                  // buttonName
-                              );
-
-                         },
-                         dataType:"jsonp"});
-                    
-               }
-                
-            }
-            
-            return;
-        };
 		
 		
 		function IsNotUneven(numero)
@@ -1538,7 +1341,7 @@ var app = {
                        
             if (localStorage.getItem("orgasmomentale") === null || localStorage.getItem("orgasmomentale")=="null" || typeof(localStorage.getItem("orgasmomentale")) == 'undefined' || localStorage.getItem("orgasmomentale")==0 || localStorage.getItem("orgasmomentale")=="") {
                
-                $("#areaom").html("<textarea name='orgasmomentale' name='orgasmomentale' type='text' rows='5' cols='15' class='scrivo'>Descrivi semplicemente cio' che ti rende felice!</textarea>")
+                $("#areaom").html("<textarea name='orgasmomentale' name='orgasmomentale' type='text' rows='5' cols='15' class='scrivo'>Descrivi semplicemente cio che ti rende felice.</textarea>")
                        
             }
             else{
@@ -1546,16 +1349,6 @@ var app = {
                $("#areaom").html("<textarea name='orgasmomentale' name='orgasmomentale' type='text' rows='5' cols='15' class='scrivo'>"+ localStorage.getItem("orgasmomentale") +"</textarea>")
       
             }
-                       
-                       
-            myScroll9 = new IScroll('#wrapper9', { click: true, bounce: false });
-                     
-                       
-           setTimeout (function(){
-                       
-             myScroll9.refresh();
-           
-           }, 500);
 
                        
         });
@@ -1661,15 +1454,16 @@ var app = {
 		   pippo = pippo+"_"+localStorage.getItem("ora_cell")
 		   
 		   localStorage.setItem("nomegall", pippo)
-					   	   
+					   
+					   
 		  $("#spinner55").show()
 					   
-		   navigator.camera.getPicture(uploadPhoto, onFail, { quality: 90,
+		   navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
 				
 				destinationType: Camera.DestinationType.FILE_URI,
 				sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-				targetWidth: 640,
-				targetHeight: 640
+				targetWidth: 400,
+				targetHeight: 400
 		   });
 					   
 	   });
@@ -1699,9 +1493,8 @@ var app = {
 			"href" : "#indexFoto.html"
 		   });*/
 					   
-            localStorage.setItem("selfie", "1");
 					   
-            window.location.href = "#home6";
+			window.location.href = "indexFoto.html";
 					   
 		});
 		
@@ -1925,8 +1718,6 @@ var app = {
 							 
 							 localStorage.setItem("nickname2", a1[2]);
 							 localStorage.setItem("fotochat", linkfoto2);
-                                         
-                            localStorage.setItem("arrivochat", "1");
 							 
 							 chatdonnabypersone()
 							 
@@ -1974,19 +1765,7 @@ var app = {
         
         function bloccautente(){
 			
-            
-            if(localStorage.getItem("email").toLowerCase()==localStorage.getItem("bloccaemail").toLowerCase()){
-                navigator.notification.alert(
-                 'Non puoi bloccare te stesso.',  // message
-                 alertDismissed,         // callback
-                 'Attenzione',           // title
-                 'Ok'                  // buttonName
-                 );
-
-                return;
-            }
-            
-            $("#spinner8").show();
+			$("#spinner8").show();
 			
 			$.ajax({
 			   type:"GET",
@@ -2064,52 +1843,8 @@ var app = {
                  $.each(result, function(i,item){
                 
                     $("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='private'><img src='img/indietro_over.png' height='30px'></a></div><img src='http://msop.it/public/"+item.foto+"' width='100%' class='pippo22profilo'><div id='#' class='puntini'><a id='menuprofilo'><img src='img/menu4.png' height='30px'></a></div>")
-                        
-                        // LEGGO INFO //
-                        
-                        var info1;
-                        
-                        info1 = item.info
-                        
-                        info1 = info1.replace("777A", "'");
-                        
-                        info1 = info1.replace("777B", "+");
-                        
-                        info1 = info1.replace("777C", "$");
-                        
-                        info1 = info1.replace("777D", "!");
-                        info1 = info1.replace("777D7", "!!");
-                        info1 = info1.replace("777D77", "!!!");
-                        info1 = info1.replace("777D777", "!!!!");
-                        info1 = info1.replace("777D7777", "!!!!!");
-                        
-                        info1 = info1.replace("777E", "(");
-                        
-                        info1 = info1.replace("777F",")");
-                        
-                        info1 = info1.replace("777G", ":");
-                        
-                        info1 = info1.replace("777H", "?");
-                        info1 = info1.replace("777H7", "??");
-                        info1 = info1.replace("777H77", "???");
-                        info1 = info1.replace("777H777", "????");
-                        info1 = info1.replace("777H7777", "?????");
-                        
-                        info1 = info1.replace("777I", "à");
-                        info1 = info1.replace("777L", "è");
-                        info1 = info1.replace("777M", "ì");
-                        info1 = info1.replace("777N", "ò");
-                        info1 = info1.replace("777O", "ù");
                     
-						
-						if (item.info=== null || item.info=="null" || typeof(item.info) == 'undefined' ||item.info==0 || item.info=="") {
-						
-						  $("#scheda").html("<font size='4'><b>Descrivi semplicemnte cio' che ti rende felice!</b> </font> <br>")
-						
-						}
-						else{
-						  $("#scheda").html("<font size='4'><b>"+info1+"</b> </font> <br>")
-						}
+                    $("#scheda").append("<font size='4'><b>"+item.info+".</b> </font> <br>")
                         
                         
                     var contanick = item.nickname.length;
@@ -2256,45 +1991,9 @@ var app = {
                           
                           //$("#profiloman").html("<table width='100%' height='480' align='center' background='http://msop.it/public/"+item.foto+"' style='background-size: 100% auto; background-repeat: no-repeat;' class='uomo' valign='bottom'><tr><td width='100%' align='center' valign='bottom'></td></tr></table>")
                           
-                          $("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='private'><img src='img/indietro_over.png' height='30px'></a></div><img src='http://msop.it/public/"+item.foto+"' class='pippo22profilo'><div id='#' class='puntini'><a id='menuprofilo'><img src='img/menu4.png' height='30px'></a></div>")
+                          $("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='private'><img src='img/indietro_over.png' height='30px'></a></div><img src='http://msop.it/public/"+item.foto+"' class='pippo22'><div id='#' class='puntini'><a id='menuprofilo'><img src='img/menu4.png' height='30px'></a></div>")
                           
-                          var info1;
-                          
-                          info1 = item.info
-                          
-                          info1 = info1.replace("777A", "'");
-                          
-                          info1 = info1.replace("777B", "+");
-                          
-                          info1 = info1.replace("777C", "$");
-                          
-                          info1 = info1.replace("777D", "!");
-                          info1 = info1.replace("777D7", "!!");
-                          info1 = info1.replace("777D77", "!!!");
-                          info1 = info1.replace("777D777", "!!!!");
-                          info1 = info1.replace("777D7777", "!!!!!");
-                          
-                          info1 = info1.replace("777E", "(");
-                          
-                          info1 = info1.replace("777F",")");
-                          
-                          info1 = info1.replace("777G", ":");
-                          
-                          info1 = info1.replace("777H", "?");
-                          info1 = info1.replace("777H7", "??");
-                          info1 = info1.replace("777H77", "???");
-                          info1 = info1.replace("777H777", "????");
-                          info1 = info1.replace("777H7777", "?????");
-                          
-                          
-						  if (item.info=== null || item.info=="null" || typeof(item.info) == 'undefined' ||item.info==0 || item.info=="") {
-						  
-						    $("#scheda").html("<font size='4'><b>Descrivi semplicemnte ciò che ti rende felice!</b> </font> <br>")
-						  
-						  }
-						  else{
-						    $("#scheda").html("<font size='4'><b>"+info1+"</b> </font> <br>")
-						  }
+                          $("#scheda").append("<font size='4'><b>"+item.info+".</b> </font> <br>")
                           
                           var contanick = item.nickname.length;
                           var nuovonick
@@ -2388,16 +2087,13 @@ var app = {
 		function uploadPhoto(imageURI) {
 			
 			// Convert image
-            
-            //alert("1")
 			
 			 getFileContentAsBase64(imageURI,function(base64Image){
 								   
 			 localStorage.setItem("imgutente2", base64Image);
 			 //localStorage.setItem("imgutente3", base64Image.replace("data:image/jpeg;base64,","").replace("data:image/jpeg;base64,",""));
 			 localStorage.setItem("imgutente3", base64Image.replace("data:image/png;base64,","").replace("data:image/jpeg;base64,",""));
-			
-            //alert(localStorage.getItem("nomegall"))
+									
 									
 			setTimeout (function(){
 				$.ajax({
@@ -2444,9 +2140,6 @@ var app = {
 		
 		
 		function getFileContentAsBase64(path,callback){
-            
-            //alert("2")
-            
 			window.resolveLocalFileSystemURL(path, gotFile, fail);
 			
 			function fail(e) {
@@ -3265,7 +2958,7 @@ var app = {
 				document.ontouchmove = function(e){ e.preventDefault(); }
 						   
 				localStorage.setItem("cartellaimg","wonderfulldinner")
-				localStorage.setItem("tipofesta","WONDERFUL DINNER")
+				localStorage.setItem("tipofesta","WONDERFULL DINNER")
 							
 				$("#fotoflyer").html("<img id='wonver1' src='flyer/verticali/wonderfulldinner/wonver1.jpg' width='105px' border='0' bordercolor='red'>&nbsp;&nbsp;<img id='wonver2' src='flyer/verticali/wonderfulldinner/wonver2.jpg' width='105px' border='0'>&nbsp;&nbsp;<img id='wonver3' src='flyer/verticali/wonderfulldinner/wonver3.jpg' width='105px' border='0'>");
 				
@@ -3351,7 +3044,7 @@ var app = {
 		   
 		   //<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
 		   
-        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Alla domanda:<br>”sei mai stato ad una festa in maschera?'rispondiamo immancabilmente tutti di si!<br>'…e in mascherina?'<br>Sexy , divertente , enigmatica e provocatoria!<br>Questo Private Party è tra tutti il più semplice da realizzare e il più difficile da far decollare!<br>In un contesto casual-elegant , ciò che caratterizza l'evento , è l'obbligo per i partecipanti di indossare per tutta la durata del Party una misteriosa mascherina Venezian style. <br>Una festa vissuta di sensazioni , flirt e battiti di cuore... <br>Ciò che ci affascina di più è sempre ciò che non conosciamo affatto! <br>Per la riuscita dell'evento consigliamo maschere comode che lascino le labbra completamente libere!<br>A VOLTE UNA MASCHERA CI DICE PIU' DI UN VOLTO!  <div><center><img src='img/macchia.png' width='60px'></center></div> To the question: <br>“have you ever been to a mask party?” <br> we all respond without fail: yes! And… 'in a little mask?' <br>Sexy, fun, enigmatic and provocative! <br> This type of private party is one of the simplest and the most difficult to start! <br>In a casual-elegant context, which characterises the event, it’s obligatory for the participants to wear a mysterious Venetian mask for the duration of the party.  <br>A party filled with sensations, flirting and heart beats... because after all, what fascinates us most is what we don’t fully know! <br>For the complete success of the event, we suggest comfortable masks and that you leave the lips completely free! <br>AT TIMES A MASK REVEALS MORE THAN A FACE! <br></font></b></td></tr></table>")
+        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Alla domanda:<br>”sei mai stato ad una festa in maschera?'rispondiamo immancabilmente tutti di si!<br>'…e in mascherina?'<br>Sexy , divertente , enigmatica e provocatoria!<br>Questo Private Party è tra tutti il più semplice da realizzare e il più difficile da far decollare!<br>In un contesto casual-elegant , ciò che caratterizza l'evento , è l'obbligo per i partecipanti di indossare per tutta la durata del Party una misteriosa mascherina Venezian style. <br>Una festa vissuta di sensazioni , flirt e battiti di cuore... <br>Ciò che ci affascina di più è sempre ciò che non conosciamo affatto! <br>Per la riuscita dell'evento consigliamo maschere comode che lascino le labbracompletamente libere!<br>A VOLTE UNA MASCHERA CI DICE PIU' DI UN VOLTO!  <div><center><img src='img/macchia.png' width='60px'></center></div> To the question: <br>“have you ever been to a mask party?” <br> we all respond without fail: yes! And… 'in a little mask?' <br>Sexy, fun, enigmatic and provocative! <br> This type of private party is one of the simplest and the most difficult to start! <br>In a casual-elegant context, which characterises the event, it’s obligatory for the participants to wear a mysterious Venetian mask for the duration of the party.  <br>A party filled with sensations, flirting and heart beats... because after all, what fascinates us most is what we don’t fully know! <br>For the complete success of the event, we suggest comfortable masks and that you leave the lips completely free! <br>AT TIMES A MASK REVEALS MORE THAN A FACE! <br></font></b></td></tr></table>")
 		   
 			   
 		   $(document).on("touchstart", "#mask2", function(e){
@@ -4055,7 +3748,7 @@ var app = {
    
    $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/color.jpg' width='100%'></td></tr></table>")
    
-    $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Qual'è il tuo colore preferito? <br>Rosso come il fuoco o blu come il cielo? <br>Total withe or total black? <br>Un Private Party semplice ma che ama stupire! <br>Ricco di creatività e dal forte impatto visivo! <br>Tutti gli invitati indosseranno abiti e accessori dello stesso colore deciso e comunicato precedentemente dall'organizzatore! <br>Ballare , bere e scatenarsi per una notte che non si dimenticherà molto facilmente! <br>NE VEDRETE DI TUTTI COLORI! <div><center><img src='img/macchia.png' width='60px'></center></div> What is your favourite colour?<br>Red like fire or blue like the sky? <br>Total white or total black? <br>A simple but astonishing private party. <br>Rich with creativity and a strong visual impact! <br>All the guests will wear clothes and accessories of the same colour decided previously by the organiser! <br>Dancing, drinking and rampaging for a night that you won’t forget very easily!<br>YOU WILL SEE ALL COLOURS! <br></font></b></td></tr></table>")
+    $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Qual'è il tuo colore preferito? <br>Rosso come il fuoco o blu come il cielo? <br>Total withe or total black? <br>Un Private Party semplice ma che ama stupire! <br>Ricco di creatività e dal forte impatto visivo! <br>Tutti gli invitati indosseranno abiti e accessori dello stesso colore deciso e comunicato precedentemente dall'organizzatore! <br>Ballare , bere e scatenarsi per una notte che non si dimenticherà molto facilmente! NE VEDRETE DI TUTTI COLORI! <div><center><img src='img/macchia.png' width='60px'></center></div> What is your favourite colour?<br>Red like fire or blue like the sky? <br>Total white or total black? <br>A simple but astonishing private party. <br>Rich with creativity and a strong visual impact! <br>All the guests will wear clothes and accessories of the same colour decided previously by the organiser! <br>Dancing, drinking and rampaging for a night that you won’t forget very easily!<br>YOU WILL SEE ALL COLOURS! <br></font></b></td></tr></table>")
    
    
    $(document).on("touchstart", "#colorp2", function(e){
@@ -4143,7 +3836,7 @@ var app = {
 	   
 	   $("#anteprimaparty").html("<table width='100%' align='center' border='0'><tr><td width='100%' align='center' valign='center'><img src='sfondi/pool.jpg' width='100%'></td></tr></table>")
 	   
-	   $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Il Party per eccellenza è sempre stato quello che si conclude con un bagno in piscina tutti insieme!<br>Quello più ambito invece è quello dove c'è una vasca idromassaggio!! <br>Vivere un PoolParty dà la possibilità di divertirsi nell'acqua calda anche d'inverno o di tuffarsi d'estate nelle piscine più cool!! <br>Molti centri estetici danno la possibilità di affittare per una notte una location corredata con Jacuzzi e buffet. <br>Per la completa riuscita dell'evento assicurarsi acqua calda in inverno e controllare le previsioni del tempo in estate! <br>VOGLIA DI H2O! <div><center><img src='img/macchia.png' width='60px'></center></div>The excellence Party has always been that one with a swim in the pool all together, the most coveted Party, has always been that one where we can find a spa bath!! <br> Living a Pool party gives us the opportunity to have always fun, even in winter or hot summer days! Many of beauty salons offer the chance to rent,for one night, a location with jacuzzi and buffet. <br>For the complete success of the event, make sure that temperature of water, its cold in winter and  prefect in summer! <br>WANT H2O! <br></font></b></td></tr></table>")
+	   $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME - LOCAL &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Il Party per eccellenza è sempre stato quello che si conclude con un bagno in piscina tutti insieme!<br>Quello più ambito invece è quello dove c'è una vasca idromassaggio!! <br>Vivere un PoolParty dà la possibilità di divertirsi nell'acqua calda anche d'inverno o di tuffarsi d'estate nelle piscine più cool!! <br>Molti centri estetici danno la possibilità di affittare per una notte una location corredata con Jacuzzi e buffet. <br>Per la completa riuscita dell'evento assicurarsi acqua calda in inverno e controllare le previsioni del tempo in estate! <br>VOGLIA DI H2O! <div><center><img src='img/macchia.png' width='60px'></center></div>  <br></font></b></td></tr></table>")
 					   
 					   
 	   $(document).on("touchstart", "#pool2", function(e){
@@ -4410,9 +4103,8 @@ var app = {
                document.getElementById("cittapersone").value = localStorage.getItem("miacitta")
                document.getElementById("etapersone").value = localStorage.getItem("miaeta")
                //document.getElementById("sessopersone").value = localStorage.getItem("miosesso")
-            
-                if (localStorage.getItem("miosesso") === null || localStorage.getItem("miosesso")=="null" || typeof(localStorage.getItem("miosesso")) == 'undefined' || localStorage.getItem("miosesso")==0 || localStorage.getItem("miosesso")=="") {
-
+					   
+				if(localStorage.getItem("miosesso")==""){
 					$("#selectsesso").html("<select name='sessopersone' id='sessopersone' class='scrivo'><option value='F'>Girls</option><option value='M'>Boys</option><option value='' selected>ALL</option></select>");
 				}
 					   
@@ -4547,57 +4239,11 @@ var app = {
                $("#loadpersonaggi").hide();
                $("#chatnuove").hide();
                $("#mostrachat").hide();
-                       
-                
-                // MODIFICA PROFILO
-                       
-               var info1;
-               
-               info1 = self.document.formiaprofilo.orgasmomentale.value
-                       
-               localStorage.setItem("orgasmomentale", info1);
-               
-               info1 = info1.replace("'","777A");
-               
-               info1 = info1.replace("+","777B");
-               
-               info1 = info1.replace("$","777C");
-               
-               info1 = info1.replace("!","777D");
-               info1 = info1.replace("!!","777D7");
-               info1 = info1.replace("!!!","777D77");
-               info1 = info1.replace("!!!!","777D777");
-               info1 = info1.replace("!!!!!","777D7777");
-               info1 = info1.replace("!!!!!!","777D77777");
-               
-               info1 = info1.replace("(","777E");
-               
-               info1 = info1.replace(")","777F");
-               
-               info1 = info1.replace(":","777G");
-               
-               info1 = info1.replace("?","777H");
-                       
-               info1 = info1.replace("?","777H");
-               info1 = info1.replace("??","777H7");
-               info1 = info1.replace("???","777H77");
-               info1 = info1.replace("????","777H777");
-               info1 = info1.replace("?????","777H7777");
-               info1 = info1.replace("??????","777H77777");
-                       
-               info1 = info1.replace("à", "777I");
-               info1 = info1.replace("è", "777L");
-               info1 = info1.replace("ì", "777M");
-               info1 = info1.replace("ò", "777N");
-               info1 = info1.replace("ù", "777O");
-               
-               info1 = info1.replace(/[&\/\\#,~%.*<>{}]/g,'');
-                       
                      
                localStorage.setItem("cittaprofilo", self.document.formiaprofilo.cittaprofilo.value);
                localStorage.setItem("etaprofilo", self.document.formiaprofilo.etaprofilo.value);
                localStorage.setItem("nickname", self.document.formiaprofilo.nickprofilo.value);
-			   
+			   localStorage.setItem("orgasmomentale", self.document.formiaprofilo.orgasmomentale.value);
 					   
 			   //alert("http://msop.it/om/check_modificautente.php?email="+ localStorage.getItem("email") +"&citta="+ localStorage.getItem("cittaprofilo") +"&data_nascita="+ localStorage.getItem("etaprofilo") +"&nickname="+localStorage.getItem("nickname")+"&info="+ localStorage.getItem("orgasmomentale") +"")
                 
@@ -4733,16 +4379,14 @@ var app = {
 		   $("#antdata").html(self.document.formia8.giorno.value + "/" + self.document.formia8.mese.value + " alle ore: " + self.document.formia8.ora.value)
 		   $("#antinfo").html(self.document.formia8.info.value)
 				   
-			var importotot = self.document.formia8.ospiti.value*self.document.formia8.prezzo.value
-				   
 		   //var prezzoposti = self.document.formia8.prezzo.value
-		   $("#antprezzo").html("IMPORTO TOTALE PER "+self.document.formia8.ospiti.value+" INVITATI:" + importotot)
+		   $("#antprezzo").html("IMPORTO TOTALE PER "+self.document.formia8.ospiti.value+" INVITATI:" + self.document.formia8.prezzo.value)
 				   
-		   var calcolacommissione = (importotot/100)*20;
+		   var calcolacommissione = self.document.formia8.prezzo.value/20;
 				   
 		   $("#antcommissione").html("COMMISSIONE O.M.: 20%") //+calcolacommissione.toFixed(2)
 				   
-			var guadagno = importotot - calcolacommissione
+			var guadagno = self.document.formia8.prezzo.value - calcolacommissione
 				   
 		   $("#antaltro").html("GUADAGNO ORGANIZZATORE:"+ guadagno.toFixed(2))
                    
@@ -4842,51 +4486,10 @@ var app = {
 
 					   
 					   $("#spinner14").show();
-                       
-                       var info1;
-                       
-                       info1 = self.document.formia8.info.value
-                       
-                       info1 = info1.replace("'","777A");
-                       
-                       info1 = info1.replace("+","777B");
-                       
-                       info1 = info1.replace("$","777C");
-                       
-                       info1 = info1.replace("!","777D");
-                       info1 = info1.replace("!!","777D7");
-                       info1 = info1.replace("!!!","777D77");
-                       info1 = info1.replace("!!!!","777D777");
-                       info1 = info1.replace("!!!!!","777D7777");
-                       info1 = info1.replace("!!!!!!","777D77777");
-                       
-                       info1 = info1.replace("(","777E");
-                       
-                       info1 = info1.replace(")","777F");
-                       
-                       info1 = info1.replace(":","777G");
-                       
-                       info1 = info1.replace("?","777H");
-                       
-                       info1 = info1.replace("?","777H");
-                       info1 = info1.replace("??","777H7");
-                       info1 = info1.replace("???","777H77");
-                       info1 = info1.replace("????","777H777");
-                       info1 = info1.replace("?????","777H7777");
-                       info1 = info1.replace("??????","777H77777");
-                       
-                       info1 = info1.replace("à", "777I");
-                       info1 = info1.replace("è", "777L");
-                       info1 = info1.replace("ì", "777M");
-                       info1 = info1.replace("ò", "777N");
-                       info1 = info1.replace("ù", "777O");
-                       
-                       info1 = info1.replace(/[&\/\\#,~%.*<>{}]/g,'');
-                       
 					   
 					   $.ajax({
 							  type:"GET",
-							  url:"http://msop.it/om/insert_festa.php?email="+ localStorage.getItem("email")+"&anno="+self.document.formia8.anno.value+"&mese="+self.document.formia8.mese.value+"&giorno="+self.document.formia8.giorno.value+"&ora="+self.document.formia8.ora.value+"&ospiti="+self.document.formia8.ospiti.value+"&etafesta="+self.document.formia8.etafesta.value+"&girl="+self.document.formia8.vgirls.value+"&boy="+self.document.formia8.vboys.value+"&location="+self.document.formia8.location.value+"&info="+info1+"&prezzo="+self.document.formia8.prezzo.value+"&flyer="+localStorage.getItem("festaimg")+"&tipofesta="+localStorage.getItem("cartellaimg")+"&nomefesta="+localStorage.getItem("tipofesta")+"&citta="+self.document.formia8.cittafesta.value+"",
+							  url:"http://msop.it/om/insert_festa.php?email="+ localStorage.getItem("email")+"&anno="+self.document.formia8.anno.value+"&mese="+self.document.formia8.mese.value+"&giorno="+self.document.formia8.giorno.value+"&ora="+self.document.formia8.ora.value+"&ospiti="+self.document.formia8.ospiti.value+"&etafesta="+self.document.formia8.etafesta.value+"&girl="+self.document.formia8.vgirls.value+"&boy="+self.document.formia8.vboys.value+"&location="+self.document.formia8.location.value+"&info="+self.document.formia8.info.value+"&prezzo="+self.document.formia8.prezzo.value+"&flyer="+localStorage.getItem("festaimg")+"&tipofesta="+localStorage.getItem("cartellaimg")+"&nomefesta="+localStorage.getItem("tipofesta")+"&citta="+self.document.formia8.cittafesta.value+"",
 							  contentType: "application/json",
 							  //data: {Lat:3,Longi:4},
 							  timeout: 7000,
@@ -4983,52 +4586,10 @@ $(document).on("touchstart", "#editparty", function(e){
    $("#spinnermodparty").show();
                
    //alert("http://msop.it/om/modifica_festa.php?email="+ localStorage.getItem("email")+"&anno="+self.document.formiamodp.annoedit.value+"&mese="+self.document.formiamodp.meseedit.value+"&giorno="+self.document.formiamodp.giornoedit.value+"&ora="+self.document.formiamodp.oraedit.value+"&ospiti="+self.document.formiamodp.invitatiedit.value+"&etafesta="+self.document.formiamodp.etaedit.value+"&location="+self.document.formiamodp.locationedit.value+"&info="+self.document.formiamodp.infoedit.value+"&prezzo="+self.document.formiamodp.prezzoedit.value+"&citta="+self.document.formiamodp.cittafestaedit.value+"")
-               
-    
-   var info1;
-   
-   info1 = self.document.formiamodp.infoedit.value
-   
-   info1 = info1.replace("'","777A");
-   
-   info1 = info1.replace("+","777B");
-   
-   info1 = info1.replace("$","777C");
-   
-   info1 = info1.replace("!","777D");
-   info1 = info1.replace("!!","777D7");
-   info1 = info1.replace("!!!","777D77");
-   info1 = info1.replace("!!!!","777D777");
-   info1 = info1.replace("!!!!!","777D7777");
-   info1 = info1.replace("!!!!!!","777D77777");
-   
-   info1 = info1.replace("(","777E");
-   
-   info1 = info1.replace(")","777F");
-   
-   info1 = info1.replace(":","777G");
-   
-   info1 = info1.replace("?","777H");
-   
-   info1 = info1.replace("?","777H");
-   info1 = info1.replace("??","777H7");
-   info1 = info1.replace("???","777H77");
-   info1 = info1.replace("????","777H777");
-   info1 = info1.replace("?????","777H7777");
-   info1 = info1.replace("??????","777H77777");
-               
-   info1 = info1.replace("à", "777I");
-   info1 = info1.replace("è", "777L");
-   info1 = info1.replace("ì", "777M");
-   info1 = info1.replace("ò", "777N");
-   info1 = info1.replace("ù", "777O");
-   
-   info1 = info1.replace(/[&\/\\#,~%.*<>{}]/g,'');
-    
    
    $.ajax({
           type:"GET",
-          url:"http://msop.it/om/modifica_festa.php?id="+ self.document.formiamodp.idfesta.value+"&anno="+self.document.formiamodp.annoedit.value+"&mese="+self.document.formiamodp.meseedit.value+"&giorno="+self.document.formiamodp.giornoedit.value+"&ora="+self.document.formiamodp.oraedit.value+"&ospiti="+self.document.formiamodp.invitatiedit.value+"&etafesta="+self.document.formiamodp.etaedit.value+"&location="+self.document.formiamodp.locationedit.value+"&info="+info1+"&prezzo="+self.document.formiamodp.prezzoedit.value+"&citta="+self.document.formiamodp.cittafestaedit.value+"",
+          url:"http://msop.it/om/modifica_festa.php?id="+ self.document.formiamodp.idfesta.value+"&anno="+self.document.formiamodp.annoedit.value+"&mese="+self.document.formiamodp.meseedit.value+"&giorno="+self.document.formiamodp.giornoedit.value+"&ora="+self.document.formiamodp.oraedit.value+"&ospiti="+self.document.formiamodp.invitatiedit.value+"&etafesta="+self.document.formiamodp.etaedit.value+"&location="+self.document.formiamodp.locationedit.value+"&info="+self.document.formiamodp.infoedit.value+"&prezzo="+self.document.formiamodp.prezzoedit.value+"&citta="+self.document.formiamodp.cittafestaedit.value+"",
           contentType: "application/json",
           //data: {Lat:3,Longi:4},
           timeout: 7000,
@@ -5088,7 +4649,6 @@ $(document).on("touchstart", "#editparty", function(e){
 		$(document).on("touchstart", "#cambiafotoprofilo", function(e){
 					   
 		   localStorage.setItem("primavolta","1")
-           localStorage.setItem("selfie", "0");
 					   
 		   window.location.href = "indexFoto.html";
 					   
@@ -5104,35 +4664,120 @@ $(document).on("touchstart", "#editparty", function(e){
 		
 		
 		
-    $(document).on("touchstart", "#accetto", function(e){
-                   
-           window.location.href = "indexFoto.html";
+		$(document).on("touchstart", "#accetto", function(e){
 					   
-           /*if (document.getElementById('privacy').checked) {
-           
-               $("#persone").hide();
-               $("#loadpersonaggi").hide();
-               $("#feste").show();
-           
-             $("#parte1").show();
-             $("#parte2").show();
-             $("#parte3").show();
-           
-              gohome8()
-       
-           }
-           else {
-            navigator.notification.alert(
-                'Devi Accettare i termini per proseguire',  // message
-                alertDismissed,         // callback
-                'Privacy',            // title
-                'OK'                  // buttonName
-                );
-            return;
-           
-           }*/
+					   if (document.getElementById('privacy').checked) {
 					   
-    });
+						   $("#persone").hide();
+					       $("#loadpersonaggi").hide();
+						   $("#feste").show();
+					   
+					     $("#parte1").show();
+					     $("#parte2").show();
+					     $("#parte3").show();
+					   
+						  gohome8()
+					   
+					     /* $.ajax({
+							  type:"GET",
+							  url:"http://msop.it/om/tuned.php?email="+ localStorage.getItem("email")+"",
+							  contentType: "application/json",
+							  //data: {Lat:3,Longi:4},
+							  timeout: 7000,
+							  jsonp: 'callback',
+							  crossDomain: true,
+							  success:function(result){
+								
+							  $.each(result, function(i,item){
+									 
+									 if(item.accesso=="0"){
+									 
+									   window.plugins.nativepagetransitions.fade({
+																			   "duration"       :  1000,
+																			   "iosdelay"       :   50,
+																			   "androiddelay"   :  500,
+																			   "href" : "#home7"
+																			   });
+									 }
+									 else{
+									 
+									 gohome8() */
+									 
+								       /*$("#spinner8").hide();
+									 
+									   window.plugins.nativepagetransitions.fade({
+																			   "duration"       :  1000,
+																			   "iosdelay"       :   50,
+																			   "androiddelay"   :  500,
+																			   "href" : "#home8"
+																			   });
+									 
+									 
+									 $("#feste").html("<table width='310' height='220' align='center' class='#' background='img/pigiama1.png'><tr><td width='90%' align='center'><div id='parent'><div id='backdrop'><table width='220' height='200' align='center' height='200'><tr><td width='100%' align='center'><font class='DemoFont' color='#fff' size='6'>PIGIAMA PARTY</font></td></tr><tr><td width='100%' align='center'><font class='AntonioFont' color='#fff' size='4'>ROMA 21 LUGLIO</font></td></tr><tr><td width='100%' align='center'><font class='AntonioFont' color='#fff' size='5'>10€</font></td></tr><tr><td width='100%' align='center'><img src='img/fotodefault.png' height='90' class='utenteimg2'><br><font class='AntonioFont' color='#00ffff' size='4'>MARCO</font></td></tr></table></div><div id='curtain' style=''>&nbsp;</div></div></td></tr></table>")
+									 
+									 
+									 
+									 myScroll2 = new iScroll('wrapper2', {
+															click: true,
+															useTransform: false,
+															//bounce: false,
+															onBeforeScrollStart: function (e)
+															{
+															var target = e.target;
+															while (target.nodeType != 1) {
+															target = target.parentNode;
+															}
+															
+															if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+															e.preventDefault();
+															}
+															}
+															
+															});
+									 
+									 setTimeout (function(){
+												 
+										 myScroll2.refresh();
+												 
+									 }, 200);
+									 
+									}
+									 
+							   });
+							  
+							  $("#spinner1").hide()
+							  
+							  },
+							  error: function(){
+							  
+							  $("#spinner1").hide()
+							  
+							  navigator.notification.alert(
+														   'Errore di rete, riprova sotto copertura',  // message
+														   alertDismissed,         // callback
+														   'Errore di Rete',            // title
+														   'OK'                  // buttonName
+														   );
+							  
+							  },
+							  
+							  dataType:"jsonp"});*/
+					   
+					   }
+					   else {
+					    navigator.notification.alert(
+							'Devi Accettare i termini per proseguire',  // message
+							alertDismissed,         // callback
+							'Privacy',            // title
+							'OK'                  // buttonName
+							);
+					    return;
+					   
+					   }
+					   
+				//$.mobile.changePage( "#home3", { transition: "slide", changeHash: false });
+					   
+			});
 		
 		
 		function gohome8(){
@@ -5185,18 +4830,12 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						  localStorage.setItem("registrato","3")
 						  
-                          localStorage.setItem("myid", item.id);
-                          localStorage.setItem("nickname", item.nickname);
-                          localStorage.setItem("etaprofilo", item.data_nascita);
-                          localStorage.setItem("cittaprofilo", item.citta);
-                          
-                          localStorage.setItem("orgasmomentale", item.info);
-                          
-                          localStorage.setItem("nomeimg", item.foto)
-                          
-                          localStorage.setItem("registrato", "3");
-                          
-                          localStorage.setItem("loggato", "1");
+						  /*window.plugins.nativepagetransitions.fade({
+							"duration"       :  1000,
+							"iosdelay"       :   50,
+							"androiddelay"   :  500,
+							"href" : "#home8"
+							});*/
 
 						  $.mobile.changePage("#home8", { transition: "fade" });
 						  
@@ -5419,22 +5058,11 @@ $(document).on("touchstart", "#editparty", function(e){
 				   setTimeout (function(){
 							   
 					   myScroll2.refresh();
-                               
-                       if(screen.width>320){
-                         
-                       }
                        
                        controllachat()
 							   
 					   
-					}, 200);
-                   
-                   
-                   
-                   setTimeout (function(){
-                        $("#parte3").fadeIn();
-                       
-                    }, 2000);
+					}, 0);
 				   
 
 				   },
@@ -5500,50 +5128,9 @@ $(document).on("touchstart", "#editparty", function(e){
 							  $("#spinner13").hide();
 
 							  $("#party").html("<br><table width='100%' height='220' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td align='right' valign='center' height='110'></td></tr><tr><td width='100%' align='center'><div id='parent'><div id='backdrop3'><table width='270' height='100' align='center' border='0'><tr><td width='100%' align='center' valign='center'><a id='#'><font class='AntonioFontBold' color='#00ffff' size='6'>&nbsp;&nbsp;<b>"+item.titolo+"</b></font></a></td></tr></table></div><div id='curtain3' style=''>&nbsp;</div></div></td></tr></table>")
-                          
-                            // LEGGO FESTA //
-                          
-                              var info1;
-                          
-                              info1 = item.info
-                          
-                              info1 = info1.replace("777a", "'");
-                          
-                              info1 = info1.replace("777b", "+");
-                          
-                              info1 = info1.replace("777c", "$");
-                          
-                              info1 = info1.replace("777d", "!");
-                              info1 = info1.replace("777d7", "!!");
-                              info1 = info1.replace("777d77", "!!!");
-                              info1 = info1.replace("777d777", "!!!!!");
-                              info1 = info1.replace("777d7777", "!!!!!!");
-                          
-                              info1 = info1.replace("777e", "(");
-                          
-                              info1 = info1.replace("777f",")");
-                          
-                              info1 = info1.replace("777g", ":");
-                          
-                              info1 = info1.replace("777h", "?");
-                              info1 = info1.replace("777h7", "??");
-                              info1 = info1.replace("777h77", "???");
-                              info1 = info1.replace("777h777", "????");
-                              info1 = info1.replace("777h7777", "?????");
-                          
-                              info1 = info1.replace("777i", "à");
-                              info1 = info1.replace("777l", "è");
-                              info1 = info1.replace("777m", "ì");
-                              info1 = info1.replace("777n", "ò");
-                              info1 = info1.replace("777o", "ù");
-                          
-                              var giorno = item.data;
-                              giorno.replace("i", "ì");
-                          
-                             // alert(giorno)
 
-						     $("#dataparty").html(item.citta+" "+giorno+" "+item.location+" ore:"+item.ora+" Eta' Max:"+ item.eta)
-						     $("#infoparty").append("<font class='AntonioFont' color='#000' size='5'>" + info1 + "</font>")
+						     $("#dataparty").html(item.citta+" "+item.data+" "+item.location+" ore:"+item.ora+" Eta' Max:"+ item.eta)
+						     $("#infoparty").append("<font class='AntonioFont' color='#000' size='5'>" + item.info + "</font>")
 						     $("#nome_organizzatore").html(item.nickname)
 						  
 						  
@@ -5581,14 +5168,6 @@ $(document).on("touchstart", "#editparty", function(e){
                             localStorage.setItem("nomefesta", item.titolo);
 						  
                             partecipanti_festa2(cost)
-                          
-                            // LIMITE FESTA
-                          
-                            if(item.invitati==item.venduti){
-                              $("#buyp").hide();
-                              $("#buyp2").show();
-                            }
-                          
 
 						  }
 						  else{
@@ -5654,7 +5233,7 @@ $(document).on("touchstart", "#editparty", function(e){
 					  
 					  $("#spinnerinvita").hide();
 					  
-					  $("#party2").html("<table width='100%' height='220' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td align='right' valign='center' height='110'></td></tr><tr><td width='100%' align='center'><div id='parent'><div id='backdrop3'><table width='270' height='100' align='center' border='0'><tr><td width='100%' align='center' valign='center'><a id='#'><font class='AntonioFontBold' color='#00ffff' size='6'>&nbsp;&nbsp;<b>"+item.titolo+"</b></font></a></td></tr></table></div><div id='curtain3' style=''>&nbsp;</div></div></td></tr></table>")
+					  $("#party2").html("<br><table width='100%' height='220' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td align='right' valign='center' height='110'></td></tr><tr><td width='100%' align='center'><div id='parent'><div id='backdrop3'><table width='270' height='100' align='center' border='0'><tr><td width='100%' align='center' valign='center'><a id='#'><font class='AntonioFontBold' color='#00ffff' size='6'>&nbsp;&nbsp;<b>"+item.titolo+"</b></font></a></td></tr></table></div><div id='curtain3' style=''>&nbsp;</div></div></td></tr></table>")
 					  
 					  $("#dataparty2").html(item.citta+" "+item.data+" "+item.location+" ore:"+item.ora+" Eta' Max:"+ item.eta)
 					  //$("#infoparty2").append("dati dati dati")
@@ -5732,7 +5311,7 @@ $(document).on("touchstart", "#editparty", function(e){
 							var numeropers = this.id
 							numeropers = numeropers.replace("gopeople2v_","")
 										 
-							
+							//alert(numeropers)
 										 
 							$.mobile.changePage("#home8", { transition: "fade" });
 										 
@@ -5806,6 +5385,7 @@ $(document).on("touchstart", "#editparty", function(e){
                        
             $("#costobiglietto2").html(twobiglietto)
             
+          
             $("#partylock").show()
 
 		})
@@ -5815,11 +5395,8 @@ $(document).on("touchstart", "#editparty", function(e){
             var email2amico = self.document.formia33.email2biglietto.value;
                        
             if (email2amico!=""){
-                localStorage.setItem("emailinvito",email2amico)
+                localStorage.setItem("emailinvito",localStorage.getItem("email2amico"))
                 localStorage.setItem("prezzofesta",localStorage.getItem("twobiglietto"))
-            }
-            else{
-                localStorage.setItem("emailinvito","")
             }
                        
             //alert(email2amico)
@@ -5851,13 +5428,7 @@ $(document).on("touchstart", "#editparty", function(e){
 					   
 		})
         
-        $(document).on("touchstart", "#annulla233", function(e){
-                       
-           $("#albumlock").hide()
-           
-        })
-        
-        
+		
 		function compraCarta() {
 
 			var num1 = Math.floor((Math.random() * 20) + 1);
@@ -5875,8 +5446,6 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			
 			var amount = localStorage.getItem("prezzofesta");
-            
-            //alert(amount)
 			
 			amount = amount.replace(",",".")
 			
@@ -5891,7 +5460,7 @@ $(document).on("touchstart", "#editparty", function(e){
 				return;
 			}
 			
-            
+			
 			$(".spinner13").show();
 			 
             $.ajax({
@@ -5906,41 +5475,25 @@ $(document).on("touchstart", "#editparty", function(e){
 			 
 			 $.each(result, function(i,item){
 					
-                  //alert("OK")
-                 
-                 if (item.Token == "1"){
-                    
-                   //alert("Ok, Festa comprata")
-                 
-                   var ref = window.open('http://msop.it/om/wbspaypal.asp?Transprodotto='+ transazionemia +'', '_blank', 'location=no');
-                 
-                   ref.addEventListener('loadstop', function(event) { if (event.url.match("mobile/close")) { ref.close(); } });
-                 
-                 }
-                 else if(item.Token == "2") {
-                    navigator.notification.alert(
-                     'Sei gia in possesso di un biglietto per questo evento',  // message
-                     alertDismissed,         // callback
-                     'Attenzione',            // title
-                     'OK'                  // buttonName
-                     );
-                 }
-                else if(item.Token == "3") {
-                    navigator.notification.alert(
-                     'La tua amica/o deve essere registrato ad O.M.',  // message
-                     alertDismissed,         // callback
-                     'Attenzione',            // title
-                     'OK'                  // buttonName
-                     );
-                    }
-                 else{
-                     navigator.notification.alert(
-                     'Possibile errore di rete, riprova tra qualche minuto',  // message
-                     alertDismissed,         // callback
-                     'Attenzione',            // title
-                     'Done'                  // buttonName
-                     );
-                 }
+			  //alert("OK")
+			 
+			 if (item.Token == "1"){
+					
+			   //alert("Ok, Festa comprata")
+			 
+			   var ref = window.open('http://msop.it/om/wbspaypal.asp?Transprodotto='+ transazionemia +'', '_blank', 'location=no');
+			 
+			   //ref.addEventListener('loadstop', function(event) { if (event.url.match("mobile/close")) { ref.close(); } });
+			 
+			 }
+			 else{
+				 navigator.notification.alert(
+				 'Possibile errore di rete, riprova tra qualche minuto',  // message
+				 alertDismissed,         // callback
+				 'Attenzione',            // title
+				 'Done'                  // buttonName
+				 );
+			 }
 			 
 			 });
 			 
@@ -5975,6 +5528,11 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			localStorage.setItem("filtrofeste","0")
             
+			//alert(Math.abs(this.maxScrollY))
+			
+			//alert(Math.abs(this.y))
+			
+			// myScroll2.scrollTo(0, 0);
             
 			$("#persone").html("")
 			
@@ -6091,7 +5649,27 @@ $(document).on("touchstart", "#editparty", function(e){
 
 				   $("#spinner11").hide()
 				   
+				   //$("#persone").append("<br><table width='100%' height='50px'><tr><td></td></tr></table>")
 				   
+				   //$("#persone").append("<table width='320' align='center' valign='bottom'><tr><td colspan='2' width='100%'><img src='img/profilo.png' width='100%'></td></tr><tr><td width='100%' align='left' ><font class='AntonioFont' color='#ee2c90' size='5'> Federica, ROMA, 20</font></td><td width='50'><img src='img/mess_donna1.png' width='40'></td></tr></table>")
+				   
+				   /*myScroll5 = new iScroll('wrapper5', {
+					   click: true,
+					   useTransform: false,
+					   bounce: false,
+					   onBeforeScrollStart: function (e)
+					   {
+					   var target = e.target;
+					   while (target.nodeType != 1) {
+					   target = target.parentNode;
+					   }
+					   
+					   if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+					   e.preventDefault();
+					   }
+					   }
+					   
+					});*/
 				   
 
 				   setTimeout (function(){
@@ -6109,15 +5687,6 @@ $(document).on("touchstart", "#editparty", function(e){
 							}
 							if (this.y == this.maxScrollY){
 							 //alert("Fine")
-                                    
-                                  /*$("#persone").append("<br><br>21212<br><br>")
-                                    $("#persone").append("<br><br>21212<br><br>")
-                                    $("#persone").append("<br><br>21212<br><br>")
-                                    $("#persone").append("<br><br>21212<br><br>")
-                                    $("#persone").append("<br><br>21212<br><br>")
-                                    $("#persone").append("<br><br>21212<br><br>")
-                                    
-                                     myScroll2.refresh();*/
 									
                              // inserire la quary per paginazione.
 							}
@@ -6437,59 +6006,23 @@ $(document).on("touchstart", "#editparty", function(e){
 		
 		$(document).on("touchstart", "#esci", function(e){
 					   
-					   
-		   navigator.notification.confirm(
-			  'vuoi uscire?',  // message
-			   onConfirm3,              // callback to invoke with index of button pressed
-			  'Logout',            // title
-			  'Esci,Annulla'      // buttonLabels
-			  );
-					  
-					   
-		   function onConfirm3(button) {
-			   if(button==1){    //If User selected No, then we just do nothing
-				   $("#scheda1").show();
-				   $("#scheda2").show();
-				   $("#scheda3").show();
-				   $("#scheda4").show();
-				   
-				   $("#bannerpresentazione").show()
-				   $("#imginiziale").show();
-				   
-				   localStorage.setItem("loggato", "0");
-				   
-				   localStorage.setItem("email","")
-				   localStorage.setItem("registrato", "");
-				   
-				   
-				   window.location.href = "index.html";
-				   
-			   }
+		   $("#scheda1").show();
+		   $("#scheda2").show();
+		   $("#scheda3").show();
+		   $("#scheda4").show();
 		   
-		   }
+		   $("#bannerpresentazione").show()
+		   $("#imginiziale").show();
+					   
+		   localStorage.setItem("loggato", "0");
+										   
+		   localStorage.setItem("email","")
+		   localStorage.setItem("registrato", "");
+                       
 
+		   window.location.href = "index.html";
 			
 		});
-        
-        $(document).on("touchstart", "#esci2", function(e){
-                       
-           $("#scheda1").show();
-           $("#scheda2").show();
-           $("#scheda3").show();
-           $("#scheda4").show();
-           
-           $("#bannerpresentazione").show()
-           $("#imginiziale").show();
-           
-           localStorage.setItem("loggato", "0");
-           
-           localStorage.setItem("email","")
-           localStorage.setItem("registrato", "");
-           
-           
-           window.location.href = "index.html";
-                       
-        });
 		
 		$(document).on("touchstart", "#entra", function(e){
 					   
@@ -6570,7 +6103,7 @@ $(document).on("touchstart", "#editparty", function(e){
 							  
 							  localStorage.setItem("orgasmomentale", item.info);
 							  
-                              localStorage.setItem("nomeimg", "add_"+email2.replace("@","").replace(".","").replace(".",""))
+							   localStorage.setItem("nomeimg", "add_"+email2.replace("@","").replace(".","").replace(".",""))
                               
 							  localStorage.setItem("registrato", "3");
                               localStorage.setItem("myid", item.id);
@@ -6651,9 +6184,9 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			$.mobile.changePage("#homechat", { transition: "fade" });
 			
-            if (localStorage.getItem("arrivochat")=="1"){
-                 $("#nuovodietro").html("<img id='indietro3' src='img/indietro_over.png' width='30'>")
-            }
+			//return;
+			
+			$("#spinner12").show();
 			
 			chatdonna()
 			
@@ -6697,7 +6230,7 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			//return;
 					   
-			  // $("#spinner12").show();
+			   $("#spinner12").show();
 			   
 			   chatdonna()
 			   
@@ -6783,8 +6316,8 @@ $(document).on("touchstart", "#editparty", function(e){
 				   $.each(result, function(i,item){
 						height = height + 40;
 						  
-						if (height>319){
-						  conta = conta + 45
+						if (height>340){
+						  conta = conta + 42
 						}
 						  
 						localStorage.setItem("chatpass", JSON.stringify(result))
@@ -6813,7 +6346,14 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						  
 						  //$("#offerta12").append("<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d")
-
+						  
+						  
+						  setTimeout (function(){
+								
+							  //myScroll6.refresh();
+							  
+							}, 500);
+						  
 						  }
 						  else{
 						   var indirizzo = item.messaggio.replace("777A","'");
@@ -6834,7 +6374,13 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						  //$("#offerta12").append("<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d")
 						  
-		  
+						  
+						   setTimeout (function(){
+									  
+							   //myScroll6.refresh();
+ 
+						   }, 500);
+						  
 						  
 						  }
 			  
@@ -6884,11 +6430,8 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			
 			setTimeout(function() {
-			    
 				chatdonna();
-				
-			}, 2500);
-			
+			}, 5000);
 			
 			
 			/*refreshIntervalId = setInterval(function() {
@@ -6937,8 +6480,8 @@ $(document).on("touchstart", "#editparty", function(e){
 				     $.each(result, function(i,item){
 						  height = height + 20;
 						  
-						  if (height>319){
-						    conta = conta + 45
+						  if (height>340){
+						    conta = conta + 42
 						  }
 						  
 						  localStorage.setItem("chatpass", JSON.stringify(result))
@@ -6965,8 +6508,10 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						  $("#offerta12").append("<div class='bubbledRight HelveticaFont'>"+ indirizzo +"</div>")
 						  
+						  //$("#offerta12").append("<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d")
 						  
-						   setTimeout (function(){
+						  
+						  setTimeout (function(){
 
 								//myScroll6.refresh();
 									  
@@ -6991,7 +6536,9 @@ $(document).on("touchstart", "#editparty", function(e){
 						  indirizzo = indirizzo.replace("777H", "?");
 						  
 						  $("#offerta12").append("<div class='bubbledLeft HelveticaFont'>"+ indirizzo +"</div>")
-						  						  
+						  
+						  //$("#offerta12").append("<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d<br><br><br>sdksjdkasjd j sadjkas d")
+						  
 						  
 						   setTimeout (function(){
 									  
@@ -7044,7 +6591,7 @@ $(document).on("touchstart", "#editparty", function(e){
 			
 			setTimeout(function() {
 			   chatdonna();
-			   }, 2500);
+			   }, 5000);
 			
 			
 			/*refreshIntervalId = setInterval(function() {
@@ -7059,9 +6606,9 @@ $(document).on("touchstart", "#editparty", function(e){
 		$(document).on("touchstart", "#chatting", function(e){
 			var indirizzo = document.getElementById("chattext").value;
 					   
-			//indirizzo = indirizzo.replace(/[&\/\\#,~%.*<>{}]/g,'');
+			indirizzo = indirizzo.replace(/[&\/\\#,~%.*<>{}]/g,'');
 					   
-			indirizzo = indirizzo.replace("'","777A");
+			indirizzo = indirizzo.replace(/'/g,"777A");
 													 
 			indirizzo = indirizzo.replace("+","777B");
 													 
@@ -7076,11 +6623,11 @@ $(document).on("touchstart", "#editparty", function(e){
 			indirizzo = indirizzo.replace(":","777G");
 										  
 			indirizzo = indirizzo.replace("?","777H");
-                       
-            indirizzo = indirizzo.replace(/[&\/\\#?!,~%.*<>{}]/g,'');
 													 
-			//$("#spinner12").show();
+													 
+			$("#spinner12").show();
 										  
+						
 			if (indirizzo == "") {
 					
 			  navigator.notification.alert(
@@ -7096,7 +6643,7 @@ $(document).on("touchstart", "#editparty", function(e){
 										  
 				//alert("http://msop.it/om/pubblica_chat.php?nickname="+ localStorage.getItem("nickname") +"&nickname2="+ localStorage.getItem("nickname2") +"&messaggio="+ indirizzo +"")
 										  
-				//$("#spinner12").show();
+				$("#spinner12").show();
 				$.ajax({
 					 type:"GET",
 					 url:"http://msop.it/om/pubblica_chat.php?nickname="+ localStorage.getItem("nickname") +"&nickname2="+ localStorage.getItem("nickname2") +"&messaggio="+ indirizzo +"",
@@ -7108,17 +6655,9 @@ $(document).on("touchstart", "#editparty", function(e){
 					 success:function(result){
 
 					   $.each(result, function(i,item){
-							  
-							//alert()
-							  
 							document.getElementById("chattext").value = "";
-							
-							  $("#chattext").blur();
 							  
-							  //cordova.plugins.Keyboard.close();
-							  Keyboard.hide();
-							  
-							  chatdonna()
+							chatdonna()
 					   });
 					 
 					 },
@@ -7281,9 +6820,6 @@ function onResume() {
 					   
    }
    else{
-       
-       $("#feste").html("<font color='red'>Nessuna conniessione di rete</font>")
-       $("#persone").hide("<font color='red'>Nessuna conniessione di rete</font>")
 					   
 	   navigator.notification.alert(
 		'Errore di rete, riprova sotto copertura',  // message
@@ -7338,9 +6874,6 @@ function onPause() {
 	   
 	}
 	else{
-        
-        $("#feste").html("<font color='red'>Nessuna conniessione di rete</font>")
-        $("#persone").hide("<font color='red'>Nessuna conniessione di rete</font>")
 	   
 	   navigator.notification.alert(
 		'Errore di rete, riprova sotto copertura',  // message
@@ -7792,147 +7325,16 @@ $(document).on("tap", "#comefunziona", function(e){
 	var ref = window.open('http://orgasmomentale.com/app/', '_system', 'location=no');
 			  
 });
-
-$(document).on("tap", "#loginfacebook", function(e){
-               
-   openFB.login(
-    function(response) {
-    if(response.status === 'connected') {
-        alert('Facebook login succeeded, got access token: ' + response.authResponse.accessToken);
-         getInfo()
-    } else {
-
-      navigator.notification.alert(
-         'Login Facebook fallita, riprova in seguito o fai login con Ridy',
-         alertDismissed,
-         'Login Facebook',
-         'OK'
-         );
-    }
-    }, {scope: 'email,public_profile,user_friends'});
-               
-});
-
-function getInfo() {
-    
-    openFB.api({
-       path: '/me',
-       success: function(data) {
-       console.log(JSON.stringify(data));
-       
-         //alert(data.name);
-         //alert(data.email);
-       
-         //alert('http://graph.facebook.com/' + data.id + '/picture?type=small');
-         //document.getElementById("userPic").src = 'http://graph.facebook.com/' + data.id + '/picture?type=small';
-       
-       
-         LoginFacebookVera(data.email,data.name)
-       
-       },
-       
-       error: errorHandler});
-}
-
-
-function LoginFacebookVera(email,nome){
-  
-    $("#spinner22").show();
-    $.ajax({
-           type:"GET",
-           url:"http://msop.it/om/check_social.php?email="+ email +"",
-           contentType: "application/json",
-           timeout: 7000,
-           jsonp: 'callback',
-           crossDomain: true,
-           success:function(result){
-           
-           $.each(result, function(i,item){
-                  
-                  if (item.Token == "1"){
-                  
-                  localStorage.setItem("email", email);
-                  localStorage.setItem("nickname", item.nickname);
-                  localStorage.setItem("etaprofilo", item.data_nascita);
-                  localStorage.setItem("cittaprofilo", item.citta);
-                  
-                  //alert(item.info)
-                  
-                  localStorage.setItem("orgasmomentale", item.info);
-                  
-                  localStorage.setItem("nomeimg", "add_"+email2.replace("@","").replace(".","").replace(".",""))
-                  
-                  localStorage.setItem("registrato", "3");
-                  localStorage.setItem("myid", item.id);
-                  
-                  localStorage.setItem("loggato", "1");
-                  
-                  $("#bannerpresentazione").hide()
-                  $("#imginiziale").hide();
-                  
-                  $("#scheda1").hide();
-                  $("#scheda2").hide();
-                  $("#scheda3").hide();
-                  $("#scheda4").hide();
-                  
-                  $("#spinner22").hide();
-                  
-                  $("#persone").hide();
-                  $("#feste").show();
-                  
-                  $("#parte1").show();
-                  $("#parte2").show();
-                  $("#parte3").show();
-                  
-                  gohome8()
-                  
-                  }
-                  else if(item.Token == "3"){
-                  
-                  $.mobile.changePage("#home7", { transition: "fade" });
-                  
-                  }
-                  else{
-                  
-                  $("#spinner22").hide();
-                     navigator.notification.alert(
-                       'Email e/o password non corretti',  // message
-                       alertDismissed,         // callback
-                       'Attenzione',            // title
-                       'Done'                  // buttonName@
-                       );
-                  }
-                  
-            });
-           
-           $("#spinner22").hide();
-           
-           },
-           error: function(){
-           $("#spinner22").hide();
-           
-           navigator.notification.alert(
-                'Possibile errore di rete, riprova tra qualche minuto',  // message
-                alertDismissed,         // callback
-                'Attenzione',            // title
-                'Done'                  // buttonName
-                );
-           
-           },
-           dataType:"jsonp"});
-    
-}
-
 					   
 					   
 $(document).on("tap", "#termini", function(e){
-               
-    var ref = window.open('http://msop.it/termini.html', '_system', 'location=no');
-               
+			  
+  var ref = window.open('http://orgasmomentale.com/app/', '_system', 'location=no');
+  
 });
 
 
-
+					   
 function alertDismissed() {
 	
 	//var myTimer = setInterval(onPause3, 2000);
