@@ -2528,14 +2528,27 @@ var app = {
 			   $("#anteprimaparty").hide();
 			   $("#anteprimaparty2").hide();
 			   $("#footerparty").hide();
+			   
+			   $("#listaparty").show();
+			   
 					   
 			   setTimeout (function(){
+				 $("#spinner14").hide();  
+				   
 						   
-               $("#listaparty").append("<tr><td align='center' bgcolor='#000000'><img id='massage' src='strisce/massage.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='cock' src='strisce/cock.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='moulin' src='strisce/moulin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='play' src='strisce/play.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='latin' src='strisce/latin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='hitme' src='strisce/hitme.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='sushi' src='strisce/sushi.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='lingerie' src='strisce/lingerie.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='boys' src='strisce/boys.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='disco' src='strisce/disco.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='toyboy' src='strisce/toy.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='colorp' src='strisce/color.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pool' src='strisce/pool.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='eat' src='strisce/eat.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='fetish' src='strisce/fetish.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='girls' src='strisce/girls.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='after' src='strisce/after.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='wonderfulldinner' src='strisce/wonderfoul.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='mask' src='strisce/mask.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pijama' src='strisce/pijama.jpg' width='100%'></td></tr>");
+               	$("#listaparty").append("<tr><td align='center' bgcolor='#000000'><img id='massage' src='strisce/massage.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='cock' src='strisce/cock.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='moulin' src='strisce/moulin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='play' src='strisce/play.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='latin' src='strisce/latin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='hitme' src='strisce/hitme.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='sushi' src='strisce/sushi.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='lingerie' src='strisce/lingerie.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='boys' src='strisce/boys.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='disco' src='strisce/disco.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='toyboy' src='strisce/toy.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='colorp' src='strisce/color.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pool' src='strisce/pool.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='eat' src='strisce/eat.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='fetish' src='strisce/fetish.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='girls' src='strisce/girls.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='after' src='strisce/after.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='wonderfulldinner' src='strisce/wonderfoul.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='mask' src='strisce/mask.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pijama' src='strisce/pijama.jpg' width='100%'></td></tr>");
 						   
-				   $("#listaparty").fadeIn();
 
 				   myScroll8 = new iScroll('wrapper8', { click: true,bounce: false });
+				   
+				   
+				    setTimeout (function(){
+							   
+					   myScroll8.refresh();
+					   
+					}, 500);
+					
+					
 						   
 				   myScroll8.on("scrollEnd", function() {
 						if (this.y == 0){
@@ -2549,7 +2562,12 @@ var app = {
 						
 						 $("#listaparty").append("<tr><td align='center' bgcolor='#000000'><img id='massage' src='strisce/massage.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='cock' src='strisce/cock.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='moulin' src='strisce/moulin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='play' src='strisce/play.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='latin' src='strisce/latin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='hitme' src='strisce/hitme.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='sushi' src='strisce/sushi.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='lingerie' src='strisce/lingerie.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='boys' src='strisce/boys.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='disco' src='strisce/disco.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='toyboy' src='strisce/toy.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='colorp' src='strisce/color.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pool' src='strisce/pool.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='eat' src='strisce/eat.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='fetish' src='strisce/fetish.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='girls' src='strisce/girls.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='after' src='strisce/after.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='wonderfulldinner' src='strisce/wonderfoul.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='mask' src='strisce/mask.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pijama' src='strisce/pijama.jpg' width='100%'></td></tr>");
 						
-						 myScroll8.refresh();
+						
+						  setTimeout (function(){
+							   
+							   myScroll8.refresh();
+							   
+							}, 200);
 						
 						}
 						if (this.y > this.maxScrollY){
@@ -2558,21 +2576,7 @@ var app = {
 						}
 					})
 						 
-						   
-				   $("#spinner14").hide();
-						   
-				   setTimeout (function(){
-							   
-					   myScroll8.refresh();
-					   
-					   e.stopImmediatePropagation();
-					   
-					   e.preventDefault();
-					   
-					   return;
-					   
-					}, 500);
-						   
+   
 			   }, 700);
 
 		});
