@@ -5,7 +5,7 @@ function onDeviceReady() {
 	
 	var myScroll;
 	
-	myScroll = new IScroll('#wrapper', {
+	myScroll = new IScroll('wrapper', {
 		   click: true,
 		   useTransform: false,
 		   //bounce: false,
