@@ -1042,7 +1042,7 @@ var app = {
 				  
 			  $("#miefeste2").append("<table width='100%' height='80px' border='0'><tr><td></td></tr></table>")
                   
-              myScroll57 = new IScroll('wrapper57', { click: true, bounce: false });
+              myScroll57 = new iScroll('wrapper57', { click: true, bounce: false });
               
                   
                 setTimeout (function(){
@@ -1257,7 +1257,7 @@ var app = {
 
 
                    
-                   myScroll59 = new IScroll('wrapper59', { click: true, bounce: false });
+                   myScroll59 = new iScroll('wrapper59', { click: true, bounce: false });
                    
                    setTimeout (function(){
   
@@ -1526,7 +1526,7 @@ var app = {
             }
                        
                        
-            myScroll9 = new IScroll('wrapper9', { click: true, bounce: false });
+            myScroll9 = new iScroll('wrapper9', { click: true, bounce: false });
                      
                        
            setTimeout (function(){
@@ -2535,7 +2535,7 @@ var app = {
 						   
 				   $("#listaparty").fadeIn();
 
-				   myScroll8 = new IScroll('wrapper8', { click: true,bounce: false });
+				   myScroll8 = new iScroll('wrapper8', { click: true,bounce: false });
 						   
 				   myScroll8.on("scrollEnd", function() {
 						if (this.y == 0){
@@ -5383,9 +5383,27 @@ $(document).on("touchstart", "#editparty", function(e){
 					   });
 				   
  
-				   myScroll2 = new IScroll('wrapper2', { click: true,
+				   /*myScroll2 = new IScroll('wrapper2', { click: true,
 						bounce: false
 					    
+					});*/
+					
+					myScroll2 = new iScroll('wrapper2', {
+						click: true,
+						useTransform: false,
+						bounce: false,
+						onBeforeScrollStart: function (e)
+						{
+							var target = e.target;
+							while (target.nodeType != 1) {
+							target = target.parentNode;
+							}
+							
+							if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+							e.preventDefault();
+							}
+						}
+		
 					});
 
 
@@ -5534,7 +5552,7 @@ $(document).on("touchstart", "#editparty", function(e){
 
                                    $.mobile.changePage("#home8", { transition: "fade" });
                                    
-                                   myScroll2 = new IScroll('wrapper2', { click: true,
+                                   myScroll2 = new iScroll('wrapper2', { click: true,
                                      bounce: false
                                        
                                   });
@@ -5649,7 +5667,7 @@ $(document).on("touchstart", "#editparty", function(e){
 				   $("#spinnerinvitati").hide();
 				   
 				   
-				    myScroll27 = new IScroll('wrapper27', { click: true, bounce: false });
+				    myScroll27 = new iScroll('wrapper27', { click: true, bounce: false });
 				   
 				   
 				     setTimeout (function(){
@@ -5714,7 +5732,7 @@ $(document).on("touchstart", "#editparty", function(e){
 										 
 							$.mobile.changePage("#home8", { transition: "fade" });
 										 
-							 myScroll2 = new IScroll('wrapper2', { click: true,
+							 myScroll2 = new iScroll('wrapper2', { click: true,
 							 bounce: false
 							 
 							 });
@@ -5740,7 +5758,7 @@ $(document).on("touchstart", "#editparty", function(e){
 				   
 				   $("#spinner13").hide();
 				   
-				   myScroll7 = new IScroll('wrapper7', { click: true, bounce: false });
+				   myScroll7 = new iScroll('wrapper7', { click: true, bounce: false });
 				   
 
 				   setTimeout (function(){
@@ -6638,7 +6656,7 @@ $(document).on("touchstart", "#editparty", function(e){
 			$("#loadfotoprofilo6").attr("src", "http://msop.it/public/"+localStorage.getItem("fotochat")+"");
 			$("#nomechat").html(localStorage.getItem("nickname2"));
 			
-			myScroll6 = new IScroll('wrapper6', { click: true });
+			myScroll6 = new iScroll('wrapper6', { click: true });
 			
 			/*myScroll6 = new iScroll('wrapper6', {
 			click: true,
@@ -6682,7 +6700,7 @@ $(document).on("touchstart", "#editparty", function(e){
 			   $("#loadfotoprofilo6").attr("src", "http://msop.it/public/"+localStorage.getItem("fotochat")+"");
 			   $("#nomechat").html(localStorage.getItem("nickname2"));
 			   
-			  myScroll6 = new IScroll('wrapper6', { click: true });
+			  myScroll6 = new iScroll('wrapper6', { click: true });
 					   
 				/*myScroll6 = new iScroll('wrapper6', {
 				   click: true,
@@ -6718,7 +6736,7 @@ $(document).on("touchstart", "#editparty", function(e){
 		   
 		   $("#spinner55").hide();
 
-		   myScroll55 = new IScroll('wrapper55', { click: true, bounce: false });
+		   myScroll55 = new iScroll('wrapper55', { click: true, bounce: false });
 		   
 		  
 					   
