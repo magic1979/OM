@@ -70,15 +70,20 @@ var app = {
 		//localStorage.setItem("registrato", "2");
 		
 		
-		//Iphopne X
-		
-		osVersion = parseFloat(device.version);
-		
-		if(window.webkit && window.webkit.messageHandlers ) {
-			webView = "WKWebView" ;
-		}else{
-			webView = "UIWebView" ;
-		}
+		if(screen.height<500){
+            
+            $("#loader").attr("height","60px");
+            
+            $("#presentazione").hide();
+            
+            $("#schermopiccolo").show();
+            
+        }
+        else{
+            $("#presentazione").show();
+            
+            $("#schermopiccolo").hide();
+        }
 		
 
         //app.setupPush();
@@ -2558,51 +2563,103 @@ var app = {
         
         
         
-		
 		$(document).on("touchstart", "#entra", function(e){
+                       
+                       
+            if(screen.height<500){
+                       
+               var email2 = document.getElementById("emaillogin2").value;
+               var pin2 =  document.getElementById("pswlogin2").value;
+               
+               if (email2 == "") {
+               navigator.notification.alert(
+                                            'inserire Username',  // message
+                                            alertDismissed,         // callback
+                                            'Email',            // title
+                                            'OK'                  // buttonName
+                                            );
+               return;
+               }
+               
+               
+               if (pin2 == "") {
+               navigator.notification.alert(
+                                            'inserire una Password',  // message
+                                            alertDismissed,         // callback
+                                            'Password',            // title
+                                            'OK'                  // buttonName
+                                            );
+               return;
+               }
+               
+               EmailAddr = document.getElementById("emaillogin2").value;
+               Filtro = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
+               if (Filtro.test(EmailAddr)) {
+               
+               
+               }
+               else {
+               navigator.notification.alert(
+                                            'Caratteri email non consentiti',  // message
+                                            alertDismissed,         // callback
+                                            'Email',            // title
+                                            'OK'                  // buttonName
+                                            );
+               return;
+               }
+                       
+                       
+               LoginVera(email2,pin2);
+                       
+            }
+            else{
 					   
-			var email2 = self.document.formia22.emaillogin.value;
-			var pin2 = self.document.formia22.pswlogin.value;
+                var email2 = document.getElementById("emaillogin").value;
+                var pin2 =  document.getElementById("pswlogin").value;
+                       
+                if (email2 == "") {
+                    navigator.notification.alert(
+                    'inserire Username',  // message
+                    alertDismissed,         // callback
+                    'Email',            // title
+                    'OK'                  // buttonName
+                    );
+                    return;
+                }
+                       
+                       
+                if (pin2 == "") {
+                    navigator.notification.alert(
+                        'inserire una Password',  // message
+                        alertDismissed,         // callback
+                        'Password',            // title
+                        'OK'                  // buttonName
+                    );
+                    return;
+                }
+                       
+                EmailAddr = document.getElementById("emaillogin").value;
+                Filtro = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
+                if (Filtro.test(EmailAddr)) {
+                       
+                       
+                }
+                else {
+                    navigator.notification.alert(
+                                                        'Caratteri email non consentiti',  // message
+                                                        alertDismissed,         // callback
+                                                        'Email',            // title
+                                                        'OK'                  // buttonName
+                    );
+                    return;
+                }
+                       
+                       
+                LoginVera(email2,pin2);
+					
+            }
 					   
-			if (email2 == "") {
-				navigator.notification.alert(
-													'inserire Username',  // message
-													alertDismissed,         // callback
-													'Email',            // title
-													'OK'                  // buttonName
-													);
-				return;
-			}
-					   
-					   
-			if (pin2 == "") {
-				navigator.notification.alert(
-					'inserire una Password',  // message
-					alertDismissed,         // callback
-					'Password',            // title
-					'OK'                  // buttonName
-				);
-				return;
-			}
-					   
-			EmailAddr = self.document.formia22.emaillogin.value;
-			Filtro = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
-			if (Filtro.test(EmailAddr)) {
-					   
-					   
-			}
-			else {
-				navigator.notification.alert(
-													'Caratteri email non consentiti',  // message
-													alertDismissed,         // callback
-													'Email',            // title
-													'OK'                  // buttonName
-				);
-				return;
-			}
-					   
-					   
-			LoginVera(email2,pin2);
+			
 					   
 			// Esempio di Login
 			//localStorage.setItem("email","salvatore.bruni@gmail.com")
@@ -2611,6 +2668,7 @@ var app = {
 			//gohome8()
 					   
 		});
+		
 		
 		
 		function LoginVera(email2,pin2) {
