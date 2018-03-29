@@ -389,6 +389,8 @@ var app = {
 		
 		
 		$(document).on("touchstart", "#girl", function(e){
+			
+			 $("#bannerpresentazione").hide();
 					   
 			window.location.href = "index.html?id=girl";
 		   
@@ -397,6 +399,8 @@ var app = {
 		
 		
 		$(document).on("touchstart", "#boy", function(e){
+			
+			 $("#bannerpresentazione").hide();
 					   
 			 window.location.href = "index.html?id=boy";
 			   

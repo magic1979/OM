@@ -611,6 +611,8 @@ var app = {
 		
 		
 		$(document).on("touchstart", "#girl", function(e){
+			
+			 $("#bannerpresentazione").hide();
 					   
 			document.ontouchmove = function(e){ return true; }
 					   
@@ -634,6 +636,8 @@ var app = {
 		$(document).on("touchstart", "#boy", function(e){
 					   
 			   $("#imginiziale").hide();
+			   
+			   $("#bannerpresentazione").hide();
 					   
 			   $.mobile.changePage("#home3", { transition: "fade" });
 			   
