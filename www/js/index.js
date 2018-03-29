@@ -57,6 +57,46 @@ var app = {
             $("#imgpersone").attr("height","80px");
             
         }
+		
+		
+		$("#emaillogin").focus(function(){
+			 $("#bannerpresentazione").hide();
+		});
+		
+		$("#pswlogin").focus(function(){
+			 $("#bannerpresentazione").hide();
+		});
+		
+		$("#emaillogin2").focus(function(){
+			 $("#bannerpresentazione").hide();
+		});
+		
+		$("#pswlogin2").focus(function(){
+			 $("#bannerpresentazione").hide();
+		});
+		
+		
+		
+		$("#emaillogin").blur(function(){
+			 $("#bannerpresentazione").show();
+		});
+		
+		$("#pswlogin").blur(function(){
+			 $("#bannerpresentazione").show();
+		});
+		
+		$("#emaillogin2").blur(function(){
+			 $("#bannerpresentazione").show();
+		});
+		
+		$("#pswlogin2").blur(function(){
+			 $("#bannerpresentazione").show();
+		});
+		
+		
+		
+		
+		
         
         openFB.init({appId: '184833315394016'});
         
