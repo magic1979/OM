@@ -390,7 +390,7 @@ var app = {
 		
 		$(document).on("touchstart", "#girl", function(e){
 			
-			 $("#bannerpresentazione").hide();
+			$("#bannerpresentazione").hide();
 					   
 			window.location.href = "index.html?id=girl";
 		   
