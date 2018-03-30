@@ -721,7 +721,7 @@ function onDeviceReady() {
             
             if(image.width<439){
                  navigator.notification.alert(
-                 'Questa foto non è adatta come foto profilo ma potrai caricarla nel tuo album personale!',  // message
+                 'Questa foto non è adatta come foto profilo ma potrai caricarla nel tuo album personale! Ti consigliamo di provare con una in orizzonatale!',  // message
                  alertDismissed,         // callback
                  '',            // title
                  'OK'                  // buttonName
