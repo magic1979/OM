@@ -2,8 +2,8 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "com.festeatema"
-		versionCode="1"
-		version   = "1">
+		versionCode="2"
+		version   = "2">
 		<name>O.M.</name>
 		<description>O.M. Feste Private - Feste a Tema - O.M. - Feste a Roma</description>
 		<author href="http://msop.it/privacy.html">
