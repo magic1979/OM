@@ -2091,6 +2091,7 @@ var app = {
 			$("#parte1").hide();
 			$("#parte2").hide();
 			$("#parte3").hide();
+			$("#bannerpresentazione").hide()
 			
 			$("#chatnuove").hide();
 			
@@ -2288,7 +2289,8 @@ var app = {
         
         function loadprofilodonna(id){
             
-           
+            $("#bannerpresentazione").hide()
+		   
             localStorage.setItem("idprofilo", id);
 			
 			$("#scheda").html("")
@@ -4631,7 +4633,7 @@ var app = {
                
                info1 = self.document.formiaprofilo.orgasmomentale.value
                        
-               localStorage.setItem("orgasmomentale", info1);
+               
                
                info1 = info1.replace("'","777A");
                
@@ -4669,6 +4671,7 @@ var app = {
                
                info1 = info1.replace(/[&\/\\#,~%.*<>{}]/g,'');
                        
+			   localStorage.setItem("orgasmomentale", info1);
                      
                localStorage.setItem("cittaprofilo", self.document.formiaprofilo.cittaprofilo.value);
                localStorage.setItem("etaprofilo", self.document.formiaprofilo.etaprofilo.value);
@@ -5283,6 +5286,7 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						  $("#persone").hide();
 						  $("#loadpersonaggi").hide();
+						  $("#bannerpresentazione").hide()
 						  
 						   $("#feste").html("")
 	
@@ -6414,6 +6418,7 @@ $(document).on("touchstart", "#editparty", function(e){
 		   $("#feste").hide();
 					   
 		   $("#loadpersonaggi").hide();
+		   $("#bannerpresentazione").hide()
 					   
            $("#chatnuove").hide();
            $("#mostrachat").hide();
