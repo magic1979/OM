@@ -7014,10 +7014,10 @@ $(document).on("touchstart", "#editparty", function(e){
 				   $("#spinner12").hide();
 				   
 				   $.each(result, function(i,item){
-						height = height + 40;
+						height = height + 45;
 						  
 						if (height>319){
-						  conta = conta + 45
+						  conta = conta + 50
 						}
 						  
 						localStorage.setItem("chatpass", JSON.stringify(result))
@@ -7168,10 +7168,10 @@ $(document).on("touchstart", "#editparty", function(e){
 				     $("#spinner12").hide();
 				   
 				     $.each(result, function(i,item){
-						  height = height + 20;
+						  height = height + 25;
 						  
 						  if (height>319){
-						    conta = conta + 45
+						    conta = conta + 50
 						  }
 						  
 						  localStorage.setItem("chatpass", JSON.stringify(result))
