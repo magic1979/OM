@@ -2,10 +2,10 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "com.festeatema"
-		versionCode="2"
-		version   = "2">
-		<name>O.M.</name>
-		<description>O.M. Feste Private - Feste a Tema - O.M. - Feste a Roma</description>
+		versionCode="3"
+		version   = "3">
+		<name>OMENTALE</name>
+		<description>O.M. Feste Private - Feste a Tema - Festa a Casa - O.M. - Feste a Roma - Feste a Roma </description>
 		<author href="http://msop.it/privacy.html">
 			Zelo Interazioni s.r.l.s
 		</author>

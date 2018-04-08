@@ -231,6 +231,8 @@ var app = {
 						
 						$.mobile.changePage("#home7", { transition: "fade" });
 						
+						$("#bannerpresentazione").hide()
+						
 					}
 					else{
 						
@@ -1730,6 +1732,8 @@ var app = {
 							});*/
 						  
 						   $.mobile.changePage("#home7", { transition: "fade" });
+						   
+						   $("#bannerpresentazione").hide()
 						  
 						  }
 						  else{
@@ -2774,6 +2778,7 @@ var app = {
 							  
 							  $.mobile.changePage("#home7", { transition: "fade" });
 							  
+							  $("#bannerpresentazione").hide()
 							}
 							else{
 							  
@@ -3905,6 +3910,8 @@ function ciccio() {
                                      else if(item.Token == "3"){
                                      
                                      $.mobile.changePage("#home7", { transition: "fade" });
+									 
+									 $("#bannerpresentazione").hide()
                                      
                                      }
                                      else{

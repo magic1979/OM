@@ -141,6 +141,8 @@ var app = {
 		var context;
 		var image;
 		
+		localStorage.setItem("historybck","0")
+		
 				
 		var applaunchCount = localStorage.getItem("launchCount");
 		
@@ -367,6 +369,8 @@ var app = {
 					  if(item.accesso=="0"){
 					  
 						$.mobile.changePage("#home7", { transition: "fade" });
+						
+						$("#bannerpresentazione").hide()
 					  
 					  }
 					  else{
@@ -602,6 +606,7 @@ var app = {
 		   }, 0); */
 					   
 		   localStorage.setItem("arrivochat","0")
+		   localStorage.setItem("historybck","0")
 		   
 		   $("#scheda1").hide();
 		   $("#scheda2").hide();
@@ -647,7 +652,9 @@ var app = {
         
         $(document).on("tap", "#indietrobck", function(e){
                       
-           history.back()
+           localStorage.setItem("historybck", "1");
+		   
+		   history.back()
 
         });
 		
@@ -1313,7 +1320,26 @@ var app = {
 
 
                    
-                   myScroll59 = new iScroll('wrapper59', { click: true, bounce: false });
+                   //myScroll59 = new iScroll('wrapper59', { click: true, bounce: false });
+				   
+				   myScroll59 = new iScroll('wrapper59', {
+						click: true,
+						useTransform: false,
+						bounce: false,
+						onBeforeScrollStart: function (e)
+						{
+							var target = e.target;
+							while (target.nodeType != 1) {
+							target = target.parentNode;
+							}
+							
+							if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+							e.preventDefault();
+							}
+						}
+		
+					});
+					
                    
                    setTimeout (function(){
   
@@ -1436,7 +1462,19 @@ var app = {
                                         
                                 var ref = window.open('http://msop.it/om/wbsimg.php?nome='+ numerofesta +'&chi='+ chisono +'', '_blank', 'location=no', options); */
                                         
-                                cancellafoto(numerofesta)
+                                if(localStorage.getItem("historybck")!="1"){
+                                        
+                                     cancellafoto(numerofesta)
+                                        
+                                  }
+                                  else{
+									navigator.notification.alert(
+									 'Hai cancellato gia delle foto, operazione possibile a breve.',  // message
+									 alertDismissed,         // callback
+									 'Attenzione',           // title
+									 'Ok'                  // buttonName
+									 );
+								  }
                             }
 							
 							
@@ -2092,6 +2130,12 @@ var app = {
 			$("#parte2").hide();
 			$("#parte3").hide();
 			$("#bannerpresentazione").hide()
+			$("#makeparty").hide()
+			
+			setTimeout (function(){
+				$("#makeparty").hide()
+			}, 2000);
+			
 			
 			$("#chatnuove").hide();
 			
@@ -2167,12 +2211,13 @@ var app = {
                         
                         
                     var contanick = item.nickname.length;
+					var contacitta = item.citta.length;
                     var nuovonick
                     
                     if(contanick <= 11){
                         
-                        $("#name").html("<font class='AntonioFontBold' color='#00ffff' size='11'>"+item.nickname+"</font>")
-                        $("#dati").html("<font class='AntonioFontBold' color='#00ffff' size='11'>"+item.citta + ", " + item.eta+"</font>")
+                        $("#name").html("<font class='AntonioFontBold' color='#00ffff' size='10'>"+item.nickname+"</font>")
+                        $("#dati").html("<font class='AntonioFontBold' color='#00ffff' size='10'>"+item.citta + ", " + item.eta+"</font>")
                     
                     }
                     else{
@@ -2182,7 +2227,20 @@ var app = {
                         //nuovonick = nuovonick + ".."
                         
                         $("#name").html("<font class='AntonioFontBold nomeprofilo' color='#00ffff' >"+item.nickname+"</font><br>")
-                        $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' >"+item.citta + ", " + item.eta+"</font>")
+                        
+						if(contacitta <= 15){
+                        
+                           $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' >"+item.citta + ", " + item.eta+"</font>")
+                        }
+                        else{
+                        
+                            nuovacitta = item.citta.slice(0,15)
+                        
+                            nuovacitta = nuovacitta + ".."
+                        
+                           $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' >"+nuovacitta + ", " + item.eta+"</font>")
+                        
+                        }
                     
                     }
                         
@@ -2290,6 +2348,10 @@ var app = {
         function loadprofilodonna(id){
             
             $("#bannerpresentazione").hide()
+			
+			setTimeout (function(){
+				$("#makeparty").hide()
+			}, 2000);
 		   
             localStorage.setItem("idprofilo", id);
 			
@@ -2352,12 +2414,13 @@ var app = {
 						  }
                           
                           var contanick = item.nickname.length;
+						  var contacitta = item.citta.length;
                           var nuovonick
                           
                           if(contanick <= 11){
                           
-                            $("#name").html("<font class='AntonioFontBold' color='#00ffff' size='11'>"+item.nickname+"</font>")
-                            $("#dati").html("<font class='AntonioFontBold' color='#00ffff' size='11'>"+item.citta + ", " + item.eta+"</font>")
+                            $("#name").html("<font class='AntonioFontBold' color='#00ffff' size='10'>"+item.nickname+"</font>")
+                            $("#dati").html("<font class='AntonioFontBold' color='#00ffff' size='10'>"+item.citta + ", " + item.eta+"</font>")
                           
                           }
                           else{
@@ -2366,8 +2429,21 @@ var app = {
                           
                             //nuovonick = nuovonick + ".."
                           
-                          $("#name").html("<font class='AntonioFontBold nomeprofilo' color='#00ffff' >"+item.nickname+"</font><br>")
-                          $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' >"+item.citta + ", " + item.eta+"</font>")
+							  $("#name").html("<font class='AntonioFontBold nomeprofilo' color='#00ffff' >"+item.nickname+"</font><br>")
+							 
+							 if(contacitta <= 15){
+                        
+							   $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' >"+item.citta + ", " + item.eta+"</font>")
+							 }
+							 else{
+								
+								nuovacitta = item.citta.slice(0,15)
+							
+								nuovacitta = nuovacitta + ".."
+							
+							   $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' >"+nuovacitta + ", " + item.eta+"</font>")
+								
+							 }
                           
                           }
                           
@@ -3429,7 +3505,7 @@ var app = {
 		   
 		   //<span style='background-color:#000'><font color='#fff'>testo evidenziato</font>
 		   
-        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Alla domanda:<br>”sei mai stato ad una festa in maschera?'rispondiamo immancabilmente tutti di si!<br>'…e in mascherina?'<br>Sexy , divertente , enigmatica e provocatoria!<br>Questo Private Party è tra tutti il più semplice da realizzare e il più difficile da far decollare!<br>In un contesto casual-elegant , ciò che caratterizza l'evento , è l'obbligo per i partecipanti di indossare per tutta la durata del Party una misteriosa mascherina Venezian style. <br>Una festa vissuta di sensazioni , flirt e battiti di cuore... <br>Ciò che ci affascina di più è sempre ciò che non conosciamo affatto! <br>Per la riuscita dell'evento consigliamo maschere comode che lascino le labbra completamente libere!<br>A VOLTE UNA MASCHERA CI DICE PIU' DI UN VOLTO!  <div><center><img src='img/macchia.png' width='60px'></center></div> To the question: <br>“have you ever been to a mask party?” <br> we all respond without fail: yes! And… 'in a little mask?' <br>Sexy, fun, enigmatic and provocative! <br> This type of private party is one of the simplest and the most difficult to start! <br>In a casual-elegant context, which characterises the event, it’s obligatory for the participants to wear a mysterious Venetian mask for the duration of the party.  <br>A party filled with sensations, flirting and heart beats... because after all, what fascinates us most is what we don’t fully know! <br>For the complete success of the event, we suggest comfortable masks and that you leave the lips completely free! <br>AT TIMES A MASK REVEALS MORE THAN A FACE! <br></font></b></td></tr></table>")
+        $("#anteprimaparty2").html("<br><table align='center'><tr><td align='left'><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;ORGANIZATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> MIX&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;CATEGORY:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> SEXY - MEETING - FUN&nbsp;</font><br><font style='background-color:#000' color='#00ffff' class='AntonioFontBold' size='5'>&nbsp;LOCATION:</font><font style='background-color:#000' color='#fff' class='AntonioFontBold' size='5'> HOME &nbsp;</font></td></tr></table><br><table width='100%' ><tr bgcolor='#00ffff'><td width='100%' align='center'><b><font color='#000' class='AntonioFontBold' size='5' align='center'>DESCRIZIONE</font></b></td></tr><tr><td width='100%' align='center'><b><font color='#000' size='4' class='#'> Alla domanda:<br>'sei mai stato ad una festa in maschera?'<br>rispondiamo immancabilmente tutti di si!<br>'…e in mascherina?'<br>Sexy , divertente , enigmatica e provocatoria!<br>Questo Private Party è tra tutti il più semplice da realizzare e il più difficile da far decollare!<br>In un contesto casual-elegant , ciò che caratterizza l'evento , è l'obbligo per i partecipanti di indossare per tutta la durata del Party una misteriosa mascherina Venezian style. <br>Una festa vissuta di sensazioni , flirt e battiti di cuore... <br>Ciò che ci affascina di più è sempre ciò che non conosciamo affatto! <br>Per la riuscita dell'evento consigliamo maschere comode che lascino le labbra completamente libere!<br>A VOLTE UNA MASCHERA CI DICE PIU' DI UN VOLTO!  <div><center><img src='img/macchia.png' width='60px'></center></div> To the question: <br>'have you ever been to a mask party?' <br> we all respond without fail: yes!<br> And… 'in a little mask?' <br>Sexy, fun, enigmatic and provocative! <br> This type of private party is one of the simplest and the most difficult to start! <br>In a casual-elegant context, which characterises the event, it’s obligatory for the participants to wear a mysterious Venetian mask for the duration of the party.  <br>A party filled with sensations, flirting and heart beats... because after all, what fascinates us most is what we don’t fully know! <br>For the complete success of the event, we suggest comfortable masks and that you leave the lips completely free! <br>AT TIMES A MASK REVEALS MORE THAN A FACE! <br></font></b></td></tr></table>")
 		   
 			   
 		   $(document).on("touchstart", "#mask2", function(e){
@@ -5258,6 +5334,8 @@ $(document).on("touchstart", "#editparty", function(e){
 							});*/
 						  
 						   $.mobile.changePage("#home7", { transition: "fade" });
+						   
+						   $("#bannerpresentazione").hide()
 						  
 						  }
 						  else{
@@ -6765,6 +6843,8 @@ $(document).on("touchstart", "#editparty", function(e){
 							  
 							  $.mobile.changePage("#home7", { transition: "fade" });
 							  
+							  $("#bannerpresentazione").hide()
+							  
 							}
 							else{
 							  
@@ -7993,6 +8073,8 @@ function LoginFacebookVera(email,nome){
                   else if(item.Token == "3"){
                   
                   $.mobile.changePage("#home7", { transition: "fade" });
+				  
+				  $("#bannerpresentazione").hide()
                   
                   }
                   else{
