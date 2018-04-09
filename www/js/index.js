@@ -367,6 +367,8 @@ var app = {
 				   $.each(result, function(i,item){
 						  
 					  if(item.accesso=="0"){
+						  
+						 localStorage.setItem("miosesso", "");
 					  
 						$.mobile.changePage("#home7", { transition: "fade" });
 						
@@ -2136,10 +2138,12 @@ var app = {
 			$("#parte2").hide();
 			$("#parte3").hide();
 			$("#bannerpresentazione").hide()
-			$("#makeparty").hide()
+			$("#makepartyV2").hide()
+			$("#parte3").hide()
 			
 			setTimeout (function(){
-				$("#makeparty").hide()
+				$("#makepartyV2").hide()
+				$("#parte3").hide()
 			}, 2000);
 			
 			
@@ -2354,9 +2358,12 @@ var app = {
         function loadprofilodonna(id){
             
             $("#bannerpresentazione").hide()
+			$("#parte3").hide()
 			
 			setTimeout (function(){
-				$("#makeparty").hide()
+				$("#makepartyV2").hide()
+				$("#parte3").hide()
+				
 			}, 2000);
 		   
             localStorage.setItem("idprofilo", id);
@@ -5339,6 +5346,8 @@ $(document).on("touchstart", "#editparty", function(e){
 							"href" : "#home7"
 							});*/
 						  
+						   localStorage.setItem("miosesso", "");
+						  
 						   $.mobile.changePage("#home7", { transition: "fade" });
 						   
 						   $("#bannerpresentazione").hide()
@@ -6842,10 +6851,14 @@ $(document).on("touchstart", "#editparty", function(e){
 							  $("#parte2").show();
 							  $("#parte3").show();
 							  
+							   localStorage.setItem("miosesso", "");
+							  
 							  gohome8()
 							  
 							}
 							else if(item.Token == "3"){
+								
+						      localStorage.setItem("miosesso", "");
 							  
 							  $.mobile.changePage("#home7", { transition: "fade" });
 							  
@@ -8077,6 +8090,8 @@ function LoginFacebookVera(email,nome){
                   
                   }
                   else if(item.Token == "3"){
+					  
+				   localStorage.setItem("miosesso", "");
                   
                   $.mobile.changePage("#home7", { transition: "fade" });
 				  

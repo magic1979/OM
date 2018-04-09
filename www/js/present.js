@@ -229,6 +229,8 @@ var app = {
 					}
 					else if(localStorage.getItem("registrato")=="OK"){
 						
+						localStorage.setItem("miosesso", "");
+						
 						$.mobile.changePage("#home7", { transition: "fade" });
 						
 						$("#bannerpresentazione").hide()
@@ -668,12 +670,15 @@ var app = {
 									 
 									 
 									 if (item.Token == 1){
+										 
 									   /*window.plugins.nativepagetransitions.fade({
 																			   "duration"       :  1000,
 																			   "iosdelay"       :   50,
 																			   "androiddelay"   :  500,
 																			   "href" : "#home5"
 																			   });*/
+																			   
+									 
 									 
 									 $.mobile.changePage("#home5", { transition: "fade" });
 									 
@@ -681,11 +686,11 @@ var app = {
 									 else{
 									 
 									  navigator.notification.alert(
-																  item.mess,  // message
-																  alertDismissed,         // callback
-																  'Attenzione',            // title
-																  'Done'                  // buttonName@
-																  );
+									  item.mess,  // message
+									  alertDismissed,         // callback
+									  'Attenzione',            // title
+									  'Done'                  // buttonName@
+									  );
 									 
 									 }
 									 
@@ -1730,6 +1735,8 @@ var app = {
 							"androiddelay"   :  500,
 							"href" : "#home7"
 							});*/
+							
+						   localStorage.setItem("miosesso", "");
 						  
 						   $.mobile.changePage("#home7", { transition: "fade" });
 						   
@@ -2771,10 +2778,14 @@ var app = {
 							  $("#parte2").show();
 							  $("#parte3").show();
 							  
+							  localStorage.setItem("miosesso", "");
+							  
 							  window.location.href = "index.html";
 							  
 							}
 							else if(item.Token == "3"){
+								
+							  localStorage.setItem("miosesso", "");
 							  
 							  $.mobile.changePage("#home7", { transition: "fade" });
 							  
@@ -3908,6 +3919,8 @@ function ciccio() {
                                      
                                      }
                                      else if(item.Token == "3"){
+										 
+									 localStorage.setItem("miosesso", "");
                                      
                                      $.mobile.changePage("#home7", { transition: "fade" });
 									 
