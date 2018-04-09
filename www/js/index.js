@@ -1492,6 +1492,12 @@ var app = {
                     $("#spinner8").hide();
                               
 					myScroll55.refresh();
+					
+					
+					setTimeout (function(){
+						myScroll55.refresh();
+					}, 2000);
+					
 					  
 				  }, 1000);
 				  
@@ -4745,7 +4751,7 @@ var app = {
                info1 = info1.replace("ò", "777N");
                info1 = info1.replace("ù", "777O");
                
-               info1 = info1.replace(/[&\/\\#,~%.*<>{}]/g,'');
+               info1 = info1.replace(/[&\/\\#?!,~%.*<>{}]/g,'');
                        
 			   localStorage.setItem("orgasmomentale", info1);
                      
@@ -5036,7 +5042,7 @@ var app = {
                        info1 = info1.replace("ò", "777N");
                        info1 = info1.replace("ù", "777O");
                        
-                       info1 = info1.replace(/[&\/\\#,~%.*<>{}]/g,'');
+                       info1 = info1.replace(/[&\/\\#?!,~%.*<>{}]/g,'');
                        
 					   
 					   $.ajax({
@@ -5178,7 +5184,7 @@ $(document).on("touchstart", "#editparty", function(e){
    info1 = info1.replace("ò", "777N");
    info1 = info1.replace("ù", "777O");
    
-   info1 = info1.replace(/[&\/\\#,~%.*<>{}]/g,'');
+   info1 = info1.replace(/[&\/\\#?!,~%.*<>{}]/g,'');
     
    
    $.ajax({
