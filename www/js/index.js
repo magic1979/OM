@@ -1274,38 +1274,49 @@ var app = {
                           
                           info1 = item.info
                           
-                          info1 = info1.replace("777a", "'");
+                          info1 = info1.replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'");
                           
-                          info1 = info1.replace("777b", "+");
+                          info1 = info1.replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+");
                           
-                          info1 = info1.replace("777c", "$");
+                          info1 = info1.replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$");
                           
-                          info1 = info1.replace("777d", "!");
-                          info1 = info1.replace("777d7", "!!");
-                          info1 = info1.replace("777d77", "!!!");
-                          info1 = info1.replace("777d777", "!!!!!");
-                          info1 = info1.replace("777d7777", "!!!!!!");
+                          info1 = info1.replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!");
+                          info1 = info1.replace("777D7", "!!");
+                          info1 = info1.replace("777D77", "!!!");
+                          info1 = info1.replace("777D777", "!!!!!");
+                          info1 = info1.replace("777D7777", "!!!!!!");
                           
-                          info1 = info1.replace("777e", "(");
+                          info1 = info1.replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(");
                           
-                          info1 = info1.replace("777f",")");
+                          info1 = info1.replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")");
                           
-                          info1 = info1.replace("777g", ":");
+                          info1 = info1.replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":");
                           
-                          info1 = info1.replace("777h", "?");
-                          info1 = info1.replace("777h7", "??");
-                          info1 = info1.replace("777h77", "???");
-                          info1 = info1.replace("777h777", "????");
-                          info1 = info1.replace("777h7777", "?????");
+                          info1 = info1.replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?");
+                          info1 = info1.replace("777H7", "??");
+                          info1 = info1.replace("777H77", "???");
+                          info1 = info1.replace("777H777", "????");
+                          info1 = info1.replace("777H7777", "?????");
                           
-                          info1 = info1.replace("777i", "à");
-                          info1 = info1.replace("777l", "è");
-                          info1 = info1.replace("777m", "ì");
-                          info1 = info1.replace("777n", "ò");
-                          info1 = info1.replace("777o", "ù");
+                          info1 = info1.replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à");
+                          info1 = info1.replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è");
+                          info1 = info1.replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì");
+                          info1 = info1.replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò");
+                          info1 = info1.replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù");
+                          
+                          info1 = info1.replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@");
+                          info1 = info1.replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€");
+                          info1 = info1.replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%");
+                          
+                          info1 = info1.replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          
+                          info1 = info1.replace("_777S7_", "..");
                           
                           
-                          $("#areaedit").html("<textarea name='infoedit' name='infoedit' type='text' rows='5' cols='20' class='scrivo'>"+info1+"</textarea>")
+                          $("#areaedit").html("<textarea name='infoedit' name='infoedit' type='text' rows='5' cols='20' class='scrivo' maxlength='200'>"+info1+"</textarea>")
                           
                           var ciccio = item.prezzo
                           ciccio = ciccio.replace(",",".")
@@ -1618,12 +1629,12 @@ var app = {
                        
             if (localStorage.getItem("orgasmomentale") === null || localStorage.getItem("orgasmomentale")=="null" || typeof(localStorage.getItem("orgasmomentale")) == 'undefined' || localStorage.getItem("orgasmomentale")==0 || localStorage.getItem("orgasmomentale")=="") {
                
-                $("#areaom").html("<textarea name='orgasmomentale' name='orgasmomentale' type='text' rows='5' cols='15' class='scrivo'>Descrivi semplicemente cio' che ti rende felice!</textarea>")
+                $("#areaom").html("<textarea name='orgasmomentale' name='orgasmomentale' type='text' rows='5' cols='15' class='scrivo' maxlength='200'>Descrivi semplicemente cio' che ti rende felice!</textarea>")
                        
             }
             else{
                        
-               $("#areaom").html("<textarea name='orgasmomentale' name='orgasmomentale' type='text' rows='5' cols='15' class='scrivo'>"+ localStorage.getItem("orgasmomentale") +"</textarea>")
+               $("#areaom").html("<textarea name='orgasmomentale' name='orgasmomentale' type='text' rows='5' cols='15' class='scrivo' maxlength='200'>"+ localStorage.getItem("orgasmomentale") +"</textarea>")
       
             }
                        
@@ -2179,35 +2190,46 @@ var app = {
                         
                         info1 = item.info
                         
-                        info1 = info1.replace("777A", "'");
-                        
-                        info1 = info1.replace("777B", "+");
-                        
-                        info1 = info1.replace("777C", "$");
-                        
-                        info1 = info1.replace("777D", "!");
-                        info1 = info1.replace("777D7", "!!");
-                        info1 = info1.replace("777D77", "!!!");
-                        info1 = info1.replace("777D777", "!!!!");
-                        info1 = info1.replace("777D7777", "!!!!!");
-                        
-                        info1 = info1.replace("777E", "(");
-                        
-                        info1 = info1.replace("777F",")");
-                        
-                        info1 = info1.replace("777G", ":");
-                        
-                        info1 = info1.replace("777H", "?");
-                        info1 = info1.replace("777H7", "??");
-                        info1 = info1.replace("777H77", "???");
-                        info1 = info1.replace("777H777", "????");
-                        info1 = info1.replace("777H7777", "?????");
-                        
-                        info1 = info1.replace("777I", "à");
-                        info1 = info1.replace("777L", "è");
-                        info1 = info1.replace("777M", "ì");
-                        info1 = info1.replace("777N", "ò");
-                        info1 = info1.replace("777O", "ù");
+                        info1 = info1.replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'");
+                          
+                          info1 = info1.replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+");
+                          
+                          info1 = info1.replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$");
+                          
+                          info1 = info1.replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!");
+                          info1 = info1.replace("777D7", "!!");
+                          info1 = info1.replace("777D77", "!!!");
+                          info1 = info1.replace("777D777", "!!!!!");
+                          info1 = info1.replace("777D7777", "!!!!!!");
+                          
+                          info1 = info1.replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(");
+                          
+                          info1 = info1.replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")");
+                          
+                          info1 = info1.replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":");
+                          
+                          info1 = info1.replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?");
+                          info1 = info1.replace("777H7", "??");
+                          info1 = info1.replace("777H77", "???");
+                          info1 = info1.replace("777H777", "????");
+                          info1 = info1.replace("777H7777", "?????");
+                          
+                          info1 = info1.replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à");
+                          info1 = info1.replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è");
+                          info1 = info1.replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì");
+                          info1 = info1.replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò");
+                          info1 = info1.replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù");
+                          
+                          info1 = info1.replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@");
+                          info1 = info1.replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€");
+                          info1 = info1.replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%");
+                          
+                          info1 = info1.replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          
+                          info1 = info1.replace("_777S7_", "..");
                     
 						
 						if (item.info=== null || item.info=="null" || typeof(item.info) == 'undefined' ||item.info==0 || item.info=="") {
@@ -2390,31 +2412,46 @@ var app = {
                           
                           var info1;
                           
-                          info1 = item.info
+                          info1 = info1.replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'");
                           
-                          info1 = info1.replace("777A", "'");
+                          info1 = info1.replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+");
                           
-                          info1 = info1.replace("777B", "+");
+                          info1 = info1.replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$");
                           
-                          info1 = info1.replace("777C", "$");
-                          
-                          info1 = info1.replace("777D", "!");
+                          info1 = info1.replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!");
                           info1 = info1.replace("777D7", "!!");
                           info1 = info1.replace("777D77", "!!!");
-                          info1 = info1.replace("777D777", "!!!!");
-                          info1 = info1.replace("777D7777", "!!!!!");
+                          info1 = info1.replace("777D777", "!!!!!");
+                          info1 = info1.replace("777D7777", "!!!!!!");
                           
-                          info1 = info1.replace("777E", "(");
+                          info1 = info1.replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(");
                           
-                          info1 = info1.replace("777F",")");
+                          info1 = info1.replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")");
                           
-                          info1 = info1.replace("777G", ":");
+                          info1 = info1.replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":");
                           
-                          info1 = info1.replace("777H", "?");
+                          info1 = info1.replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?");
                           info1 = info1.replace("777H7", "??");
                           info1 = info1.replace("777H77", "???");
                           info1 = info1.replace("777H777", "????");
                           info1 = info1.replace("777H7777", "?????");
+                          
+                          info1 = info1.replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à");
+                          info1 = info1.replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è");
+                          info1 = info1.replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì");
+                          info1 = info1.replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò");
+                          info1 = info1.replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù");
+                          
+                          info1 = info1.replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@");
+                          info1 = info1.replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€");
+                          info1 = info1.replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%");
+                          
+                          info1 = info1.replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          
+                          info1 = info1.replace("_777S7_", "..");
                           
                           
 						  if (item.info=== null || item.info=="null" || typeof(item.info) == 'undefined' ||item.info==0 || item.info=="") {
@@ -4722,41 +4759,50 @@ var app = {
                
                info1 = self.document.formiaprofilo.orgasmomentale.value
                        
+               info1 = info1.replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A");
                
+               info1 = info1.replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B");
                
-               info1 = info1.replace("'","777A");
+               info1 = info1.replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C");
                
-               info1 = info1.replace("+","777B");
-               
-               info1 = info1.replace("$","777C");
-               
-               info1 = info1.replace("!","777D");
+               info1 = info1.replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D");
                info1 = info1.replace("!!","777D7");
                info1 = info1.replace("!!!","777D77");
                info1 = info1.replace("!!!!","777D777");
                info1 = info1.replace("!!!!!","777D7777");
                info1 = info1.replace("!!!!!!","777D77777");
                
-               info1 = info1.replace("(","777E");
+               info1 = info1.replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E");
                
-               info1 = info1.replace(")","777F");
+               info1 = info1.replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F");
                
-               info1 = info1.replace(":","777G");
+               info1 = info1.replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G");
                
-               info1 = info1.replace("?","777H");
+               info1 = info1.replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H");
                        
-               info1 = info1.replace("?","777H");
-               info1 = info1.replace("??","777H7");
+               info1 = info1.replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H");
+               info1 = info1.replace("??","777H7").replace("??","777H7").replace("??","777H7").replace("??","777H7").replace("??","777H7").replace("??","777H7").replace("??","777H7").replace("??","777H7").replace("??","777H7").replace("??","777H7");
                info1 = info1.replace("???","777H77");
                info1 = info1.replace("????","777H777");
                info1 = info1.replace("?????","777H7777");
                info1 = info1.replace("??????","777H77777");
                        
-               info1 = info1.replace("à", "777I");
-               info1 = info1.replace("è", "777L");
-               info1 = info1.replace("ì", "777M");
-               info1 = info1.replace("ò", "777N");
-               info1 = info1.replace("ù", "777O");
+               info1 = info1.replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I");
+               info1 = info1.replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L");
+               info1 = info1.replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M");
+               info1 = info1.replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N");
+               info1 = info1.replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O");
+                       
+               info1 = info1.replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_");
+               info1 = info1.replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_");
+               info1 = info1.replace("%","_777R_");
+                       
+               info1 = info1.replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_");
+               info1 = info1.replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_");
+               info1 = info1.replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_");
+               info1 = info1.replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_");
+                       
+               info1 = info1.replace("..","_777S7_");
                
                info1 = info1.replace(/[&\/\\#?!,~%.*<>{}]/g,'');
                        
@@ -5015,39 +5061,50 @@ var app = {
                        
                        info1 = self.document.formia8.info.value
                        
-                       info1 = info1.replace("'","777A");
+                        info1 = info1.replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A");
                        
-                       info1 = info1.replace("+","777B");
+                       info1 = info1.replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B");
                        
-                       info1 = info1.replace("$","777C");
+                       info1 = info1.replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C");
                        
-                       info1 = info1.replace("!","777D");
+                       info1 = info1.replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D");
                        info1 = info1.replace("!!","777D7");
                        info1 = info1.replace("!!!","777D77");
                        info1 = info1.replace("!!!!","777D777");
                        info1 = info1.replace("!!!!!","777D7777");
                        info1 = info1.replace("!!!!!!","777D77777");
                        
-                       info1 = info1.replace("(","777E");
+                       info1 = info1.replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E");
                        
-                       info1 = info1.replace(")","777F");
+                       info1 = info1.replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F");
                        
-                       info1 = info1.replace(":","777G");
+                       info1 = info1.replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G");
                        
-                       info1 = info1.replace("?","777H");
+                       info1 = info1.replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H");
                        
-                       info1 = info1.replace("?","777H");
+                       info1 = info1.replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H");
                        info1 = info1.replace("??","777H7");
                        info1 = info1.replace("???","777H77");
                        info1 = info1.replace("????","777H777");
                        info1 = info1.replace("?????","777H7777");
                        info1 = info1.replace("??????","777H77777");
                        
-                       info1 = info1.replace("à", "777I");
-                       info1 = info1.replace("è", "777L");
-                       info1 = info1.replace("ì", "777M");
-                       info1 = info1.replace("ò", "777N");
-                       info1 = info1.replace("ù", "777O");
+                       info1 = info1.replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I");
+                       info1 = info1.replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L");
+                       info1 = info1.replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M");
+                       info1 = info1.replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N");
+                       info1 = info1.replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O");
+                       
+                       info1 = info1.replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_");
+                       info1 = info1.replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_").replace("€","_777Q_");
+                       info1 = info1.replace("%","_777R_").replace("%","_777R_").replace("%","_777R_").replace("%","_777R_").replace("%","_777R_").replace("%","_777R_").replace("%","_777R_").replace("%","_777R_").replace("%","_777R_").replace("%","_777R_");
+                       
+                       info1 = info1.replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_");
+                       info1 = info1.replace(".","_777S_");
+                       info1 = info1.replace(".","_777S_");
+                       info1 = info1.replace(".","_777S_");
+                       
+                       info1 = info1.replace("..","_777S7_");
                        
                        info1 = info1.replace(/[&\/\\#?!,~%.*<>{}]/g,'');
                        
@@ -5157,39 +5214,39 @@ $(document).on("touchstart", "#editparty", function(e){
    
    info1 = self.document.formiamodp.infoedit.value
    
-   info1 = info1.replace("'","777A");
+   info1 = info1.replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A");
    
-   info1 = info1.replace("+","777B");
+   info1 = info1.replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B");
    
-   info1 = info1.replace("$","777C");
+   info1 = info1.replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C");
    
-   info1 = info1.replace("!","777D");
+   info1 = info1.replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D");
    info1 = info1.replace("!!","777D7");
    info1 = info1.replace("!!!","777D77");
    info1 = info1.replace("!!!!","777D777");
    info1 = info1.replace("!!!!!","777D7777");
    info1 = info1.replace("!!!!!!","777D77777");
    
-   info1 = info1.replace("(","777E");
+   info1 = info1.replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E");
    
-   info1 = info1.replace(")","777F");
+   info1 = info1.replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F");
    
-   info1 = info1.replace(":","777G");
+   info1 = info1.replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G");
    
-   info1 = info1.replace("?","777H");
+   info1 = info1.replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H");
    
-   info1 = info1.replace("?","777H");
+   info1 = info1.replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H");
    info1 = info1.replace("??","777H7");
    info1 = info1.replace("???","777H77");
    info1 = info1.replace("????","777H777");
    info1 = info1.replace("?????","777H7777");
    info1 = info1.replace("??????","777H77777");
                
-   info1 = info1.replace("à", "777I");
-   info1 = info1.replace("è", "777L");
-   info1 = info1.replace("ì", "777M");
-   info1 = info1.replace("ò", "777N");
-   info1 = info1.replace("ù", "777O");
+   info1 = info1.replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I");
+   info1 = info1.replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L");
+   info1 = info1.replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M");
+   info1 = info1.replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N");
+   info1 = info1.replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O");
    
    info1 = info1.replace(/[&\/\\#?!,~%.*<>{}]/g,'');
     
@@ -5698,35 +5755,46 @@ $(document).on("touchstart", "#editparty", function(e){
                           
                               info1 = item.info
                           
-                              info1 = info1.replace("777a", "'");
+                              info1 = info1.replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'");
                           
-                              info1 = info1.replace("777b", "+");
+                          info1 = info1.replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+");
                           
-                              info1 = info1.replace("777c", "$");
+                          info1 = info1.replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$");
                           
-                              info1 = info1.replace("777d", "!");
-                              info1 = info1.replace("777d7", "!!");
-                              info1 = info1.replace("777d77", "!!!");
-                              info1 = info1.replace("777d777", "!!!!!");
-                              info1 = info1.replace("777d7777", "!!!!!!");
+                          info1 = info1.replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!");
+                          info1 = info1.replace("777D7", "!!");
+                          info1 = info1.replace("777D77", "!!!");
+                          info1 = info1.replace("777D777", "!!!!!");
+                          info1 = info1.replace("777D7777", "!!!!!!");
                           
-                              info1 = info1.replace("777e", "(");
+                          info1 = info1.replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(");
                           
-                              info1 = info1.replace("777f",")");
+                          info1 = info1.replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")").replace("777F",")");
                           
-                              info1 = info1.replace("777g", ":");
+                          info1 = info1.replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":");
                           
-                              info1 = info1.replace("777h", "?");
-                              info1 = info1.replace("777h7", "??");
-                              info1 = info1.replace("777h77", "???");
-                              info1 = info1.replace("777h777", "????");
-                              info1 = info1.replace("777h7777", "?????");
+                          info1 = info1.replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?");
+                          info1 = info1.replace("777H7", "??");
+                          info1 = info1.replace("777H77", "???");
+                          info1 = info1.replace("777H777", "????");
+                          info1 = info1.replace("777H7777", "?????");
                           
-                              info1 = info1.replace("777i", "à");
-                              info1 = info1.replace("777l", "è");
-                              info1 = info1.replace("777m", "ì");
-                              info1 = info1.replace("777n", "ò");
-                              info1 = info1.replace("777o", "ù");
+                          info1 = info1.replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à");
+                          info1 = info1.replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è");
+                          info1 = info1.replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì");
+                          info1 = info1.replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò");
+                          info1 = info1.replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù");
+                          
+                          info1 = info1.replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@");
+                          info1 = info1.replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€").replace("_777Q_", "€");
+                          info1 = info1.replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%").replace("_777R_", "%");
+                          
+                          info1 = info1.replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          info1 = info1.replace("_777S_", ".");
+                          
+                              info1 = info1.replace("_777S7_", "..");
                           
                               var giorno = item.data;
                               giorno.replace("i", "ì");
@@ -7045,21 +7113,40 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						  if(item.scrive==localStorage.getItem("nickname")){
 						  
-						  var indirizzo = item.messaggio.replace("777A","'");
+						 var indirizzo = item.messaggio.replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'");
 						  
-						  indirizzo = indirizzo.replace("777B", "+");
+						  indirizzo = indirizzo.replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+");
 						  
-						  indirizzo = indirizzo.replace("777C", "$");
+						  indirizzo = indirizzo.replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$");
 						  
-						  indirizzo = indirizzo.replace("777D", "!");
+						  indirizzo = indirizzo.replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!");
 						  
-						  indirizzo = indirizzo.replace("777E", "(");
+						  indirizzo = indirizzo.replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(");
 						  
-						  indirizzo = indirizzo.replace("777F", ")");
+						  indirizzo = indirizzo.replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")");
 						  
-						  indirizzo = indirizzo.replace("777G", ":");
+						  indirizzo = indirizzo.replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":");
 						  
-						  indirizzo = indirizzo.replace("777H", "?");
+						  indirizzo = indirizzo.replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?");
+                          
+                          indirizzo = indirizzo.replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à");
+                          indirizzo = indirizzo.replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è");
+                          indirizzo = indirizzo.replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì");
+                          indirizzo = indirizzo.replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò");
+                          indirizzo = indirizzo.replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù");
+                          
+                          indirizzo = indirizzo.replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@");
+                          indirizzo = indirizzo.replace("_777Q_", "€");
+                          indirizzo = indirizzo.replace("_777R_", "%");
+                          
+                          indirizzo = indirizzo.replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".");
+                          indirizzo = indirizzo.replace("_777S_", ".");
+                          indirizzo = indirizzo.replace("_777S_", ".");
+                          indirizzo = indirizzo.replace("_777S_", ".");
+                          
+                          indirizzo = indirizzo.replace("_777S7_", "..");
+                          
+                          indirizzo = indirizzo.replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",");
 						  
 						  $("#offerta12").append("<div class='bubbledRight HelveticaFont'>"+ indirizzo +"</div>")
 						  
@@ -7070,17 +7157,40 @@ $(document).on("touchstart", "#editparty", function(e){
 						  else{
 						   var indirizzo = item.messaggio.replace("777A","'");
 						  
-						   indirizzo = indirizzo.replace("777B", "+");
-						  
-						   indirizzo = indirizzo.replace("777C", "$");
-						  
-						   indirizzo = indirizzo.replace("777D", "!");
-						  
-						   indirizzo = indirizzo.replace("777E", "(");
-						  
-						   indirizzo = indirizzo.replace("777G", ":");
-						  
-						   indirizzo = indirizzo.replace("777H", "?");
+						  var indirizzo = item.messaggio.replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'");
+                          
+                          indirizzo = indirizzo.replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+");
+                          
+                          indirizzo = indirizzo.replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$");
+                          
+                          indirizzo = indirizzo.replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!");
+                          
+                          indirizzo = indirizzo.replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(");
+                          
+                          indirizzo = indirizzo.replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")");
+                          
+                          indirizzo = indirizzo.replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":");
+                          
+                          indirizzo = indirizzo.replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?");
+                          
+                          indirizzo = indirizzo.replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à");
+                          indirizzo = indirizzo.replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è");
+                          indirizzo = indirizzo.replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì");
+                          indirizzo = indirizzo.replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò");
+                          indirizzo = indirizzo.replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù");
+                          
+                          indirizzo = indirizzo.replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@");
+                          indirizzo = indirizzo.replace("_777Q_", "€");
+                          indirizzo = indirizzo.replace("_777R_", "%");
+                          
+                          indirizzo = indirizzo.replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".");
+                          indirizzo = indirizzo.replace("_777S_", ".");
+                          indirizzo = indirizzo.replace("_777S_", ".");
+                          indirizzo = indirizzo.replace("_777S_", ".");
+                          
+                          indirizzo = indirizzo.replace("_777S7_", "..");
+                          
+                          indirizzo = indirizzo.replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",");
 						  
 						   $("#offerta12").append("<div class='bubbledLeft HelveticaFont'>"+ indirizzo +"</div>")
 						  
@@ -7199,21 +7309,40 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						  if(item.scrive==localStorage.getItem("nickname")){
 						  
-						  var indirizzo = item.messaggio.replace("777A","'");
-						  
-						  indirizzo = indirizzo.replace("777B", "+");
-						  
-						  indirizzo = indirizzo.replace("777C", "$");
-						  
-						  indirizzo = indirizzo.replace("777D", "!");
-						  
-						  indirizzo = indirizzo.replace("777E", "(");
-						  
-						  indirizzo = indirizzo.replace("777F", ")");
-						  
-						  indirizzo = indirizzo.replace("777F", ":");
-							
-							indirizzo = indirizzo.replace("777H", "?");
+						   var indirizzo = item.messaggio.replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'");
+                            
+                            indirizzo = indirizzo.replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+");
+                            
+                            indirizzo = indirizzo.replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$");
+                            
+                            indirizzo = indirizzo.replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!");
+                            
+                            indirizzo = indirizzo.replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(");
+                            
+                            indirizzo = indirizzo.replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")");
+                            
+                            indirizzo = indirizzo.replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":");
+                            
+                            indirizzo = indirizzo.replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?");
+                            
+                            indirizzo = indirizzo.replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à");
+                            indirizzo = indirizzo.replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è");
+                            indirizzo = indirizzo.replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì");
+                            indirizzo = indirizzo.replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò");
+                            indirizzo = indirizzo.replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù");
+                            
+                            indirizzo = indirizzo.replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@");
+                            indirizzo = indirizzo.replace("_777Q_", "€");
+                            indirizzo = indirizzo.replace("_777R_", "%");
+                            
+                            indirizzo = indirizzo.replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".");
+                            indirizzo = indirizzo.replace("_777S_", ".");
+                            indirizzo = indirizzo.replace("_777S_", ".");
+                            indirizzo = indirizzo.replace("_777S_", ".");
+                            
+                            indirizzo = indirizzo.replace("_777S7_", "..");
+                            
+                            indirizzo = indirizzo.replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",");
 						  
 						  $("#offerta12").append("<div class='bubbledRight HelveticaFont'>"+ indirizzo +"</div>")
 						  
@@ -7226,21 +7355,40 @@ $(document).on("touchstart", "#editparty", function(e){
 						  
 						  }
 						  else{
-						  var indirizzo = item.messaggio.replace("777A","'");
-						  
-						  indirizzo = indirizzo.replace("777B", "+");
-						  
-						  indirizzo = indirizzo.replace("777C", "$");
-						  
-						  indirizzo = indirizzo.replace("777D", "!");
-						  
-						  indirizzo = indirizzo.replace("777E", "(");
-						  
-						  indirizzo = indirizzo.replace("777F", ")");
-						  
-						  indirizzo = indirizzo.replace("777F", ":");
-							
-						  indirizzo = indirizzo.replace("777H", "?");
+						 var indirizzo = item.messaggio.replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'").replace("777A","'");
+                            
+                            indirizzo = indirizzo.replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+");
+                            
+                            indirizzo = indirizzo.replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$").replace("777C", "$");
+                            
+                            indirizzo = indirizzo.replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!").replace("777D", "!");
+                            
+                            indirizzo = indirizzo.replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(").replace("777E", "(");
+                            
+                            indirizzo = indirizzo.replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")").replace("777F", ")");
+                            
+                            indirizzo = indirizzo.replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":").replace("777G", ":");
+                            
+                            indirizzo = indirizzo.replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?").replace("777H", "?");
+                            
+                            indirizzo = indirizzo.replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à").replace("777I", "à");
+                            indirizzo = indirizzo.replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è").replace("777L", "è");
+                            indirizzo = indirizzo.replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì").replace("777M", "ì");
+                            indirizzo = indirizzo.replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò").replace("777N", "ò");
+                            indirizzo = indirizzo.replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù").replace("777O", "ù");
+                            
+                            indirizzo = indirizzo.replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@").replace("_777P_", "@");
+                            indirizzo = indirizzo.replace("_777Q_", "€");
+                            indirizzo = indirizzo.replace("_777R_", "%");
+                            
+                            indirizzo = indirizzo.replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".").replace("_777S_", ".");
+                            indirizzo = indirizzo.replace("_777S_", ".");
+                            indirizzo = indirizzo.replace("_777S_", ".");
+                            indirizzo = indirizzo.replace("_777S_", ".");
+                            
+                            indirizzo = indirizzo.replace("_777S7_", "..");
+                            
+                            indirizzo = indirizzo.replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",").replace("_777T_", ",");
 						  
 						  $("#offerta12").append("<div class='bubbledLeft HelveticaFont'>"+ indirizzo +"</div>")
 						  						  
@@ -7313,21 +7461,40 @@ $(document).on("touchstart", "#editparty", function(e){
 					   
 			//indirizzo = indirizzo.replace(/[&\/\\#,~%.*<>{}]/g,'');
 					   
-			indirizzo = indirizzo.replace("'","777A");
+			indirizzo = indirizzo.replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A").replace("'","777A");
 													 
-			indirizzo = indirizzo.replace("+","777B");
+			indirizzo = indirizzo.replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B").replace("+","777B");
 													 
-			indirizzo = indirizzo.replace("$","777C");
+			indirizzo = indirizzo.replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C").replace("$","777C");
 													 
-			indirizzo = indirizzo.replace("!","777D");
+			indirizzo = indirizzo.replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D").replace("!","777D");
 													 
-			indirizzo = indirizzo.replace("(","777E");
+			indirizzo = indirizzo.replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E").replace("(","777E");
 													 
-			indirizzo = indirizzo.replace(")","777F");
+			indirizzo = indirizzo.replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F").replace(")","777F");
 													 
-			indirizzo = indirizzo.replace(":","777G");
+			indirizzo = indirizzo.replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G").replace(":","777G");
 										  
-			indirizzo = indirizzo.replace("?","777H");
+			indirizzo = indirizzo.replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H").replace("?","777H");
+                       
+            indirizzo = indirizzo.replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I").replace("à", "777I");
+            indirizzo = indirizzo.replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L").replace("è", "777L");
+            indirizzo = indirizzo.replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M").replace("ì", "777M");
+            indirizzo = indirizzo.replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N").replace("ò", "777N");
+            indirizzo = indirizzo.replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O").replace("ù", "777O");
+                       
+            indirizzo = indirizzo.replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_").replace("@","_777P_");
+            indirizzo = indirizzo.replace("€","_777Q_");
+            indirizzo = indirizzo.replace("%","_777R_");
+                       
+            indirizzo = indirizzo.replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_").replace(".","_777S_");
+            indirizzo = indirizzo.replace(".","_777S_");
+            indirizzo = indirizzo.replace(".","_777S_");
+            indirizzo = indirizzo.replace(".","_777S_");
+                       
+            indirizzo = indirizzo.replace("..","_777S7_");
+                       
+            indirizzo = indirizzo.replace(",","_777T_").replace(",","_777T_").replace(",","_777T_").replace(",","_777T_").replace(",","_777T_").replace(",","_777T_").replace(",","_777T_").replace(",","_777T_").replace(",","_777T_").replace(",","_777T_").replace(",","_777T_");
                        
             indirizzo = indirizzo.replace(/[&\/\\#?!,~%.*<>{}]/g,'');
 													 
