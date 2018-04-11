@@ -7543,7 +7543,7 @@ $(document).on("touchstart", "#editparty", function(e){
 				//$("#spinner12").show();
 				$.ajax({
 					 type:"GET",
-					 url:"http://msop.it/om/pubblica_chat.php?nickname="+ localStorage.getItem("nickname") +"&nickname2="+ localStorage.getItem("nickname2") +"&messaggio="+ indirizzo +"",
+					 url:"http://msop.it/om/pubblica_chatV2.php?nickname="+ localStorage.getItem("nickname") +"&nickname2="+ localStorage.getItem("nickname2") +"&messaggio="+ indirizzo +"",
 					 contentType: "application/json",
 					 //data: {ID: "Lazio"}, LIMIT 10
 					 timeout: 7000,
@@ -8179,6 +8179,79 @@ $(document).on("tap", "#invitaamici", function(e){
 	});
 			   
 });
+
+
+
+$(document).on("tap", "#cancella_profilo", function(e){
+               
+   navigator.notification.confirm(
+      'vuoi davvero eliminare il tuo profilo e quello della tua amica/o ?',  // message
+      onConfirm5,              // callback to invoke with index of button pressed
+      'Cancella',            // title
+      'Conferma,Annulla'      // buttonLabels
+      );
+               
+   function onConfirm5(button) {
+       if(button==1){    //If User selected No, then we just do nothing
+       
+           $.ajax({
+              type:"GET",
+              url:"http://msop.it/om/check_cancella_utente.php?email="+ localStorage.getItem("email") +"",
+              contentType: "application/json",
+              timeout: 7000,
+              jsonp: 'callback',
+              crossDomain: true,
+              success:function(result){
+              
+              $.each(result, function(i,item){
+                     
+                 navigator.notification.alert(
+                  'Utente Rimosso con successo',  // message
+                  alertDismissed,         // callback
+                  'Conferma',            // title
+                  'OK'                  // buttonName
+                  );
+                     
+                 $("#scheda1").show();
+                 $("#scheda2").show();
+                 $("#scheda3").show();
+                 $("#scheda4").show();
+                 
+                 $("#bannerpresentazione").show()
+                 $("#imginiziale").show();
+                 
+                 localStorage.setItem("loggato", "0");
+                 
+                 localStorage.setItem("email","")
+                 localStorage.setItem("registrato", "");
+                
+                 
+                 window.location.href = "index.html";
+                 
+                 });
+              
+              
+              },
+              error: function(){
+
+              
+              navigator.notification.alert(
+               'Possibile errore di rete, riprova tra qualche minuto',  // message
+               alertDismissed,         // callback
+               'Attenzione',            // title
+               'Done'                  // buttonName
+               );
+              
+              },
+              dataType:"jsonp"});
+
+       }
+   
+   }
+               
+   
+});
+
 					   
 					   
 $(document).on("tap", "#comefunziona", function(e){
