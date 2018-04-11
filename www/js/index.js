@@ -95,6 +95,29 @@ var app = {
 		
 		
 		
+		////////// TASTIERA ///////////
+	
+	
+		window.addEventListener('native.keyboardhide', keyboardHideHandler);
+  
+		function keyboardHideHandler(e){
+		  //$("#btninizia").removeClass("divAA").addClass("div55");
+		  
+		  $("#footer_edit").show();
+		  $("#footer_profilo").show();
+		}
+	  
+	  window.addEventListener('native.keyboardshow', keyboardShowHandler);
+  
+		function keyboardShowHandler(e){
+			//$("#btninizia").removeClass("div55").addClass("divAA");
+			
+			$("#footer_edit").hide();
+			$("#footer_profilo").hide();
+		}
+	
+	
+	///////// FINE TASTIERA ///////////
 		
 		
         
