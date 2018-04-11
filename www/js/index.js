@@ -2412,6 +2412,8 @@ var app = {
                           
                           var info1;
                           
+                          info1 = item.info
+                          
                           info1 = info1.replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'").replace("777A", "'");
                           
                           info1 = info1.replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+").replace("777B", "+");
