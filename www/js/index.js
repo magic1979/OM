@@ -685,6 +685,7 @@ var app = {
 		   $("#scheda2").hide();
 		   $("#scheda3").hide();
 		   $("#scheda4").hide();
+		   $("#footerparty2").hide();
 		   
 		   $("#bannerpresentazione").hide()
 		   $("#imginiziale").hide();
@@ -2841,6 +2842,7 @@ var app = {
 		   $("#anteprimafinale").hide();
 		   $("#anteprimaparty").hide();
 		   $("#anteprimaparty2").hide();
+		   $("#footerparty2").hide();
                        
            $("#datiparty").hide();
 		   
@@ -5096,14 +5098,16 @@ var app = {
 		   $("#antaltro").html("GUADAGNO ORGANIZZATORE:"+ guadagno.toFixed(2))
                    
            $("#footerparty").hide();
-		   $("#footerparty2").show();
+		   //$("#footerparty2").show();
                    
-	       $("#tastocrea2").html("<table widht='100%'><tr><td width='25%' align='center' valign='center'><a id='modifica' class='buttonbb buttonb1 AntonioFont'><font size='4' color='#fff'><b>MODIFICA</b></font></a></td><td width='75%' align='center' valign='center'><a id='creafestaDB' class='buttonbb buttonb3 AntonioFont'><font class='AntonioFontBold' color='#00ffff' size='5'>PUBBLICA PRIVATE PARTY</font></a></td></tr></table>")
+	       $("#tasti_crea").append("<table widht='100%'><tr><td width='25%' align='center' valign='center'><a id='modifica' class='buttonbb buttonb1 AntonioFont'><font size='4' color='#fff'><b>MODIFICA</b></font></a></td><td width='75%' align='center' valign='center'><a id='creafestaDB' class='buttonbb buttonb3 AntonioFont'><font class='AntonioFontBold' color='#00ffff' size='5'>PUBBLICA PRIVATE PARTY</font></a></td></tr></table>")
 				   
 				   
 	   setTimeout (function(){
+		   
+		   myScroll8.scrollTo(0, 0);
 				   
-		  myScroll8.refresh();
+		   myScroll8.refresh();
            
            e.stopImmediatePropagation();
            
