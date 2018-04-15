@@ -960,6 +960,9 @@ var app = {
 									 
 
 									 if (item.Token == 1){
+										 
+										localStorage.setItem("miosesso", ""); 
+										 
 									   /*window.plugins.nativepagetransitions.fade({
 																			   "duration"       :  1000,
 																			   "iosdelay"       :   50,
@@ -1454,6 +1457,12 @@ var app = {
 				  jsonp: 'callback',
 				  crossDomain: true,
 				  success:function(result){
+					  
+				    if(localStorage.getItem("historybck")=="1"){
+                  
+                      $("#divieto").show()
+                  
+                    }
 				  
 				  
 				  $.each(result, function(i,item){
@@ -1504,12 +1513,11 @@ var app = {
                                         
                                   }
                                   else{
-									navigator.notification.alert(
-									 'Hai cancellato gia delle foto, operazione possibile a breve.',  // message
-									 alertDismissed,         // callback
-									 'Attenzione',           // title
-									 'Ok'                  // buttonName
-									 );
+									  
+									  localStorage.setItem("historybck", "1");
+                                        
+                                       $("#divieto").show()
+									 
 								  }
                             }
 							
@@ -2106,59 +2114,74 @@ var app = {
         
         
         function bloccautente(){
-			
             
             if(localStorage.getItem("email").toLowerCase()==localStorage.getItem("bloccaemail").toLowerCase()){
                 navigator.notification.alert(
-                 'Non puoi bloccare te stesso.',  // message
-                 alertDismissed,         // callback
-                 'Attenzione',           // title
-                 'Ok'                  // buttonName
-                 );
-
+                     'Non puoi bloccare te stesso.',  // message
+                     alertDismissed,         // callback
+                     'Attenzione',           // title
+                     'Ok'                  // buttonName
+                     );
+                
                 return;
             }
             
-            $("#spinner8").show();
-			
-			$.ajax({
-			   type:"GET",
-			   url:"http://msop.it/om/blocca.php?email="+ localStorage.getItem("email") +"&email2="+ localStorage.getItem("bloccaemail") +"&messaggio=",
-			   contentType: "application/json",
-			   //data: {ID: "Lazio"}, LIMIT 10
-			   timeout: 7000,
-			   jsonp: 'callback',
-			   crossDomain: true,
-			   success:function(result){
-				   
-				$("#spinner8").hide();
-			   
-			    $.each(result, function(i,item){
-				   navigator.notification.alert(
-					'Utente Bloccato.',  // message
-					alertDismissed,         // callback
-					'Blocca Utente',           // title
-					'Ok'                  // buttonName
-					);
-				});
-			   
-			   },
-			   error: function(){
-			   $("#spinner8").hide();
-			   
-			   
-			   navigator.notification.alert(
-					'Possibile errore di rete, riprova tra qualche minuto.',  // message
-					alertDismissed,         // callback
-					'Attenzione',           // title
-					'Ok'                  // buttonName
-					);
-			   
-			   
-			   },
-			   dataType:"jsonp"});
             
-           // localStorage.getItem("bloccaemail")
+            navigator.notification.confirm(
+               'Sei sicuro di voler bloccare questo utente?',  // message
+               onConfirm44,              // callback to invoke with index of button pressed
+               'Attenzione',            // title
+               'Blocca,Annulla'      // buttonLabels
+               );
+            
+            
+            function onConfirm44(button) {
+                if(button==1){    //If User selected No, then we just do nothing
+                   
+                    $("#spinner8").show();
+                    
+                    $.ajax({
+                           type:"GET",
+                           url:"http://msop.it/om/blocca.php?email="+ localStorage.getItem("email") +"&email2="+ localStorage.getItem("bloccaemail") +"&messaggio=",
+                           contentType: "application/json",
+                           //data: {ID: "Lazio"}, LIMIT 10
+                           timeout: 7000,
+                           jsonp: 'callback',
+                           crossDomain: true,
+                           success:function(result){
+                           
+                           $("#spinner8").hide();
+                           
+                           $.each(result, function(i,item){
+                                  navigator.notification.alert(
+                                   'Utente Bloccato.',  // message
+                                   alertDismissed,         // callback
+                                   'Blocca Utente',           // title
+                                   'Ok'                  // buttonName
+                                   );
+                                });
+                           
+                           },
+                           error: function(){
+                           $("#spinner8").hide();
+                           
+                           
+                           navigator.notification.alert(
+                                'Possibile errore di rete, riprova tra qualche minuto.',  // message
+                                alertDismissed,         // callback
+                                'Attenzione',           // title
+                                'Ok'                  // buttonName
+                                );
+                           
+                           
+                           },
+                           dataType:"jsonp"});
+                    
+                    // localStorage.getItem("bloccaemail")
+                }
+                
+            }
+            
             
         }
 		
@@ -2205,7 +2228,7 @@ var app = {
              
                  $.each(result, function(i,item){
                 
-                    $("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='private'><img src='img/indietro_over.png' height='30px'></a></div><img src='http://msop.it/public/"+item.foto+"' width='100%' class='pippo22profilo'><div id='#' class='puntini'><a id='menuprofilo'><img src='img/menu4.png' height='30px'></a></div>")
+                    $("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='private'><img src='img/indietro_over.png' height='30px'></a></div><table width='100%' height='314' align='center' background='http://msop.it/public/"+item.foto+"' style='background-size: 100% ; background-repeat: no-repeat;'><tr><td></td></tr></table><div id='#' class='puntini'><a id='menuprofilo'><img src='img/menu4.png' height='30px'></a></div>")
                         
                         // LEGGO INFO //
                         
@@ -2269,10 +2292,28 @@ var app = {
 					var contacitta = item.citta.length;
                     var nuovonick
                     
+                    var contanick = item.nickname.length;
+                    var contacitta = item.citta.length;
+                    var nuovonick
+                    var nuovacitta
+                    
                     if(contanick <= 11){
                         
                         $("#name").html("<font class='AntonioFontBold' color='#00ffff' size='10'>"+item.nickname+"</font>")
-                        $("#dati").html("<font class='AntonioFontBold' color='#00ffff' size='10'>"+item.citta + ", " + item.eta+"</font>")
+                        
+                        if(contacitta <= 14){
+                        
+                            $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff'  size='11'>"+item.citta + ", " + item.eta+"</font>")
+                        }
+                        else{
+                        
+                            nuovacitta = item.citta.slice(0,13)
+                        
+                            nuovacitta = nuovacitta + ".."
+                        
+                            $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff'  size='10'>"+nuovacitta + ", " + item.eta+"</font>")
+                        
+                        }
                     
                     }
                     else{
@@ -2283,9 +2324,10 @@ var app = {
                         
                         $("#name").html("<font class='AntonioFontBold nomeprofilo' color='#00ffff' >"+item.nickname+"</font><br>")
                         
-						if(contacitta <= 15){
                         
-                           $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' >"+item.citta + ", " + item.eta+"</font>")
+                        if(contacitta <= 15){
+                        
+                           $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' size='11' >"+item.citta + ", " + item.eta+"</font>")
                         }
                         else{
                         
@@ -2293,7 +2335,7 @@ var app = {
                         
                             nuovacitta = nuovacitta + ".."
                         
-                           $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' >"+nuovacitta + ", " + item.eta+"</font>")
+                           $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff'  size='10'>"+nuovacitta + ", " + item.eta+"</font>")
                         
                         }
                     
@@ -2431,7 +2473,7 @@ var app = {
                           
                           //$("#profiloman").html("<table width='100%' height='480' align='center' background='http://msop.it/public/"+item.foto+"' style='background-size: 100% auto; background-repeat: no-repeat;' class='uomo' valign='bottom'><tr><td width='100%' align='center' valign='bottom'></td></tr></table>")
                           
-                          $("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='private'><img src='img/indietro_over.png' height='30px'></a></div><img src='http://msop.it/public/"+item.foto+"' class='pippo22profilo'><div id='#' class='puntini'><a id='menuprofilo'><img src='img/menu4.png' height='30px'></a></div>")
+                         $("#profiloman").html("<div id='frecciaback' class='frecciasx'><a id='private'><img src='img/indietro_over.png' height='30px'></a></div><table width='100%' height='314' align='center' background='http://msop.it/public/"+item.foto+"' style='background-size: 100% ; background-repeat: no-repeat;'><tr><td></td></tr></table><div id='#' class='puntini'><a id='menuprofilo'><img src='img/menu4.png' height='30px'></a></div>")
                           
                           var info1;
                           
@@ -2489,38 +2531,53 @@ var app = {
 						  }
                           
                           var contanick = item.nickname.length;
-						  var contacitta = item.citta.length;
-                          var nuovonick
-                          
-                          if(contanick <= 11){
-                          
-                            $("#name").html("<font class='AntonioFontBold' color='#00ffff' size='10'>"+item.nickname+"</font>")
-                            $("#dati").html("<font class='AntonioFontBold' color='#00ffff' size='10'>"+item.citta + ", " + item.eta+"</font>")
-                          
-                          }
-                          else{
-                          
-                            //nuovonick = item.nickname.slice(0,10)
-                          
-                            //nuovonick = nuovonick + ".."
-                          
-							  $("#name").html("<font class='AntonioFontBold nomeprofilo' color='#00ffff' >"+item.nickname+"</font><br>")
-							 
-							 if(contacitta <= 15){
-                        
-							   $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' >"+item.citta + ", " + item.eta+"</font>")
-							 }
-							 else{
+							var contacitta = item.citta.length;
+							var nuovonick
+							var nuovacitta
+                    
+							if(contanick <= 11){
 								
-								nuovacitta = item.citta.slice(0,15)
-							
-								nuovacitta = nuovacitta + ".."
-							
-							   $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' >"+nuovacitta + ", " + item.eta+"</font>")
+								$("#name").html("<font class='AntonioFontBold' color='#00ffff' size='10'>"+item.nickname+"</font>")
 								
-							 }
-                          
-                          }
+								if(contacitta <= 14){
+								
+									$("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff'  size='11'>"+item.citta + ", " + item.eta+"</font>")
+								}
+								else{
+								
+									nuovacitta = item.citta.slice(0,13)
+								
+									nuovacitta = nuovacitta + ".."
+								
+									$("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff'  size='10'>"+nuovacitta + ", " + item.eta+"</font>")
+								
+								}
+							
+							}
+							else{
+								
+								//nuovonick = item.nickname.slice(0,10)
+								
+								//nuovonick = nuovonick + ".."
+								
+								$("#name").html("<font class='AntonioFontBold nomeprofilo' color='#00ffff' >"+item.nickname+"</font><br>")
+								
+								
+								if(contacitta <= 15){
+								
+								   $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff' size='11' >"+item.citta + ", " + item.eta+"</font>")
+								}
+								else{
+								
+									nuovacitta = item.citta.slice(0,15)
+								
+									nuovacitta = nuovacitta + ".."
+								
+								   $("#dati").html("<font class='AntonioFontBold nomecitta' color='#00ffff'  size='10'>"+nuovacitta + ", " + item.eta+"</font>")
+								
+								}
+							
+							}
                           
                           
                           $("#fotoby").html("<img id='load_"+item.id2+"' src='http://msop.it/public/"+item.foto2+"' class='utenteimg2B'>")
