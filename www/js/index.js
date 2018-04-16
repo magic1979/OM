@@ -2273,6 +2273,7 @@ var app = {
 			setTimeout (function(){
 				$("#makepartyV2").hide()
 				$("#parte3").hide()
+				$("#bannerpresentazione").hide()
 			}, 2000);
 			
 			
@@ -2522,6 +2523,7 @@ var app = {
 			setTimeout (function(){
 				$("#makepartyV2").hide()
 				$("#parte3").hide()
+				$("#bannerpresentazione").hide()
 				
 			}, 2000);
 		   
@@ -5912,7 +5914,7 @@ $(document).on("touchstart", "#editparty", function(e){
                    setTimeout (function(){
                         $("#parte3").fadeIn();
                        
-                    }, 2000);
+                    }, 200);
 				   
 
 				   },
@@ -6059,10 +6061,10 @@ $(document).on("touchstart", "#editparty", function(e){
 
                                    $.mobile.changePage("#home8", { transition: "fade" });
                                    
-                                    myScroll2 = new iScroll('wrapper2', { click: true,
+                                   /* myScroll2 = new iScroll('wrapper2', { click: true,
                                      bounce: false
                                        
-                                    });
+                                    });*/
                                    
                                    
 								    setTimeout (function(){
@@ -6235,24 +6237,17 @@ $(document).on("touchstart", "#editparty", function(e){
 							var numeropers = this.id
 							numeropers = numeropers.replace("gopeople2v_","")
 										 
-							
-										 
+										 	 
 							$.mobile.changePage("#home8", { transition: "fade" });
 										 
-							 myScroll2 = new iScroll('wrapper2', { click: true,
+							 /*myScroll2 = new iScroll('wrapper2', { click: true,
 							 bounce: false
 							 
-							 });
-										 
-										 
-							 setTimeout (function(){
-										 
-								loadprofilo(numeropers)
+							 });*/
 							 
-							 }, 500);
-							
-										 
-							return;
+							 loadprofilo(numeropers)
+	
+							 return;
 						   });
  
 					  }
