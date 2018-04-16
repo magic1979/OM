@@ -733,6 +733,17 @@ var app = {
         });
 		
 		
+		$(document).on("tap", "#indietro_album", function(e){
+                      
+           localStorage.setItem("historybck", "1");
+		   
+		  loadprofilodonna(localStorage.getItem("idprofilo"))
+
+        });
+		
+		
+		
+		
 		$(document).on("touchstart", "#girl", function(e){
 			
 			  $("#bannerpresentazione").hide();
