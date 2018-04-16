@@ -737,7 +737,7 @@ var app = {
                       
            localStorage.setItem("historybck", "1");
 		   
-		  loadprofilodonna(localStorage.getItem("idprofilo"))
+		   history.back()
 
         });
 		
