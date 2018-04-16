@@ -8521,7 +8521,7 @@ $(document).on("tap", "#cancella_profilo", function(e){
 					   
 $(document).on("tap", "#comefunziona", function(e){
 			  
-	var ref = window.open('http://orgasmomentale.com/app/', '_system', 'location=no');
+	var ref = window.open('http://orgasmomentale.com/', '_system', 'location=no');
 			  
 });
 
