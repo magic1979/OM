@@ -6234,20 +6234,26 @@ $(document).on("touchstart", "#editparty", function(e){
                           
                           $(document).on("touchstart", "#gopeople2v_"+item.id+"", function(e){
 
-							var numeropers = this.id
-							numeropers = numeropers.replace("gopeople2v_","")
+							 var numeropers = this.id
+							 numeropers = numeropers.replace("gopeople2v_","")
 										 
 										 	 
-							$.mobile.changePage("#home8", { transition: "fade" });
-										 
-							 /*myScroll2 = new iScroll('wrapper2', { click: true,
-							 bounce: false
-							 
-							 });*/
-							 
-							 loadprofilo(numeropers)
-	
+							  $.mobile.changePage("#home8", { transition: "fade" });
+                                   
+							   /* myScroll2 = new iScroll('wrapper2', { click: true,
+								 bounce: false
+								   
+								});*/
+							   
+							   
+								setTimeout (function(){
+										   
+								   loadprofilo(numeropers)
+								   
+								 }, 600);
+
 							 return;
+							 
 						   });
  
 					  }
