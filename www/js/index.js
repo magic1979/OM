@@ -1704,6 +1704,13 @@ var app = {
 		}
 		
 		
+		$(document).on("touchstart", "#cancellagalleria", function(e){
+                       
+            window.location.href = "cancellagalleria.html";
+                       
+        });
+		
+		
         $(document).on("touchstart", "#ilmioprofilo", function(e){
 					   
             $.mobile.changePage("#homeilmioprofilo", { transition: "fade" });
@@ -5100,7 +5107,7 @@ var app = {
            $("#footerparty").hide();
 		   //$("#footerparty2").show();
                    
-	       $("#tasti_crea").append("<table widht='100%'><tr><td width='25%' align='center' valign='center'><a id='modifica' class='buttonbb buttonb1 AntonioFont'><font size='4' color='#fff'><b>MODIFICA</b></font></a></td><td width='75%' align='center' valign='center'><a id='creafestaDB' class='buttonbb buttonb3 AntonioFont'><font class='AntonioFontBold' color='#00ffff' size='5'>PUBBLICA PRIVATE PARTY</font></a></td></tr></table>")
+	       $("#tasti_crea").append("<table widht='98%'><tr><td width='25%' align='center' valign='center'><a id='modifica' class='buttonbb buttonb1 AntonioFont'><font size='4' color='#fff'><b>MODIFICA</b></font></a></td><td width='75%' align='center' valign='center'><a id='creafestaDB' class='buttonbb buttonb3 AntonioFont'><font class='AntonioFontBold' color='#00ffff' size='5'>PUBBLICA PRIVATE PARTY</font></a></td></tr></table>")
 				   
 				   
 	   setTimeout (function(){
