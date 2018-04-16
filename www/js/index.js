@@ -5845,7 +5845,7 @@ $(document).on("touchstart", "#editparty", function(e){
                               }
 
 
-                            $("#feste").append("<br><table width='100%' height='260' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td width='100%' align='center'><div id='parent'><div id='backdrop'><table width='260' height='240' align='center' border='0'><tr><td width='100%' align='center'><a id='goparty"+item.id+"'><font class='AntonioFontBold' color='#00ffff' size='6'><b>"+item.titolo+"</b></font></a><br><font class='AntonioFontBold' color='#fff' size='4'>"+item.citta+" "+item.data+"</font><br><font class='AntonioFontBold' color='#fff' size='5'><b><img src='img/euro2.png' height='20'>"+item.prezzo+"</b></font><br><a id='goparty"+item.id+"'><img src='http://msop.it/public/"+item.foto+"' height='30' class='utenteimg2A'></a><br><font class='AntonioFontBold' color='#fff' size='5'>"+nuovonick+"</font></td></tr></table></div><div id='curtain' style=''>&nbsp;</div></div></td></tr></table>")
+								$("#feste").append("<br><table width='100%' height='260' align='center' class='#' background='flyer/orizzontali/"+item.tipofesta+"/"+item.flyer+"' border='0'><tr><td width='100%' align='center'><div id='parent'><div id='backdrop'><table width='260' height='240' align='center' border='0'><tr><td width='100%' align='center'><a id='goparty"+item.id+"'><font class='AntonioFontBold' color='#00ffff' size='6'><b>"+item.titolo+"</b></font></a><br><font class='AntonioFontBold' color='#fff' size='4'>"+item.citta+" "+item.data+"</font><br><font class='AntonioFontBold' color='#fff' size='5'><b><img src='img/euro2.png' height='20'>"+item.prezzo+"</b></font><br><a id='goparty"+item.id+"'><img src='http://msop.it/public/"+item.foto+"' height='30' class='utenteimg2A'></a><br><font class='AntonioFontBold' color='#fff' size='5'>"+nuovonick+"</font></td></tr></table></div><div id='curtain' style=''>&nbsp;</div></div></td></tr></table>")
                           
                           
                               $(document).on("tap", "#goparty"+item.id+"", function(e){
@@ -5865,47 +5865,47 @@ $(document).on("touchstart", "#editparty", function(e){
 					   });
 				   
  
-				   /*myScroll2 = new IScroll('wrapper2', { click: true,
-						bounce: false
-					    
-					});*/
-					
-					myScroll2 = new iScroll('wrapper2', {
-						click: true,
-						useTransform: false,
-						bounce: false,
-						onBeforeScrollStart: function (e)
-						{
-							var target = e.target;
-							while (target.nodeType != 1) {
-							target = target.parentNode;
-							}
+					   /*myScroll2 = new IScroll('wrapper2', { click: true,
+							bounce: false
 							
-							if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
-							e.preventDefault();
+						});*/
+					
+						myScroll2 = new iScroll('wrapper2', {
+							click: true,
+							useTransform: false,
+							bounce: false,
+							onBeforeScrollStart: function (e)
+							{
+								var target = e.target;
+								while (target.nodeType != 1) {
+								target = target.parentNode;
+								}
+								
+								if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+								e.preventDefault();
+								}
 							}
-						}
-		
-					});
+			
+						});
 
 
-				   document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 300); }, false);
-				   
-				   document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-				   
-				   
-				   setTimeout (function(){
-							   
-					   myScroll2.refresh();
-                               
-                       if(screen.width>320){
-                         
-                       }
-                       
-                       controllachat()
-							   
+					   document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 300); }, false);
 					   
-					}, 200);
+					   document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+				   
+				   
+					   setTimeout (function(){
+								   
+						   myScroll2.refresh();
+								   
+						   if(screen.width>320){
+							 
+						   }
+						   
+						   controllachat()
+								   
+						   
+						}, 200);
                    
                    
                    
@@ -6059,38 +6059,38 @@ $(document).on("touchstart", "#editparty", function(e){
 
                                    $.mobile.changePage("#home8", { transition: "fade" });
                                    
-                                   myScroll2 = new iScroll('wrapper2', { click: true,
+                                    myScroll2 = new iScroll('wrapper2', { click: true,
                                      bounce: false
                                        
-                                  });
+                                    });
                                    
                                    
-                                   setTimeout (function(){
-                                               
-                                       loadprofilo(item.idorganizzatore)
-                                       
-                                    }, 500);
+								    setTimeout (function(){
+											   
+									   loadprofilo(item.idorganizzatore)
+									   
+									 }, 500);
                                    
                                    
                                    return;
 											   
                                 });
 						  
-						  	localStorage.setItem("nickname2", item.nickname);
-						  	localStorage.setItem("fotochat", item.foto);
+								localStorage.setItem("nickname2", item.nickname);
+								localStorage.setItem("fotochat", item.foto);
+							  
+								localStorage.setItem("idbuyfesta", cost);
+								localStorage.setItem("prezzofesta", item.prezzo);
+								localStorage.setItem("nomefesta", item.titolo);
 						  
-                            localStorage.setItem("idbuyfesta", cost);
-                            localStorage.setItem("prezzofesta", item.prezzo);
-                            localStorage.setItem("nomefesta", item.titolo);
-						  
-                            partecipanti_festa2(cost)
+								partecipanti_festa2(cost)
                           
-                            // LIMITE FESTA
-                          
-                            if(item.invitati==item.venduti){
-                              $("#buyp").hide();
-                              $("#buyp2").show();
-                            }
+								// LIMITE FESTA
+							  
+								if(item.invitati==item.venduti){
+								  $("#buyp").hide();
+								  $("#buyp2").show();
+								}
                           
 
 						  }
