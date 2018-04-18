@@ -726,7 +726,7 @@ var app = {
         
         $(document).on("tap", "#indietrobck", function(e){
                       
-           localStorage.setItem("historybck", "1");
+           //localStorage.setItem("historybck", "1");
 		   
 		   history.back()
 
@@ -1523,11 +1523,21 @@ var app = {
 				  crossDomain: true,
 				  success:function(result){
 					  
-				    if(localStorage.getItem("historybck")=="1"){
-                  
-                      $("#divieto").show()
-                  
-                    }
+				    if(localStorage.getItem("mio_profilo")=="1"){
+						if(localStorage.getItem("historybck")=="1"){
+					  
+						  $("#divieto").show()
+					  
+						}
+						 else{
+						   $("#divieto").hide()
+						   
+						 }
+					}
+					else{
+					   $("#divieto").hide()
+					   
+				     }
 				  
 				  
 				  $.each(result, function(i,item){
@@ -1579,9 +1589,15 @@ var app = {
                                   }
                                   else{
 									  
-									  localStorage.setItem("historybck", "1");
-                                        
-                                       $("#divieto").show()
+									  
+                                       if(localStorage.getItem("mio_profilo")=="1"){
+										localStorage.setItem("historybck", "1");
+									    $("#divieto").show()
+									   }
+									   else{
+										   $("#divieto").hide()
+										   
+									   }
 									 
 								  }
                             }
@@ -2284,6 +2300,7 @@ var app = {
 			$("#loadpersonaggi").show();
 			
 			localStorage.setItem("idprofilo", id);
+			localStorage.setItem("mio_profilo", "1");
         
              $("#spinner8").show()
             
@@ -2528,6 +2545,7 @@ var app = {
 			}, 2000);
 		   
             localStorage.setItem("idprofilo", id);
+			localStorage.setItem("mio_profilo", "0");
 			
 			$("#scheda").html("")
 			
