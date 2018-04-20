@@ -1484,7 +1484,7 @@ var app = {
 			var emailseconda = localStorage.getItem("emailalbum")
 			emailseconda = emailseconda.toLowerCase()
 			
-			var chisono= 0;
+			var chisono= "0";
 			
 			
 			if(emailprincipale==emailseconda){
@@ -1492,13 +1492,15 @@ var app = {
 				$("#fotoalbum").show()
 				$("#caricafotodiv2").show()
 				
-				chisono = 1;
+				chisono = "1";
 			}
 			else{
 				
 				$("#fotoalbum2").hide()
 				$("#fotoalbum").hide()
 				$("#caricafotodiv2").hide()
+				
+				chisono = "0";
 			}
 			
 			
@@ -1525,8 +1527,10 @@ var app = {
 					  
 				    if(localStorage.getItem("mio_profilo")=="1"){
 						if(localStorage.getItem("historybck")=="1"){
-					  
-						  $("#divieto").show()
+							
+					      if(chisono=="1"){
+						    $("#divieto").show()
+						  }
 					  
 						}
 						 else{
@@ -1567,7 +1571,7 @@ var app = {
 							numerofesta = numerofesta.replace("pp_","")
 							numerofesta = numerofesta+".png"
                                         
-                            if(chisono==1){
+                            if(chisono=="1"){
                                         
                                 //$("#albumlock").show();
                                         
