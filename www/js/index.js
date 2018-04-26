@@ -7250,7 +7250,7 @@ $(document).on("touchstart", "#editparty", function(e){
 							  
 							  $("#spinner22").hide();
 							  navigator.notification.alert(
-							   'Email e/o password non corretti',  // message
+							   'Assicurati di aver inserito la tua email e quella della tua amica/o correttamente!',  // message
 							   alertDismissed,         // callback
 							   'Attenzione',            // title
 							   'Done'                  // buttonName@
@@ -8655,7 +8655,7 @@ function LoginFacebookVera(email,nome){
                   
                   $("#spinner22").hide();
                      navigator.notification.alert(
-                       'Email e/o password non corretti',  // message
+                       'Assicurati di aver inserito la tua email e quella della tua amica/o correttamente!',  // message
                        alertDismissed,         // callback
                        'Attenzione',            // title
                        'Done'                  // buttonName@
