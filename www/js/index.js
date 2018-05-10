@@ -4272,7 +4272,7 @@ var app = {
 		  document.ontouchmove = function(e){ e.preventDefault(); }
 		  
 		  localStorage.setItem("cartellaimg","disco")
-		  localStorage.setItem("tipofesta","DISCO PARTY")
+		  localStorage.setItem("tipofesta","PRE - DISCO PARTY")
 		  
 		  $("#fotoflyer").html("<img id='disco1' src='flyer/verticali/disco/disco1.jpg' width='105px' border='0' bordercolor='red'>&nbsp;&nbsp;<img id='disco2' src='flyer/verticali/disco/disco2.jpg' width='105px' border='0'>&nbsp;&nbsp;<img id='disco3' src='flyer/verticali/disco/disco3.jpg' width='105px' border='0'>");
 		  
