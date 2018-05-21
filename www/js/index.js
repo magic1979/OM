@@ -2877,7 +2877,7 @@ var app = {
 			
 		}
 		
-	$(document).on("tap", "#makeparty", function(e){
+	$(document).on("tap", "#makeparty3", function(e){
 		   
 		   $("#anteprimafinale2").hide();
 		   $("#anteprimafinale").hide();
