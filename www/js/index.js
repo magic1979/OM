@@ -2877,8 +2877,7 @@ var app = {
 			
 		}
 		
-		
-		$(document).on("tap", "#makeparty", function(e){
+	$(document).on("tap", "#makeparty3", function(e){
 		   
 		   $("#anteprimafinale2").hide();
 		   $("#anteprimafinale").hide();
@@ -2890,39 +2889,25 @@ var app = {
 		   
 	
 
-			/*window.plugins.nativepagetransitions.fade({
-			 "duration"       :  1000,
-			 "iosdelay"       :   50,
-			 "androiddelay"   :  500,
-			 "href" : "#homecreaparty"
-			 
-			 page.iScroll = new IScroll("#target",options);
-			 page.iScroll.on('scroll', page.updateContent);
-			 page.iScroll.on('scrollEnd', page.updateContent);
-			
-			});*/
-
-			   $.mobile.changePage("#homecreaparty", { transition: "fade" });
-					   
-			   document.ontouchmove = function(e){ e.preventDefault(); }
-					   
-			   $("#tastomenu").html("<a id='indietro3'><img src='img/indietro_over.png' height='30px'></a>");
-					   
-			   $("#anteprimaparty").hide();
-			   $("#anteprimaparty2").hide();
-			   $("#footerparty").hide();
-			   
-			   $("#listaparty").show();
-			   
-					   
-			   setTimeout (function(){
+		   $.mobile.changePage("#homecreaparty", { transition: "fade" });
+				   
+		   document.ontouchmove = function(e){ e.preventDefault(); }
+				   
+		   $("#tastomenu").html("<a id='indietro3'><img src='img/indietro_over.png' height='30px'></a>");
+				   
+		   $("#anteprimaparty").hide();
+		   $("#anteprimaparty2").hide();
+		   $("#footerparty").hide();
+		   
+		   $("#listaparty").show();
+		   
+				   
+		   setTimeout (function(){
 				 $("#spinner14").hide();  
 				   
 						   
                	$("#listaparty").append("<tr><td align='center' bgcolor='#000000'><img id='massage' src='strisce/massage.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='cock' src='strisce/cock.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='moulin' src='strisce/moulin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='play' src='strisce/play.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='latin' src='strisce/latin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='hitme' src='strisce/hitme.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='sushi' src='strisce/sushi.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='lingerie' src='strisce/lingerie.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='boys' src='strisce/boys.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='disco' src='strisce/disco.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='toyboy' src='strisce/toy.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='colorp' src='strisce/color.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pool' src='strisce/pool.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='eat' src='strisce/eat.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='fetish' src='strisce/fetish.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='girls' src='strisce/girls.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='after' src='strisce/after.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='wonderfulldinner' src='strisce/wonderfoul.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='mask' src='strisce/mask.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pijama' src='strisce/pijama.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='massage' src='strisce/massage.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='cock' src='strisce/cock.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='moulin' src='strisce/moulin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='play' src='strisce/play.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='latin' src='strisce/latin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='hitme' src='strisce/hitme.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='sushi' src='strisce/sushi.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='lingerie' src='strisce/lingerie.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='boys' src='strisce/boys.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='disco' src='strisce/disco.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='toyboy' src='strisce/toy.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='colorp' src='strisce/color.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pool' src='strisce/pool.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='eat' src='strisce/eat.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='fetish' src='strisce/fetish.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='girls' src='strisce/girls.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='after' src='strisce/after.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='wonderfulldinner' src='strisce/wonderfoul.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='mask' src='strisce/mask.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pijama' src='strisce/pijama.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='massage' src='strisce/massage.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='cock' src='strisce/cock.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='moulin' src='strisce/moulin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='play' src='strisce/play.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='latin' src='strisce/latin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='hitme' src='strisce/hitme.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='sushi' src='strisce/sushi.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='lingerie' src='strisce/lingerie.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='boys' src='strisce/boys.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='disco' src='strisce/disco.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='toyboy' src='strisce/toy.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='colorp' src='strisce/color.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pool' src='strisce/pool.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='eat' src='strisce/eat.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='fetish' src='strisce/fetish.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='girls' src='strisce/girls.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='after' src='strisce/after.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='wonderfulldinner' src='strisce/wonderfoul.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='mask' src='strisce/mask.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pijama' src='strisce/pijama.jpg' width='100%'></td></tr>");
 						   
-
-	   //myScroll8 = new iScroll('wrapper8', { click: true,bounce: false });
 	   
 	   myScroll8 = new iScroll('wrapper8', {
 		click: true,
@@ -2940,45 +2925,96 @@ var app = {
 			}
 		}
 
-	});
+		});
 			   
 			   
 				setTimeout (function(){
 						   
 				   myScroll8.refresh();
 				   
+				   e.stopImmediatePropagation();
+					   
+				   e.preventDefault();
+					   
+					return;
+				   
 				}, 500);
 					
-					
-						   
-				  /* myScroll8.on("scrollEnd", function() {
-						if (this.y == 0){
-						 //alert("inizio")
-						
-						}
-						if (this.y < 0){
-						 //alert("inizio nascondi")
-						}
-						if (this.y == this.maxScrollY){
-						
-						 $("#listaparty").append("<tr><td align='center' bgcolor='#000000'><img id='massage' src='strisce/massage.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='cock' src='strisce/cock.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='moulin' src='strisce/moulin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='play' src='strisce/play.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='latin' src='strisce/latin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='hitme' src='strisce/hitme.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='sushi' src='strisce/sushi.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='lingerie' src='strisce/lingerie.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='boys' src='strisce/boys.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='disco' src='strisce/disco.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='toyboy' src='strisce/toy.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='colorp' src='strisce/color.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pool' src='strisce/pool.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='eat' src='strisce/eat.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='fetish' src='strisce/fetish.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='girls' src='strisce/girls.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='after' src='strisce/after.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='wonderfulldinner' src='strisce/wonderfoul.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='mask' src='strisce/mask.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pijama' src='strisce/pijama.jpg' width='100%'></td></tr>");
-						
-						
-						  setTimeout (function(){
-							   
-							   myScroll8.refresh();
-							   
-							}, 200);
-						
-						}
-						if (this.y > this.maxScrollY){
-						//alert("Fine Nascondi")
-						
-						}
-					}) */
-						 
+	 
    
-			   }, 700);
+			 }, 700);
+
+		});
+		
+		
+	$(document).on("tap", "#makeparty", function(e){
+		   
+		   $("#anteprimafinale2").hide();
+		   $("#anteprimafinale").hide();
+		   $("#anteprimaparty").hide();
+		   $("#anteprimaparty2").hide();
+		   $("#footerparty2").hide();
+                       
+           $("#datiparty").hide();
+		   
+	
+
+		   $.mobile.changePage("#homecreaparty", { transition: "fade" });
+				   
+		   document.ontouchmove = function(e){ e.preventDefault(); }
+				   
+		   $("#tastomenu").html("<a id='indietro3'><img src='img/indietro_over.png' height='30px'></a>");
+				   
+		   $("#anteprimaparty").hide();
+		   $("#anteprimaparty2").hide();
+		   $("#footerparty").hide();
+		   
+		   $("#listaparty").show();
+		   
+				   
+		   setTimeout (function(){
+				 $("#spinner14").hide();  
+				   
+						   
+               	$("#listaparty").append("<tr><td align='center' bgcolor='#000000'><img id='massage' src='strisce/massage.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='cock' src='strisce/cock.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='moulin' src='strisce/moulin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='play' src='strisce/play.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='latin' src='strisce/latin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='hitme' src='strisce/hitme.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='sushi' src='strisce/sushi.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='lingerie' src='strisce/lingerie.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='boys' src='strisce/boys.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='disco' src='strisce/disco.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='toyboy' src='strisce/toy.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='colorp' src='strisce/color.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pool' src='strisce/pool.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='eat' src='strisce/eat.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='fetish' src='strisce/fetish.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='girls' src='strisce/girls.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='after' src='strisce/after.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='wonderfulldinner' src='strisce/wonderfoul.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='mask' src='strisce/mask.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pijama' src='strisce/pijama.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='massage' src='strisce/massage.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='cock' src='strisce/cock.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='moulin' src='strisce/moulin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='play' src='strisce/play.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='latin' src='strisce/latin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='hitme' src='strisce/hitme.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='sushi' src='strisce/sushi.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='lingerie' src='strisce/lingerie.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='boys' src='strisce/boys.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='disco' src='strisce/disco.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='toyboy' src='strisce/toy.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='colorp' src='strisce/color.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pool' src='strisce/pool.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='eat' src='strisce/eat.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='fetish' src='strisce/fetish.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='girls' src='strisce/girls.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='after' src='strisce/after.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='wonderfulldinner' src='strisce/wonderfoul.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='mask' src='strisce/mask.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pijama' src='strisce/pijama.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='massage' src='strisce/massage.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='cock' src='strisce/cock.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='moulin' src='strisce/moulin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='play' src='strisce/play.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='latin' src='strisce/latin.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='hitme' src='strisce/hitme.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='sushi' src='strisce/sushi.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='lingerie' src='strisce/lingerie.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='boys' src='strisce/boys.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='disco' src='strisce/disco.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='toyboy' src='strisce/toy.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='colorp' src='strisce/color.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pool' src='strisce/pool.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='eat' src='strisce/eat.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='fetish' src='strisce/fetish.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='girls' src='strisce/girls.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='after' src='strisce/after.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='wonderfulldinner' src='strisce/wonderfoul.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='mask' src='strisce/mask.jpg' width='100%'></td></tr><tr><td align='center' bgcolor='#000000'><img id='pijama' src='strisce/pijama.jpg' width='100%'></td></tr>");
+						   
+
+	   //myScroll8 = new iScroll('wrapper8', { click: true,bounce: false });
+	   
+	   /*myScroll8 = new iScroll('wrapper8', {
+		click: true,
+		useTransform: false,
+		bounce: false,
+		onBeforeScrollStart: function (e)
+		{
+			var target = e.target;
+			while (target.nodeType != 1) {
+			target = target.parentNode;
+			}
+			
+			if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'OPTION') {
+			e.preventDefault();
+			}
+		}
+
+		});*/
+			   
+			   
+				setTimeout (function(){
+						   
+				   myScroll8.refresh();
+				   
+				   e.stopImmediatePropagation();
+					   
+				   e.preventDefault();
+					   
+					return;
+				   
+				}, 500);
+					
+	 
+   
+			 }, 700);
 
 		});
 		
